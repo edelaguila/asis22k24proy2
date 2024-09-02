@@ -33,7 +33,7 @@ namespace Capa_ModeloConsultas
             }
             catch (OdbcException)
             {
-                Console.WriteLine("No Conectó");
+                Console.WriteLine("No se logró establecer conexión");
             }
         }
     }
