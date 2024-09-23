@@ -638,6 +638,11 @@ namespace Capa_Vista_Consulta
         {
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
         //Fin participacion sebastian Luna
     }
 }
