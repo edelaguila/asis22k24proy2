@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Capa_Vista_Cuentas_Corrientes
 {
-    public partial class From1 : Form
+    public partial class Movimientos_Clientes : Form
     {
-        public From1()
+        public Movimientos_Clientes()
         {
             InitializeComponent();
         }
@@ -20,16 +20,6 @@ namespace Capa_Vista_Cuentas_Corrientes
         private void creacionClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void chequesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //FormaPago.Show();
-        }
-
-        private void nuevosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //ClienteNuevo.Show();
         }
 
         private void mensualesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -46,5 +36,51 @@ namespace Capa_Vista_Cuentas_Corrientes
         {
             //CreditoCliente.Show();
         }
+
+        private void pagosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nuevosToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            ClienteNuevo man = new ClienteNuevo();///este es nuevo *****
+            man.Show();
+        }
+
+        private void tiposDePagoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormaPago man = new FormaPago();
+            man.Show();
+        }
+
+        private void paisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Pais_Cliente man = new Pais_Cliente();
+            man.Show();
+        }
+
+        private void vendedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Vendedores_Clts man = new Vendedores_Clts();
+            man.Show();
+        }
+
+        private void cobradoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Cobrador_Clts man = new Cobrador_Clts();
+            man.Show();
+        }
+
+        private void deudasClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Deuda_Clts man = new Deuda_Clts();
+            man.Show();
+        }
     }
 }
+
+
+
+
+        

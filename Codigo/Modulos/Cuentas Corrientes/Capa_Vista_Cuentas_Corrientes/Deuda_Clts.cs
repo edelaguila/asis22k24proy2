@@ -10,24 +10,14 @@ using System.Windows.Forms;
 
 namespace Capa_Vista_Cuentas_Corrientes
 {
-    public partial class ClienteNuevo : Form
+    public partial class Deuda_Clts : Form
     {
-        public ClienteNuevo()
+        public Deuda_Clts()
         {
             InitializeComponent();
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TxtNit_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
+        private void Lbl_Titulo_Click(object sender, EventArgs e)
         {
 
         }

@@ -29,7 +29,6 @@ namespace Capa_Vista_Cuentas_Corrientes
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SaldoCliente));
             this.Lbl_titulo = new System.Windows.Forms.Label();
             this.Dgv_saldomensual = new System.Windows.Forms.DataGridView();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,13 +43,10 @@ namespace Capa_Vista_Cuentas_Corrientes
             this.Txt_encargado = new System.Windows.Forms.TextBox();
             this.Txt_fecha = new System.Windows.Forms.TextBox();
             this.Txt_depto = new System.Windows.Forms.TextBox();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.Btn_buscar = new System.Windows.Forms.Button();
             this.Btn_editar = new System.Windows.Forms.Button();
             this.Btn_actualizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_saldomensual)).BeginInit();
-            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Lbl_titulo
@@ -175,25 +171,6 @@ namespace Capa_Vista_Cuentas_Corrientes
             this.Txt_depto.Size = new System.Drawing.Size(198, 21);
             this.Txt_depto.TabIndex = 9;
             // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(934, 25);
-            this.toolStrip1.TabIndex = 10;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
-            // 
             // Btn_buscar
             // 
             this.Btn_buscar.Location = new System.Drawing.Point(630, 81);
@@ -230,7 +207,6 @@ namespace Capa_Vista_Cuentas_Corrientes
             this.Controls.Add(this.Btn_actualizar);
             this.Controls.Add(this.Btn_editar);
             this.Controls.Add(this.Btn_buscar);
-            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.Txt_depto);
             this.Controls.Add(this.Txt_fecha);
             this.Controls.Add(this.Txt_encargado);
@@ -247,8 +223,6 @@ namespace Capa_Vista_Cuentas_Corrientes
             this.Text = "SaldoCliente";
             this.Load += new System.EventHandler(this.SaldoCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_saldomensual)).EndInit();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,8 +244,6 @@ namespace Capa_Vista_Cuentas_Corrientes
         private System.Windows.Forms.TextBox Txt_encargado;
         private System.Windows.Forms.TextBox Txt_fecha;
         private System.Windows.Forms.TextBox Txt_depto;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.Button Btn_buscar;
         private System.Windows.Forms.Button Btn_editar;
         private System.Windows.Forms.Button Btn_actualizar;
