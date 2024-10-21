@@ -4,21 +4,26 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Interfac_V3           
+namespace Ejecución_Compra_Venta
 {
     static class Program
     {
+        
+
         /// <summary>
         /// Punto de entrada principal para la aplicación.
         /// </summary>
         [STAThread]
         static void Main()
         {
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new FormPrincipal());
-            Application.Run(new FormPrincipal());
-           //Application.Run(new splash());
+            // Define un valor para idUsuario
+            string idUsuario = "1"; // Reemplaza esto con el valor adecuado
+
+            // Pasar el idUsuario al constructor
+            Application.Run(new Capa_Vista_CompraVenta.Frm_MDI_general_CompraVenta(idUsuario));
         }
     }
 }
