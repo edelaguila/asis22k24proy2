@@ -57,12 +57,13 @@
             // 
             this.Dgv_Informacion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Dgv_Informacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dgv_Informacion.Location = new System.Drawing.Point(21, 392);
+            this.Dgv_Informacion.Location = new System.Drawing.Point(28, 629);
+            this.Dgv_Informacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Dgv_Informacion.Name = "Dgv_Informacion";
             this.Dgv_Informacion.ReadOnly = true;
             this.Dgv_Informacion.RowHeadersWidth = 51;
             this.Dgv_Informacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Dgv_Informacion.Size = new System.Drawing.Size(798, 193);
+            this.Dgv_Informacion.Size = new System.Drawing.Size(1064, 238);
             this.Dgv_Informacion.TabIndex = 6;
             this.Dgv_Informacion.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellClick);
             this.Dgv_Informacion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
@@ -84,8 +85,8 @@
             this.Tlp_Panel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.107032F));
             this.Tlp_Panel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.104187F));
             this.Tlp_Panel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.611428F));
-            this.Tlp_Panel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.Tlp_Panel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.Tlp_Panel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.Tlp_Panel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.Tlp_Panel2.Controls.Add(this.Btn_Imprimir, 6, 0);
             this.Tlp_Panel2.Controls.Add(this.Btn_Ayuda, 12, 0);
             this.Tlp_Panel2.Controls.Add(this.Btn_Salir, 13, 0);
@@ -100,11 +101,12 @@
             this.Tlp_Panel2.Controls.Add(this.Btn_Guardar, 2, 0);
             this.Tlp_Panel2.Controls.Add(this.Btn_Modificar, 1, 0);
             this.Tlp_Panel2.Controls.Add(this.Btn_Ingresar, 0, 0);
-            this.Tlp_Panel2.Location = new System.Drawing.Point(21, 22);
+            this.Tlp_Panel2.Location = new System.Drawing.Point(28, 27);
+            this.Tlp_Panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Tlp_Panel2.Name = "Tlp_Panel2";
             this.Tlp_Panel2.RowCount = 1;
             this.Tlp_Panel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.Tlp_Panel2.Size = new System.Drawing.Size(798, 53);
+            this.Tlp_Panel2.Size = new System.Drawing.Size(1064, 65);
             this.Tlp_Panel2.TabIndex = 8;
             // 
             // Btn_Imprimir
@@ -117,10 +119,10 @@
             this.Btn_Imprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Imprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Imprimir.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Imprimir.Image")));
-            this.Btn_Imprimir.Location = new System.Drawing.Point(336, 0);
+            this.Btn_Imprimir.Location = new System.Drawing.Point(450, 0);
             this.Btn_Imprimir.Margin = new System.Windows.Forms.Padding(0);
             this.Btn_Imprimir.Name = "Btn_Imprimir";
-            this.Btn_Imprimir.Size = new System.Drawing.Size(56, 53);
+            this.Btn_Imprimir.Size = new System.Drawing.Size(75, 65);
             this.Btn_Imprimir.TabIndex = 14;
             this.Btn_Imprimir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_Imprimir.UseVisualStyleBackColor = false;
@@ -136,10 +138,10 @@
             this.Btn_Ayuda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Ayuda.ForeColor = System.Drawing.Color.Black;
             this.Btn_Ayuda.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Ayuda.Image")));
-            this.Btn_Ayuda.Location = new System.Drawing.Point(672, 0);
+            this.Btn_Ayuda.Location = new System.Drawing.Point(900, 0);
             this.Btn_Ayuda.Margin = new System.Windows.Forms.Padding(0);
             this.Btn_Ayuda.Name = "Btn_Ayuda";
-            this.Btn_Ayuda.Size = new System.Drawing.Size(56, 53);
+            this.Btn_Ayuda.Size = new System.Drawing.Size(75, 65);
             this.Btn_Ayuda.TabIndex = 1;
             this.Btn_Ayuda.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_Ayuda.UseVisualStyleBackColor = false;
@@ -154,10 +156,10 @@
             this.Btn_Salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Salir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Salir.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Salir.Image")));
-            this.Btn_Salir.Location = new System.Drawing.Point(728, 0);
+            this.Btn_Salir.Location = new System.Drawing.Point(975, 0);
             this.Btn_Salir.Margin = new System.Windows.Forms.Padding(0);
             this.Btn_Salir.Name = "Btn_Salir";
-            this.Btn_Salir.Size = new System.Drawing.Size(70, 53);
+            this.Btn_Salir.Size = new System.Drawing.Size(89, 65);
             this.Btn_Salir.TabIndex = 13;
             this.Btn_Salir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_Salir.UseVisualStyleBackColor = false;
@@ -172,10 +174,10 @@
             this.Btn_FlechaFin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_FlechaFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_FlechaFin.Image = ((System.Drawing.Image)(resources.GetObject("Btn_FlechaFin.Image")));
-            this.Btn_FlechaFin.Location = new System.Drawing.Point(616, 0);
+            this.Btn_FlechaFin.Location = new System.Drawing.Point(825, 0);
             this.Btn_FlechaFin.Margin = new System.Windows.Forms.Padding(0);
             this.Btn_FlechaFin.Name = "Btn_FlechaFin";
-            this.Btn_FlechaFin.Size = new System.Drawing.Size(56, 53);
+            this.Btn_FlechaFin.Size = new System.Drawing.Size(75, 65);
             this.Btn_FlechaFin.TabIndex = 11;
             this.Btn_FlechaFin.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_FlechaFin.UseVisualStyleBackColor = false;
@@ -190,10 +192,10 @@
             this.Btn_Siguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Siguiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Siguiente.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Siguiente.Image")));
-            this.Btn_Siguiente.Location = new System.Drawing.Point(560, 0);
+            this.Btn_Siguiente.Location = new System.Drawing.Point(750, 0);
             this.Btn_Siguiente.Margin = new System.Windows.Forms.Padding(0);
             this.Btn_Siguiente.Name = "Btn_Siguiente";
-            this.Btn_Siguiente.Size = new System.Drawing.Size(56, 53);
+            this.Btn_Siguiente.Size = new System.Drawing.Size(75, 65);
             this.Btn_Siguiente.TabIndex = 10;
             this.Btn_Siguiente.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_Siguiente.UseVisualStyleBackColor = false;
@@ -208,10 +210,10 @@
             this.Btn_Anterior.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Anterior.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Anterior.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Anterior.Image")));
-            this.Btn_Anterior.Location = new System.Drawing.Point(504, 0);
+            this.Btn_Anterior.Location = new System.Drawing.Point(675, 0);
             this.Btn_Anterior.Margin = new System.Windows.Forms.Padding(0);
             this.Btn_Anterior.Name = "Btn_Anterior";
-            this.Btn_Anterior.Size = new System.Drawing.Size(56, 53);
+            this.Btn_Anterior.Size = new System.Drawing.Size(75, 65);
             this.Btn_Anterior.TabIndex = 9;
             this.Btn_Anterior.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_Anterior.UseVisualStyleBackColor = false;
@@ -226,10 +228,10 @@
             this.Btn_FlechaInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_FlechaInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_FlechaInicio.Image = ((System.Drawing.Image)(resources.GetObject("Btn_FlechaInicio.Image")));
-            this.Btn_FlechaInicio.Location = new System.Drawing.Point(448, 0);
+            this.Btn_FlechaInicio.Location = new System.Drawing.Point(600, 0);
             this.Btn_FlechaInicio.Margin = new System.Windows.Forms.Padding(0);
             this.Btn_FlechaInicio.Name = "Btn_FlechaInicio";
-            this.Btn_FlechaInicio.Size = new System.Drawing.Size(56, 53);
+            this.Btn_FlechaInicio.Size = new System.Drawing.Size(75, 65);
             this.Btn_FlechaInicio.TabIndex = 8;
             this.Btn_FlechaInicio.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_FlechaInicio.UseVisualStyleBackColor = false;
@@ -244,10 +246,10 @@
             this.Btn_Refrescar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Refrescar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Refrescar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Refrescar.Image")));
-            this.Btn_Refrescar.Location = new System.Drawing.Point(392, 0);
+            this.Btn_Refrescar.Location = new System.Drawing.Point(525, 0);
             this.Btn_Refrescar.Margin = new System.Windows.Forms.Padding(0);
             this.Btn_Refrescar.Name = "Btn_Refrescar";
-            this.Btn_Refrescar.Size = new System.Drawing.Size(56, 53);
+            this.Btn_Refrescar.Size = new System.Drawing.Size(75, 65);
             this.Btn_Refrescar.TabIndex = 7;
             this.Btn_Refrescar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_Refrescar.UseVisualStyleBackColor = false;
@@ -263,10 +265,10 @@
             this.Btn_Consultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Consultar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Consultar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Consultar.Image")));
-            this.Btn_Consultar.Location = new System.Drawing.Point(280, 0);
+            this.Btn_Consultar.Location = new System.Drawing.Point(375, 0);
             this.Btn_Consultar.Margin = new System.Windows.Forms.Padding(0);
             this.Btn_Consultar.Name = "Btn_Consultar";
-            this.Btn_Consultar.Size = new System.Drawing.Size(56, 53);
+            this.Btn_Consultar.Size = new System.Drawing.Size(75, 65);
             this.Btn_Consultar.TabIndex = 5;
             this.Btn_Consultar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_Consultar.UseVisualStyleBackColor = false;
@@ -281,10 +283,10 @@
             this.Btn_Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Eliminar.Image")));
-            this.Btn_Eliminar.Location = new System.Drawing.Point(224, 0);
+            this.Btn_Eliminar.Location = new System.Drawing.Point(300, 0);
             this.Btn_Eliminar.Margin = new System.Windows.Forms.Padding(0);
             this.Btn_Eliminar.Name = "Btn_Eliminar";
-            this.Btn_Eliminar.Size = new System.Drawing.Size(56, 53);
+            this.Btn_Eliminar.Size = new System.Drawing.Size(75, 65);
             this.Btn_Eliminar.TabIndex = 4;
             this.Btn_Eliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_Eliminar.UseVisualStyleBackColor = false;
@@ -299,10 +301,10 @@
             this.Btn_Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Cancelar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Cancelar.Image")));
-            this.Btn_Cancelar.Location = new System.Drawing.Point(168, 0);
+            this.Btn_Cancelar.Location = new System.Drawing.Point(225, 0);
             this.Btn_Cancelar.Margin = new System.Windows.Forms.Padding(0);
             this.Btn_Cancelar.Name = "Btn_Cancelar";
-            this.Btn_Cancelar.Size = new System.Drawing.Size(56, 53);
+            this.Btn_Cancelar.Size = new System.Drawing.Size(75, 65);
             this.Btn_Cancelar.TabIndex = 3;
             this.Btn_Cancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_Cancelar.UseVisualStyleBackColor = false;
@@ -318,10 +320,10 @@
             this.Btn_Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Guardar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Guardar.Image")));
-            this.Btn_Guardar.Location = new System.Drawing.Point(112, 0);
+            this.Btn_Guardar.Location = new System.Drawing.Point(150, 0);
             this.Btn_Guardar.Margin = new System.Windows.Forms.Padding(0);
             this.Btn_Guardar.Name = "Btn_Guardar";
-            this.Btn_Guardar.Size = new System.Drawing.Size(56, 53);
+            this.Btn_Guardar.Size = new System.Drawing.Size(75, 65);
             this.Btn_Guardar.TabIndex = 2;
             this.Btn_Guardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_Guardar.UseVisualStyleBackColor = false;
@@ -336,10 +338,10 @@
             this.Btn_Modificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Modificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Modificar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Modificar.Image")));
-            this.Btn_Modificar.Location = new System.Drawing.Point(56, 0);
+            this.Btn_Modificar.Location = new System.Drawing.Point(75, 0);
             this.Btn_Modificar.Margin = new System.Windows.Forms.Padding(0);
             this.Btn_Modificar.Name = "Btn_Modificar";
-            this.Btn_Modificar.Size = new System.Drawing.Size(56, 53);
+            this.Btn_Modificar.Size = new System.Drawing.Size(75, 65);
             this.Btn_Modificar.TabIndex = 1;
             this.Btn_Modificar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_Modificar.UseVisualStyleBackColor = false;
@@ -357,7 +359,7 @@
             this.Btn_Ingresar.Location = new System.Drawing.Point(0, 0);
             this.Btn_Ingresar.Margin = new System.Windows.Forms.Padding(0);
             this.Btn_Ingresar.Name = "Btn_Ingresar";
-            this.Btn_Ingresar.Size = new System.Drawing.Size(56, 53);
+            this.Btn_Ingresar.Size = new System.Drawing.Size(75, 65);
             this.Btn_Ingresar.TabIndex = 0;
             this.Btn_Ingresar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_Ingresar.UseVisualStyleBackColor = false;
@@ -371,10 +373,10 @@
             // 
             this.Txt_Tabla.AutoSize = true;
             this.Txt_Tabla.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_Tabla.Location = new System.Drawing.Point(373, 100);
+            this.Txt_Tabla.Location = new System.Drawing.Point(497, 123);
             this.Txt_Tabla.Margin = new System.Windows.Forms.Padding(0);
             this.Txt_Tabla.Name = "Txt_Tabla";
-            this.Txt_Tabla.Size = new System.Drawing.Size(80, 29);
+            this.Txt_Tabla.Size = new System.Drawing.Size(94, 36);
             this.Txt_Tabla.TabIndex = 0;
             this.Txt_Tabla.Text = "Tabla";
             this.Txt_Tabla.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -382,14 +384,15 @@
             // 
             // Navegador
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.Txt_Tabla);
             this.Controls.Add(this.Tlp_Panel2);
             this.Controls.Add(this.Dgv_Informacion);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Navegador";
-            this.Size = new System.Drawing.Size(842, 602);
+            this.Size = new System.Drawing.Size(1123, 891);
             this.Load += new System.EventHandler(this.Navegador_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Informacion)).EndInit();
             this.Tlp_Panel2.ResumeLayout(false);
