@@ -39,16 +39,26 @@ namespace Capa_Vista_Cuentas_Corrientes
             this.Lbl_encargado = new System.Windows.Forms.Label();
             this.Lbl_documento = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+<<<<<<< HEAD
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Encargado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+=======
+>>>>>>> cdfe74f05c6f905224e0c6d05c08dbfa5cbe5584
             this.Btn_borrar = new System.Windows.Forms.Button();
             this.Btn_actualizar = new System.Windows.Forms.Button();
             this.Btn_editar = new System.Windows.Forms.Button();
             this.Btn_buscar = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+<<<<<<< HEAD
+=======
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Encargado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+>>>>>>> cdfe74f05c6f905224e0c6d05c08dbfa5cbe5584
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,7 +88,11 @@ namespace Capa_Vista_Cuentas_Corrientes
             // 
             // Btn_guardar
             // 
+<<<<<<< HEAD
             this.Btn_guardar.Location = new System.Drawing.Point(83, 245);
+=======
+            this.Btn_guardar.Location = new System.Drawing.Point(202, 245);
+>>>>>>> cdfe74f05c6f905224e0c6d05c08dbfa5cbe5584
             this.Btn_guardar.Name = "Btn_guardar";
             this.Btn_guardar.Size = new System.Drawing.Size(113, 35);
             this.Btn_guardar.TabIndex = 60;
@@ -160,6 +174,7 @@ namespace Capa_Vista_Cuentas_Corrientes
             this.dataGridView1.Size = new System.Drawing.Size(501, 191);
             this.dataGridView1.TabIndex = 53;
             // 
+<<<<<<< HEAD
             // Column1
             // 
             this.Column1.Frozen = true;
@@ -183,6 +198,8 @@ namespace Capa_Vista_Cuentas_Corrientes
             this.Column2.HeaderText = "Estado";
             this.Column2.Name = "Column2";
             // 
+=======
+>>>>>>> cdfe74f05c6f905224e0c6d05c08dbfa5cbe5584
             // Btn_borrar
             // 
             this.Btn_borrar.Location = new System.Drawing.Point(709, 245);
@@ -213,7 +230,11 @@ namespace Capa_Vista_Cuentas_Corrientes
             // 
             // Btn_buscar
             // 
+<<<<<<< HEAD
             this.Btn_buscar.Location = new System.Drawing.Point(202, 245);
+=======
+            this.Btn_buscar.Location = new System.Drawing.Point(70, 245);
+>>>>>>> cdfe74f05c6f905224e0c6d05c08dbfa5cbe5584
             this.Btn_buscar.Name = "Btn_buscar";
             this.Btn_buscar.Size = new System.Drawing.Size(113, 35);
             this.Btn_buscar.TabIndex = 49;
@@ -241,6 +262,32 @@ namespace Capa_Vista_Cuentas_Corrientes
             this.label2.Size = new System.Drawing.Size(59, 15);
             this.label2.TabIndex = 63;
             this.label2.Text = "Moneda: ";
+<<<<<<< HEAD
+=======
+            // 
+            // Column1
+            // 
+            this.Column1.Frozen = true;
+            this.Column1.HeaderText = "ID Pago";
+            this.Column1.Name = "Column1";
+            // 
+            // Encargado
+            // 
+            this.Encargado.Frozen = true;
+            this.Encargado.HeaderText = "Nombre";
+            this.Encargado.Name = "Encargado";
+            // 
+            // Fecha
+            // 
+            this.Fecha.Frozen = true;
+            this.Fecha.HeaderText = "Moneda";
+            this.Fecha.Name = "Fecha";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Estado";
+            this.Column2.Name = "Column2";
+>>>>>>> cdfe74f05c6f905224e0c6d05c08dbfa5cbe5584
             // 
             // FormaPago
             // 

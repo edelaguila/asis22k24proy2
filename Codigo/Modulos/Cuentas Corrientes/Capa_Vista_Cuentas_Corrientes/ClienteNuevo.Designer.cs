@@ -32,8 +32,25 @@ namespace Capa_Vista_Cuentas_Corrientes
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
             this.Txt_id_cliente = new System.Windows.Forms.TextBox();
             this._cliente = new System.Windows.Forms.Label();
+=======
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.Cbo_estado = new System.Windows.Forms.ComboBox();
+            this.Txt_id_cliente = new System.Windows.Forms.TextBox();
+            this._cliente = new System.Windows.Forms.Label();
+            this.Dgv_cliente_nuevo = new System.Windows.Forms.DataGridView();
+            this.id_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_vendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombe_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saldo_actual = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+>>>>>>> cdfe74f05c6f905224e0c6d05c08dbfa5cbe5584
             this.Txt_saldo = new System.Windows.Forms.TextBox();
             this.Lbl_saldo = new System.Windows.Forms.Label();
             this.Txt_nombre = new System.Windows.Forms.TextBox();
@@ -51,6 +68,7 @@ namespace Capa_Vista_Cuentas_Corrientes
             this.label2 = new System.Windows.Forms.Label();
             this.Txt_direccion = new System.Windows.Forms.TextBox();
             this.Txt_telefono = new System.Windows.Forms.TextBox();
+<<<<<<< HEAD
             this.Cbo_estado = new System.Windows.Forms.ComboBox();
             this.Dgv_clientenuevo = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_clientenuevo)).BeginInit();
@@ -58,6 +76,27 @@ namespace Capa_Vista_Cuentas_Corrientes
             // 
             // Txt_id_cliente
             // 
+=======
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_cliente_nuevo)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // Cbo_estado
+            // 
+            this.Cbo_estado.AutoCompleteCustomSource.AddRange(new string[] {
+            "1. Habilitado",
+            "2. Inhabilitado"});
+            this.Cbo_estado.FormattingEnabled = true;
+            this.Cbo_estado.Items.AddRange(new object[] {
+            "1. Habilitado",
+            "2. Inhabilitado"});
+            this.Cbo_estado.Location = new System.Drawing.Point(274, 311);
+            this.Cbo_estado.Name = "Cbo_estado";
+            this.Cbo_estado.Size = new System.Drawing.Size(202, 30);
+            this.Cbo_estado.TabIndex = 33;
+            // 
+            // Txt_id_cliente
+            // 
+>>>>>>> cdfe74f05c6f905224e0c6d05c08dbfa5cbe5584
             this.Txt_id_cliente.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt_id_cliente.Location = new System.Drawing.Point(274, 106);
             this.Txt_id_cliente.Name = "Txt_id_cliente";
@@ -74,6 +113,60 @@ namespace Capa_Vista_Cuentas_Corrientes
             this._cliente.TabIndex = 31;
             this._cliente.Text = "Id Cliente:";
             // 
+<<<<<<< HEAD
+=======
+            // Dgv_cliente_nuevo
+            // 
+            this.Dgv_cliente_nuevo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.Dgv_cliente_nuevo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dgv_cliente_nuevo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_cliente,
+            this.id_vendedor,
+            this.nombe_cliente,
+            this.saldo_actual,
+            this.estado_cliente});
+            this.Dgv_cliente_nuevo.Location = new System.Drawing.Point(77, 364);
+            this.Dgv_cliente_nuevo.Name = "Dgv_cliente_nuevo";
+            this.Dgv_cliente_nuevo.Size = new System.Drawing.Size(703, 222);
+            this.Dgv_cliente_nuevo.TabIndex = 30;
+            // 
+            // id_cliente
+            // 
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.id_cliente.DefaultCellStyle = dataGridViewCellStyle1;
+            this.id_cliente.HeaderText = "Id Cliente";
+            this.id_cliente.Name = "id_cliente";
+            // 
+            // id_vendedor
+            // 
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.id_vendedor.DefaultCellStyle = dataGridViewCellStyle2;
+            this.id_vendedor.HeaderText = "Id Vendedor";
+            this.id_vendedor.Name = "id_vendedor";
+            // 
+            // nombe_cliente
+            // 
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombe_cliente.DefaultCellStyle = dataGridViewCellStyle3;
+            this.nombe_cliente.HeaderText = "Nombre";
+            this.nombe_cliente.Name = "nombe_cliente";
+            // 
+            // saldo_actual
+            // 
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saldo_actual.DefaultCellStyle = dataGridViewCellStyle4;
+            this.saldo_actual.HeaderText = "Saldo Actual";
+            this.saldo_actual.Name = "saldo_actual";
+            // 
+            // estado_cliente
+            // 
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.estado_cliente.DefaultCellStyle = dataGridViewCellStyle5;
+            this.estado_cliente.HeaderText = "Estado Cliente";
+            this.estado_cliente.Name = "estado_cliente";
+            this.estado_cliente.ReadOnly = true;
+            // 
+>>>>>>> cdfe74f05c6f905224e0c6d05c08dbfa5cbe5584
             // Txt_saldo
             // 
             this.Txt_saldo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -159,7 +252,10 @@ namespace Capa_Vista_Cuentas_Corrientes
             this.Btn_buscar.TabIndex = 38;
             this.Btn_buscar.Text = "Buscar ";
             this.Btn_buscar.UseVisualStyleBackColor = true;
+<<<<<<< HEAD
             this.Btn_buscar.Click += new System.EventHandler(this.Btn_buscar_Click);
+=======
+>>>>>>> cdfe74f05c6f905224e0c6d05c08dbfa5cbe5584
             // 
             // Btn_eliminar
             // 
@@ -170,29 +266,46 @@ namespace Capa_Vista_Cuentas_Corrientes
             this.Btn_eliminar.TabIndex = 37;
             this.Btn_eliminar.Text = "Eliminar";
             this.Btn_eliminar.UseVisualStyleBackColor = true;
+<<<<<<< HEAD
             this.Btn_eliminar.Click += new System.EventHandler(this.Btn_eliminar_Click);
+=======
+>>>>>>> cdfe74f05c6f905224e0c6d05c08dbfa5cbe5584
             // 
             // Btn_actualizar
             // 
             this.Btn_actualizar.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< HEAD
             this.Btn_actualizar.Location = new System.Drawing.Point(374, 624);
+=======
+            this.Btn_actualizar.Location = new System.Drawing.Point(477, 624);
+>>>>>>> cdfe74f05c6f905224e0c6d05c08dbfa5cbe5584
             this.Btn_actualizar.Name = "Btn_actualizar";
             this.Btn_actualizar.Size = new System.Drawing.Size(92, 36);
             this.Btn_actualizar.TabIndex = 36;
             this.Btn_actualizar.Text = "Actualizar";
             this.Btn_actualizar.UseVisualStyleBackColor = true;
+<<<<<<< HEAD
             this.Btn_actualizar.Click += new System.EventHandler(this.Btn_actualizar_Click);
+=======
+>>>>>>> cdfe74f05c6f905224e0c6d05c08dbfa5cbe5584
             // 
             // Btn_editar
             // 
             this.Btn_editar.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< HEAD
             this.Btn_editar.Location = new System.Drawing.Point(472, 624);
+=======
+            this.Btn_editar.Location = new System.Drawing.Point(374, 624);
+>>>>>>> cdfe74f05c6f905224e0c6d05c08dbfa5cbe5584
             this.Btn_editar.Name = "Btn_editar";
             this.Btn_editar.Size = new System.Drawing.Size(97, 36);
             this.Btn_editar.TabIndex = 35;
             this.Btn_editar.Text = "Editar";
             this.Btn_editar.UseVisualStyleBackColor = true;
+<<<<<<< HEAD
             this.Btn_editar.Click += new System.EventHandler(this.Btn_editar_Click);
+=======
+>>>>>>> cdfe74f05c6f905224e0c6d05c08dbfa5cbe5584
             // 
             // Btn_guardar
             // 
@@ -203,7 +316,10 @@ namespace Capa_Vista_Cuentas_Corrientes
             this.Btn_guardar.TabIndex = 34;
             this.Btn_guardar.Text = "Guardar";
             this.Btn_guardar.UseVisualStyleBackColor = true;
+<<<<<<< HEAD
             this.Btn_guardar.Click += new System.EventHandler(this.Btn_guardar_Click);
+=======
+>>>>>>> cdfe74f05c6f905224e0c6d05c08dbfa5cbe5584
             // 
             // label1
             // 
@@ -241,6 +357,7 @@ namespace Capa_Vista_Cuentas_Corrientes
             this.Txt_telefono.Name = "Txt_telefono";
             this.Txt_telefono.Size = new System.Drawing.Size(279, 26);
             this.Txt_telefono.TabIndex = 42;
+<<<<<<< HEAD
             // 
             // Cbo_estado
             // 
@@ -262,6 +379,8 @@ namespace Capa_Vista_Cuentas_Corrientes
             this.Dgv_clientenuevo.TabIndex = 44;
             this.Dgv_clientenuevo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_clientenuevo_CellContentClick);
             this.Dgv_clientenuevo.DoubleClick += new System.EventHandler(this.Dgv_clientenuevo_DoubleClick);
+=======
+>>>>>>> cdfe74f05c6f905224e0c6d05c08dbfa5cbe5584
             // 
             // ClienteNuevo
             // 
@@ -269,8 +388,11 @@ namespace Capa_Vista_Cuentas_Corrientes
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.ClientSize = new System.Drawing.Size(805, 679);
+<<<<<<< HEAD
             this.Controls.Add(this.Dgv_clientenuevo);
             this.Controls.Add(this.Cbo_estado);
+=======
+>>>>>>> cdfe74f05c6f905224e0c6d05c08dbfa5cbe5584
             this.Controls.Add(this.Txt_telefono);
             this.Controls.Add(this.Txt_direccion);
             this.Controls.Add(this.label2);
@@ -280,8 +402,15 @@ namespace Capa_Vista_Cuentas_Corrientes
             this.Controls.Add(this.Btn_actualizar);
             this.Controls.Add(this.Btn_editar);
             this.Controls.Add(this.Btn_guardar);
+<<<<<<< HEAD
             this.Controls.Add(this.Txt_id_cliente);
             this.Controls.Add(this._cliente);
+=======
+            this.Controls.Add(this.Cbo_estado);
+            this.Controls.Add(this.Txt_id_cliente);
+            this.Controls.Add(this._cliente);
+            this.Controls.Add(this.Dgv_cliente_nuevo);
+>>>>>>> cdfe74f05c6f905224e0c6d05c08dbfa5cbe5584
             this.Controls.Add(this.Txt_saldo);
             this.Controls.Add(this.Lbl_saldo);
             this.Controls.Add(this.Txt_nombre);
@@ -295,7 +424,11 @@ namespace Capa_Vista_Cuentas_Corrientes
             this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Name = "ClienteNuevo";
             this.Text = "ClientesNuevo";
+<<<<<<< HEAD
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_clientenuevo)).EndInit();
+=======
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_cliente_nuevo)).EndInit();
+>>>>>>> cdfe74f05c6f905224e0c6d05c08dbfa5cbe5584
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -306,9 +439,21 @@ namespace Capa_Vista_Cuentas_Corrientes
             throw new NotImplementedException();
         }
 
+<<<<<<< HEAD
         #endregion
         private System.Windows.Forms.TextBox Txt_id_cliente;
         private System.Windows.Forms.Label _cliente;
+=======
+        private System.Windows.Forms.ComboBox Cbo_estado;
+        private System.Windows.Forms.TextBox Txt_id_cliente;
+        private System.Windows.Forms.Label _cliente;
+        private System.Windows.Forms.DataGridView Dgv_cliente_nuevo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_vendedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombe_cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn saldo_actual;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estado_cliente;
+>>>>>>> cdfe74f05c6f905224e0c6d05c08dbfa5cbe5584
         private System.Windows.Forms.TextBox Txt_saldo;
         private System.Windows.Forms.Label Lbl_saldo;
         private System.Windows.Forms.TextBox Txt_nombre;
@@ -326,7 +471,10 @@ namespace Capa_Vista_Cuentas_Corrientes
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox Txt_direccion;
         private System.Windows.Forms.TextBox Txt_telefono;
+<<<<<<< HEAD
         private System.Windows.Forms.ComboBox Cbo_estado;
         private System.Windows.Forms.DataGridView Dgv_clientenuevo;
+=======
+>>>>>>> cdfe74f05c6f905224e0c6d05c08dbfa5cbe5584
     }
 }

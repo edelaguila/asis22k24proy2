@@ -72,6 +72,15 @@
       <DependentUpon>ClienteNuevo.cs</DependentUpon>
     </Compile>
     <Compile Include="Cobrador_Clts.cs">
+<<<<<<< HEAD
+=======
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cobrador_Clts.Designer.cs">
+      <DependentUpon>Cobrador_Clts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreditoCliente.cs">
+>>>>>>> cdfe74f05c6f905224e0c6d05c08dbfa5cbe5584
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Cobrador_Clts.designer.cs">
@@ -81,6 +90,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Deuda_Clts.designer.cs">
+      <DependentUpon>Deuda_Clts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Deuda_Clts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Deuda_Clts.Designer.cs">
       <DependentUpon>Deuda_Clts.cs</DependentUpon>
     </Compile>
     <Compile Include="Enlaces.cs">
@@ -116,7 +131,11 @@
     <Compile Include="Pais Cliente.cs">
       <SubType>Form</SubType>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Pais Cliente.designer.cs">
+=======
+    <Compile Include="Pais Cliente.Designer.cs">
+>>>>>>> cdfe74f05c6f905224e0c6d05c08dbfa5cbe5584
       <DependentUpon>Pais Cliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Poliza.cs">
@@ -161,6 +180,12 @@
     <Compile Include="Vendedores_Clts.designer.cs">
       <DependentUpon>Vendedores_Clts.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vendedores_Clts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vendedores_Clts.Designer.cs">
+      <DependentUpon>Vendedores_Clts.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ClienteNuevo.resx">
@@ -168,6 +193,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Cobrador_Clts.resx">
       <DependentUpon>Cobrador_Clts.cs</DependentUpon>
+    </EmbeddedResource>
+<<<<<<< HEAD
+    <EmbeddedResource Include="Deuda_Clts.resx">
+      <DependentUpon>Deuda_Clts.cs</DependentUpon>
+=======
+    <EmbeddedResource Include="CreditoCliente.resx">
+      <DependentUpon>CreditoCliente.cs</DependentUpon>
+>>>>>>> cdfe74f05c6f905224e0c6d05c08dbfa5cbe5584
     </EmbeddedResource>
     <EmbeddedResource Include="Deuda_Clts.resx">
       <DependentUpon>Deuda_Clts.cs</DependentUpon>
@@ -183,6 +216,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MovimientoMensual.resx">
       <DependentUpon>MovimientoMensual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Movimientos_Clientes.resx">
+      <DependentUpon>Movimientos_Clientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Movimientos_Proveedor.resx">
       <DependentUpon>Movimientos_Proveedor.cs</DependentUpon>
@@ -208,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Transaccion_Clientes.resx">
       <DependentUpon>Transaccion_Clientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vendedores_Clts.resx">
+      <DependentUpon>Vendedores_Clts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vendedores_Clts.resx">
       <DependentUpon>Vendedores_Clts.cs</DependentUpon>

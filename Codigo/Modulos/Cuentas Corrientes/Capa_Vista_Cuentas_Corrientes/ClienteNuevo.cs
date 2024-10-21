@@ -59,6 +59,7 @@ namespace Capa_Vista_Cuentas_Corrientes
         {
 
         }
+<<<<<<< HEAD
         //BOTON GUARDAR
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -158,5 +159,7 @@ namespace Capa_Vista_Cuentas_Corrientes
             Txt_saldo.Text = "";
             Cbo_estado.SelectedIndex = 0;
         }
+=======
+>>>>>>> cdfe74f05c6f905224e0c6d05c08dbfa5cbe5584
     }
 }
