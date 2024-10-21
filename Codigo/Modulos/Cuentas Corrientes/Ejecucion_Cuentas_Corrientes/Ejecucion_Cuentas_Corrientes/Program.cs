@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Interfac_V3           
+namespace Ejecucion_Cuentas_Corrientes
 {
     static class Program
     {
@@ -16,9 +16,7 @@ namespace Interfac_V3
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new FormPrincipal());
-            Application.Run(new FormPrincipal());
-           //Application.Run(new splash());
+            Application.Run(new Capa_Vista_Cuentas_Corrientes.ProveedorNuevo());
         }
     }
 }
