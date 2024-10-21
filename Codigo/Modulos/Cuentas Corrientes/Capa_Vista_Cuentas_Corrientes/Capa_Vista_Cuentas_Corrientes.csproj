@@ -113,12 +113,6 @@
     <Compile Include="Movimientos_Proveedor.Designer.cs">
       <DependentUpon>Movimientos_Proveedor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Nav_Transaccion_clientes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Nav_Transaccion_clientes.Designer.cs">
-      <DependentUpon>Nav_Transaccion_clientes.cs</DependentUpon>
-    </Compile>
     <Compile Include="Pais Cliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,9 +186,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Movimientos_Proveedor.resx">
       <DependentUpon>Movimientos_Proveedor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Nav_Transaccion_clientes.resx">
-      <DependentUpon>Nav_Transaccion_clientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pais Cliente.resx">
       <DependentUpon>Pais Cliente.cs</DependentUpon>

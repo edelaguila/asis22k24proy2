@@ -71,6 +71,49 @@ namespace Capa_Controlador_Cuentas_Corrientes
             ssaldo_pendiente, sFk_id_pago, stipo_moneda, sserie_transaccion, sestado_transaccion);
                 return 1;
             }
+        }//guardar transaccion 
+
+
+        //MOSTRAR CLIENTE
+        public DataTable MostrarClientes()
+        {
+            OdbcDataAdapter data = sentencias.DisplayClientes();
+            DataTable tabla = new DataTable();
+            data.Fill(tabla);
+            return tabla;
+        }//mostrar clientes 
+
+        public int guardarClientes(TextBox PK_id_cliente, string sFk_id_vendedor, string snombre_cliente,
+            string stelefono_cliente, string sdireccion_cliente, string ssaldo_cliente, string sestado_cliente )
+        {
+            //se valida que el textbox no este vacío o con espacios en blanco
+            if (string.IsNullOrEmpty(PK_id_cliente.Text) || string.IsNullOrEmpty(sFk_id_vendedor) || string.IsNullOrEmpty(snombre_cliente) ||
+                string.IsNullOrEmpty(stelefono_cliente) || string.IsNullOrEmpty(sdireccion_cliente) || string.IsNullOrEmpty(ssaldo_cliente) || string.IsNullOrEmpty(sestado_cliente))
+            {
+                MessageBox.Show("Existen campos vacios, revise y vuelva a intentarlo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
+            else
+            {
+                sentencias.registrarCliente(PK_id_cliente.Text, sFk_id_vendedor, snombre_cliente, stelefono_cliente,
+           sdireccion_cliente, ssaldo_cliente, sestado_cliente);
+                return 1;
+            }
+        }//guardar transaccion 
+
+        public void borrar_cliente(TextBox txt_id_cliente)
+        {
+            throw new NotImplementedException();
         }
-    }
+
+
+        public DataTable queryCliente(TextBox query)
+        {
+            OdbcDataAdapter data2 = sentencias.queryCliente(query.Text);
+            DataTable tabla2 = new DataTable();
+            data2.Fill(tabla2);
+            return tabla2;
+        }
+
+    }//end public class controlador 
 }
