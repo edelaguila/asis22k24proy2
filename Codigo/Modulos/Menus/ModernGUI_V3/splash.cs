@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Capa_Vista_Seguridad;
+using System;
 using System.Windows.Forms;
 //Comentado por George Mayén 25/02/2023
 namespace Interfac_V3   
@@ -20,9 +21,14 @@ namespace Interfac_V3
             {
                 timer1.Stop();
                 this.Hide();
-               // FormModulos b = new FormModulos();
+
+                frm_login login = new frm_login();
+                login.ShowDialog();
+
+
+                //FormModulos b = new FormModulos();
                 //b.Show();
-                //b.ShowDialog();
+                ////b.ShowDialog();
             }
         }
     }

@@ -45,22 +45,26 @@
             this.asignacionModuloAAplicacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambioContraseñaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bitacoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lbl_nombreUsuario = new System.Windows.Forms.Label();
-            this.lbl_usuario = new System.Windows.Forms.Label();
             this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prototiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mantenimiento1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mantenimiento2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lbl_usuario = new System.Windows.Forms.Label();
+            this.lbl_nombreUsuario = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.Lbl_fecha = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -76,7 +80,7 @@
             this.ayudaToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1053, 28);
+            this.menuStrip.Size = new System.Drawing.Size(1053, 30);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
@@ -86,7 +90,7 @@
             this.cerrarSesionToolStripMenuItem});
             this.inicioToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
-            this.inicioToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
+            this.inicioToolStripMenuItem.Size = new System.Drawing.Size(62, 26);
             this.inicioToolStripMenuItem.Text = "Inicio";
             // 
             // cerrarSesionToolStripMenuItem
@@ -105,7 +109,7 @@
             this.perfilesToolStripMenuItem});
             this.mantenimientosToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mantenimientosToolStripMenuItem.Name = "mantenimientosToolStripMenuItem";
-            this.mantenimientosToolStripMenuItem.Size = new System.Drawing.Size(141, 24);
+            this.mantenimientosToolStripMenuItem.Size = new System.Drawing.Size(141, 26);
             this.mantenimientosToolStripMenuItem.Text = "Mantenimientos";
             // 
             // usuariosToolStripMenuItem
@@ -145,7 +149,7 @@
             this.asignacionModuloAAplicacionesToolStripMenuItem});
             this.asignacionesToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.asignacionesToolStripMenuItem.Name = "asignacionesToolStripMenuItem";
-            this.asignacionesToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
+            this.asignacionesToolStripMenuItem.Size = new System.Drawing.Size(123, 26);
             this.asignacionesToolStripMenuItem.Text = "Asignaciones";
             // 
             // asignacionDeAplicacionesAUsuariosToolStripMenuItem
@@ -180,7 +184,7 @@
             // 
             this.cambioContraseñaToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cambioContraseñaToolStripMenuItem.Name = "cambioContraseñaToolStripMenuItem";
-            this.cambioContraseñaToolStripMenuItem.Size = new System.Drawing.Size(171, 24);
+            this.cambioContraseñaToolStripMenuItem.Size = new System.Drawing.Size(171, 26);
             this.cambioContraseñaToolStripMenuItem.Text = "Cambio Contraseña";
             this.cambioContraseñaToolStripMenuItem.Click += new System.EventHandler(this.CambioContraseñaToolStripMenuItem_Click);
             // 
@@ -188,15 +192,44 @@
             // 
             this.bitacoraToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bitacoraToolStripMenuItem.Name = "bitacoraToolStripMenuItem";
-            this.bitacoraToolStripMenuItem.Size = new System.Drawing.Size(86, 24);
+            this.bitacoraToolStripMenuItem.Size = new System.Drawing.Size(86, 26);
             this.bitacoraToolStripMenuItem.Text = "Bitacora";
             this.bitacoraToolStripMenuItem.Click += new System.EventHandler(this.BitacoraToolStripMenuItem_Click);
+            // 
+            // herramientasToolStripMenuItem
+            // 
+            this.herramientasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.prototiposToolStripMenuItem});
+            this.herramientasToolStripMenuItem.Name = "herramientasToolStripMenuItem";
+            this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(112, 26);
+            this.herramientasToolStripMenuItem.Text = "Herramientas";
+            // 
+            // prototiposToolStripMenuItem
+            // 
+            this.prototiposToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mantenimiento1ToolStripMenuItem,
+            this.mantenimiento2ToolStripMenuItem});
+            this.prototiposToolStripMenuItem.Name = "prototiposToolStripMenuItem";
+            this.prototiposToolStripMenuItem.Size = new System.Drawing.Size(161, 26);
+            this.prototiposToolStripMenuItem.Text = "Prototipos";
+            // 
+            // mantenimiento1ToolStripMenuItem
+            // 
+            this.mantenimiento1ToolStripMenuItem.Name = "mantenimiento1ToolStripMenuItem";
+            this.mantenimiento1ToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
+            this.mantenimiento1ToolStripMenuItem.Text = "Mantenimiento_1";
+            // 
+            // mantenimiento2ToolStripMenuItem
+            // 
+            this.mantenimiento2ToolStripMenuItem.Name = "mantenimiento2ToolStripMenuItem";
+            this.mantenimiento2ToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
+            this.mantenimiento2ToolStripMenuItem.Text = "Mantenimiento_2";
             // 
             // ayudaToolStripMenuItem
             // 
             this.ayudaToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
-            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
+            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(62, 26);
             this.ayudaToolStripMenuItem.Text = "Ayuda";
             this.ayudaToolStripMenuItem.Click += new System.EventHandler(this.ayudaToolStripMenuItem_Click);
             // 
@@ -204,7 +237,7 @@
             // 
             this.statusStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel});
+            this.toolStripStatusLabel1});
             this.statusStrip.Location = new System.Drawing.Point(0, 989);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Padding = new System.Windows.Forms.Padding(2, 0, 22, 0);
@@ -212,47 +245,24 @@
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "StatusStrip";
             // 
-            // toolStripStatusLabel
+            // toolStripStatusLabel1
             // 
-            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-            this.toolStripStatusLabel.Size = new System.Drawing.Size(54, 20);
-            this.toolStripStatusLabel.Text = "Estado";
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(0, 938);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1053, 52);
-            this.panel1.TabIndex = 4;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(54, 20);
+            this.toolStripStatusLabel1.Text = "Estado";
             // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.lbl_nombreUsuario);
             this.panel2.Controls.Add(this.lbl_usuario);
-            this.panel2.Location = new System.Drawing.Point(789, 4);
+            this.panel2.Location = new System.Drawing.Point(442, 6);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(264, 46);
+            this.panel2.Size = new System.Drawing.Size(225, 46);
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
-            // 
-            // lbl_nombreUsuario
-            // 
-            this.lbl_nombreUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_nombreUsuario.AutoSize = true;
-            this.lbl_nombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_nombreUsuario.Location = new System.Drawing.Point(79, 11);
-            this.lbl_nombreUsuario.Name = "lbl_nombreUsuario";
-            this.lbl_nombreUsuario.Size = new System.Drawing.Size(26, 25);
-            this.lbl_nombreUsuario.TabIndex = 1;
-            this.lbl_nombreUsuario.Text = "--";
             // 
             // lbl_usuario
             // 
@@ -264,34 +274,63 @@
             this.lbl_usuario.TabIndex = 0;
             this.lbl_usuario.Text = "Usuario:";
             // 
-            // herramientasToolStripMenuItem
+            // lbl_nombreUsuario
             // 
-            this.herramientasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.prototiposToolStripMenuItem});
-            this.herramientasToolStripMenuItem.Name = "herramientasToolStripMenuItem";
-            this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(112, 24);
-            this.herramientasToolStripMenuItem.Text = "Herramientas";
+            this.lbl_nombreUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_nombreUsuario.AutoSize = true;
+            this.lbl_nombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_nombreUsuario.Location = new System.Drawing.Point(94, 11);
+            this.lbl_nombreUsuario.Name = "lbl_nombreUsuario";
+            this.lbl_nombreUsuario.Size = new System.Drawing.Size(26, 25);
+            this.lbl_nombreUsuario.TabIndex = 1;
+            this.lbl_nombreUsuario.Text = "--";
+            this.lbl_nombreUsuario.Click += new System.EventHandler(this.lbl_nombreUsuario_Click);
             // 
-            // prototiposToolStripMenuItem
+            // panel1
             // 
-            this.prototiposToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mantenimiento1ToolStripMenuItem,
-            this.mantenimiento2ToolStripMenuItem});
-            this.prototiposToolStripMenuItem.Name = "prototiposToolStripMenuItem";
-            this.prototiposToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.prototiposToolStripMenuItem.Text = "Prototipos";
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 938);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1053, 51);
+            this.panel1.TabIndex = 4;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // mantenimiento1ToolStripMenuItem
+            // panel3
             // 
-            this.mantenimiento1ToolStripMenuItem.Name = "mantenimiento1ToolStripMenuItem";
-            this.mantenimiento1ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.mantenimiento1ToolStripMenuItem.Text = "Mantenimiento_1";
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.Controls.Add(this.Lbl_fecha);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Location = new System.Drawing.Point(706, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(259, 46);
+            this.panel3.TabIndex = 2;
             // 
-            // mantenimiento2ToolStripMenuItem
+            // Lbl_fecha
             // 
-            this.mantenimiento2ToolStripMenuItem.Name = "mantenimiento2ToolStripMenuItem";
-            this.mantenimiento2ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.mantenimiento2ToolStripMenuItem.Text = "Mantenimiento_2";
+            this.Lbl_fecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Lbl_fecha.AutoSize = true;
+            this.Lbl_fecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_fecha.Location = new System.Drawing.Point(82, 11);
+            this.Lbl_fecha.Name = "Lbl_fecha";
+            this.Lbl_fecha.Size = new System.Drawing.Size(21, 20);
+            this.Lbl_fecha.TabIndex = 1;
+            this.Lbl_fecha.Text = "--";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 11);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 25);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Fecha:";
             // 
             // MDI_Seguridad
             // 
@@ -316,9 +355,11 @@
             this.menuStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
-            this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -328,7 +369,6 @@
 
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.StatusStrip statusStrip;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.ToolStripMenuItem inicioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mantenimientosToolStripMenuItem;
@@ -341,10 +381,6 @@
         private System.Windows.Forms.ToolStripMenuItem asignacionDePerfilesAUsuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bitacoraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesionToolStripMenuItem;
-        private System.Windows.Forms.Label lbl_usuario;
-        private System.Windows.Forms.Panel panel2;
-        public System.Windows.Forms.Panel panel1;
-        public System.Windows.Forms.Label lbl_nombreUsuario;
         private System.Windows.Forms.ToolStripMenuItem cambioContraseñaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem asignacionDeAplicacionesAPerfilesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem asignacionModuloAAplicacionesToolStripMenuItem;
@@ -353,6 +389,14 @@
         private System.Windows.Forms.ToolStripMenuItem prototiposToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mantenimiento1ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mantenimiento2ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.Panel panel2;
+        public System.Windows.Forms.Label lbl_nombreUsuario;
+        private System.Windows.Forms.Label lbl_usuario;
+        public System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel3;
+        public System.Windows.Forms.Label Lbl_fecha;
+        private System.Windows.Forms.Label label2;
     }
 }
 

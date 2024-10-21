@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Interfac_V3           
+namespace Ejecucion_Nominas
 {
     static class Program
     {
@@ -16,10 +16,7 @@ namespace Interfac_V3
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new splash());
-            //Application.Run(new FormModulos());
-            //Application.Run(new Capa_Vista_Seguridad.frm_login());
-
+            Application.Run(new Capa_Vista_Nominas.frm_principal_nominas());
         }
     }
 }

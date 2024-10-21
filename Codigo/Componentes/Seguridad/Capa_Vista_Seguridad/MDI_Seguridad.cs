@@ -21,6 +21,9 @@ namespace Capa_Vista_Seguridad
         {
             InitializeComponent();
             this.idUsuario = idUsuario;
+            lbl_nombreUsuario.Text = idUsuario;
+            DateTime fechaHoraActual = DateTime.Now;
+            Lbl_fecha.Text=fechaHoraActual.ToString();
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -441,6 +444,24 @@ namespace Capa_Vista_Seguridad
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+            
+            // Asignar el texto que quieras mostrar
+      
+
+        }
+
+        private void lbl_nombreUsuario_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void toolStripStatusLabel_Click(object sender, EventArgs e)
         {
 
         }

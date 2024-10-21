@@ -1065,7 +1065,7 @@ namespace Capa_Modelo_Seguridad
                             {
                                 almacena.Close();
                                 sql.Connection.Close();
-                                MessageBox.Show("es igual a true 1");
+
                                 return true;
 
                             }
@@ -1082,7 +1082,7 @@ namespace Capa_Modelo_Seguridad
                             {
                                 almacena.Close();
                                 sql.Connection.Close();
-                                MessageBox.Show("es igual a true 1");
+
                                 return true;
                             }
                         }
