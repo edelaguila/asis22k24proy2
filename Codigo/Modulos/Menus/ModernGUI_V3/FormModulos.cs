@@ -92,8 +92,8 @@ namespace Interfac_V3
 
         private void Btn_Contabilidad_Click(object sender, EventArgs e)
         {
-            Contabilidad_MDI conta = new Contabilidad_MDI(UsuarioSesion.GetIdUsuario());
-            conta.Show();
+           Contabilidad_MDI conta = new Contabilidad_MDI(UsuarioSesion.GetIdUsuario());
+           conta.Show();
         }
 
         private void Btn_Compras_Click(object sender, EventArgs e)

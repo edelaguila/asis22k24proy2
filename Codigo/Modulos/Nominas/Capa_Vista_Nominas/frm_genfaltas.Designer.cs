@@ -29,13 +29,25 @@ namespace Capa_Vista_Nominas
         /// </summary>
         private void InitializeComponent()
         {
+            this.navegador1 = new Capa_Vista_Navegador.Navegador();
             this.SuspendLayout();
+            // 
+            // navegador1
+            // 
+            this.navegador1.BackColor = System.Drawing.Color.White;
+            this.navegador1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.navegador1.Location = new System.Drawing.Point(0, 0);
+            this.navegador1.Margin = new System.Windows.Forms.Padding(4);
+            this.navegador1.Name = "navegador1";
+            this.navegador1.Size = new System.Drawing.Size(1159, 649);
+            this.navegador1.TabIndex = 0;
             // 
             // frm_genfaltas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1159, 649);
+            this.Controls.Add(this.navegador1);
             this.Name = "frm_genfaltas";
             this.Text = "Generación Faltas";
             this.ResumeLayout(false);
@@ -43,5 +55,7 @@ namespace Capa_Vista_Nominas
         }
 
         #endregion
+
+        private Capa_Vista_Navegador.Navegador navegador1;
     }
 }
