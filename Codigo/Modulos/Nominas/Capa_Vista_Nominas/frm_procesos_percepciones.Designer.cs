@@ -36,9 +36,10 @@ namespace Capa_Vista_Nominas
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(440, 64);
+            this.label1.Location = new System.Drawing.Point(605, 96);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(152, 16);
+            this.label1.Size = new System.Drawing.Size(218, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Procesos Percepciones";
             // 
@@ -47,19 +48,21 @@ namespace Capa_Vista_Nominas
             this.navegador1.BackColor = System.Drawing.Color.White;
             this.navegador1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navegador1.Location = new System.Drawing.Point(0, 0);
-            this.navegador1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.navegador1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.navegador1.Name = "navegador1";
-            this.navegador1.Size = new System.Drawing.Size(1006, 721);
+            this.navegador1.Size = new System.Drawing.Size(1383, 1082);
             this.navegador1.TabIndex = 1;
+            this.navegador1.Load += new System.EventHandler(this.navegador1_Load);
             // 
             // frm_procesos_percepciones
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1006, 721);
+            this.ClientSize = new System.Drawing.Size(1383, 1082);
             this.Controls.Add(this.navegador1);
             this.Controls.Add(this.label1);
-            this.MinimumSize = new System.Drawing.Size(800, 600);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MinimumSize = new System.Drawing.Size(1091, 868);
             this.Name = "frm_procesos_percepciones";
             this.Text = "frm_procesos_percepciones";
             this.ResumeLayout(false);

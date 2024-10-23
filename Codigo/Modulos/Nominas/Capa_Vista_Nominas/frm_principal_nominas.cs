@@ -279,6 +279,11 @@ namespace Capa_Vista_Nominas
             ocultaSubMenu();
         }
 
+        private void Pnl_formularios_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         #endregion
         //Metodo para abrir formularios dentro de panel contenedor
         private void AbrirFormulario<MiForm>() where MiForm : Form, new()
