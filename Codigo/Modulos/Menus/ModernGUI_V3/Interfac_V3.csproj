@@ -56,6 +56,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Contabilidad\Capa_Vista_Contabilidad\bin\Debug\Capa_Vista_Contabilidad.dll</HintPath>
     </Reference>
+    <Reference Include="Capa_Vista_Cuentas_Corrientes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Cuentas Corrientes\Capa_Vista_Cuentas_Corrientes\bin\Debug\Capa_Vista_Cuentas_Corrientes.dll</HintPath>
+    </Reference>
     <Reference Include="Capa_Vista_Logistica, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Logistica\Capa_Vista_Logistica\bin\Debug\Capa_Vista_Logistica.dll</HintPath>

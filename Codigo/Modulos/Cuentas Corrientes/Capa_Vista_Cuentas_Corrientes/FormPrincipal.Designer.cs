@@ -40,11 +40,11 @@
             this.lbl_nombeArea = new System.Windows.Forms.Label();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelMenuProcesos = new System.Windows.Forms.Panel();
             this.Proceso_TransaccionP = new System.Windows.Forms.Button();
             this.Proceso_TransaccionC = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.panelMenuProveedor = new System.Windows.Forms.Panel();
+            this.Mantenimiento_Procesos = new System.Windows.Forms.Button();
+            this.panelMenuProveedores = new System.Windows.Forms.Panel();
             this.btnMenuProveedorOpcion4 = new System.Windows.Forms.Button();
             this.btnMenuProveedorOpcion2 = new System.Windows.Forms.Button();
             this.btnMenuProveedorOpcion3 = new System.Windows.Forms.Button();
@@ -69,8 +69,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelIdentificacion.SuspendLayout();
             this.panelMenu.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panelMenuProveedor.SuspendLayout();
+            this.panelMenuProcesos.SuspendLayout();
+            this.panelMenuProveedores.SuspendLayout();
             this.panelMenuCatalogos.SuspendLayout();
             this.panelBarraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -187,9 +187,9 @@
             this.panelMenu.AutoScroll = true;
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.panelMenu.Controls.Add(this.btnSalir);
-            this.panelMenu.Controls.Add(this.panel1);
-            this.panelMenu.Controls.Add(this.button6);
-            this.panelMenu.Controls.Add(this.panelMenuProveedor);
+            this.panelMenu.Controls.Add(this.panelMenuProcesos);
+            this.panelMenu.Controls.Add(this.Mantenimiento_Procesos);
+            this.panelMenu.Controls.Add(this.panelMenuProveedores);
             this.panelMenu.Controls.Add(this.btnMenuProveedor);
             this.panelMenu.Controls.Add(this.panelMenuCatalogos);
             this.panelMenu.Controls.Add(this.btnMenuCatalogosClientes);
@@ -218,17 +218,18 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click_1);
             // 
-            // panel1
+            // panelMenuProcesos
             // 
-            this.panel1.Controls.Add(this.Proceso_TransaccionP);
-            this.panel1.Controls.Add(this.Proceso_TransaccionC);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 602);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(304, 95);
-            this.panel1.TabIndex = 9;
-            this.panel1.Visible = false;
+            this.panelMenuProcesos.Controls.Add(this.Proceso_TransaccionP);
+            this.panelMenuProcesos.Controls.Add(this.Proceso_TransaccionC);
+            this.panelMenuProcesos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelMenuProcesos.Location = new System.Drawing.Point(0, 602);
+            this.panelMenuProcesos.Name = "panelMenuProcesos";
+            this.panelMenuProcesos.Size = new System.Drawing.Size(304, 95);
+            this.panelMenuProcesos.TabIndex = 9;
+            this.panelMenuProcesos.Visible = false;
             // 
             // Proceso_TransaccionP
             // 
@@ -260,38 +261,39 @@
             this.Proceso_TransaccionC.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Proceso_TransaccionC.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // Mantenimiento_Procesos
             // 
-            this.button6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button6.Image = global::Capa_Vista_Cuentas_Corrientes.Properties.Resources.transacciones;
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(0, 556);
-            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(304, 46);
-            this.button6.TabIndex = 8;
-            this.button6.Text = "Procesos";
-            this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button6.UseVisualStyleBackColor = true;
+            this.Mantenimiento_Procesos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Mantenimiento_Procesos.FlatAppearance.BorderSize = 0;
+            this.Mantenimiento_Procesos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.Mantenimiento_Procesos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.Mantenimiento_Procesos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Mantenimiento_Procesos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Mantenimiento_Procesos.ForeColor = System.Drawing.Color.Gainsboro;
+            this.Mantenimiento_Procesos.Image = global::Capa_Vista_Cuentas_Corrientes.Properties.Resources.transacciones;
+            this.Mantenimiento_Procesos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Mantenimiento_Procesos.Location = new System.Drawing.Point(0, 556);
+            this.Mantenimiento_Procesos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Mantenimiento_Procesos.Name = "Mantenimiento_Procesos";
+            this.Mantenimiento_Procesos.Size = new System.Drawing.Size(304, 46);
+            this.Mantenimiento_Procesos.TabIndex = 8;
+            this.Mantenimiento_Procesos.Text = "Procesos";
+            this.Mantenimiento_Procesos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Mantenimiento_Procesos.UseVisualStyleBackColor = true;
+            this.Mantenimiento_Procesos.Click += new System.EventHandler(this.Mantenimiento_Procesos_Click);
             // 
-            // panelMenuProveedor
+            // panelMenuProveedores
             // 
-            this.panelMenuProveedor.Controls.Add(this.btnMenuProveedorOpcion4);
-            this.panelMenuProveedor.Controls.Add(this.btnMenuProveedorOpcion2);
-            this.panelMenuProveedor.Controls.Add(this.btnMenuProveedorOpcion3);
-            this.panelMenuProveedor.Controls.Add(this.btnMenuProveedorOpcion1);
-            this.panelMenuProveedor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelMenuProveedor.Location = new System.Drawing.Point(0, 383);
-            this.panelMenuProveedor.Name = "panelMenuProveedor";
-            this.panelMenuProveedor.Size = new System.Drawing.Size(304, 173);
-            this.panelMenuProveedor.TabIndex = 6;
-            this.panelMenuProveedor.Visible = false;
+            this.panelMenuProveedores.Controls.Add(this.btnMenuProveedorOpcion4);
+            this.panelMenuProveedores.Controls.Add(this.btnMenuProveedorOpcion2);
+            this.panelMenuProveedores.Controls.Add(this.btnMenuProveedorOpcion3);
+            this.panelMenuProveedores.Controls.Add(this.btnMenuProveedorOpcion1);
+            this.panelMenuProveedores.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelMenuProveedores.Location = new System.Drawing.Point(0, 383);
+            this.panelMenuProveedores.Name = "panelMenuProveedores";
+            this.panelMenuProveedores.Size = new System.Drawing.Size(304, 173);
+            this.panelMenuProveedores.TabIndex = 6;
+            this.panelMenuProveedores.Visible = false;
             // 
             // btnMenuProveedorOpcion4
             // 
@@ -392,6 +394,7 @@
             this.panelMenuCatalogos.Size = new System.Drawing.Size(304, 283);
             this.panelMenuCatalogos.TabIndex = 4;
             this.panelMenuCatalogos.Visible = false;
+            this.panelMenuCatalogos.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenuCatalogos_Paint);
             // 
             // btn_MenuCatalogosOpcion6
             // 
@@ -613,8 +616,8 @@
             this.panelIdentificacion.ResumeLayout(false);
             this.panelIdentificacion.PerformLayout();
             this.panelMenu.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panelMenuProveedor.ResumeLayout(false);
+            this.panelMenuProcesos.ResumeLayout(false);
+            this.panelMenuProveedores.ResumeLayout(false);
             this.panelMenuCatalogos.ResumeLayout(false);
             this.panelBarraTitulo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -640,11 +643,11 @@
         private System.Windows.Forms.Panel panelMenuCatalogos;
         private System.Windows.Forms.Button btnMenuCatalogosOpcion1;
         private System.Windows.Forms.Button btnMenuCatalogosOpcion2;
-        private System.Windows.Forms.Panel panelMenuProveedor;
+        private System.Windows.Forms.Panel panelMenuProveedores;
         private System.Windows.Forms.Button btnMenuProveedorOpcion3;
         private System.Windows.Forms.Button btnMenuProveedorOpcion1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button Mantenimiento_Procesos;
         private System.Windows.Forms.Button btn_MenuCatalogosOpcion6;
         private System.Windows.Forms.Button btn_MenuCatalogosOpcion5;
         private System.Windows.Forms.Button Btn_formaPago;
@@ -656,7 +659,7 @@
         private System.Windows.Forms.Label lbl_nombeArea;
         private System.Windows.Forms.Button btnMenuProveedor;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelMenuProcesos;
         private System.Windows.Forms.Button Proceso_TransaccionP;
         private System.Windows.Forms.Button Proceso_TransaccionC;
         private System.Windows.Forms.Label Lbl_hora;

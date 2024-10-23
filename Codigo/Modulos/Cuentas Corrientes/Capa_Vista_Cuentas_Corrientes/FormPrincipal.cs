@@ -29,8 +29,10 @@ namespace Capa_Vista_Cuentas_Corrientes
         {
             if (panelMenuCatalogos.Visible == true)
                 panelMenuCatalogos.Visible = false;
-            if (panelMenuProveedor.Visible == true)
-                panelMenuProveedor.Visible = false;
+            if (panelMenuProveedores.Visible == true)
+                panelMenuProveedores.Visible = false;
+            if (panelMenuProcesos.Visible == true)
+                panelMenuProcesos.Visible = false;
         }
         private void muestraSubMenu(Panel subMenu)
         {
@@ -163,7 +165,7 @@ namespace Capa_Vista_Cuentas_Corrientes
 
         private void btnMenuProveedor_Click(object sender, EventArgs e)
         {
-            muestraSubMenu(panelMenuProveedor);
+            muestraSubMenu(panelMenuProveedores);
         }
 
         private void btnMenuCatalogosOpcion2_Click_1(object sender, EventArgs e)
@@ -171,11 +173,6 @@ namespace Capa_Vista_Cuentas_Corrientes
             AbrirFormulario<Nav_Clientes>();
             btnMenuCatalogosOpcion2.BackColor = Color.FromArgb(12, 61, 92);
             ocultaSubMenu();
-        }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void btnMenuCatalogosOpcion3_Click(object sender, EventArgs e)
@@ -236,6 +233,21 @@ namespace Capa_Vista_Cuentas_Corrientes
             AbrirFormulario<Nav_DeudasP>();
             btnMenuProveedorOpcion4.BackColor = Color.FromArgb(12, 61, 92);
             ocultaSubMenu();
+        }
+
+        private void Mantenimiento_Procesos_Click(object sender, EventArgs e)
+        {
+            muestraSubMenu(panelMenuProcesos);
+        }
+
+        private void panelMenuCatalogos_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnSalir_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
         #endregion
         //Metodo para abrir formularios dentro de panel contenedor
