@@ -14,7 +14,7 @@ namespace Capa_Vista_Nominas
     {
 
         String idUsuario;
-       //************************************ Kateryn De León***************************
+       //************************************ Kateryn De León*****************************
         public frm_horasextra()
         {
             InitializeComponent();
