@@ -25,7 +25,7 @@ namespace Capa_Vista_Nominas
         public frm_procesos_percepciones()
         {
             InitializeComponent();
-            string idUsuario = Interfac_V3.UsuarioSesion.GetIdUsuario();
+          // string idUsuario = Interfac_V3.UsuarioSesion.GetIdUsuario();
             /*********Prueba con la tabla inicial*********/
             string[] alias = { "pk_dedu_perp", "concepto", " porcentaje", "monto", "cantidad", "estado" };
             navegador1.AsignarAlias(alias);
@@ -34,10 +34,15 @@ namespace Capa_Vista_Nominas
             navegador1.AsignarColorFuente(Color.Black);
             navegador1.AsignarTabla("tbl_dedu_perp");
             navegador1.ObtenerIdAplicacion("1000");
-            navegador1.ObtenerIdUsuario(idUsuario);
+            //navegador1.ObtenerIdUsuario(idUsuario);
             navegador1.AsignarAyuda("1");
             navegador1.AsignarNombreForm("Deducciones/Percepciones");
             /**********************************************/
+        }
+
+        private void navegador1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
