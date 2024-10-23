@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frm_asignacion_vacaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_asignacion_vacaciones.Designer.cs">
+      <DependentUpon>frm_asignacion_vacaciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_deducciones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,12 @@
     <Compile Include="frm_horasextra.Designer.cs">
       <DependentUpon>frm_horasextra.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_liquidacion_trabajadores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_liquidacion_trabajadores.Designer.cs">
+      <DependentUpon>frm_liquidacion_trabajadores.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_nominas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +174,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frm_asignacion_vacaciones.resx">
+      <DependentUpon>frm_asignacion_vacaciones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_deducciones.resx">
       <DependentUpon>frm_deducciones.cs</DependentUpon>
     </EmbeddedResource>
@@ -191,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_horasextra.resx">
       <DependentUpon>frm_horasextra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_liquidacion_trabajadores.resx">
+      <DependentUpon>frm_liquidacion_trabajadores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_nominas.resx">
       <DependentUpon>frm_nominas.cs</DependentUpon>

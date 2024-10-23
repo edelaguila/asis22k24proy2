@@ -1,7 +1,7 @@
 ﻿
 namespace Capa_Vista_Nominas
 {
-    partial class frm_gencontrato
+    partial class frm_asignacion_vacaciones
     {
         /// <summary>
         /// Required designer variable.
@@ -39,17 +39,17 @@ namespace Capa_Vista_Nominas
             this.navegador1.Location = new System.Drawing.Point(0, 0);
             this.navegador1.Margin = new System.Windows.Forms.Padding(4);
             this.navegador1.Name = "navegador1";
-            this.navegador1.Size = new System.Drawing.Size(1103, 567);
+            this.navegador1.Size = new System.Drawing.Size(1113, 550);
             this.navegador1.TabIndex = 0;
             // 
-            // frm_gencontrato
+            // frm_asignacion_vacaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1103, 567);
+            this.ClientSize = new System.Drawing.Size(1113, 550);
             this.Controls.Add(this.navegador1);
-            this.Name = "frm_gencontrato";
-            this.Text = "Generación Contrato";
+            this.Name = "frm_asignacion_vacaciones";
+            this.Text = "Asignación Vacaciones";
             this.ResumeLayout(false);
 
         }
