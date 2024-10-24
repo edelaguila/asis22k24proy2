@@ -159,7 +159,7 @@ namespace Capa_Vista_Cuentas_Corrientes
             // 
             this.Lbl_titulo.AutoSize = true;
             this.Lbl_titulo.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_titulo.Location = new System.Drawing.Point(357, 33);
+            this.Lbl_titulo.Location = new System.Drawing.Point(456, 18);
             this.Lbl_titulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Lbl_titulo.Name = "Lbl_titulo";
             this.Lbl_titulo.Size = new System.Drawing.Size(196, 21);

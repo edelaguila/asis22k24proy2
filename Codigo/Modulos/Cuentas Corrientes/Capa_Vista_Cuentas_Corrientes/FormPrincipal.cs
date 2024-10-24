@@ -13,17 +13,26 @@ namespace Capa_Vista_Cuentas_Corrientes
 {
     public partial class FormPrincipal : Form
     {
-        public FormPrincipal()
+        string idUsuario;
+        public FormPrincipal(string idUsuario)
         {
             InitializeComponent();
             ocultaSubMenu();
+            this.idUsuario = idUsuario;
+
+            Lbl_usuario2.Text = idUsuario;
+            DateTime fechaHoraActual = DateTime.Now;
+            Lbl_hora.Text = fechaHoraActual.ToString();
+
         }
         private void ocultaSubMenu() 
         {
             if (panelMenuCatalogos.Visible == true)
                 panelMenuCatalogos.Visible = false;
-            if (panelMenuProveedor.Visible == true)
-                panelMenuProveedor.Visible = false;
+            if (panelMenuProveedores.Visible == true)
+                panelMenuProveedores.Visible = false;
+            if (panelMenuProcesos.Visible == true)
+                panelMenuProcesos.Visible = false;
         }
         private void muestraSubMenu(Panel subMenu)
         {
@@ -145,7 +154,7 @@ namespace Capa_Vista_Cuentas_Corrientes
 
         private void btnMenuCatalogosOpcion1_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<Vendedores_Clts>();
+            AbrirFormulario<Nav_Vendedores>();
             btnMenuCatalogosOpcion1.BackColor = Color.FromArgb(12, 61, 92);
             ocultaSubMenu();
         }
@@ -156,24 +165,20 @@ namespace Capa_Vista_Cuentas_Corrientes
 
         private void btnMenuProveedor_Click(object sender, EventArgs e)
         {
-            muestraSubMenu(panelMenuProveedor);
+            muestraSubMenu(panelMenuProveedores);
         }
 
         private void btnMenuCatalogosOpcion2_Click_1(object sender, EventArgs e)
         {
-            AbrirFormulario<ClienteNuevo>();
+            AbrirFormulario<Nav_Clientes>();
             btnMenuCatalogosOpcion2.BackColor = Color.FromArgb(12, 61, 92);
             ocultaSubMenu();
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void btnMenuCatalogosOpcion3_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<Cobrador_Clts>();
+            //AbrirFormulario<Cobrador_Clts>();
+            AbrirFormulario<Nav_Cobrador>();
             btnMenuCatalogosOpcion3.BackColor = Color.FromArgb(12, 61, 92);
             ocultaSubMenu();
 
@@ -181,7 +186,7 @@ namespace Capa_Vista_Cuentas_Corrientes
 
         private void Btn_formaPago_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<FormaPago>();
+            AbrirFormulario<Nav_FormaPago>();
             Btn_formaPago.BackColor = Color.FromArgb(12, 61, 92);
             ocultaSubMenu();
 
@@ -189,35 +194,28 @@ namespace Capa_Vista_Cuentas_Corrientes
 
         private void btn_MenuCatalogosOpcion5_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<Pais_Cliente>();
+            AbrirFormulario<Nav_Pais>();
             btn_MenuCatalogosOpcion5.BackColor = Color.FromArgb(12, 61, 92);
             ocultaSubMenu();
         }
 
         private void btn_MenuCatalogosOpcion6_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<Deuda_Clts>();
+            AbrirFormulario<Nav_DeudaC>();
             btn_MenuCatalogosOpcion6.BackColor = Color.FromArgb(12, 61, 92);
-            ocultaSubMenu();
-        }
-
-        private void btn_MenuCatalogosOpcion7_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario<Transaccion_Clientes>();
-            btn_MenuCatalogosOpcion7.BackColor = Color.FromArgb(12, 61, 92);
             ocultaSubMenu();
         }
 
         private void btnMenuProcesosOpcion1_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<NuevosProveedores>();
+            AbrirFormulario<Nav_Proveedores>();
             btnMenuProveedorOpcion1.BackColor = Color.FromArgb(12, 61, 92);
             ocultaSubMenu();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<PaisesP>();
+            AbrirFormulario<Nav_Pais>();
             btnMenuProveedorOpcion2.BackColor = Color.FromArgb(12, 61, 92);
             ocultaSubMenu();
 
@@ -225,16 +223,31 @@ namespace Capa_Vista_Cuentas_Corrientes
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            AbrirFormulario<FormaPagoP>();
+            AbrirFormulario<Nav_FormaPago>();
             btnMenuProveedorOpcion3.BackColor = Color.FromArgb(12, 61, 92);
             ocultaSubMenu();
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<DeudaProveedores>();
+            AbrirFormulario<Nav_DeudasP>();
             btnMenuProveedorOpcion4.BackColor = Color.FromArgb(12, 61, 92);
             ocultaSubMenu();
+        }
+
+        private void Mantenimiento_Procesos_Click(object sender, EventArgs e)
+        {
+            muestraSubMenu(panelMenuProcesos);
+        }
+
+        private void panelMenuCatalogos_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnSalir_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
         #endregion
         //Metodo para abrir formularios dentro de panel contenedor
@@ -261,7 +274,7 @@ namespace Capa_Vista_Cuentas_Corrientes
             }
         }
         private void CloseForms(object sender,FormClosedEventArgs e) {
-            if (Application.OpenForms["Vendedores_Clts"] == null)
+            if (Application.OpenForms["Nav_Vendedores"] == null)
                 btnMenuCatalogosOpcion1.BackColor = Color.FromArgb(4, 41, 68);            
         }
     }

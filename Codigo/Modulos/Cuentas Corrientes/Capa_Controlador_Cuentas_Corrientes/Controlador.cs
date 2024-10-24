@@ -310,7 +310,7 @@ namespace Capa_Controlador_Cuentas_Corrientes
         //Clientes
         public String getNextIdC()
         {
-            int nextId = sentencias.getMaxIdClientes();
+            int nextId = sentencias.getMaxIdCobrador();
             nextId = nextId + 1;
             return nextId.ToString();
         }

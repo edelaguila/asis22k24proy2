@@ -16,7 +16,7 @@ namespace Ejecucion_Cuentas_Corrientes
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Capa_Vista_Cuentas_Corrientes.FormPrincipal());
+            Application.Run(new Capa_Vista_Cuentas_Corrientes.FormPrincipal("1"));
         }
     }
 }
