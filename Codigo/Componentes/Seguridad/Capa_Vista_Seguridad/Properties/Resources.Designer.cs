@@ -73,6 +73,26 @@ namespace Capa_Vista_Seguridad.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap actualizar__1_ {
+            get {
+                object obj = ResourceManager.GetObject("actualizar (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap actualizar__3_ {
+            get {
+                object obj = ResourceManager.GetObject("actualizar (3)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap agregar1 {
             get {
                 object obj = ResourceManager.GetObject("agregar1", resourceCulture);

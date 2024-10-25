@@ -53,6 +53,7 @@ namespace Interfac_V3
 
            MDI_Seguridad formMDI = new MDI_Seguridad(idUsuario);
             formMDI.Show();
+            this.Hide();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -117,9 +118,8 @@ namespace Interfac_V3
 
         private void Btn_CuentasCorrientes_Click(object sender, EventArgs e)
         {
-            /*
-            Aqui debe de agregarse la referencia a cuentas corrientes
-            */
+            Capa_Vista_Cuentas_Corrientes.FormPrincipal cc = new Capa_Vista_Cuentas_Corrientes.FormPrincipal(UsuarioSesion.GetIdUsuario());
+            cc.Show();
         }
     }
 }

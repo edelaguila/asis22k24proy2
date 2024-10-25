@@ -184,6 +184,9 @@
   <data name="logotipo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logotipo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="actualizar (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\actualizar (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="bill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -199,6 +202,9 @@
   <data name="borrar12" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\borrar12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="buscar12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buscar12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="salir11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\salir11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -208,7 +214,7 @@
   <data name="agregar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\agregar1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="buscar12" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\buscar12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="actualizar (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\actualizar (3).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

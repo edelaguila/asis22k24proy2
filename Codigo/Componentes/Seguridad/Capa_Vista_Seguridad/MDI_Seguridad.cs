@@ -23,7 +23,7 @@ namespace Capa_Vista_Seguridad
             this.idUsuario = idUsuario;
             lbl_nombreUsuario.Text = idUsuario;
             DateTime fechaHoraActual = DateTime.Now;
-            Lbl_fecha.Text=fechaHoraActual.ToString();
+            Lbl_fecha.Text = fechaHoraActual.ToString();
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -213,24 +213,33 @@ namespace Capa_Vista_Seguridad
             CerrarAplicacion();
         }
 
+
         private void CerrarAplicacion()
         {
             logica l = new logica(idUsuario);
             l.funinsertarabitacora(idUsuario, "Cerro sesion en el sistema", "Login", "1301");
-            Application.Exit();
-        }
 
-        protected override void OnFormClosing(FormClosingEventArgs e)
-        {
-            base.OnFormClosing(e);
-            if (e.CloseReason == CloseReason.UserClosing)
+            // Crear y mostrar el nuevo login
+            frm_login login = new frm_login();
+            login.FormClosed += (s, args) =>
             {
-                CerrarAplicacion();
-            }
+                if (login.DialogResult != DialogResult.OK)
+                {
+                    Application.Exit();
+                }
+            };
+
+            // Ocultar la ventana actual
+            this.Hide();
+
+            // Mostrar el login
+            login.Show();
+
+            // Cerrar el MDI_Seguridad
+            this.Close();
         }
 
-
-    bool ventanaMostrarUsuarios = false;
+        bool ventanaMostrarUsuarios = false;
         frm_usuarios mostrarUsuarios = new frm_usuarios();
 
         private void UsuariosToolStripMenuItem_Click(object sender, EventArgs e)

@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_asignacion_aplicaciones));
             this.Cbo_usuarios = new System.Windows.Forms.ComboBox();
             this.Cbo_aplicaciones = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.Lbl_usuarios = new System.Windows.Forms.Label();
+            this.Lbl_aplicaciones = new System.Windows.Forms.Label();
             this.Dgv_asignaciones = new System.Windows.Forms.DataGridView();
             this.Usuarios = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Aplicacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,8 +43,8 @@
             this.Imprimir = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Gpb_datos = new System.Windows.Forms.GroupBox();
             this.Cbo_modulos = new System.Windows.Forms.ComboBox();
-            this.lbl_modulo = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.Lbl_modulos = new System.Windows.Forms.Label();
+            this.Lbl_titulo = new System.Windows.Forms.Label();
             this.Gbp_datos2 = new System.Windows.Forms.GroupBox();
             this.Dgv_aplicaciones_asignados = new System.Windows.Forms.DataGridView();
             this.Btn_salir = new System.Windows.Forms.Button();
@@ -82,27 +82,27 @@
             this.Cbo_aplicaciones.Size = new System.Drawing.Size(334, 27);
             this.Cbo_aplicaciones.TabIndex = 1;
             // 
-            // label1
+            // Lbl_usuarios
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(134, 25);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 22);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Usuarios";
+            this.Lbl_usuarios.AutoSize = true;
+            this.Lbl_usuarios.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_usuarios.Location = new System.Drawing.Point(134, 25);
+            this.Lbl_usuarios.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Lbl_usuarios.Name = "Lbl_usuarios";
+            this.Lbl_usuarios.Size = new System.Drawing.Size(80, 22);
+            this.Lbl_usuarios.TabIndex = 2;
+            this.Lbl_usuarios.Text = "Usuarios";
             // 
-            // label2
+            // Lbl_aplicaciones
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(909, 25);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 22);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Aplicaciones";
+            this.Lbl_aplicaciones.AutoSize = true;
+            this.Lbl_aplicaciones.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_aplicaciones.Location = new System.Drawing.Point(909, 25);
+            this.Lbl_aplicaciones.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Lbl_aplicaciones.Name = "Lbl_aplicaciones";
+            this.Lbl_aplicaciones.Size = new System.Drawing.Size(115, 22);
+            this.Lbl_aplicaciones.TabIndex = 3;
+            this.Lbl_aplicaciones.Text = "Aplicaciones";
             // 
             // Dgv_asignaciones
             // 
@@ -198,11 +198,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Gpb_datos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
             this.Gpb_datos.Controls.Add(this.Cbo_modulos);
-            this.Gpb_datos.Controls.Add(this.lbl_modulo);
+            this.Gpb_datos.Controls.Add(this.Lbl_modulos);
             this.Gpb_datos.Controls.Add(this.Cbo_usuarios);
             this.Gpb_datos.Controls.Add(this.Cbo_aplicaciones);
-            this.Gpb_datos.Controls.Add(this.label1);
-            this.Gpb_datos.Controls.Add(this.label2);
+            this.Gpb_datos.Controls.Add(this.Lbl_usuarios);
+            this.Gpb_datos.Controls.Add(this.Lbl_aplicaciones);
             this.Gpb_datos.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Gpb_datos.Location = new System.Drawing.Point(47, 155);
             this.Gpb_datos.Margin = new System.Windows.Forms.Padding(4);
@@ -225,28 +225,28 @@
             this.Cbo_modulos.TabIndex = 12;
             this.Cbo_modulos.SelectedIndexChanged += new System.EventHandler(this.Cbo_modulos_SelectedIndexChanged);
             // 
-            // lbl_modulo
+            // Lbl_modulos
             // 
-            this.lbl_modulo.AutoSize = true;
-            this.lbl_modulo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_modulo.Location = new System.Drawing.Point(535, 25);
-            this.lbl_modulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_modulo.Name = "lbl_modulo";
-            this.lbl_modulo.Size = new System.Drawing.Size(80, 22);
-            this.lbl_modulo.TabIndex = 11;
-            this.lbl_modulo.Text = "Modulos";
+            this.Lbl_modulos.AutoSize = true;
+            this.Lbl_modulos.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_modulos.Location = new System.Drawing.Point(535, 25);
+            this.Lbl_modulos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Lbl_modulos.Name = "Lbl_modulos";
+            this.Lbl_modulos.Size = new System.Drawing.Size(80, 22);
+            this.Lbl_modulos.TabIndex = 11;
+            this.Lbl_modulos.Text = "Modulos";
             // 
-            // label3
+            // Lbl_titulo
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Haettenschweiler", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(286, 23);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(818, 45);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "A s i g n a c i ó n   d e   A p l i c a c i o n e s   a   U s u a r i o s";
+            this.Lbl_titulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Lbl_titulo.AutoSize = true;
+            this.Lbl_titulo.Font = new System.Drawing.Font("Haettenschweiler", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_titulo.ForeColor = System.Drawing.Color.Transparent;
+            this.Lbl_titulo.Location = new System.Drawing.Point(286, 23);
+            this.Lbl_titulo.Name = "Lbl_titulo";
+            this.Lbl_titulo.Size = new System.Drawing.Size(818, 45);
+            this.Lbl_titulo.TabIndex = 15;
+            this.Lbl_titulo.Text = "A s i g n a c i ó n   d e   A p l i c a c i o n e s   a   U s u a r i o s";
             // 
             // Gbp_datos2
             // 
@@ -396,7 +396,7 @@
             this.Controls.Add(this.Btn_agregar);
             this.Controls.Add(this.Btn_guardar);
             this.Controls.Add(this.Btn_eliminar);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.Lbl_titulo);
             this.Controls.Add(this.Gpb_datos);
             this.Controls.Add(this.Btn_ayuda);
             this.Controls.Add(this.Dgv_asignaciones);
@@ -419,13 +419,13 @@
 
         #endregion
         private System.Windows.Forms.ComboBox Cbo_aplicaciones;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label Lbl_usuarios;
+        private System.Windows.Forms.Label Lbl_aplicaciones;
         private System.Windows.Forms.DataGridView Dgv_asignaciones;
         private System.Windows.Forms.GroupBox Gpb_datos;
         public System.Windows.Forms.ComboBox Cbo_usuarios;
         public System.Windows.Forms.ComboBox Cbo_modulos;
-        private System.Windows.Forms.Label lbl_modulo;
+        private System.Windows.Forms.Label Lbl_modulos;
         private System.Windows.Forms.DataGridViewTextBoxColumn Usuarios;
         private System.Windows.Forms.DataGridViewTextBoxColumn Aplicacion;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Ingresar;
@@ -433,7 +433,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn Modificar;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Eliminar;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Imprimir;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label Lbl_titulo;
         private System.Windows.Forms.Button Btn_agregar;
         private System.Windows.Forms.Button Btn_ayuda;
         private System.Windows.Forms.GroupBox Gbp_datos2;
