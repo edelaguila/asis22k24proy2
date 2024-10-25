@@ -27,6 +27,7 @@ namespace Capa_Vista_Seguridad
             Cmb_columna.DropDownStyle = ComboBoxStyle.DropDownList;
             Cmb_columna.SelectedIndex = -1;
             Txt_dato.Enabled = false;
+            Lbl_ingresaundato.Visible = false;
             Dtp_hora.ShowUpDown = true;
             Dtp_hora.Format = DateTimePickerFormat.Custom;
             Dtp_hora.CustomFormat = "HH:mm";  // Formato de 24 horas
@@ -129,7 +130,7 @@ namespace Capa_Vista_Seguridad
                 case "IP": return "ip_bitacora";
                 case "Acción": return "accion_bitacora";
                 case "Tabla": return "tabla";
-                case "Aplicacion": return "aplicacion";
+                case "Aplicacion": return "fk_id_aplicacion";
                 default: return "FK_id_usuario";
             }
         }
@@ -143,6 +144,7 @@ namespace Capa_Vista_Seguridad
                 Txt_dato.Visible = false;
                 Dtp_dato.Visible = false;
                 Dtp_hora.Visible = false;
+                Lbl_ingresaundato.Visible = false;
                 return;
             }
 
@@ -153,6 +155,7 @@ namespace Capa_Vista_Seguridad
                 Txt_dato.Enabled = false;
                 Dtp_dato.Visible = true;
                 Dtp_hora.Visible = false;
+                Lbl_ingresaundato.Visible = true;
             }
             // Si el índice es 3, muestra el selector de horas
             else if (Cmb_columna.SelectedIndex == 3)
@@ -161,6 +164,7 @@ namespace Capa_Vista_Seguridad
                 Txt_dato.Enabled = false;
                 Dtp_dato.Visible = false;
                 Dtp_hora.Visible = true;
+                Lbl_ingresaundato.Visible = true;
             }
             // Para cualquier otro índice, muestra el campo de texto
             else
@@ -169,6 +173,7 @@ namespace Capa_Vista_Seguridad
                 Txt_dato.Enabled = true;
                 Dtp_dato.Visible = false;
                 Dtp_hora.Visible = false;
+                Lbl_ingresaundato.Visible = true;
             }
         }
 

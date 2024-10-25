@@ -296,5 +296,11 @@
   <ItemGroup>
     <None Include="Resources\buscar12.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actualizar %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actualizar %283%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

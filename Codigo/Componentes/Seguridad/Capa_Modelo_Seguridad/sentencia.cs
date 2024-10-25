@@ -28,10 +28,36 @@ namespace Capa_Modelo_Seguridad
 
         //Kateryn De Leon
         //buscar usuarios
-        public OdbcDataAdapter funUsuarios()
+        public OdbcDataAdapter funUsuariosAplicaciones()
         {
             cn.conectar();
             string sUsuarios = "SELECT Pk_id_usuario as Usuario, nombre_usuario as Nombre, apellido_usuario as Apellido, username_usuario as Username, password_usuario as Password, email_usuario as Email, ultima_conexion_usuario as Ultima_Conexion, estado_usuario as Estado, pregunta as Pregunta, respuesta as Respuesta FROM tbl_usuarios";
+            OdbcDataAdapter dataUsuarios = new OdbcDataAdapter(sUsuarios, cn.conectar());
+            funInsertarBitacora(idUsuario, "Realizo una consulta a usuarios", "tbl_usuarios", "1000");
+            return dataUsuarios;
+        }
+
+        public OdbcDataAdapter funUsuarios(string estado)
+        {
+            cn.conectar();
+            string sUsuarios = "SELECT Pk_id_usuario as Usuario, " +
+                "nombre_usuario as Nombre, " +
+                "apellido_usuario as Apellido, " +
+                "username_usuario as Username, " +
+                "password_usuario as Password, " +
+                "email_usuario as Email, " +
+                "ultima_conexion_usuario as Ultima_Conexion, " +
+                "estado_usuario as Estado, " +
+                "pregunta as Pregunta, " +
+                "respuesta as Respuesta " +
+                "FROM tbl_usuarios";
+
+            // Agregar filtro por estado si se especificó uno
+            if (estado != "todos")
+            {
+                sUsuarios += " WHERE estado_usuario = " + estado;
+            }
+
             OdbcDataAdapter dataUsuarios = new OdbcDataAdapter(sUsuarios, cn.conectar());
             funInsertarBitacora(idUsuario, "Realizo una consulta a usuarios", "tbl_usuarios", "1000");
             return dataUsuarios;

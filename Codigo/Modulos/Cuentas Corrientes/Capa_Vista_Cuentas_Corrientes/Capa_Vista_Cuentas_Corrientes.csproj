@@ -45,6 +45,9 @@
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="Interfac_V3">
+      <HintPath>..\..\Menus\ModernGUI_V3\bin\Debug\Interfac_V3.exe</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -59,12 +62,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Caja.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Caja.Designer.cs">
-      <DependentUpon>Caja.cs</DependentUpon>
-    </Compile>
     <Compile Include="ClienteNuevo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,12 +98,6 @@
     <Compile Include="FormaPago.Designer.cs">
       <DependentUpon>FormaPago.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormaPagoP.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormaPagoP.Designer.cs">
-      <DependentUpon>FormaPagoP.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,16 +110,58 @@
     <Compile Include="MovimientoMensual.Designer.cs">
       <DependentUpon>MovimientoMensual.cs</DependentUpon>
     </Compile>
-    <Compile Include="Nav_Transaccion_clientes.cs">
+    <Compile Include="Nav_Clientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Nav_Transaccion_clientes.Designer.cs">
-      <DependentUpon>Nav_Transaccion_clientes.cs</DependentUpon>
+    <Compile Include="Nav_Clientes.Designer.cs">
+      <DependentUpon>Nav_Clientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nav_Cobrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nav_Cobrador.Designer.cs">
+      <DependentUpon>Nav_Cobrador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nav_DeudaC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nav_DeudaC.Designer.cs">
+      <DependentUpon>Nav_DeudaC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nav_DeudasP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nav_DeudasP.Designer.cs">
+      <DependentUpon>Nav_DeudasP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nav_FormaPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nav_FormaPago.Designer.cs">
+      <DependentUpon>Nav_FormaPago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nav_Pais.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nav_Pais.Designer.cs">
+      <DependentUpon>Nav_Pais.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nav_Proveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nav_Proveedores.Designer.cs">
+      <DependentUpon>Nav_Proveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nav_Vendedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nav_Vendedores.Designer.cs">
+      <DependentUpon>Nav_Vendedores.cs</DependentUpon>
     </Compile>
     <Compile Include="NuevosProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NuevosProveedores.Designer.cs">
+    <Compile Include="NuevosProveedores.designer.cs">
       <DependentUpon>NuevosProveedores.cs</DependentUpon>
     </Compile>
     <Compile Include="Pais Cliente.cs">
@@ -136,18 +169,6 @@
     </Compile>
     <Compile Include="Pais Cliente.designer.cs">
       <DependentUpon>Pais Cliente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PaisesP.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PaisesP.Designer.cs">
-      <DependentUpon>PaisesP.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Poliza.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Poliza.Designer.cs">
-      <DependentUpon>Poliza.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -210,29 +231,41 @@
     <EmbeddedResource Include="FormaPago.resx">
       <DependentUpon>FormaPago.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormaPagoP.resx">
-      <DependentUpon>FormaPagoP.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MovimientoMensual.resx">
       <DependentUpon>MovimientoMensual.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Nav_Transaccion_clientes.resx">
-      <DependentUpon>Nav_Transaccion_clientes.cs</DependentUpon>
+    <EmbeddedResource Include="Nav_Clientes.resx">
+      <DependentUpon>Nav_Clientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nav_Cobrador.resx">
+      <DependentUpon>Nav_Cobrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nav_DeudaC.resx">
+      <DependentUpon>Nav_DeudaC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nav_DeudasP.resx">
+      <DependentUpon>Nav_DeudasP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nav_FormaPago.resx">
+      <DependentUpon>Nav_FormaPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nav_Pais.resx">
+      <DependentUpon>Nav_Pais.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nav_Proveedores.resx">
+      <DependentUpon>Nav_Proveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nav_Vendedores.resx">
+      <DependentUpon>Nav_Vendedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NuevosProveedores.resx">
       <DependentUpon>NuevosProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pais Cliente.resx">
       <DependentUpon>Pais Cliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PaisesP.resx">
-      <DependentUpon>PaisesP.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Poliza.resx">
-      <DependentUpon>Poliza.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -261,6 +294,21 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Resources\WhatsApp Image 2024-10-13 at 5.24.35 PM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mantenimiento.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grupo.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mantenimiento.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transacciones.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salir.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

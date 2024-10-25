@@ -16,6 +16,7 @@ namespace Capa_Vista_Reporteria
     {
         Capa_Controlador_Reporteria.Controlador controlador = new Capa_Controlador_Reporteria.Controlador();
         Boolean bConfirmRuta = true;
+        ToolTip Ayuda = new ToolTip();
         public Inicio()
         {
             InitializeComponent();
@@ -23,6 +24,18 @@ namespace Capa_Vista_Reporteria
             cargarCategorias();
             cargarModulos();
             getId();
+
+            Ayuda.InitialDelay = 1000;
+            Ayuda.ReshowDelay = 500;
+            Ayuda.ShowAlways = true;
+            Ayuda.AutoPopDelay = 5000;
+            Ayuda.IsBalloon = true;
+
+            Ayuda.SetToolTip(Btn_Guardar, "Guarda un reporte con todos los datos ingresados al sistema.");
+            Ayuda.SetToolTip(Btn_Modificar, "Modifica un reporte con los datos deseados.");
+            Ayuda.SetToolTip(Btn_Eliminar, "Elimina un reporte en base al número de identificación");
+            Ayuda.SetToolTip(Btn_Actualizar, "Limpia todas las cajas de texto para ingresar nuevos datos.");
+            Ayuda.SetToolTip(Btn_VerReporte, "Muestra el reporte seleccionado en CrystalReports para su visualización.");
         }
 
         private void actualizarVistaReportes()
@@ -55,7 +68,7 @@ namespace Capa_Vista_Reporteria
             
         }
 
-        private void tabla_registro_DoubleClick(object sender, EventArgs e)
+        private void Dgv_Regreporteria_DoubleClick(object sender, EventArgs e)
         {
             //se habilita la función de modificar y eliminar para el reporte seleccionado 
             if (Dgv_Regreporteria.CurrentRow.Index != -1)
@@ -199,7 +212,17 @@ namespace Capa_Vista_Reporteria
                         bRuta = true;
                     }
                 }
-                Txt_Ruta.Text = db;
+
+                if (bRuta == true)
+                {
+                    Txt_Ruta.Text = db;
+                }
+                else
+                {
+                    Txt_Ruta.Clear();
+                    MessageBox.Show("El reporte buscado no se encuentra en la carpeta de Reportes, inténtelo de nuevo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
                 bConfirmRuta = false;
             }
         }

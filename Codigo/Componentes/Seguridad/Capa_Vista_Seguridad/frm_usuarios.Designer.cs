@@ -41,11 +41,11 @@
             this.Gpb_datospersonalesclave = new System.Windows.Forms.GroupBox();
             this.Cmb_Pregunta = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.txt_preguntausuario = new System.Windows.Forms.Label();
+            this.Lbl_preguntausuario = new System.Windows.Forms.Label();
             this.Rdb_inhabilitado = new System.Windows.Forms.RadioButton();
             this.Rdb_habilitado = new System.Windows.Forms.RadioButton();
             this.Txt_respuesta = new System.Windows.Forms.TextBox();
-            this.Txt_respuestausuario = new System.Windows.Forms.Label();
+            this.Lbl_respuestausuario = new System.Windows.Forms.Label();
             this.Txt_estado = new System.Windows.Forms.Label();
             this.txt_estadousuario = new System.Windows.Forms.TextBox();
             this.Gpb_datospersonales = new System.Windows.Forms.GroupBox();
@@ -65,11 +65,15 @@
             this.Dgv_usuarios = new System.Windows.Forms.DataGridView();
             this.Btn_ayuda = new System.Windows.Forms.Button();
             this.Txt_titulo = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.Rdb_activos = new System.Windows.Forms.RadioButton();
+            this.Rdb_inactivos = new System.Windows.Forms.RadioButton();
             this.Gpb_modificar.SuspendLayout();
             this.Gpb_datospersonalesclave.SuspendLayout();
             this.Gpb_datospersonales.SuspendLayout();
             this.Gpb_datosusuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_usuarios)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Btn_guardar
@@ -199,11 +203,11 @@
             this.Gpb_datospersonalesclave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
             this.Gpb_datospersonalesclave.Controls.Add(this.Cmb_Pregunta);
             this.Gpb_datospersonalesclave.Controls.Add(this.textBox1);
-            this.Gpb_datospersonalesclave.Controls.Add(this.txt_preguntausuario);
+            this.Gpb_datospersonalesclave.Controls.Add(this.Lbl_preguntausuario);
             this.Gpb_datospersonalesclave.Controls.Add(this.Rdb_inhabilitado);
             this.Gpb_datospersonalesclave.Controls.Add(this.Rdb_habilitado);
             this.Gpb_datospersonalesclave.Controls.Add(this.Txt_respuesta);
-            this.Gpb_datospersonalesclave.Controls.Add(this.Txt_respuestausuario);
+            this.Gpb_datospersonalesclave.Controls.Add(this.Lbl_respuestausuario);
             this.Gpb_datospersonalesclave.Controls.Add(this.Txt_estado);
             this.Gpb_datospersonalesclave.Controls.Add(this.txt_estadousuario);
             this.Gpb_datospersonalesclave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -235,16 +239,16 @@
             this.textBox1.TabIndex = 261;
             this.textBox1.Tag = "3";
             // 
-            // txt_preguntausuario
+            // Lbl_preguntausuario
             // 
-            this.txt_preguntausuario.AutoSize = true;
-            this.txt_preguntausuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_preguntausuario.Location = new System.Drawing.Point(32, 137);
-            this.txt_preguntausuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.txt_preguntausuario.Name = "txt_preguntausuario";
-            this.txt_preguntausuario.Size = new System.Drawing.Size(76, 20);
-            this.txt_preguntausuario.TabIndex = 260;
-            this.txt_preguntausuario.Text = "Pregunta";
+            this.Lbl_preguntausuario.AutoSize = true;
+            this.Lbl_preguntausuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_preguntausuario.Location = new System.Drawing.Point(32, 137);
+            this.Lbl_preguntausuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Lbl_preguntausuario.Name = "Lbl_preguntausuario";
+            this.Lbl_preguntausuario.Size = new System.Drawing.Size(76, 20);
+            this.Lbl_preguntausuario.TabIndex = 260;
+            this.Lbl_preguntausuario.Text = "Pregunta";
             // 
             // Rdb_inhabilitado
             // 
@@ -280,16 +284,16 @@
             this.Txt_respuesta.TabIndex = 229;
             this.Txt_respuesta.Tag = "4";
             // 
-            // Txt_respuestausuario
+            // Lbl_respuestausuario
             // 
-            this.Txt_respuestausuario.AutoSize = true;
-            this.Txt_respuestausuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_respuestausuario.Location = new System.Drawing.Point(32, 189);
-            this.Txt_respuestausuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Txt_respuestausuario.Name = "Txt_respuestausuario";
-            this.Txt_respuestausuario.Size = new System.Drawing.Size(89, 20);
-            this.Txt_respuestausuario.TabIndex = 228;
-            this.Txt_respuestausuario.Text = "Respuesta";
+            this.Lbl_respuestausuario.AutoSize = true;
+            this.Lbl_respuestausuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_respuestausuario.Location = new System.Drawing.Point(32, 189);
+            this.Lbl_respuestausuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Lbl_respuestausuario.Name = "Lbl_respuestausuario";
+            this.Lbl_respuestausuario.Size = new System.Drawing.Size(89, 20);
+            this.Lbl_respuestausuario.TabIndex = 228;
+            this.Lbl_respuestausuario.Text = "Respuesta";
             // 
             // Txt_estado
             // 
@@ -487,7 +491,7 @@
             this.Dgv_usuarios.ReadOnly = true;
             this.Dgv_usuarios.RowHeadersWidth = 72;
             this.Dgv_usuarios.RowTemplate.Height = 31;
-            this.Dgv_usuarios.Size = new System.Drawing.Size(1436, 239);
+            this.Dgv_usuarios.Size = new System.Drawing.Size(1314, 239);
             this.Dgv_usuarios.TabIndex = 258;
             this.Dgv_usuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_usuarios_CellContentClick);
             // 
@@ -516,12 +520,45 @@
             this.Txt_titulo.TabIndex = 260;
             this.Txt_titulo.Text = "Mantenimiento de Usuarios";
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel1.Controls.Add(this.Rdb_inactivos);
+            this.panel1.Controls.Add(this.Rdb_activos);
+            this.panel1.Location = new System.Drawing.Point(1358, 445);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(103, 239);
+            this.panel1.TabIndex = 261;
+            // 
+            // Rdb_activos
+            // 
+            this.Rdb_activos.AutoSize = true;
+            this.Rdb_activos.Location = new System.Drawing.Point(11, 52);
+            this.Rdb_activos.Name = "Rdb_activos";
+            this.Rdb_activos.Size = new System.Drawing.Size(85, 24);
+            this.Rdb_activos.TabIndex = 0;
+            this.Rdb_activos.TabStop = true;
+            this.Rdb_activos.Text = "Activos";
+            this.Rdb_activos.UseVisualStyleBackColor = true;
+            // 
+            // Rdb_inactivos
+            // 
+            this.Rdb_inactivos.AutoSize = true;
+            this.Rdb_inactivos.Location = new System.Drawing.Point(5, 137);
+            this.Rdb_inactivos.Name = "Rdb_inactivos";
+            this.Rdb_inactivos.Size = new System.Drawing.Size(96, 24);
+            this.Rdb_inactivos.TabIndex = 1;
+            this.Rdb_inactivos.TabStop = true;
+            this.Rdb_inactivos.Text = "Inactivos";
+            this.Rdb_inactivos.UseVisualStyleBackColor = true;
+            // 
             // frm_usuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(133)))), ((int)(((byte)(223)))));
             this.ClientSize = new System.Drawing.Size(1486, 747);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.Txt_titulo);
             this.Controls.Add(this.Dgv_usuarios);
             this.Controls.Add(this.Gpb_datospersonalesclave);
@@ -550,6 +587,8 @@
             this.Gpb_datosusuario.ResumeLayout(false);
             this.Gpb_datosusuario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_usuarios)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -568,7 +607,7 @@
         private System.Windows.Forms.Button Btn_ayuda;
         private System.Windows.Forms.GroupBox Gpb_datospersonalesclave;
         private System.Windows.Forms.TextBox Txt_respuesta;
-        private System.Windows.Forms.Label Txt_respuestausuario;
+        private System.Windows.Forms.Label Lbl_respuestausuario;
         private System.Windows.Forms.Label Txt_estado;
         private System.Windows.Forms.TextBox txt_estadousuario;
         private System.Windows.Forms.GroupBox Gpb_datospersonales;
@@ -590,7 +629,10 @@
         private System.Windows.Forms.DataGridView Dgv_usuarios;
         private System.Windows.Forms.ComboBox Cmb_Pregunta;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label txt_preguntausuario;
+        private System.Windows.Forms.Label Lbl_preguntausuario;
         private System.Windows.Forms.Label Txt_titulo;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RadioButton Rdb_inactivos;
+        private System.Windows.Forms.RadioButton Rdb_activos;
     }
 }
