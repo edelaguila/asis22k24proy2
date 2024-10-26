@@ -38,6 +38,77 @@ namespace Capa_Controlador_Nominas
 
 
         /********0901-21-581 - Fernando José García de León***********************/
+        public DataTable funcConsultaLogicaDeduPerp()
+        {
+            try
+            {
+                OdbcDataAdapter dt = sn.funcConsultaDeduPerp();
+                DataTable table = new DataTable();
+                dt.Fill(table);
+                return table;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error en funcConsultaLogicaDeduPerp: " + ex.Message);
+                return null;
+            }
+        }
+
+        public bool funcInsertarLogicaDeduPerp(string concepto, string tipo, string aplicacion, int excepcion, float monto)
+        {
+            try
+            {
+                // Validaciones básicas antes de insertar
+                if (string.IsNullOrEmpty(concepto) || string.IsNullOrEmpty(tipo) || string.IsNullOrEmpty(aplicacion))
+                {
+                    throw new ArgumentException("Los campos concepto, tipo y aplicación son obligatorios.");
+                }
+
+                if (monto < 0)
+                {
+                    throw new ArgumentException("El monto no puede ser negativo.");
+                }
+
+                // Intenta realizar la inserción
+                sn.funcInsertarDeduPerp(concepto, tipo, aplicacion, excepcion, monto);
+                return true; // Si llegamos aquí, la inserción fue exitosa
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error en funcInsertarLogicaDeduPerp: {ex.Message}");
+                Console.WriteLine($"StackTrace: {ex.StackTrace}");
+
+                // Relanzar la excepción para que la capa de presentación pueda manejarla
+                throw new Exception($"Error al insertar el registro: {ex.Message}");
+
+                return false; // En caso de error
+            }
+        }
+
+        public void funcActualizarLogicaDeduPerp(int id, string concepto, string tipo, string aplicacion, int excepcion, float monto)
+        {
+            try
+            {
+                sn.funcActualizarDeduPerp(id, concepto, tipo, aplicacion, excepcion, monto);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error en funcActualizarLogicaDeduPerp: " + ex.Message);
+            }
+        }
+
+        public void funcEliminarLogicaDeduPerp(int id)
+        {
+            try
+            {
+                sn.funcEliminarDeduPerp(id);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error en funcEliminarLogicaDeduPerp: " + ex.Message);
+            }
+        }
+
 
         /*************************************************************************/
 

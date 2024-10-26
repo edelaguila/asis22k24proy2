@@ -1,6 +1,6 @@
 create database nominas;
  use nominas;
--- DROP DATABASE nominas;
+-- DROP DATABASE colchoneria;
 use colchoneria;
 DROP TABLE IF EXISTS tbl_planilla_detalle;
 DROP TABLE IF EXISTS tbl_planilla_encabezado;

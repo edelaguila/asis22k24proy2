@@ -278,5 +278,47 @@
   <ItemGroup>
     <None Include="Resources\noticias.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\INGRESAR_V4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EDITAR_V4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guardar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BORRAR_V4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CANCELAR_V4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BUCAR_V4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\impresora.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ACTUALIZAR_V4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FULL IZQUIERDA_V4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IZQUIERDA_V4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DERECHA_V4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FULL DERECHA_V4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AYUDA_V4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SALIR_V4.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
