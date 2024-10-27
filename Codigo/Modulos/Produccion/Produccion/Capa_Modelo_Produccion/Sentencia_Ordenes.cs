@@ -205,10 +205,15 @@ namespace Capa_Modelo_Produccion
             }
         }
 
-        // Obtener detalles de productos de una orden
+        // Obtener detalles de productos de una orden, incluyendo el nombre del producto
         public DataTable ObtenerDetallesOrden(int idOrden, OdbcConnection conn, OdbcTransaction transaccion)
         {
-            string query = "SELECT Fk_id_producto, cantidad FROM tbl_ordenes_produccion_detalle WHERE Fk_id_orden = ?";
+            string query = @"
+        SELECT d.Fk_id_producto, p.nombreProducto, d.cantidad 
+        FROM tbl_ordenes_produccion_detalle d
+        JOIN tbl_productos p ON d.Fk_id_producto = p.Pk_id_Producto
+        WHERE d.Fk_id_orden = ?";
+
             try
             {
                 DataTable tabla = new DataTable();
@@ -228,6 +233,7 @@ namespace Capa_Modelo_Produccion
                 return null;
             }
         }
+
 
 
         // Método para registrar errores en un archivo o sistema de logs

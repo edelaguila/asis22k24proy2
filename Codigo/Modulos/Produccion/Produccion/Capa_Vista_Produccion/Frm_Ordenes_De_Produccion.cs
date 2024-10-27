@@ -254,7 +254,6 @@ namespace Capa_Vista_Produccion
                         }
                     }
 
-
                     dgv_detalle_orden.Rows.Add(idProducto, nombreProducto, cantidad);
                     txt_cantidad.Clear();
                 }
@@ -280,6 +279,10 @@ namespace Capa_Vista_Produccion
                     dtp_fecha_inicio.Value = Convert.ToDateTime(row.Cells["fecha_inicio"].Value ?? dtp_fecha_inicio.MinDate);
                     dtp_fecha_fin.Value = Convert.ToDateTime(row.Cells["fecha_fin"].Value ?? dtp_fecha_fin.MinDate);
                     cbo_estado_orden.SelectedItem = (Convert.ToInt32(row.Cells["estado"].Value) == 1) ? "Activo" : "Inactivo";
+
+                    // Cargar detalles de la orden seleccionada
+                    int idOrden = Convert.ToInt32(row.Cells["Pk_id_orden"].Value);
+                    CargarDetallesOrden(idOrden);
                 }
                 else
                 {
@@ -289,6 +292,34 @@ namespace Capa_Vista_Produccion
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al seleccionar la orden: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void CargarDetallesOrden(int idOrden)
+        {
+            try
+            {
+                DataTable detalles = control.ObtenerDetallesOrden(idOrden);
+                if (detalles == null || detalles.Rows.Count == 0)
+                {
+                    MessageBox.Show("No se encontraron detalles para esta orden.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dgv_detalle_orden.Rows.Clear();
+                    return;
+                }
+
+                dgv_detalle_orden.Rows.Clear();
+                foreach (DataRow detalle in detalles.Rows)
+                {
+                    int idProducto = Convert.ToInt32(detalle["Fk_id_producto"]);
+                    string nombreProducto = detalle["nombreProducto"].ToString();
+                    int cantidad = Convert.ToInt32(detalle["cantidad"]);
+
+                    dgv_detalle_orden.Rows.Add(idProducto, nombreProducto, cantidad);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar detalles de la orden: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -303,17 +334,14 @@ namespace Capa_Vista_Produccion
         {
             this.Close();
         }
-        private void cbo_estado_orden_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Método requerido por el evento SelectedIndexChanged.
-            // Puedes dejarlo vacío si no necesitas implementar ninguna acción específica.
-        }
 
         private void Frm_Ordenes_De_Produccion_Load(object sender, EventArgs e)
         {
-            // Cargar el formulario e inicializar.
-            InicializarFormulario();
+            CargarOrdenes();
         }
-
+        private void cbo_estado_orden_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Procedimiento
+        }
     }
 }

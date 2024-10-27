@@ -159,5 +159,23 @@ namespace Capa_Controlador_Produccion
                 return 0;
             }
         }
+
+        // Método para obtener los detalles de una orden específica
+        public DataTable ObtenerDetallesOrden(int idOrden)
+        {
+            try
+            {
+                using (OdbcConnection conn = sentencias.ObtenerConexionVerificada())
+                using (OdbcTransaction transaccion = conn.BeginTransaction())
+                {
+                    return sentencias.ObtenerDetallesOrden(idOrden, conn, transaccion);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al obtener detalles de la orden: {ex.Message}");
+                return null;
+            }
+        }
     }
 }
