@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Control_Implosion_Explosion_Materiales.cs" />
+    <Compile Include="Control_Mantenimiento.cs" />
     <Compile Include="Control_Receta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

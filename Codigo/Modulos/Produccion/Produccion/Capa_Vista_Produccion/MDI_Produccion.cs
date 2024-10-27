@@ -66,8 +66,8 @@ namespace Capa_Vista_Produccion
         // Botón de maquinaria
         private void btnMaquinaria_Click_1(object sender, EventArgs e)
         {
-            Frm_Maquinaria maquinaria = new Frm_Maquinaria();
-            maquinaria.Show();
+           // Frm_Maquinaria maquinaria = new Frm_Maquinaria();
+            //maquinaria.Show();
         }
 
         // Botón de empleados (enlace a RRHH)
@@ -163,6 +163,12 @@ namespace Capa_Vista_Produccion
         {
             Frm_Receta receta = new Frm_Receta();
             receta.Show();
+        }
+
+        private void btnMantenimiento_Click_1(object sender, EventArgs e)
+        {
+            Frm_Mantenimiento_Produccion MP = new Frm_Mantenimiento_Produccion();
+            MP.Show();
         }
 
 
