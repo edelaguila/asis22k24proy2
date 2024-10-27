@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+//using Capa_Controlador_Seguridad;
 using Capa_Controlador_Polizas;
 
 namespace Capa_Vista_Polizas
@@ -18,9 +19,19 @@ namespace Capa_Vista_Polizas
         private string idtp;
         List<object[]> detalles = new List<object[]>();
 
+        //Seguridad y usuario
+        string idUsuario;
+
         public frmPolizas()
         {
             InitializeComponent();
+
+            //Capa_controlador_Seguridad
+            //logica lg = new logica();
+
+            //this.idUsuario = idUsuario;
+            //this.Text = "Generación de polizas - " + idUsuario + " ";
+
             llenarseCuentas("tbl_cuentas", "Pk_id_cuenta", "nombre_cuenta");
             llenarseTP("tbl_tipopoliza", "Pk_id_tipopoliza", "tipo");
             llenarseOP("tbl_tipooperacion", "Pk_id_tipooperacion", "nombre");
@@ -493,6 +504,10 @@ namespace Capa_Vista_Polizas
                             LimpiarCamposDetelle();
                             LimpiarCamposEnc();
                             dgvPolizas.Rows.Clear();
+
+                            //Guardado en bitacora
+                            //lg.funinsertarabitacora(sIdUsuario, "Actualizó registro", sTablaPrincipal, sIdAplicacion);
+
                             MessageBox.Show("Se registró correctamente");
                         }
                     }
@@ -529,6 +544,7 @@ namespace Capa_Vista_Polizas
                 dtpfecha.Value = DateTime.Today;
             }
         }
+
     }
 }
 
