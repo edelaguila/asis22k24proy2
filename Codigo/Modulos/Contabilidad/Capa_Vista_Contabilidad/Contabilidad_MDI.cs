@@ -342,9 +342,30 @@ namespace Capa_Vista_Contabilidad
 
         private void btnPresupuestos_Click(object sender, EventArgs e)
         {
-            /*AbrirFormulario<Presupuesto>();
+            AbrirFormulario<Presupuesto>();
             btnPresupuestos.BackColor = Color.FromArgb(247, 55, 62);
-            ocultaSubMenu();*/
+            ocultaSubMenu();
+        }
+
+        private void BtnCierreCuentas_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<PartidaCierre>();
+            BtnCierreCuentas.BackColor = Color.FromArgb(247, 55, 62);
+            ocultaSubMenu();
+        }
+
+        private void btnCierreGeneral_Click_1(object sender, EventArgs e)
+        {
+            AbrirFormulario<CierreContable>();
+            btnCierreGeneral.BackColor = Color.FromArgb(247, 55, 62);
+            ocultaSubMenu();
+        }
+
+        private void btnEstadosFin_Click_1(object sender, EventArgs e)
+        {
+            AbrirFormulario<EstadosFinancieros>();
+            btnEstadosFin.BackColor = Color.FromArgb(247, 55, 62);
+            ocultaSubMenu();
         }
 
 
