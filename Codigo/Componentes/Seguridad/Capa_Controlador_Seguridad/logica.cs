@@ -19,12 +19,12 @@ namespace Capa_Controlador_Seguridad
 
         public logica() { }
 
-        public DataTable funconsultaLogicaUsuarios()
+        public DataTable funconsultaLogicaUsuariosAplicaciones()
         {
 
             try
             {
-                OdbcDataAdapter dtUsuario = sn.funUsuarios();
+                OdbcDataAdapter dtUsuario = sn.funUsuariosAplicaciones();
                 DataTable tableUsuario = new DataTable();
                 dtUsuario.Fill(tableUsuario);
                 return tableUsuario;
@@ -35,6 +35,22 @@ namespace Capa_Controlador_Seguridad
                 return null;
             }
 
+        }
+
+        public DataTable funconsultaLogicaUsuarios(string estado = "todos")
+        {
+            try
+            {
+                OdbcDataAdapter dtUsuario = sn.funUsuarios(estado);
+                DataTable tableUsuario = new DataTable();
+                dtUsuario.Fill(tableUsuario);
+                return tableUsuario;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
         }
 
         public DataTable Funmostraraplicaciones()

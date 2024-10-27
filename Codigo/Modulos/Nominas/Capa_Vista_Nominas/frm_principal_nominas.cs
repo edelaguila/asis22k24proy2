@@ -279,6 +279,20 @@ namespace Capa_Vista_Nominas
             ocultaSubMenu();
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            AbrirFormulario<frm_liquidacionempleados>(); // Pasa el idUsuario
+            Btn_puesto.BackColor = Color.FromArgb(12, 61, 92);
+            ocultaSubMenu();
+        }
+
+        private void Btn_vacaciones_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<frm_vacacionesempleados>(); // Pasa el idUsuario
+            Btn_puesto.BackColor = Color.FromArgb(12, 61, 92);
+            ocultaSubMenu();
+        }
+
         #endregion
         //Metodo para abrir formularios dentro de panel contenedor
         private void AbrirFormulario<MiForm>() where MiForm : Form, new()

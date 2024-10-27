@@ -16,7 +16,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
         public OdbcDataAdapter DisplayTransacciones()// método que obtiene el contenido de la tabla reportes
         {
             string sSql = "SELECT PK_id_transaccion, Fk_id_clientes, Fk_id_pais, fecha_transaccion, cuenta_transaccion, cuotas_transaccion, Fk_id_deuda" +
-                "monto_deuda, monto_transaccion, saldo_pendiente, Fk_id_pago, tipo_moneda, serie_transaccion, estado_transaccion FROM " 
+                "monto_deuda, monto_transaccion, saldo_pendiente, Fk_id_pago, tipo_moneda, serie_transaccion, estado FROM " 
                 + sTabla_transaccion + " WHERE Pk_id_transaccion IS NOT NULL AND Pk_id_transaccion != '';";
             OdbcDataAdapter dataTable = new OdbcDataAdapter();
             try
@@ -49,7 +49,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
 
         public List<string> getDeudas()
         {
-            string sQuery = "SELECT Pk_id_deuda, estado_deuda FROM Tbl_Deudas_Clientes;";
+            string sQuery = "SELECT Pk_id_deuda, estado FROM Tbl_Deudas_Clientes;";
             List<string> deudasCodes = new List<string>();
 
             try
@@ -60,7 +60,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
 
                 foreach (DataRow row in table.Rows)
                 {
-                    if (row["estado_deuda"].ToString().Equals("1"))
+                    if (row["estado"].ToString().Equals("1"))
                     {
                         string sCodigoDeuda = row["Pk_id_deuda"].ToString();
                         deudasCodes.Add(sCodigoDeuda);
@@ -76,7 +76,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
         }
         public List<string> getPagos()
         {
-            string sQuery = "SELECT Pk_id_pago, estado_pago FROM Tbl_tipodepago;";
+            string sQuery = "SELECT Pk_id_pago, estado FROM Tbl_tipodepago;";
             List<string> pagosCodes = new List<string>();
 
             try
@@ -87,7 +87,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
 
                 foreach (DataRow row in table.Rows)
                 {
-                    if (row["estado_pago"].ToString().Equals("1"))
+                    if (row["estado"].ToString().Equals("1"))
                     {
                         string sCodigoPago = row["Pk_id_pago"].ToString();
                         pagosCodes.Add(sCodigoPago);
@@ -104,7 +104,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
 
         public List<string> getClientes()
         {
-            string sQuery = "SELECT Pk_id_cliente, estado_cliente FROM Tbl_clientes;";
+            string sQuery = "SELECT Pk_id_cliente, estado FROM Tbl_clientes;";
             List<string> clientesCodes = new List<string>();
 
             try
@@ -115,7 +115,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
 
                 foreach (DataRow row in table.Rows)
                 {
-                    if (row["estado_cliente"].ToString().Equals("1"))
+                    if (row["estado"].ToString().Equals("1"))
                     {
                         string sCodigoCliente = row["Pk_id_cliente"].ToString();
                         clientesCodes.Add(sCodigoCliente);
@@ -132,7 +132,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
 
         public List<string> getPais()
         {
-            string sQuery = "SELECT Pk_id_pais, estatus_pais FROM Tbl_paises;";
+            string sQuery = "SELECT Pk_id_pais, estado FROM Tbl_paises;";
             List<string> paisCodes = new List<string>();
 
             try
@@ -143,7 +143,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
 
                 foreach (DataRow row in table.Rows)
                 {
-                    if (row["estatus_pais"].ToString().Equals("1"))
+                    if (row["estado"].ToString().Equals("1"))
                     {
                         string sCodigoPais = row["Pk_id_pais"].ToString();
                         paisCodes.Add(sCodigoPais);
@@ -166,7 +166,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
             try
             {
                 string sCampos = "PK_id_transaccion, Fk_id_clientes, Fk_id_pais, fecha_transaccion, cuenta_transaccion, cuotas_transaccion, Fk_id_deuda" +
-                "monto_deuda, monto_transaccion, saldo_pendiente, Fk_id_pago, tipo_moneda, serie_transaccion, estado_transaccion";
+                "monto_deuda, monto_transaccion, saldo_pendiente, Fk_id_pago, tipo_moneda, serie_transaccion, estado";
                 string sSql = "INSERT INTO " + sTabla_transaccion + " (" + sCampos + ") VALUES ('" + Pk_id_transaccion + "', '" + Fk_id_clientes + "', '" 
                     + Fk_id_pais + "', '" + fecha_transaccion + "', '" + cuenta_transaccion + "', '" + cuotas_transaccion + "', '" + Fk_id_deuda + "'" +
                     ", '" + monto_deuda + "', '" + monto_transaccion + "', '" + saldo_pendiente + "', '" + Fk_id_pago + "', '" + tipo_moneda + "', '" + serie_transaccion + "', '" + estado_transaccion + "');";
@@ -186,7 +186,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
  
         public OdbcDataAdapter DisplayPaises()// método que obtiene el contenido de la tabla PAISES
         {
-            string sSql = "SELECT Pk_id_pais, nombre_pais, region_pais, estatus_pais FROM  "
+            string sSql = "SELECT Pk_id_pais, nombre_pais, region_pais, estado FROM  "
                 + sTabla_Paises + " WHERE Pk_id_pais IS NOT NULL AND Pk_id_pais != '';";
             OdbcDataAdapter dataTable = new OdbcDataAdapter();
             try
@@ -201,14 +201,14 @@ namespace Capa_Modelo_Cuentas_Corrientes
             return dataTable;
         }
 
-        public void registrarPais(string Pk_id_pais, string nombre_pais, string region_pais, string estatus_pais)
+        public void registrarPais(string Pk_id_pais, string nombre_pais, string region_pais, string estado)
         {
             //la variable campos es una variable plana donde se ponen los nombres de las columnas para guardar el reporte
             try
             {
-                string sCampos = "Pk_id_pais, nombre_pais, region_pais, estatus_pais";
+                string sCampos = "Pk_id_pais, nombre_pais, region_pais, estado";
                 string sSql = "INSERT INTO " + sTabla_Paises + " (" + sCampos + ") VALUES ('" + Pk_id_pais + "', '" + nombre_pais + "', '"
-                    + region_pais + "', '" + estatus_pais + "');";
+                    + region_pais + "', '" + estado + "');";
                 OdbcCommand cmd = new OdbcCommand(sSql, conexion.conexion());
                 cmd.ExecuteNonQuery();
             }
@@ -236,7 +236,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
 
         public OdbcDataAdapter queryPaises(string sQuery)
         {
-            string sql = "SELECT Pk_id_pais, nombre_pais, region_pais, estatus_pais FROM " + sTabla_Paises + " WHERE nombre_pais LIKE '%" + sQuery + "%' OR nombre_pais LIKE '%" + sQuery + "%';";
+            string sql = "SELECT Pk_id_pais, nombre_pais, region_pais, estado FROM " + sTabla_Paises + " WHERE nombre_pais LIKE '%" + sQuery + "%' OR nombre_pais LIKE '%" + sQuery + "%';";
 
             OdbcDataAdapter dataTable = new OdbcDataAdapter(sql, conexion.conexion());
             return dataTable;
@@ -262,7 +262,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
 
         public OdbcDataAdapter DisplayVendedores()// método que obtiene el contenido de la tabla VENDEDORES
         {
-            string sSql = "SELECT Pk_id_vendedor, nombre_vendedor, direccion_vendedor, telefono_vendedor, departamento_vendedor, estado_vendedor FROM  "
+            string sSql = "SELECT Pk_id_vendedor, nombre_vendedor, direccion_vendedor, telefono_vendedor, departamento_vendedor, estado FROM  "
                 + sTabla_Vendedor + " WHERE Pk_id_vendedor IS NOT NULL AND Pk_id_vendedor != '';";
             OdbcDataAdapter dataTable = new OdbcDataAdapter();
             try
@@ -283,7 +283,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
             //la variable campos es una variable plana donde se ponen los nombres de las columnas para guardar el reporte
             try
             {
-                string sCampos = "Pk_id_vendedor, nombre_vendedor, direccion_vendedor, telefono_vendedor, departamento_vendedor, estado_vendedor";
+                string sCampos = "Pk_id_vendedor, nombre_vendedor, direccion_vendedor, telefono_vendedor, departamento_vendedor, estado";
                 string sSql = "INSERT INTO " + sTabla_Vendedor + " (" + sCampos + ") VALUES ('" + Pk_id_vendedor + "', '" + nombre_vendedor + "', '"
                     + direccion_vendedor + "', '" + telefono_vendedor + "', '" + departamento_vendedor + "', '" + estado_vendedor + "');";
                 OdbcCommand cmd = new OdbcCommand(sSql, conexion.conexion());
@@ -313,7 +313,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
 
         public OdbcDataAdapter queryVendedor(string sQuery)
         {
-            string sql = "SELECT  Pk_id_vendedor, nombre_vendedor, direccion_vendedor, telefono_vendedor, departamento_vendedor, estado_vendedor FROM " 
+            string sql = "SELECT  Pk_id_vendedor, nombre_vendedor, direccion_vendedor, telefono_vendedor, departamento_vendedor, estado FROM " 
                 + sTabla_Vendedor + " WHERE nombre_vendedor LIKE '%" + sQuery + "%' OR nombre_vendedor LIKE '%" + sQuery + "%';";
 
             OdbcDataAdapter dataTable = new OdbcDataAdapter(sql, conexion.conexion());
@@ -322,7 +322,6 @@ namespace Capa_Modelo_Cuentas_Corrientes
 
         public void eliminarVendedor(string sId_vendedor)
         {
-            //funcioón para eliminar el reporte seleccionado, donde se utiliza la tabla declarada globalmente y el número de reporte que se pasa por parametro.
             try
             {
                 string sSql = "delete from " + sTabla_Vendedor + " where Pk_id_vendedor = " + sId_vendedor + "; ";
@@ -356,7 +355,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
         public OdbcDataAdapter DisplayDeudas()// método que obtiene el contenido de la tabla VENDEDORES
         {
             string sSql = "SELECT Pk_id_deuda, Fk_id_cliente, Fk_id_cobrador, Fk_id_pago, monto_deuda, fecha_inicio_deuda, " +
-                "fecha_vencimiento_deuda, descripcion_deuda, estado_deuda FROM  "
+                "fecha_vencimiento_deuda, descripcion_deuda, estado FROM  "
                 + sTabla_Deuda + " WHERE Pk_id_deuda IS NOT NULL AND Pk_id_deuda != '';";
             OdbcDataAdapter dataTable = new OdbcDataAdapter();
             try
@@ -372,7 +371,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
         }
         public List<string> getPagosd()
         {
-            string sQuery = "SELECT Pk_id_pago, estado_pago FROM Tbl_tipodepago;";
+            string sQuery = "SELECT Pk_id_pago, estado FROM Tbl_tipodepago;";
             List<string> pagosCodes = new List<string>();
 
             try
@@ -383,7 +382,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
 
                 foreach (DataRow row in table.Rows)
                 {
-                    if (row["estado_pago"].ToString().Equals("1"))
+                    if (row["estado"].ToString().Equals("1"))
                     {
                         string sCodigoPago = row["Pk_id_pago"].ToString();
                         pagosCodes.Add(sCodigoPago);
@@ -400,7 +399,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
 
         public List<string> getClientesd()
         {
-            string sQuery = "SELECT Pk_id_cliente, estado_cliente FROM Tbl_clientes;";
+            string sQuery = "SELECT Pk_id_cliente, estado FROM Tbl_clientes;";
             List<string> clientesCodes = new List<string>();
 
             try
@@ -411,7 +410,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
 
                 foreach (DataRow row in table.Rows)
                 {
-                    if (row["estado_cliente"].ToString().Equals("1"))
+                    if (row["estado"].ToString().Equals("1"))
                     {
                         string sCodigoCliente = row["Pk_id_cliente"].ToString();
                         clientesCodes.Add(sCodigoCliente);
@@ -428,7 +427,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
 
         public List<string> getCobrador()
         {
-            string sQuery = "SELECT Pk_id_cobrador, estado_cobrador FROM Tbl_cobrador;";
+            string sQuery = "SELECT Pk_id_cobrador, estado FROM Tbl_cobrador;";
             List<string> cobradorCodes = new List<string>();
 
             try
@@ -439,7 +438,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
 
                 foreach (DataRow row in table.Rows)
                 {
-                    if (row["estado_cobrador"].ToString().Equals("1"))
+                    if (row["estado"].ToString().Equals("1"))
                     {
                         string sCodigoCobrador = row["Pk_id_cobrador"].ToString();
                         cobradorCodes.Add(sCodigoCobrador);
@@ -460,7 +459,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
             //la variable campos es una variable plana donde se ponen los nombres de las columnas para guardar el reporte
             try
             {
-                string sCampos = " Pk_id_deuda, Fk_id_cliente, Fk_id_cobrador, Fk_id_pago, monto_deuda, fecha_inicio_deuda, fecha_vencimiento_deuda, descripcion_deuda, estado_deuda";
+                string sCampos = " Pk_id_deuda, Fk_id_cliente, Fk_id_cobrador, Fk_id_pago, monto_deuda, fecha_inicio_deuda, fecha_vencimiento_deuda, descripcion_deuda, estado";
                 string sSql = "INSERT INTO " + sTabla_Deuda + " (" + sCampos + ") VALUES ('" + Pk_id_deuda + "', '" + Fk_id_cliente + "', '"
                     + Fk_id_cobrador + "', '" + Fk_id_pago + "', '" + monto_deuda + "', '" + fecha_inicio_deuda + "', '" + fecha_vencimiento_deuda +
                     "', '" + descripcion_deuda+ "', '" + estado_deuda + "');";
@@ -476,7 +475,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
         public OdbcDataAdapter queryDeuda(string sQuery)
         {
             string sql = "SELECT  Pk_id_deuda, Fk_id_cliente, Fk_id_cobrador, Fk_id_pago, monto_deuda, fecha_inicio_deuda, " +
-                "fecha_vencimiento_deuda, descripcion_deuda, estado_deuda FROM "
+                "fecha_vencimiento_deuda, descripcion_deuda, estado FROM "
                 + sTabla_Deuda + " WHERE Pk_id_deuda LIKE '%" + sQuery + "%' OR Pk_id_deuda LIKE '%" + sQuery + "%';";
 
             OdbcDataAdapter dataTable = new OdbcDataAdapter(sql, conexion.conexion());
@@ -485,7 +484,6 @@ namespace Capa_Modelo_Cuentas_Corrientes
 
         public void eliminarDeuda(string sId_deuda)
         {
-            //funcioón para eliminar el reporte seleccionado, donde se utiliza la tabla declarada globalmente y el número de reporte que se pasa por parametro.
             try
             {
                 string sSql = "delete from " + sTabla_Deuda + " where Pk_id_vendedor = " + sId_deuda + "; ";
@@ -503,7 +501,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
 
         public OdbcDataAdapter DisplayClientes()//
         {
-            string sSql = "SELECT Pk_id_cliente, Fk_id_vendedor, nombre_cliente, direccion_cliente, telefono_cliente, saldo_cuenta, estado_cliente FROM  "
+            string sSql = "SELECT Pk_id_cliente, Fk_id_vendedor, nombre_cliente, direccion_cliente, telefono_cliente, saldo_cuenta, estado FROM  "
                 + sTabla_Clientes + " WHERE Pk_id_cliente IS NOT NULL AND Pk_id_cliente != '';";
             OdbcDataAdapter dataTable = new OdbcDataAdapter();
             try
@@ -535,7 +533,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
 
         public List<string> getVendedores()
         {
-            string sQuery = "SELECT Pk_id_vendedor, estado_vendedor FROM Tbl_vendedor;";
+            string sQuery = "SELECT Pk_id_vendedor, estado FROM Tbl_vendedor;";
             List<string> vendedorCodes = new List<string>();
 
             try
@@ -546,7 +544,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
 
                 foreach (DataRow row in table.Rows)
                 {
-                    if (row["estado_vendedor"].ToString().Equals("1"))
+                    if (row["estado"].ToString().Equals("1"))
                     {
                         string sCodigoPago = row["Pk_id_vendedor"].ToString();
                         vendedorCodes.Add(sCodigoPago);
@@ -567,7 +565,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
             //la variable campos es una variable plana donde se ponen los nombres de las columnas para guardar el reporte
             try
             {
-                string sCampos = " Pk_id_cliente, Fk_id_vendedor, nombre_cliente, direccion_cliente, telefono_cliente, saldo_cuenta,estado_cliente";
+                string sCampos = " Pk_id_cliente, Fk_id_vendedor, nombre_cliente, direccion_cliente, telefono_cliente, saldo_cuenta, estado";
                 string sSql = "INSERT INTO " + sTabla_Clientes + " (" + sCampos + ") VALUES ('" + Pk_id_cliente + "', '" + Fk_id_vendedor + "', '"
                     + nombre_cliente + "', '" + direccion_cliente + "', '" + telefono_cliente + "', '" + saldo_cuenta + "', '" + estado_cliente + "');";
                 OdbcCommand cmd = new OdbcCommand(sSql, conexion.conexion());
@@ -581,7 +579,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
 
         public OdbcDataAdapter queryCliente(string sQuery)
         {
-            string sql = "SELECT  Pk_id_cliente, Fk_id_vendedor, nombre_cliente, direccion_cliente, telefono_cliente, saldo_cuenta, estado_cliente FROM "
+            string sql = "SELECT  Pk_id_cliente, Fk_id_vendedor, nombre_cliente, direccion_cliente, telefono_cliente, saldo_cuenta, estado FROM "
                 + sTabla_Clientes + " WHERE Pk_id_cliente LIKE '%" + sQuery + "%' OR Pk_id_cliente LIKE '%" + sQuery + "%';";
 
             OdbcDataAdapter dataTable = new OdbcDataAdapter(sql, conexion.conexion());
@@ -590,7 +588,6 @@ namespace Capa_Modelo_Cuentas_Corrientes
 
         public void eliminarCliente(string sId_cliente)
         {
-            //funcioón para eliminar el reporte seleccionado, donde se utiliza la tabla declarada globalmente y el número de reporte que se pasa por parametro.
             try
             {
                 string sSql = "delete from " + sTabla_Clientes + " where Pk_id_cliente = " + sId_cliente + "; ";
@@ -606,7 +603,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
         //Cobrador
         public OdbcDataAdapter DisplayCobradores()// método que obtiene el contenido de la tabla reportes
         {
-            string sSql = "SELECT Pk_id_cobrador, nombre_cobrador, direccion_cobrador, telefono_cobrador, departamento_cobrador, estado_cobrador FROM " + Tbl_cobrador + " WHERE Pk_id_cobrador IS NOT NULL AND Pk_id_cobrador != '';";
+            string sSql = "SELECT Pk_id_cobrador, nombre_cobrador, direccion_cobrador, telefono_cobrador, depto_cobrador, estado FROM " + Tbl_cobrador + " WHERE Pk_id_cobrador IS NOT NULL AND Pk_id_cobrador != '';";
             OdbcDataAdapter dataTable = new OdbcDataAdapter();
             try
             {
@@ -626,7 +623,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
             //la variable campos es una variable plana donde se ponen los nombres de las columnas para guardar el reporte
             try
             {
-                string sCampos = "Pk_id_cobrador, nombre_cobrador, direccion_cobrador, telefono_cobrador, departamento_cobrador, estado_cobrador";
+                string sCampos = "Pk_id_cobrador, nombre_cobrador, direccion_cobrador, telefono_cobrador, depto_cobrador, estado";
                 string sSql = "INSERT INTO " + Tbl_cobrador + " (" + sCampos + ") VALUES ('" + idCobrador + "', '" + sNombre + "', '" + sDireccion + "', '" + sTelefono + "', '" + sDepartamento + "', '" + sEstado + "');";
                 OdbcCommand cmd = new OdbcCommand(sSql, conexion.conexion());
                 cmd.ExecuteNonQuery();
@@ -639,7 +636,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
 
         public OdbcDataAdapter queryCobrador(string sQuery)
         {
-            string sql = "SELECT  Pk_id_cobrador, nombre_cobrador, direccion_cobrador, telefono_cobrador, departamento_cobrador, estado_cobrador FROM "
+            string sql = "SELECT  Pk_id_cobrador, nombre_cobrador, direccion_cobrador, telefono_cobrador, depto_cobrador, estado FROM "
                 + Tbl_cobrador + " WHERE nombre_cobrador LIKE '%" + sQuery + "%' OR nombre_cobrador LIKE '%" + sQuery + "%';";
 
             OdbcDataAdapter dataTable = new OdbcDataAdapter(sql, conexion.conexion());
@@ -648,23 +645,22 @@ namespace Capa_Modelo_Cuentas_Corrientes
 
         public int getMaxIdCobrador()
         {
-            int iPk_id_paises = 0;
+            int iPk_id_cobrador = 0;
             string sSql = "SELECT max(Pk_id_cobrador) FROM " + Tbl_cobrador + ";";
             try
             {
                 OdbcCommand cmd = new OdbcCommand(sSql, conexion.conexion());
-                iPk_id_paises = (int)cmd.ExecuteScalar();
+                iPk_id_cobrador = (int)cmd.ExecuteScalar();
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message.ToString() + " \nNo se pudo obtener el id del registro en la tabla " + Tbl_cobrador);
             }
-            return iPk_id_paises;
+            return iPk_id_cobrador;
         }
 
         public void eliminarcobrador(string sId_cobrador)
         {
-            //funcioón para eliminar el reporte seleccionado, donde se utiliza la tabla declarada globalmente y el número de reporte que se pasa por parametro.
             try
             {
                 string sSql = "delete from " + Tbl_cobrador + " where Pk_id_cobrador = " + sId_cobrador + "; ";
@@ -680,18 +676,18 @@ namespace Capa_Modelo_Cuentas_Corrientes
         //Forma de pago
         public int getMaxIdFrmPago()
         {
-            int iPk_id_paises = 0;
+            int iPk_id_pago = 0;
             string sSql = "SELECT max(Pk_id_pago) FROM " + Tbl_tipodepago + ";";
             try
             {
                 OdbcCommand cmd = new OdbcCommand(sSql, conexion.conexion());
-                iPk_id_paises = (int)cmd.ExecuteScalar();
+                iPk_id_pago = (int)cmd.ExecuteScalar();
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message.ToString() + " \nNo se pudo obtener el id del registro en la tabla " + Tbl_tipodepago);
             }
-            return iPk_id_paises;
+            return iPk_id_pago;
         }
 
         string Tbl_tipodepago = "Tbl_tipodepago";
@@ -700,7 +696,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
             //la variable campos es una variable plana donde se ponen los nombres de las columnas para guardar el reporte
             try
             {
-                string sCamposFrmPago = "Pk_id_pago, nombre_pago, tipo_moneda, estado_pago";
+                string sCamposFrmPago = "Pk_id_pago, nombre_pago, tipo_moneda, estado";
                 string sSql = "INSERT INTO " + Tbl_tipodepago + " (" + sCamposFrmPago + ") VALUES ('" + idFormaPago + "', '" + sNombreFrmPago + "', '" + sMoneda + "', '" + sEstadoFrmPago + "');";
                 OdbcCommand cmd = new OdbcCommand(sSql, conexion.conexion());
                 cmd.ExecuteNonQuery();
@@ -713,7 +709,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
 
         public OdbcDataAdapter DisplayFrmPago()// método que obtiene el contenido de la tabla reportes
         {
-            string sSql = "SELECT Pk_id_pago, nombre_pago, tipo_moneda, estado_pago FROM " + Tbl_tipodepago + " WHERE Pk_id_pago IS NOT NULL AND Pk_id_pago != '';";
+            string sSql = "SELECT Pk_id_pago, nombre_pago, tipo_moneda, estado FROM " + Tbl_tipodepago + " WHERE Pk_id_pago IS NOT NULL AND Pk_id_pago != '';";
             OdbcDataAdapter dataTable = new OdbcDataAdapter();
             try
             {
@@ -729,7 +725,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
 
         public OdbcDataAdapter queryFrmPago(string sQuery)
         {
-            string sql = "SELECT  Pk_id_pago, nombre_pago, tipo_moneda, estado_pago FROM "
+            string sql = "SELECT  Pk_id_pago, nombre_pago, tipo_moneda, estado FROM "
                 + Tbl_tipodepago + " WHERE Pk_id_pago LIKE '%" + sQuery + "%' OR pk_id_pago LIKE '%" + sQuery + "%';";
 
             OdbcDataAdapter dataTable = new OdbcDataAdapter(sql, conexion.conexion());
@@ -738,7 +734,6 @@ namespace Capa_Modelo_Cuentas_Corrientes
 
         public void eliminarFrmPago(string sPk_id_pago)
         {
-            //funcioón para eliminar el reporte seleccionado, donde se utiliza la tabla declarada globalmente y el número de reporte que se pasa por parametro.
             try
             {
                 string sSql = "delete from " + Tbl_tipodepago + " where Pk_id_pago = " + sPk_id_pago + "; ";
@@ -759,7 +754,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
 
         public OdbcDataAdapter DisplayProv()
         {
-            string sSql = "SELECT Pk_id_proveedor, fecha_registro, nombre_proveedor, direccion, telefono, email, saldo_cuenta, estado_proveedor FROM  "
+            string sSql = "SELECT Pk_id_proveedor, fecha_registro, nombre_proveedor, direccion, telefono, email, saldo_cuenta, estado FROM  "
                 + sTabla_Proveedor + " WHERE Pk_id_proveedor IS NOT NULL AND Pk_id_proveedor != '';";
             OdbcDataAdapter dataTable = new OdbcDataAdapter();
             try
@@ -795,7 +790,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
             //la variable campos es una variable plana donde se ponen los nombres de las columnas para guardar el reporte
             try
             {
-                string sCampos = " Pk_id_proveedor, fecha_registro, nombre_proveedor, direccion, telefono, email, saldo_cuenta, estado_proveedor";
+                string sCampos = " Pk_id_proveedor, fecha_registro, nombre_proveedor, direccion, telefono, email, saldo_cuenta, estado";
                 string sSql = "INSERT INTO " + sTabla_Proveedor + " (" + sCampos + ") VALUES ('" + Pk_id_proveedor + "', '" + sfecha_registro + "', '"
                     + snombre_proveedor + "', '" + sdireccion + "', '" + stelefono + "', '" + semail + "', '" + ssaldo_cuenta + "', '" + sestado_proveedor+ "');";
                 OdbcCommand cmd = new OdbcCommand(sSql, conexion.conexion());
@@ -809,7 +804,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
 
         public OdbcDataAdapter queryProv(string sQuery)
         {
-            string sql = "SELECT  Pk_id_proveedor, fecha_registro, nombre_proveedor, direccion, telefono, email, saldo_cuenta, estado_proveedor FROM "
+            string sql = "SELECT  Pk_id_proveedor, fecha_registro, nombre_proveedor, direccion, telefono, email, saldo_cuenta, estado FROM "
                 + sTabla_Proveedor + " WHERE Pk_id_proveedor LIKE '%" + sQuery + "%' OR Pk_id_proveedor LIKE '%" + sQuery + "%';";
 
             OdbcDataAdapter dataTable = new OdbcDataAdapter(sql, conexion.conexion());
@@ -818,7 +813,6 @@ namespace Capa_Modelo_Cuentas_Corrientes
 
         public void eliminarProv(string sId_proveedor)
         {
-            //funcioón para eliminar el reporte seleccionado, donde se utiliza la tabla declarada globalmente y el número de reporte que se pasa por parametro.
             try
             {
                 string sSql = "delete from " + sTabla_Proveedor + " where Pk_id_proveedor = " + sId_proveedor + "; ";

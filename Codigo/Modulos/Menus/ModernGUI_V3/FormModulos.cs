@@ -45,14 +45,15 @@ namespace Interfac_V3
 
         private void btnSeguridad_Click(object sender, EventArgs e)
         {
-            // var usuario = new Capa_Vista_Seguridad.frm_login();
-            //string idUsuario= usuario.Txt_usuario.ToString();
+            var usuario = new Capa_Vista_Seguridad.frm_login();
+           string idUsuario= usuario.Txt_usuario.ToString();
 
-            //frm_login login = new frm_login();
-            //login.ShowDialog();
+           frm_login login = new frm_login();
+           login.ShowDialog();
 
-            MDI_Seguridad formMDI = new MDI_Seguridad(idUsuario);
+           MDI_Seguridad formMDI = new MDI_Seguridad(idUsuario);
             formMDI.Show();
+            this.Hide();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -78,7 +79,7 @@ namespace Interfac_V3
             */
 
             frm_principal_nominas nominas = new frm_principal_nominas(UsuarioSesion.GetIdUsuario());
-            nominas.Show();
+           nominas.Show();
 
 
         }
@@ -91,8 +92,8 @@ namespace Interfac_V3
 
         private void Btn_Contabilidad_Click(object sender, EventArgs e)
         {
-            Contabilidad_MDI conta = new Contabilidad_MDI(UsuarioSesion.GetIdUsuario());
-            conta.Show();
+          Contabilidad_MDI conta = new Contabilidad_MDI(UsuarioSesion.GetIdUsuario());
+          conta.Show();
         }
 
         private void Btn_Compras_Click(object sender, EventArgs e)
@@ -117,9 +118,8 @@ namespace Interfac_V3
 
         private void Btn_CuentasCorrientes_Click(object sender, EventArgs e)
         {
-            /*
-            Aqui debe de agregarse la referencia a cuentas corrientes
-            */
+            Capa_Vista_Cuentas_Corrientes.FormPrincipal cc = new Capa_Vista_Cuentas_Corrientes.FormPrincipal(UsuarioSesion.GetIdUsuario());
+            cc.Show();
         }
     }
 }

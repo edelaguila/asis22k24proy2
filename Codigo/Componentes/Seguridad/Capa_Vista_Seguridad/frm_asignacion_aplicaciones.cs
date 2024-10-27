@@ -62,11 +62,12 @@ namespace Capa_Vista_Seguridad
         {
             try
             {
-                DataTable dtPerfiles = logic.funconsultaLogicaUsuarios();
+                DataTable dtPerfiles = logic.funconsultaLogicaUsuariosAplicaciones();
                 Cbo_usuarios.Items.Clear();
                 foreach (DataRow row in dtPerfiles.Rows)
                 {
-                    Cbo_usuarios.Items.Add(row[0].ToString());
+                    // Aquí usamos el índice 1 para obtener el nombre del usuario en lugar del ID
+                    Cbo_usuarios.Items.Add(row["Nombre"].ToString());
                 }
             }
             catch (Exception ex)
@@ -74,6 +75,7 @@ namespace Capa_Vista_Seguridad
                 Console.WriteLine("Error al cargar usuarios: " + ex.Message);
             }
         }
+
         //termina
 
         //Trabajado María José Véliz

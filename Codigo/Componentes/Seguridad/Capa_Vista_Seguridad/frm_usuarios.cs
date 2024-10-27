@@ -39,7 +39,9 @@ namespace Capa_Vista_Seguridad
             Txt_respuesta.KeyPress += new KeyPressEventHandler(SoloLetras_KeyPress);
             Txt_buscar.KeyPress += new KeyPressEventHandler(txt_buscar_KeyPress);
             funmostrarusuarios();
-
+            Rdb_activos.CheckedChanged += Rdb_activos_CheckedChanged;
+            Rdb_inactivos.CheckedChanged += Rdb_inactivos_CheckedChanged;
+            Rdb_activos.Checked = true;
         }
 
         public frm_usuarios()
@@ -83,18 +85,54 @@ namespace Capa_Vista_Seguridad
             // txt_pregunta.Text = "";
             Txt_respuesta.Text = "";
             Cmb_Pregunta.SelectedIndex = -1;
+        }
+
+        void limpiarsindgv()
+        {
+            Txt_id.Text = "";
+            Txt_nombreusername.Text = "";
+            Txt_buscar.Text = "";
+            Txt_clave.Text = "";
+            Txt_apellido.Text = "";
+            Txt_nomb.Text = "";
+
+            Txt_correo.Text = "";
+            Rdb_habilitado.Checked = false;
+            Rdb_inhabilitado.Checked = false;
+            Txt_respuesta.Text = "";
+            Cmb_Pregunta.SelectedIndex = -1;
 
         }
 
+
         /********************Ismar Cortez*****************************************************/
-        void funmostrarusuarios() {
+
+        private void Rdb_activos_CheckedChanged(object sender, EventArgs e)
+        {
+            funmostrarusuarios();
+        }
+
+        private void Rdb_inactivos_CheckedChanged(object sender, EventArgs e)
+        {
+            funmostrarusuarios();
+        }
+        void funmostrarusuarios()
+        {
             try
             {
                 DataTable dtusuario;
-
                 if (string.IsNullOrEmpty(buscar))
                 {
-                    dtusuario = logica1.funconsultaLogicaUsuarios();
+                    string estadoFiltro;
+                    // Verificar qué RadioButton está seleccionado
+                    if (Rdb_activos.Checked)
+                        estadoFiltro = "1";
+                    else if (Rdb_inactivos.Checked)
+                        estadoFiltro = "0";
+                    else
+                        estadoFiltro = "todos"; // Por si ninguno está seleccionado
+
+                    dtusuario = logica1.funconsultaLogicaUsuarios(estadoFiltro);
                 }
                 else
                 {
@@ -103,22 +141,22 @@ namespace Capa_Vista_Seguridad
 
                 if (dtusuario == null || dtusuario.Rows.Count == 0)
                 {
-                    MessageBox.Show("No existen registros.", "Verificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("No existen registros.", "Verificación",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     Dgv_usuarios.DataSource = dtusuario;
-
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al encontrar usuarios " + ex.Message);
-            }
-        }
-        /****************************************************************************************/
+            }      
+    }
+    /****************************************************************************************/
 
-        private void Button1_Click_1(object sender, EventArgs e)
+    private void Button1_Click_1(object sender, EventArgs e)
         {
             buscar = Txt_buscar.Text.Trim();
 
@@ -306,7 +344,8 @@ namespace Capa_Vista_Seguridad
                 }
             }
 
-            limpiar();
+            funmostrarusuarios();
+            limpiarsindgv();
             Txt_nomb.Enabled = false;
             Txt_apellido.Enabled = false;
             Txt_correo.Enabled = false;
@@ -516,7 +555,7 @@ namespace Capa_Vista_Seguridad
 
             //limpiar
 
-            limpiar();
+            limpiarsindgv();
 
         }
 
@@ -567,7 +606,6 @@ namespace Capa_Vista_Seguridad
             correo = Txt_correo.Text;  // Nueva línea para el correo
             DateTime fechaActual = DateTime.Now;
             string fecha = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"); ;
-            // estadousuario = txt_estadousuario.Text;  // Nueva línea para el estado del usuario
             string estadousuario = "";//guarda lo del txt
 
             pregunta = Cmb_Pregunta.SelectedItem.ToString(); // Asignar la pregunta seleccionada en cmb;  // Nueva línea para la pregunta de seguridad
@@ -612,19 +650,12 @@ namespace Capa_Vista_Seguridad
 
                         // Asegúrate de pasar todos los parámetros necesarios
                         DataTable dtusuario = logica1.usuarios(nombre, apellido, id, claveHasheada, correo, fecha, estadousuario, pregunta, respuesta);
-                       // string mensaje = //$"ID: {idd}\n" +//id del guardar
-                       //$"Nombre: {nombre}\n" +
-                       //$"Apellido: {apellido}\n" +
-                       //$"UserName: {id}\n" +
-                       //$"Clave Hasheada: {claveHasheada}\n" +
-                       //$"Correo: {correo}\n" +
-                       //$"Estado Usuario: {estadousuario}\n" +
-                       //$"Pregunta: {pregunta}\n" +
-                       //$"Respuesta: {respuesta}";
 
                        // // Mostrar el mensaje en un MessageBox
                        // MessageBox.Show(mensaje, "Detalles del Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         MessageBox.Show("Usuario creado correctamente", "Nuevo Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        // Actualiza el DataGridView para mostrar el nuevo usuario
+                        funmostrarusuarios();
                     }
                     catch (Exception ex)
                     {
@@ -634,7 +665,7 @@ namespace Capa_Vista_Seguridad
                 }
 
 
-                limpiar();
+                limpiarsindgv();
                 Txt_clave.Enabled = false;
                 Txt_nomb.Enabled = false;
                 Txt_apellido.Enabled = false;
@@ -650,6 +681,10 @@ namespace Capa_Vista_Seguridad
                 Txt_correo.Enabled = false;
                 txt_estadousuario.Enabled = false;
                 Txt_respuesta.Enabled = false;
+                Rdb_habilitado.Enabled = false;
+                Rdb_inhabilitado.Enabled = false;
+                Txt_respuesta.Enabled = false;
+                Cmb_Pregunta.Enabled = false;
             }
         }
 
@@ -658,13 +693,14 @@ namespace Capa_Vista_Seguridad
             this.Close();
         }
 
-        //Fernando Gárcía - 0901-21-581
+        //Fernando García - 0901-21-581 inicio
         private void Dgv_usuarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0) // Verifica que se haya seleccionado una fila válida
             {
                 DataGridViewRow row = Dgv_usuarios.Rows[e.RowIndex];
 
+                // Asignar valores a los TextBox
                 Txt_id.Text = row.Cells["Usuario"].Value.ToString();
                 Txt_nomb.Text = row.Cells["Nombre"].Value.ToString();
                 Txt_apellido.Text = row.Cells["Apellido"].Value.ToString();
@@ -673,7 +709,7 @@ namespace Capa_Vista_Seguridad
                 Txt_nombreusername.Text = row.Cells["Username"].Value.ToString();
                 Txt_clave.Text = row.Cells["Password"].Value.ToString();
 
-                // Asigna el estado a los RadioButton
+                // Asignar el estado a los RadioButton
                 if (row.Cells["Estado"].Value.ToString() == "1")
                 {
                     Rdb_habilitado.Checked = true;
@@ -683,8 +719,19 @@ namespace Capa_Vista_Seguridad
                     Rdb_inhabilitado.Checked = true;
                 }
 
-                // Asigna la pregunta de seguridad al ComboBox
+                // Asignar la pregunta de seguridad al ComboBox
                 Cmb_Pregunta.SelectedItem = row.Cells["Pregunta"].Value.ToString();
+
+                // Habilitar los TextBox y otros controles
+                Txt_nomb.Enabled = true;
+                Txt_apellido.Enabled = true;
+                Txt_correo.Enabled = true;
+                Txt_respuesta.Enabled = true;
+                Cmb_Pregunta.Enabled = true;
+                Rdb_habilitado.Enabled = true;
+                Rdb_inhabilitado.Enabled = true;
+                Btn_modificar.Enabled = true;
+                Btn_eliminar.Enabled = true;
             }
         }
 
@@ -763,5 +810,7 @@ namespace Capa_Vista_Seguridad
         }
 
 
+
+        //Fernando García - 0901-21-581 fin
     }
 }

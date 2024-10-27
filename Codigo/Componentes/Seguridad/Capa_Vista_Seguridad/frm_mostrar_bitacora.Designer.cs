@@ -32,8 +32,8 @@
             this.Dgv_bitacora = new System.Windows.Forms.DataGridView();
             this.Txt_dato = new System.Windows.Forms.TextBox();
             this.Cmb_columna = new System.Windows.Forms.ComboBox();
-            this.Txt_columna = new System.Windows.Forms.Label();
-            this.Txt_ingresodato = new System.Windows.Forms.Label();
+            this.Lbl_columna = new System.Windows.Forms.Label();
+            this.Lbl_ingresaundato = new System.Windows.Forms.Label();
             this.Dtp_dato = new System.Windows.Forms.DateTimePicker();
             this.Dtp_hora = new System.Windows.Forms.DateTimePicker();
             this.Btn_ayuda = new System.Windows.Forms.Button();
@@ -47,8 +47,8 @@
             // 
             this.Dgv_bitacora.AllowUserToAddRows = false;
             this.Dgv_bitacora.AllowUserToDeleteRows = false;
-            this.Dgv_bitacora.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.Dgv_bitacora.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Dgv_bitacora.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Dgv_bitacora.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -62,7 +62,7 @@
             // 
             // Txt_dato
             // 
-            this.Txt_dato.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.Txt_dato.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Txt_dato.Location = new System.Drawing.Point(472, 46);
             this.Txt_dato.Name = "Txt_dato";
@@ -78,29 +78,29 @@
             this.Cmb_columna.TabIndex = 3;
             this.Cmb_columna.SelectedIndexChanged += new System.EventHandler(this.Cbo_columna_SelectedIndexChanged);
             // 
-            // Txt_columna
+            // Lbl_columna
             // 
-            this.Txt_columna.AutoSize = true;
-            this.Txt_columna.Location = new System.Drawing.Point(160, 20);
-            this.Txt_columna.Name = "Txt_columna";
-            this.Txt_columna.Size = new System.Drawing.Size(215, 21);
-            this.Txt_columna.TabIndex = 5;
-            this.Txt_columna.Text = "Selecciona una columna";
+            this.Lbl_columna.AutoSize = true;
+            this.Lbl_columna.Location = new System.Drawing.Point(160, 20);
+            this.Lbl_columna.Name = "Lbl_columna";
+            this.Lbl_columna.Size = new System.Drawing.Size(215, 21);
+            this.Lbl_columna.TabIndex = 5;
+            this.Lbl_columna.Text = "Selecciona una columna";
             // 
-            // Txt_ingresodato
+            // Lbl_ingresaundato
             // 
-            this.Txt_ingresodato.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.Lbl_ingresaundato.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Txt_ingresodato.AutoSize = true;
-            this.Txt_ingresodato.Location = new System.Drawing.Point(510, 20);
-            this.Txt_ingresodato.Name = "Txt_ingresodato";
-            this.Txt_ingresodato.Size = new System.Drawing.Size(143, 21);
-            this.Txt_ingresodato.TabIndex = 6;
-            this.Txt_ingresodato.Text = "Ingresa un dato";
+            this.Lbl_ingresaundato.AutoSize = true;
+            this.Lbl_ingresaundato.Location = new System.Drawing.Point(510, 20);
+            this.Lbl_ingresaundato.Name = "Lbl_ingresaundato";
+            this.Lbl_ingresaundato.Size = new System.Drawing.Size(143, 21);
+            this.Lbl_ingresaundato.TabIndex = 6;
+            this.Lbl_ingresaundato.Text = "Ingresa un dato";
             // 
             // Dtp_dato
             // 
-            this.Dtp_dato.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.Dtp_dato.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Dtp_dato.Location = new System.Drawing.Point(455, 46);
             this.Dtp_dato.Name = "Dtp_dato";
@@ -110,7 +110,7 @@
             // 
             // Dtp_hora
             // 
-            this.Dtp_hora.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.Dtp_hora.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Dtp_hora.Location = new System.Drawing.Point(455, 46);
             this.Dtp_hora.Name = "Dtp_hora";
@@ -136,7 +136,7 @@
             // Btn_borrarfiltros
             // 
             this.Btn_borrarfiltros.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Btn_borrarfiltros.BackgroundImage = global::Capa_Vista_Seguridad.Properties.Resources.borrar;
+            this.Btn_borrarfiltros.BackgroundImage = global::Capa_Vista_Seguridad.Properties.Resources.borrar1;
             this.Btn_borrarfiltros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Btn_borrarfiltros.FlatAppearance.BorderSize = 0;
             this.Btn_borrarfiltros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -151,7 +151,7 @@
             // Btn_buscar
             // 
             this.Btn_buscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Btn_buscar.BackgroundImage = global::Capa_Vista_Seguridad.Properties.Resources.buscar;
+            this.Btn_buscar.BackgroundImage = global::Capa_Vista_Seguridad.Properties.Resources.buscar1;
             this.Btn_buscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Btn_buscar.FlatAppearance.BorderSize = 0;
             this.Btn_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -166,7 +166,7 @@
             // Btn_actualizar
             // 
             this.Btn_actualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Btn_actualizar.BackgroundImage = global::Capa_Vista_Seguridad.Properties.Resources.actualizar;
+            this.Btn_actualizar.BackgroundImage = global::Capa_Vista_Seguridad.Properties.Resources.actualizar__3_;
             this.Btn_actualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Btn_actualizar.FlatAppearance.BorderSize = 0;
             this.Btn_actualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -188,8 +188,8 @@
             this.Controls.Add(this.Dtp_hora);
             this.Controls.Add(this.Btn_borrarfiltros);
             this.Controls.Add(this.Dtp_dato);
-            this.Controls.Add(this.Txt_ingresodato);
-            this.Controls.Add(this.Txt_columna);
+            this.Controls.Add(this.Lbl_ingresaundato);
+            this.Controls.Add(this.Lbl_columna);
             this.Controls.Add(this.Btn_buscar);
             this.Controls.Add(this.Cmb_columna);
             this.Controls.Add(this.Txt_dato);
@@ -214,8 +214,8 @@
         private System.Windows.Forms.TextBox Txt_dato;
         private System.Windows.Forms.ComboBox Cmb_columna;
         private System.Windows.Forms.Button Btn_buscar;
-        private System.Windows.Forms.Label Txt_columna;
-        private System.Windows.Forms.Label Txt_ingresodato;
+        private System.Windows.Forms.Label Lbl_columna;
+        private System.Windows.Forms.Label Lbl_ingresaundato;
         private System.Windows.Forms.DateTimePicker Dtp_dato;
         private System.Windows.Forms.Button Btn_borrarfiltros;
         private System.Windows.Forms.DateTimePicker Dtp_hora;
