@@ -45,6 +45,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sentencia_Ordenes.cs" />
     <Compile Include="Sentencia_Produccion.cs" />
+    <Compile Include="Sentencia_Sistema_Prod.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
