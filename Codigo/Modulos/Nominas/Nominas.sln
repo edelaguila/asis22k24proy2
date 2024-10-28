@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capa_Controlador_Nominas", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capa_Modelo_Nominas", "Capa_Modelo_Nominas\Capa_Modelo_Nominas.csproj", "{70429BD3-FA26-4482-A676-F4827B0BF3A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestLiquidacionesEmpleados", "TestLiquidacionesEmpleados\TestLiquidacionesEmpleados.csproj", "{46D54CB9-AFCD-4BF0-B7FF-B1E2AC03E916}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{70429BD3-FA26-4482-A676-F4827B0BF3A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70429BD3-FA26-4482-A676-F4827B0BF3A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70429BD3-FA26-4482-A676-F4827B0BF3A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46D54CB9-AFCD-4BF0-B7FF-B1E2AC03E916}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46D54CB9-AFCD-4BF0-B7FF-B1E2AC03E916}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46D54CB9-AFCD-4BF0-B7FF-B1E2AC03E916}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46D54CB9-AFCD-4BF0-B7FF-B1E2AC03E916}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
