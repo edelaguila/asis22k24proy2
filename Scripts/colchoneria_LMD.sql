@@ -650,7 +650,7 @@ INSERT INTO `tbl_permisos_aplicaciones_usuario` (`PK_id_Aplicacion_Usuario`, `Fk
 (6, 1, 1000, 1, 1, 1, 1, 1),
 (7, 1, 1000, 0, 0, 0, 0, 1);
 
-
+SET SQL_SAFE_UPDATES = 0;
 -- Se actualiza la contraseña de admin, ya que no debe ingresarse hasheado manualmente
 UPDATE `tbl_usuarios` SET `password_usuario` = 'HO0aGo4nM94=' WHERE `Pk_id_usuario` = 1;
 
@@ -734,3 +734,4 @@ VALUES
 (2, 3, CURDATE(), TRUE, 8, 10, 'Discrepancia detectada en el Sofá 3 Plazas.');
 
 -- LMD DE LOGISTICA FINAL
+SET SQL_SAFE_UPDATES = 1;
