@@ -24,6 +24,38 @@ namespace Capa_Modelo_Nominas
 
         /********0901-21-4866 - Kateryn Johana De León Hernández******************/
 
+        public void CalcularHorasExtras()
+        {
+            try
+            {
+                string mesActualTexto = DateTime.Now.ToString("MMMM", new System.Globalization.CultureInfo("es-ES"));
+                Console.WriteLine(mesActualTexto); // Esto imprimirá el mes actual como texto
+
+                using (OdbcCommand comando = new OdbcCommand("CALL Calcular_Horas_Extras_(?)", con.conexion()))
+                {
+                    comando.CommandType = CommandType.StoredProcedure;
+                    comando.Parameters.Add("@p_mes", OdbcType.VarChar).Value = mesActualTexto/*mesActualTexto.ToLower()*/; // Asegúrate de pasar el mes correcto en minúsculas
+
+                    // Ejecuta el comando y verifica si se afectó alguna fila
+                    int filasAfectadas = comando.ExecuteNonQuery();
+                    if (filasAfectadas > 0)
+                    {
+                        Console.WriteLine("El SP se ejecutó correctamente y afectó " + filasAfectadas + " filas.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("El SP se ejecutó, pero no afectó ninguna fila.");
+                    }
+                }
+            }
+            catch (OdbcException ex)
+            {
+                Console.WriteLine("Error al ejecutar el SP: " + ex.Message);
+                Console.WriteLine("No se ejecutó el SP.");
+            }
+        }
+
+
         /*************************************************************************/
 
 

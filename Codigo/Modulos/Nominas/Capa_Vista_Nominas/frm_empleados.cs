@@ -41,7 +41,7 @@ namespace Capa_Vista_Nominas
             navegador1.AsignarColorFuente(Color.Black);
             navegador1.ObtenerIdAplicacion("1000");
             navegador1.AsignarAyuda("1");
-            navegador1.ObtenerIdUsuario(idUsuario);
+           navegador1.ObtenerIdUsuario(idUsuario);
             navegador1.AsignarTabla("tbl_empleados");
 
             ///***Valores foraneos en Combobox*********/

@@ -26,7 +26,7 @@ namespace Capa_Vista_Contabilidad
             navegador1.AsignarColorFuente(Color.BlueViolet);
             navegador1.ObtenerIdAplicacion("1000");
             navegador1.AsignarAyuda("1");
-            navegador1.ObtenerIdUsuario(idusuario);
+           navegador1.ObtenerIdUsuario(idusuario);
             navegador1.AsignarTabla("tbl_encabezadoclasecuenta");
             // navegador1.AsignarComboConTabla("marcas_vehiculos", "codigo_marca", "nombre_marca", 1); ; // ComboBox para marcas de vehículos
             // navegador1.AsignarComboConTabla("tipos_vehiculos", "codigo_tipo", "nombre_tipo", 1); // ComboBox para tipos de vehículos

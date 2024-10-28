@@ -55,6 +55,6 @@ namespace Capa_Vista_CompraVenta
 
         #endregion
 
-        private Capa_Vista_Navegador.Navegador navegador1;
+       private Capa_Vista_Navegador.Navegador navegador1;
     }
 }

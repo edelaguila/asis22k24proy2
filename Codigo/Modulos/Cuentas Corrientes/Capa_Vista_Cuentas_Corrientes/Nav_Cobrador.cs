@@ -15,8 +15,7 @@ namespace Capa_Vista_Cuentas_Corrientes
         public Nav_Cobrador()
         {
             InitializeComponent();
-            string idUsuario = Interfac_V3.UsuarioSesion.GetIdUsuario();
-
+           string idUsuario = Interfac_V3.UsuarioSesion.GetIdUsuario();
             string[] alias = { "id_cobrador", "nombre_cobrador", "direccion_cobrador", "telefono_cobrador", "depto_cobrador", "estado" };
             navegador1.AsignarAlias(alias);
             navegador1.AsignarSalida(this);

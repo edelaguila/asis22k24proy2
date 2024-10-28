@@ -15,7 +15,7 @@ namespace Capa_Vista_Contabilidad
         public mantenimientomarca()
         {
             InitializeComponent();
-            string idusuario = Interfac_V3.UsuarioSesion.GetIdUsuario();
+           string idusuario = Interfac_V3.UsuarioSesion.GetIdUsuario();
             string[] alias = { "pkid", "TipoMarca", "Estado" };
             navegador1.AsignarAlias(alias);
             navegador1.AsignarSalida(this);

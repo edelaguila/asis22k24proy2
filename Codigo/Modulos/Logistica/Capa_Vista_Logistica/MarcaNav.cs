@@ -15,7 +15,7 @@ namespace Capa_Vista_Logistica
         public MarcaNav()
         {
             InitializeComponent();
-            string idUsuario = Interfac_V3.UsuarioSesion.GetIdUsuario();
+           string idUsuario = Interfac_V3.UsuarioSesion.GetIdUsuario();
             string[] alias = { "ID Producto", "CódProducto", "NomProducto", "MedProducto", "PrecUnitario", "Clasificación", "Estado" };
             navegador1.AsignarAlias(alias);
             navegador1.AsignarSalida(this);

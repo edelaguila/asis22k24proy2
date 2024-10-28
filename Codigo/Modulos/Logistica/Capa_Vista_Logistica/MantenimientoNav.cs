@@ -16,7 +16,7 @@ namespace Capa_Vista_Logistica
         public MantenimientoNav()
         {
             InitializeComponent();
-            string idUsuario = Interfac_V3.UsuarioSesion.GetIdUsuario();
+           string idUsuario = Interfac_V3.UsuarioSesion.GetIdUsuario();
             string[] alias = { "id_vehiculo", "numeroPlaca", "marca", "color", "descripcion", "horaLlegada", "horaSalida", "totalBultos", "pesoTotal", "id_chofer", "Estado" };
             navegador1.AsignarAlias(alias);
             navegador1.AsignarSalida(this);

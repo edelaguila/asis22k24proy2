@@ -23,7 +23,7 @@ namespace Capa_Vista_Logistica
             navegador1.AsignarColorFuente(Color.Black);
             navegador1.AsignarTabla("TBL_LOCALES");
             navegador1.ObtenerIdAplicacion("9004");
-            navegador1.ObtenerIdUsuario(idUsuario);
+           navegador1.ObtenerIdUsuario(idUsuario);
             navegador1.AsignarAyuda("1");
             navegador1.AsignarNombreForm("LOCALES");
         }
