@@ -34,6 +34,7 @@
             this.Txt_buscar_id = new System.Windows.Forms.Label();
             this.Btn_bsucar = new System.Windows.Forms.Button();
             this.Gpb_datos = new System.Windows.Forms.GroupBox();
+            this.Dgv_aplicaciones = new System.Windows.Forms.DataGridView();
             this.Gpb_estado = new System.Windows.Forms.GroupBox();
             this.Rdb_inhabilitado = new System.Windows.Forms.RadioButton();
             this.Rdb_habilitado = new System.Windows.Forms.RadioButton();
@@ -53,11 +54,11 @@
             this.Btn_ingresar = new System.Windows.Forms.Button();
             this.Btn_ayuda = new System.Windows.Forms.Button();
             this.Btn_salir = new System.Windows.Forms.Button();
-            this.Dgv_aplicaciones = new System.Windows.Forms.DataGridView();
+            this.Cbo_buscar = new System.Windows.Forms.ComboBox();
             this.Gpb_buscar.SuspendLayout();
             this.Gpb_datos.SuspendLayout();
-            this.Gpb_estado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_aplicaciones)).BeginInit();
+            this.Gpb_estado.SuspendLayout();
             this.SuspendLayout();
             // 
             // Gpb_buscar
@@ -65,6 +66,7 @@
             this.Gpb_buscar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Gpb_buscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.Gpb_buscar.Controls.Add(this.Cbo_buscar);
             this.Gpb_buscar.Controls.Add(this.Txt_buscar);
             this.Gpb_buscar.Controls.Add(this.Txt_buscar_id);
             this.Gpb_buscar.Controls.Add(this.Btn_bsucar);
@@ -84,7 +86,7 @@
             this.Txt_buscar.Location = new System.Drawing.Point(286, 28);
             this.Txt_buscar.Margin = new System.Windows.Forms.Padding(4);
             this.Txt_buscar.Name = "Txt_buscar";
-            this.Txt_buscar.Size = new System.Drawing.Size(283, 30);
+            this.Txt_buscar.Size = new System.Drawing.Size(283, 26);
             this.Txt_buscar.TabIndex = 240;
             this.Txt_buscar.Tag = "9";
             // 
@@ -95,7 +97,7 @@
             this.Txt_buscar_id.Location = new System.Drawing.Point(129, 35);
             this.Txt_buscar_id.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Txt_buscar_id.Name = "Txt_buscar_id";
-            this.Txt_buscar_id.Size = new System.Drawing.Size(86, 22);
+            this.Txt_buscar_id.Size = new System.Drawing.Size(68, 19);
             this.Txt_buscar_id.TabIndex = 238;
             this.Txt_buscar_id.Text = "Buscar Id";
             // 
@@ -139,6 +141,20 @@
             this.Gpb_datos.TabStop = false;
             this.Gpb_datos.Text = "Datos Aplicacion";
             // 
+            // Dgv_aplicaciones
+            // 
+            this.Dgv_aplicaciones.AllowUserToAddRows = false;
+            this.Dgv_aplicaciones.AllowUserToDeleteRows = false;
+            this.Dgv_aplicaciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Dgv_aplicaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dgv_aplicaciones.Location = new System.Drawing.Point(9, 196);
+            this.Dgv_aplicaciones.Name = "Dgv_aplicaciones";
+            this.Dgv_aplicaciones.ReadOnly = true;
+            this.Dgv_aplicaciones.RowHeadersWidth = 72;
+            this.Dgv_aplicaciones.RowTemplate.Height = 31;
+            this.Dgv_aplicaciones.Size = new System.Drawing.Size(769, 255);
+            this.Dgv_aplicaciones.TabIndex = 259;
+            // 
             // Gpb_estado
             // 
             this.Gpb_estado.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -164,7 +180,7 @@
             this.Rdb_inhabilitado.Location = new System.Drawing.Point(381, 0);
             this.Rdb_inhabilitado.Margin = new System.Windows.Forms.Padding(4);
             this.Rdb_inhabilitado.Name = "Rdb_inhabilitado";
-            this.Rdb_inhabilitado.Size = new System.Drawing.Size(131, 25);
+            this.Rdb_inhabilitado.Size = new System.Drawing.Size(111, 23);
             this.Rdb_inhabilitado.TabIndex = 1;
             this.Rdb_inhabilitado.TabStop = true;
             this.Rdb_inhabilitado.Text = "Inhabilitado";
@@ -178,7 +194,7 @@
             this.Rdb_habilitado.Location = new System.Drawing.Point(241, 0);
             this.Rdb_habilitado.Margin = new System.Windows.Forms.Padding(4);
             this.Rdb_habilitado.Name = "Rdb_habilitado";
-            this.Rdb_habilitado.Size = new System.Drawing.Size(118, 25);
+            this.Rdb_habilitado.Size = new System.Drawing.Size(100, 23);
             this.Rdb_habilitado.TabIndex = 0;
             this.Rdb_habilitado.TabStop = true;
             this.Rdb_habilitado.Text = "Habilitado";
@@ -191,7 +207,7 @@
             this.label3.Location = new System.Drawing.Point(22, 182);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 20);
+            this.label3.Size = new System.Drawing.Size(0, 16);
             this.label3.TabIndex = 229;
             // 
             // Txt_nombre
@@ -202,7 +218,7 @@
             this.Txt_nombre.Location = new System.Drawing.Point(249, 69);
             this.Txt_nombre.Margin = new System.Windows.Forms.Padding(4);
             this.Txt_nombre.Name = "Txt_nombre";
-            this.Txt_nombre.Size = new System.Drawing.Size(285, 30);
+            this.Txt_nombre.Size = new System.Drawing.Size(285, 26);
             this.Txt_nombre.TabIndex = 228;
             // 
             // Txt_descripcionA
@@ -212,7 +228,7 @@
             this.Txt_descripcionA.Location = new System.Drawing.Point(25, 114);
             this.Txt_descripcionA.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Txt_descripcionA.Name = "Txt_descripcionA";
-            this.Txt_descripcionA.Size = new System.Drawing.Size(107, 22);
+            this.Txt_descripcionA.Size = new System.Drawing.Size(81, 19);
             this.Txt_descripcionA.TabIndex = 193;
             this.Txt_descripcionA.Text = "Descripcion";
             // 
@@ -223,7 +239,7 @@
             this.Txt_nombreA.Location = new System.Drawing.Point(21, 76);
             this.Txt_nombreA.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Txt_nombreA.Name = "Txt_nombreA";
-            this.Txt_nombreA.Size = new System.Drawing.Size(171, 22);
+            this.Txt_nombreA.Size = new System.Drawing.Size(131, 19);
             this.Txt_nombreA.TabIndex = 205;
             this.Txt_nombreA.Text = " Nombre Aplicacion";
             // 
@@ -235,7 +251,7 @@
             this.Txt_descripcion.Location = new System.Drawing.Point(249, 111);
             this.Txt_descripcion.Margin = new System.Windows.Forms.Padding(4);
             this.Txt_descripcion.Name = "Txt_descripcion";
-            this.Txt_descripcion.Size = new System.Drawing.Size(285, 30);
+            this.Txt_descripcion.Size = new System.Drawing.Size(285, 26);
             this.Txt_descripcion.TabIndex = 226;
             this.Txt_descripcion.Tag = "2";
             // 
@@ -246,7 +262,7 @@
             this.Txt_id.Location = new System.Drawing.Point(25, 40);
             this.Txt_id.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Txt_id.Name = "Txt_id";
-            this.Txt_id.Size = new System.Drawing.Size(122, 22);
+            this.Txt_id.Size = new System.Drawing.Size(92, 19);
             this.Txt_id.TabIndex = 205;
             this.Txt_id.Text = "ID Aplicacion";
             // 
@@ -258,7 +274,7 @@
             this.Txt_idaplicacion.Location = new System.Drawing.Point(249, 33);
             this.Txt_idaplicacion.Margin = new System.Windows.Forms.Padding(4);
             this.Txt_idaplicacion.Name = "Txt_idaplicacion";
-            this.Txt_idaplicacion.Size = new System.Drawing.Size(285, 30);
+            this.Txt_idaplicacion.Size = new System.Drawing.Size(285, 26);
             this.Txt_idaplicacion.TabIndex = 226;
             this.Txt_idaplicacion.TextChanged += new System.EventHandler(this.Txt_idaplicacion_TextChanged);
             // 
@@ -270,7 +286,7 @@
             this.Txt_titulo.ForeColor = System.Drawing.Color.Transparent;
             this.Txt_titulo.Location = new System.Drawing.Point(157, 9);
             this.Txt_titulo.Name = "Txt_titulo";
-            this.Txt_titulo.Size = new System.Drawing.Size(634, 45);
+            this.Txt_titulo.Size = new System.Drawing.Size(496, 37);
             this.Txt_titulo.TabIndex = 260;
             this.Txt_titulo.Text = "M a n t e n i m i e n to  d e  A p l i c a c i o n e s";
             // 
@@ -398,23 +414,18 @@
             this.Btn_salir.UseVisualStyleBackColor = false;
             this.Btn_salir.Click += new System.EventHandler(this.Btn_salir_Click);
             // 
-            // Dgv_aplicaciones
+            // Cbo_buscar
             // 
-            this.Dgv_aplicaciones.AllowUserToAddRows = false;
-            this.Dgv_aplicaciones.AllowUserToDeleteRows = false;
-            this.Dgv_aplicaciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.Dgv_aplicaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dgv_aplicaciones.Location = new System.Drawing.Point(9, 196);
-            this.Dgv_aplicaciones.Name = "Dgv_aplicaciones";
-            this.Dgv_aplicaciones.ReadOnly = true;
-            this.Dgv_aplicaciones.RowHeadersWidth = 72;
-            this.Dgv_aplicaciones.RowTemplate.Height = 31;
-            this.Dgv_aplicaciones.Size = new System.Drawing.Size(769, 255);
-            this.Dgv_aplicaciones.TabIndex = 259;
+            this.Cbo_buscar.FormattingEnabled = true;
+            this.Cbo_buscar.Location = new System.Drawing.Point(286, 28);
+            this.Cbo_buscar.Name = "Cbo_buscar";
+            this.Cbo_buscar.Size = new System.Drawing.Size(283, 27);
+            this.Cbo_buscar.TabIndex = 299;
+            this.Cbo_buscar.SelectedIndexChanged += new System.EventHandler(this.Cbo_buscar_SelectedIndexChanged);
             // 
             // frm_aplicaciones
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(133)))), ((int)(((byte)(226)))));
             this.ClientSize = new System.Drawing.Size(870, 723);
@@ -440,9 +451,9 @@
             this.Gpb_buscar.PerformLayout();
             this.Gpb_datos.ResumeLayout(false);
             this.Gpb_datos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_aplicaciones)).EndInit();
             this.Gpb_estado.ResumeLayout(false);
             this.Gpb_estado.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Dgv_aplicaciones)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -474,5 +485,6 @@
         private System.Windows.Forms.RadioButton Rdb_inhabilitado;
         private System.Windows.Forms.RadioButton Rdb_habilitado;
         private System.Windows.Forms.DataGridView Dgv_aplicaciones;
+        private System.Windows.Forms.ComboBox Cbo_buscar;
     }
 }

@@ -29,7 +29,7 @@ namespace Capa_Vista_Seguridad
             ToolTip tguardar = new ToolTip();
             tguardar.SetToolTip(Btn_guardar, "Guardar nueva asignación");
             ToolTip tbuscar = new ToolTip();
-            tbuscar.SetToolTip(Btn_buscar, "Buscar todas las asignaciones");
+            tbuscar.SetToolTip(Btn_bsucar, "Buscar todas las asignaciones");
             ToolTip tcancelar = new ToolTip();
             tcancelar.SetToolTip(Btn_cancelar, "reestablecer");
             ToolTip tremover = new ToolTip();
@@ -245,7 +245,7 @@ namespace Capa_Vista_Seguridad
             Btn_agregar.Enabled = true;
             Btn_guardar.Enabled = true;
             Btn_cancelar.Enabled = true;
-            Btn_buscar.Enabled = true;
+            Btn_bsucar.Enabled = true;
             Btn_remover.Enabled = false;
             Gpb_consulta.Enabled = true;
             prolimpieza();
@@ -318,7 +318,7 @@ namespace Capa_Vista_Seguridad
                     Btn_agregar.Enabled = true;
                     Btn_remover.Enabled = true;
                     Btn_guardar.Enabled = true;
-                    Btn_buscar.Enabled = false;
+                    Btn_bsucar.Enabled = false;
                     Btn_cancelar.Enabled = false;
                     Gpb_consulta.Enabled = false;
                 }
@@ -370,7 +370,7 @@ namespace Capa_Vista_Seguridad
                 Btn_guardar.Enabled = false;
                 Btn_cancelar.Enabled = true;
                 Btn_remover.Enabled = false;
-                Btn_buscar.Enabled = true;
+                Btn_bsucar.Enabled = true;
                 Gpb_consulta.Enabled = true;
                 prolimpieza();
                 proactualizardatagriew();
@@ -379,14 +379,42 @@ namespace Capa_Vista_Seguridad
 
         private void Btn_remover_Click(object sender, EventArgs e)
         {
-            if (iContadorFila > 0)
+
+            try
             {
-                Dgv_asignacion_perfiles.Rows.RemoveAt(Dgv_asignacion_perfiles.CurrentRow.Index);
-                iContadorFila--;
+                // Verificar si hay una fila seleccionada en el DataGridView
+                if (Dgv_perfiles_asignados.SelectedRows.Count > 0)
+                {
+                    // Obtener el valor de la columna que contiene el código (suponiendo que sea la columna 0)
+                    string scodigo = Dgv_perfiles_asignados.SelectedRows[0].Cells[0].Value.ToString();
+
+                    // Confirmar la eliminación con el usuario
+                    DialogResult confirmacion = MessageBox.Show(
+                        "¿Está seguro de que desea eliminar esta asignación?",
+                        "Confirmación",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning);
+
+                    if (confirmacion == DialogResult.Yes)
+                    {
+                        // Llamar a la función de eliminación en la capa lógica
+                        bool eliminado = logic.funeliminarPerfilUsuario(scodigo);
+
+                        if (eliminado)
+                        {
+                            // Eliminar la fila del DataGridView para reflejar los cambios
+                            Dgv_perfiles_asignados.Rows.RemoveAt(Dgv_perfiles_asignados.SelectedRows[0].Index);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, seleccione una fila para eliminar.");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("No hay relaciones que eliminar");
+                MessageBox.Show($"Ocurrió un error: {ex.Message}");
             }
         }
 
@@ -404,12 +432,22 @@ namespace Capa_Vista_Seguridad
 
         private void Btn_cancelar_Click(object sender, EventArgs e)
         {
+
+            if (iContadorFila > 0)
+            {
+                Dgv_asignacion_perfiles.Rows.RemoveAt(Dgv_asignacion_perfiles.CurrentRow.Index);
+                iContadorFila--;
+            }
+            else
+            {
+                MessageBox.Show("No hay relaciones que eliminar");
+            }
             Cbo_usuario.Enabled = true;
             Cbo_perfiles.Enabled = true;
             Btn_agregar.Enabled = true;
             Btn_guardar.Enabled = true;
             Btn_cancelar.Enabled = true;
-            Btn_buscar.Enabled = true;
+            Btn_bsucar.Enabled = true;
             Btn_remover.Enabled = false;
             Gpb_consulta.Enabled = true;
             prolimpieza();

@@ -214,6 +214,22 @@ namespace Capa_Controlador_Seguridad
             }
         }
 
+        public DataTable funconsultaPerfilesUsuarios(string sID_apUsu)
+        {
+            try
+            {
+                OdbcDataAdapter dt = sn.funConsultarAsignaciones(sID_apUsu);
+                DataTable table = new DataTable();
+                dt.Fill(table);
+                return table;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
         public bool funconsultaLogicaInsertarPerfilUsuario(string scodigoUsuario, string scodigoPerfil)
         {
             try
@@ -227,6 +243,46 @@ namespace Capa_Controlador_Seguridad
                 return false;
             }
         }
+
+        public bool funconsultaLogicaAtualizarPerfilUsuario(string scodigo, string nuevoUsuarioID, string nuevoPerfilID)
+        {
+            try
+            {
+                // Llamar al método de actualización en la capa de servicio o datos
+                sn.funactualizarPerfilUsuario(scodigo, nuevoUsuarioID, nuevoPerfilID);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Manejar errores y registrar en la consola
+                Console.WriteLine("Error al actualizar la asignación: " + ex.Message);
+                return false;
+            }
+        }
+
+        public bool funeliminarPerfilUsuario(string scodigo)
+        {
+            try
+            {
+                bool result = sn.funeliminarPerfilUsuario(scodigo);
+                if (result)
+                {
+                    MessageBox.Show("asignacion eliminado correctamente.");
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar la asignacion.");
+                }
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return false;
+            }
+        }
+
+
 
         public DataTable funvalidarIDAplicacion()
         {

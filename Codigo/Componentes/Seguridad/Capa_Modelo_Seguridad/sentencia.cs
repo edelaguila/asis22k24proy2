@@ -233,18 +233,46 @@ namespace Capa_Modelo_Seguridad
         //Finaliza
 
         //###################  lo que hizo Karla  Sofia Gómez Tobar #######################
-        public OdbcDataAdapter funmostrarPerfilesDeUsuario()
+        public OdbcDataAdapter funmostrarPerfilesDeUsuario()///
         {
             /*string sql = "SELECT * FROM " + TablaPerfilUsuario + ";";
             OdbcDataAdapter dataTable = new OdbcDataAdapter(sql, cn.conectar());
             return dataTable;*/
 
             cn.conectar();
-            string sqlPerfilUsuario = " SELECT  a.Fk_id_usuario AS UsuarioID,   m.nombre_usuario AS NombreUsuario, a.Fk_id_perfil AS PerfilID,  ap.nombre_perfil AS NombrePerfil  FROM Tbl_asignaciones_perfils_usuario a  JOIN Tbl_usuarios m ON a.Fk_id_usuario = m.Pk_id_usuario JOIN Tbl_perfiles ap ON a.Fk_id_perfil = ap.Pk_id_perfil";
+            string sqlPerfilUsuario = @"
+    SELECT 
+        a.PK_id_Perfil_Usuario AS PerfilUsuarioID, 
+        a.Fk_id_usuario AS UsuarioID, 
+        m.nombre_usuario AS NombreUsuario, 
+        a.Fk_id_perfil AS PerfilID, 
+        ap.nombre_perfil AS NombrePerfil 
+    FROM 
+        Tbl_asignaciones_perfils_usuario a  
+    JOIN 
+        Tbl_usuarios m ON a.Fk_id_usuario = m.Pk_id_usuario 
+    JOIN 
+        Tbl_perfiles ap ON a.Fk_id_perfil = ap.Pk_id_perfil";
+
             OdbcDataAdapter dataPerfilUsuario = new OdbcDataAdapter(sqlPerfilUsuario, cn.conectar());
-            funInsertarBitacora(idUsuario, "Realizo una consulta  a Asignacion de perfil a un usuario", "Tbl_asignaciones_perfils_usuario", "1000");
+            funInsertarBitacora(idUsuario, "Realizó una consulta a Asignación de perfil a un usuario", "Tbl_asignaciones_perfils_usuario", "1000");
             return dataPerfilUsuario;
         }
+
+        public OdbcDataAdapter funConsultarAsignaciones(string sID_apUsu)
+        {
+            cn.conectar();
+            // Modificar la consulta SQL para la tabla tbl_asignaciones_perfils_usuario
+            string ssqlAsignaciones = "SELECT PK_id_Perfil_Usuario, Fk_id_usuario, Fk_id_perfil FROM tbl_asignaciones_perfils_usuario WHERE Fk_id_usuario = " + sID_apUsu;
+
+            // Insertar en la bitácora
+            funInsertarBitacora(idUsuario, "Realizó una consulta a asignaciones de perfil", "tbl_asignaciones_perfils_usuario", "1000");
+
+            // Crear y devolver el DataAdapter
+            OdbcDataAdapter dataTable = new OdbcDataAdapter(ssqlAsignaciones, cn.conectar());
+            return dataTable;
+        }
+
 
         public bool funeliminarPerfilUsuario(string sId_Perfil_Usuario)
         {
@@ -314,6 +342,44 @@ namespace Capa_Modelo_Seguridad
                 MessageBox.Show("Error al insertar la asignacion: " + ex.Message);
             }
         }
+
+        public OdbcDataAdapter funactualizarPerfilUsuario(string scodigo, string nuevoUsuarioID, string nuevoPerfilID)
+        {
+            try
+            {
+                // Conectar a la base de datos
+                cn.conectar();
+
+                // Construir la sentencia SQL de actualización
+                string ssqlactualizar = "UPDATE tbl_asignaciones_perfils_usuario " +
+                                        "SET Fk_id_usuario = '" + nuevoUsuarioID + "', " +
+                                        "Fk_id_perfil = '" + nuevoPerfilID + "' " +
+                                        "WHERE PK_id_Perfil_Usuario = '" + scodigo + "'";
+
+                // Mostrar la sentencia en consola (opcional para depuración)
+                Console.WriteLine("SQL Ejecutada: " + ssqlactualizar);
+
+                // Ejecutar la consulta usando un OdbcDataAdapter
+                OdbcDataAdapter dataAdapter = new OdbcDataAdapter(ssqlactualizar, cn.conectar());
+
+                // Insertar en la bitácora
+                funInsertarBitacora(idUsuario,
+                    "Actualizó una asignación: " + scodigo + " - Usuario: " + nuevoUsuarioID + " - Perfil: " + nuevoPerfilID,
+                    "tbl_asignaciones_perfils_usuario",
+                    "1001");
+
+                // Devolver el adaptador de datos
+                return dataAdapter;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                Console.WriteLine("Error al actualizar la asignación: " + ex.Message);
+                return null;
+            }
+        }
+
+
 
         public OdbcDataAdapter funvalidarIDAplicacion()
         {
