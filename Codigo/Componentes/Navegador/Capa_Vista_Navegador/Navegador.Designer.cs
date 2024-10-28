@@ -49,6 +49,7 @@
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
             this.Txt_Tabla = new System.Windows.Forms.Label();
             this.Bw_1 = new System.ComponentModel.BackgroundWorker();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Informacion)).BeginInit();
             this.Tlp_Panel2.SuspendLayout();
             this.SuspendLayout();
@@ -108,10 +109,11 @@
             this.Tlp_Panel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.Tlp_Panel2.Size = new System.Drawing.Size(1064, 65);
             this.Tlp_Panel2.TabIndex = 8;
+            this.Tlp_Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.Tlp_Panel2_Paint);
             // 
             // Btn_Imprimir
             // 
-            this.Btn_Imprimir.BackColor = System.Drawing.Color.White;
+            this.Btn_Imprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Btn_Imprimir.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Btn_Imprimir.Enabled = false;
             this.Btn_Imprimir.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
@@ -130,7 +132,7 @@
             // 
             // Btn_Ayuda
             // 
-            this.Btn_Ayuda.BackColor = System.Drawing.Color.White;
+            this.Btn_Ayuda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Btn_Ayuda.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Btn_Ayuda.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
             this.Btn_Ayuda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
@@ -149,7 +151,7 @@
             // 
             // Btn_Salir
             // 
-            this.Btn_Salir.BackColor = System.Drawing.Color.White;
+            this.Btn_Salir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Btn_Salir.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Btn_Salir.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
             this.Btn_Salir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -167,7 +169,7 @@
             // 
             // Btn_FlechaFin
             // 
-            this.Btn_FlechaFin.BackColor = System.Drawing.Color.White;
+            this.Btn_FlechaFin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Btn_FlechaFin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Btn_FlechaFin.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
             this.Btn_FlechaFin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -185,7 +187,7 @@
             // 
             // Btn_Siguiente
             // 
-            this.Btn_Siguiente.BackColor = System.Drawing.Color.White;
+            this.Btn_Siguiente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Btn_Siguiente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Btn_Siguiente.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
             this.Btn_Siguiente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -203,7 +205,7 @@
             // 
             // Btn_Anterior
             // 
-            this.Btn_Anterior.BackColor = System.Drawing.Color.White;
+            this.Btn_Anterior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Btn_Anterior.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Btn_Anterior.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
             this.Btn_Anterior.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -215,13 +217,14 @@
             this.Btn_Anterior.Name = "Btn_Anterior";
             this.Btn_Anterior.Size = new System.Drawing.Size(75, 65);
             this.Btn_Anterior.TabIndex = 9;
+            this.Btn_Anterior.Text = " ";
             this.Btn_Anterior.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_Anterior.UseVisualStyleBackColor = false;
             this.Btn_Anterior.Click += new System.EventHandler(this.Btn_Anterior_Click);
             // 
             // Btn_FlechaInicio
             // 
-            this.Btn_FlechaInicio.BackColor = System.Drawing.Color.White;
+            this.Btn_FlechaInicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Btn_FlechaInicio.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Btn_FlechaInicio.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
             this.Btn_FlechaInicio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -239,7 +242,7 @@
             // 
             // Btn_Refrescar
             // 
-            this.Btn_Refrescar.BackColor = System.Drawing.Color.White;
+            this.Btn_Refrescar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Btn_Refrescar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Btn_Refrescar.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
             this.Btn_Refrescar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -257,7 +260,7 @@
             // 
             // Btn_Consultar
             // 
-            this.Btn_Consultar.BackColor = System.Drawing.Color.White;
+            this.Btn_Consultar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Btn_Consultar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Btn_Consultar.Enabled = false;
             this.Btn_Consultar.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
@@ -276,7 +279,7 @@
             // 
             // Btn_Eliminar
             // 
-            this.Btn_Eliminar.BackColor = System.Drawing.Color.White;
+            this.Btn_Eliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Btn_Eliminar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Btn_Eliminar.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
             this.Btn_Eliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -294,7 +297,7 @@
             // 
             // Btn_Cancelar
             // 
-            this.Btn_Cancelar.BackColor = System.Drawing.Color.White;
+            this.Btn_Cancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Btn_Cancelar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Btn_Cancelar.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
             this.Btn_Cancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -312,7 +315,7 @@
             // 
             // Btn_Guardar
             // 
-            this.Btn_Guardar.BackColor = System.Drawing.Color.White;
+            this.Btn_Guardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Btn_Guardar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Btn_Guardar.Enabled = false;
             this.Btn_Guardar.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
@@ -331,7 +334,7 @@
             // 
             // Btn_Modificar
             // 
-            this.Btn_Modificar.BackColor = System.Drawing.Color.White;
+            this.Btn_Modificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Btn_Modificar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Btn_Modificar.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
             this.Btn_Modificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -349,7 +352,7 @@
             // 
             // Btn_Ingresar
             // 
-            this.Btn_Ingresar.BackColor = System.Drawing.Color.White;
+            this.Btn_Ingresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Btn_Ingresar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Btn_Ingresar.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
             this.Btn_Ingresar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -364,6 +367,7 @@
             this.Btn_Ingresar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Btn_Ingresar.UseVisualStyleBackColor = false;
             this.Btn_Ingresar.Click += new System.EventHandler(this.Btn_Ingresar_Click);
+            this.Btn_Ingresar.Paint += new System.Windows.Forms.PaintEventHandler(this.Btn_Ingresar_Paint);
             // 
             // colorDialog1
             // 
@@ -382,11 +386,19 @@
             this.Txt_Tabla.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Txt_Tabla.Click += new System.EventHandler(this.LblTabla_Click);
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(178, 158);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(8, 8);
+            this.flowLayoutPanel1.TabIndex = 9;
+            // 
             // Navegador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.Txt_Tabla);
             this.Controls.Add(this.Tlp_Panel2);
             this.Controls.Add(this.Dgv_Informacion);
@@ -422,5 +434,6 @@
         private System.Windows.Forms.Button Btn_Imprimir;
         private System.ComponentModel.BackgroundWorker Bw_1;
         private System.Windows.Forms.Button Btn_Refrescar;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
