@@ -110,7 +110,13 @@ namespace Capa_Vista_Navegador
             colorDialog1.Color = cNuevoColorFondo; // Asigna el color de fondo seleccionado
             this.BackColor = colorDialog1.Color; // Aplica el color de fondo al formulario
             BotonesYPermisosSinMensaje(); // Asigna los permisos a los botones según el usuario
-
+            foreach (Control ctrl in Tlp_Panel2.Controls)
+            {
+                if (ctrl is Button btn)
+                {
+                    btn.Paint += button_Paint;
+                }
+            }
             if (sTablaPrincipal != "def") // Verifica si la sTablaPrincipal no es "def" (valor por defecto)
             {
                 string sTablaOK = logic.TestTabla(sTablaPrincipal); // Verifica la existencia de la sTablaPrincipal
@@ -684,22 +690,24 @@ namespace Capa_Vista_Navegador
         // Función que maneja el evento click de los botones, cambiando su estado entre "Activado" y "Desactivado"
         void Func_click(object sender, EventArgs e)
         {
-            foreach (Control componente in Controls) // Itera sobre todos los controles en el formulario
+            // Convertir el sender a un Button
+            Button btn = sender as Button;
+
+            // Verifica si la conversión fue exitosa
+            if (btn != null)
             {
-                if (componente is Button) // Verifica si el control es un botón
+                // Cambia el estado del botón en función de su estado actual
+                if (btn.Text == "Activado")
                 {
-                    if (iEstadoFormulario == 1) 
-                    {
-                        componente.Text = "Desactivado"; // Cambia el texto del botón a "Desactivado"
-                        componente.BackColor = Color.Red; // Cambia el color de fondo a rojo
-                        iEstadoFormulario = 0;
-                    }
-                    else // Si el estado no es 1 (es decir, es 0)
-                    {
-                        componente.Text = "Activado"; // Cambia el texto del botón a "Activado"
-                        componente.BackColor = Color.Green; // Cambia el color de fondo a verde
-                        iEstadoFormulario = 1; 
-                    }
+                    btn.Text = "Desactivado";
+                    btn.BackColor = Color.Red;
+                    iEstadoFormulario = 0;
+                }
+                else
+                {
+                    btn.Text = "Activado";
+                    btn.BackColor = Color.Green;
+                    iEstadoFormulario = 1;
                 }
             }
         }
@@ -879,7 +887,7 @@ namespace Capa_Vista_Navegador
         {
             foreach (Control componente in Controls)
             {
-                if (componente is TextBox || componente is DateTimePicker || componente is ComboBox)
+                if (componente is TextBox || componente is DateTimePicker || componente is ComboBox || componente is Button)
                 {
                     componente.Enabled = false; // De esta manera bloqueamos todos los TextBox, DateTimePicker y ComboBox
                 }
@@ -900,9 +908,9 @@ namespace Capa_Vista_Navegador
                 }
             }
             // Btn_Modificar.Enabled = true;
-            Btn_Eliminar.Enabled = true;
-            Btn_Guardar.Enabled = true;
-            Btn_Cancelar.Enabled = true;
+           Btn_Eliminar.Enabled = true;
+           Btn_Guardar.Enabled = true;
+           Btn_Cancelar.Enabled = true;
         }
 
         public void ActualizarDataGridView()
@@ -945,7 +953,7 @@ namespace Capa_Vista_Navegador
                     if (componente is TextBox || componente is DateTimePicker || componente is ComboBox)
                     {
                         // Si el componente tiene un nombre que sugiere que es la clave primaria
-                        if (componente.Name.Contains("Pk"))
+                        if (componente.Name.Contains("Pk") && !string.IsNullOrEmpty(componente.Text))
                         {
                             // Construye la cláusula WHERE usando el nombre del componente como campo y su valor como condición
                             sWhereQuery += componente.Name + " = '" + componente.Text + "' ";
@@ -1036,52 +1044,78 @@ namespace Capa_Vista_Navegador
         //******************************************** CODIGO HECHO POR MATY MANCILLA*****************************
 
         //******************************************** CODIGO HECHO POR JOEL LOPEZ***************************** 
-        string CrearInsert(string sNombreTabla) 
+        string CrearInsert(string sNombreTabla)
         {
             // Inicializa las cadenas para la consulta INSERT y los valores a insertar
-            string sQuery = "INSERT INTO " + sNombreTabla + " ("; 
-            string sValores = "VALUES ("; 
+            string sQuery = "INSERT INTO " + sNombreTabla + " (";
+            string sValores = "VALUES (";
 
-            int iPosicionCampo = 0;     
-            string sCampos = "";         
-            string sValoresCampos = "";   
+            string sCampos = "";
+            string sValoresCampos = "";
+
+            // Obtén la lista de campos de la tabla desde la lógica
+            string[] arrCamposTabla = logic.Campos(sNombreTabla);
+            int iPosicionCampo = 0;
 
             // Recorre todos los controles del formulario
             foreach (Control componente in Controls)
             {
-                // Si el control es un TextBox, DateTimePicker o ComboBox
-                if (componente is TextBox || componente is DateTimePicker || componente is ComboBox)
+                // Ignora los componentes que tienen el prefijo "extra_"
+                if (componente.Name.StartsWith("extra_"))
                 {
-                    // Obtiene el nombre del campo de la sTablaPrincipal y el valor del control
-                    string sNombreCampo = logic.Campos(sNombreTabla)[iPosicionCampo]; 
-                    string sValorCampo = string.Empty; 
+                    continue; // Saltar al siguiente control
+                }
 
-                    // Si el control es un ComboBox, obtiene el valor seleccionado (ID)
-                    if (componente is ComboBox cb)
+                // Solo procesar si es un componente relevante: TextBox, DateTimePicker, ComboBox o Button
+                if (componente is TextBox || componente is DateTimePicker || componente is ComboBox || componente is Button)
+                {
+                    // Obtén el nombre del campo que se supone que coincide con la tabla
+                    if (iPosicionCampo < arrCamposTabla.Length)
                     {
-                        sValorCampo = cb.SelectedValue.ToString(); 
-                    }
-                    else
-                    {
-                        sValorCampo = componente.Text;
-                    }
+                        string sNombreCampo = arrCamposTabla[iPosicionCampo];
+                        string sValorCampo = string.Empty;
 
-                    // Si el valor del campo no está vacío, lo agrega a las cadenas de campos y valores
-                    if (!string.IsNullOrEmpty(sValorCampo))
-                    {
-                        sCampos += sNombreCampo + ", "; 
-                        sValoresCampos += "'" + sValorCampo + "', "; 
-                    }
+                        // Si el control es un ComboBox, obtiene el valor seleccionado (ID)
+                        if (componente is ComboBox cb)
+                        {
+                            sValorCampo = cb.SelectedValue?.ToString() ?? ""; // Asegúrate de que no sea nulo
+                        }
+                        else if (componente is Button btn)
+                        {
+                            // Si el botón define el estado, asigna '0' o '1' según el texto del botón
+                            sValorCampo = (btn.Text == "Activado") ? "1" : "0";
+                        }
+                        else if (componente is DateTimePicker dtp)
+                        {
+                            sValorCampo = dtp.Value.ToString("yyyy-MM-dd");
+                        }
+                        else if (componente is TextBox)
+                        {
+                            sValorCampo = componente.Text;
+                        }
 
-                    iPosicionCampo++; 
+                        // Solo agrega el campo y el valor si no está vacío
+                        if (!string.IsNullOrEmpty(sValorCampo))
+                        {
+                            sCampos += sNombreCampo + ", ";
+                            sValoresCampos += "'" + sValorCampo + "', ";
+                        }
+
+                        iPosicionCampo++;
+                    }
                 }
             }
+            sCampos = sCampos.TrimEnd(' ', ',');
+            sValoresCampos = sValoresCampos.TrimEnd(' ', ',');
 
-            // Elimina las últimas comas y cierra las instrucciones
-            sCampos = sCampos.TrimEnd(' ', ','); 
-            sValoresCampos = sValoresCampos.TrimEnd(' ', ','); 
+            // Verifica si el número de columnas y valores coinciden antes de construir la consulta
+            if (sCampos.Split(',').Length != sValoresCampos.Split(',').Length)
+            {
+                Console.WriteLine("Error: El número de columnas no coincide con el número de valores.");
+                return null; // Retorna nulo para indicar que hay un error en la construcción
+            }
 
-            sQuery += sCampos + ") " + sValores + sValoresCampos + ");"; 
+            sQuery += sCampos + ") " + sValores + sValoresCampos + ");";
 
             return sQuery;
         }
@@ -1286,7 +1320,7 @@ namespace Capa_Vista_Navegador
             Btn_Eliminar.Enabled = false;
             Btn_Cancelar.Enabled = true;
 
-            BotonesYPermisosSinMensaje(); // Actualiza los permisos de los botones
+           // BotonesYPermisosSinMensaje(); // Actualiza los permisos de los botones
         }
 
         //******************************************** CODIGO HECHO POR DIEGO MARROQUIN***************************** 
@@ -1418,7 +1452,7 @@ namespace Capa_Vista_Navegador
                 }
 
                 // Habilita y deshabilita botones según el usuario
-                BotonesYPermisosSinMensaje();
+               BotonesYPermisosSinMensaje();
 
                 Btn_Ingresar.Enabled = false;
                 Btn_Eliminar.Enabled = false;
@@ -1467,13 +1501,13 @@ namespace Capa_Vista_Navegador
                 }
 
                 // Reestablecer botones y deshabilitar el que no se necesita
-                Btn_Modificar.Enabled = true;
+                //Btn_Modificar.Enabled = true;
                 Btn_Guardar.Enabled = false;
                 Btn_Cancelar.Enabled = false;
                 Btn_Ingresar.Enabled = true;
                 Btn_Eliminar.Enabled = true;
                 Btn_Refrescar.Enabled = true;
-
+                Deshabilitarcampos_y_botones();
                 // Actualizar el DataGridView y los controles a su estado original
                 ActualizarDataGridView();
                 if (logic.TestRegistros(sTablaPrincipal) > 0) 
@@ -1522,7 +1556,7 @@ namespace Capa_Vista_Navegador
                 }
 
                 // Habilitar/deshabilitar según los permisos del usuario
-                BotonesYPermisosSinMensaje();
+                
             }
             catch (Exception ex)
             {
@@ -1561,20 +1595,7 @@ namespace Capa_Vista_Navegador
                     logic.NuevoQuery(sQueryPrincipal);
                     string sLlavePrimaria = logic.ObtenerClavePrimaria(sTablaPrincipal);
                     // Iterar sobre las tablas adicionales y cambiar el estado en cada una
-                    foreach (string sTablaAdicional in lstTablasAdicionales)
-                    {
-                        if (!string.IsNullOrEmpty(sTablaAdicional))
-                        {
-                            // Obtener clave foránea y generar la consulta para tablas extras
-                            string claveForanea = logic.ObtenerClaveForanea(sTablaAdicional, sTablaPrincipal);
-                            string sQueryAdicional = CrearDeleteExtras(sTablaAdicional);
-
-                            if (!string.IsNullOrEmpty(sQueryAdicional))
-                            {
-                                logic.NuevoQuery(sQueryAdicional);
-                            }
-                        }
-                    }
+                  
 
                     // Actualizar el DataGridView y mostrar un mensaje de éxito
                     ActualizarDataGridView();
@@ -1616,6 +1637,7 @@ namespace Capa_Vista_Navegador
                 );
             }
         }
+
 
         //******************************************** CODIGO HECHO POR VICTOR CASTELLANOS***************************** 
 
@@ -2607,6 +2629,41 @@ namespace Capa_Vista_Navegador
             }
 
             BotonesYPermisosSinMensaje();
+        }
+        private void button_Paint(object sender, PaintEventArgs e)
+        {
+            BiselUtil.AplicarBisel(sender as Button, e);
+        }
+
+        private void Btn_Ingresar_Paint(object sender, PaintEventArgs e)
+        {
+           
+        }
+
+        private void Tlp_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+            Panel pnl = sender as Panel;
+
+            // Color de la sombra (ajusta al color que prefieras)
+            Color sombraColor = Color.Gray;
+
+            // Dibujar sombra (parte inferior y derecha)
+            int sombraTamaño = 5; // Tamaño de la sombra
+            Rectangle shadowRect = new Rectangle(pnl.ClientRectangle.X + sombraTamaño,
+                                                 pnl.ClientRectangle.Y + sombraTamaño,
+                                                 pnl.ClientRectangle.Width,
+                                                 pnl.ClientRectangle.Height);
+            using (Brush shadowBrush = new SolidBrush(sombraColor))
+            {
+                e.Graphics.FillRectangle(shadowBrush, shadowRect);
+            }
+
+            // Dibujar bisel alrededor del panel
+            ControlPaint.DrawBorder(e.Graphics, pnl.ClientRectangle,
+                                    SystemColors.ControlLightLight, 2, ButtonBorderStyle.Outset,  // Arriba
+                                    SystemColors.ControlLightLight, 2, ButtonBorderStyle.Outset,  // Izquierda
+                                    SystemColors.ControlDark, 3, ButtonBorderStyle.Inset,          // Derecha
+                                    SystemColors.ControlDark, 3, ButtonBorderStyle.Inset);
         }
 
         //******************************************** CODIGO HECHO POR VICTOR CASTELLANOS *****************************
