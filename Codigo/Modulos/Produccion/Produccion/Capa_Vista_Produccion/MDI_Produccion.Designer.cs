@@ -84,7 +84,7 @@ namespace Capa_Vista_Produccion
             this.panelBarraTitulo.Location = new System.Drawing.Point(0, 0);
             this.panelBarraTitulo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelBarraTitulo.Name = "panelBarraTitulo";
-            this.panelBarraTitulo.Size = new System.Drawing.Size(1189, 57);
+            this.panelBarraTitulo.Size = new System.Drawing.Size(1189, 44);
             this.panelBarraTitulo.TabIndex = 1;
             // 
             // pictureBox2
@@ -165,10 +165,10 @@ namespace Capa_Vista_Produccion
             this.panelMenu.Controls.Add(this.panelMenuProcesos);
             this.panelMenu.Controls.Add(this.btnMenuProcesos);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelMenu.Location = new System.Drawing.Point(0, 57);
+            this.panelMenu.Location = new System.Drawing.Point(0, 44);
             this.panelMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(217, 729);
+            this.panelMenu.Size = new System.Drawing.Size(217, 742);
             this.panelMenu.TabIndex = 2;
             // 
             // btnSalir
@@ -217,7 +217,7 @@ namespace Capa_Vista_Produccion
             this.Btn_Recetas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Btn_Recetas.Name = "Btn_Recetas";
             this.Btn_Recetas.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.Btn_Recetas.Size = new System.Drawing.Size(217, 63);
+            this.Btn_Recetas.Size = new System.Drawing.Size(217, 38);
             this.Btn_Recetas.TabIndex = 24;
             this.Btn_Recetas.Text = "Recetas";
             this.Btn_Recetas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -485,7 +485,7 @@ namespace Capa_Vista_Produccion
             // lbl_usuario
             // 
             this.lbl_usuario.AutoSize = true;
-            this.lbl_usuario.Location = new System.Drawing.Point(223, 82);
+            this.lbl_usuario.Location = new System.Drawing.Point(223, 69);
             this.lbl_usuario.Name = "lbl_usuario";
             this.lbl_usuario.Size = new System.Drawing.Size(145, 17);
             this.lbl_usuario.TabIndex = 5;
@@ -494,7 +494,7 @@ namespace Capa_Vista_Produccion
             // lbl_user
             // 
             this.lbl_user.AutoSize = true;
-            this.lbl_user.Location = new System.Drawing.Point(366, 82);
+            this.lbl_user.Location = new System.Drawing.Point(366, 69);
             this.lbl_user.Name = "lbl_user";
             this.lbl_user.Size = new System.Drawing.Size(55, 17);
             this.lbl_user.TabIndex = 6;
@@ -503,7 +503,7 @@ namespace Capa_Vista_Produccion
             // lbl_fecha_y_hora
             // 
             this.lbl_fecha_y_hora.AutoSize = true;
-            this.lbl_fecha_y_hora.Location = new System.Drawing.Point(223, 59);
+            this.lbl_fecha_y_hora.Location = new System.Drawing.Point(223, 46);
             this.lbl_fecha_y_hora.Name = "lbl_fecha_y_hora";
             this.lbl_fecha_y_hora.Size = new System.Drawing.Size(95, 17);
             this.lbl_fecha_y_hora.TabIndex = 7;

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Capa_Vista_Cierre_Produccion;
+using Capa_Vista_Polizas_Prod;
 
 namespace Capa_Vista_Produccion
 {
@@ -98,9 +100,8 @@ namespace Capa_Vista_Produccion
         // Botón de cierre
         private void btnCierre_Click(object sender, EventArgs e)
         {
-            /*
-              * Acá va la lógica para abrir el formulario de RCierres
-            */
+            Frm_Cierre Cierre = new Frm_Cierre();
+            Cierre.Show();
         }
 
         // Botón de implosión/explosión de materiales
@@ -122,9 +123,8 @@ namespace Capa_Vista_Produccion
         // Botón de enlace a contabilidad (Pólizas)
         private void btnPolizas_Click(object sender, EventArgs e)
         {
-            /*
-              * Acá va la lógica para abrir el formulario de Pólizas
-            */
+            Frm_Polizas_Prod polizas = new Frm_Polizas_Prod();
+            polizas.Show();
         }
 
         // Botón de conversiones
