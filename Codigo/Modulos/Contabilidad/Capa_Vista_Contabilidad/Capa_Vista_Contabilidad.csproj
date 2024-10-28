@@ -37,6 +37,10 @@
     <Reference Include="Capa_Vista_Navegador">
       <HintPath>..\..\..\Componentes\Navegador\Capa_Vista_Navegador\bin\Debug\Capa_Vista_Navegador.dll</HintPath>
     </Reference>
+    <Reference Include="Capa_Vista_Polizas, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Capa_Vista_Polizas\Capa_Vista_Polizas\bin\Debug\Capa_Vista_Polizas.dll</HintPath>
+    </Reference>
     <Reference Include="Interfac_V3">
       <HintPath>..\..\Menus\ModernGUI_V3\bin\Debug\Interfac_V3.exe</HintPath>
     </Reference>
@@ -213,6 +217,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\pago-en-linea.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mant.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\marca-de-verificacion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\marca-de-verificacion1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mant1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ProcCOnta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SalirMDI.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
