@@ -278,5 +278,11 @@
   <ItemGroup>
     <None Include="Resources\noticias.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nuevo_V2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Actualizar_V2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -27,7 +27,7 @@ namespace Capa_Vista_Nominas
             InitializeComponent();
             string idUsuario = Interfac_V3.UsuarioSesion.GetIdUsuario();
             /*********Prueba con la tabla inicial*********/
-            string[] alias = { "pk_dedu_perp", "concepto", " porcentaje", "monto", "cantidad", "estado" };
+            string[] alias = { "pk_dedu_perp", "concepto", "tipo", "aplicacion", "excepcion", "monto", "estado" };
             navegador1.AsignarAlias(alias);
             navegador1.AsignarSalida(this);
             navegador1.AsignarColorFondo(Color.CadetBlue);

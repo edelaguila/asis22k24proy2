@@ -1,39 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Odbc;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Odbc;
 
-namespace Capa_Modelo_Nominas
+
+namespace Capa_Modelo_Seguridad
 {
-    class Conexion
+    public class conexion
     {
-        public OdbcConnection conexion()
+        public OdbcConnection conectar()
         {
-            //creacion de la conexion via ODBC
-            OdbcConnection conn = new OdbcConnection("Dsn=Prueba1");
-            try
-            {
-                conn.Open();
-            }
-            catch (OdbcException)
-            {
-                Console.WriteLine("No Conectó");
-            }
-            return conn;
-        }
+            OdbcConnection conectar = new OdbcConnection("Dsn=colchoneria");
 
-        //metodo para cerrar la conexion
-        public void desconexion(OdbcConnection conn)
-        {
             try
             {
-                conn.Close();
+                conectar.Open();
+                return conectar;
             }
-            catch (OdbcException)
+            catch (OdbcException ex)
             {
-                Console.WriteLine("No Conectó");
+
+                Console.WriteLine("No conecto la Base de Datos ", ex);
+                return null;
             }
         }
     }

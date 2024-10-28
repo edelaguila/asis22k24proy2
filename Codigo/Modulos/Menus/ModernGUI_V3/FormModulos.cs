@@ -118,8 +118,8 @@ namespace Interfac_V3
 
         private void Btn_CuentasCorrientes_Click(object sender, EventArgs e)
         {
-            Capa_Vista_Cuentas_Corrientes.FormPrincipal cc = new Capa_Vista_Cuentas_Corrientes.FormPrincipal(UsuarioSesion.GetIdUsuario());
-            cc.Show();
+            //Capa_Vista_Cuentas_Corrientes.FormPrincipal cc = new Capa_Vista_Cuentas_Corrientes.FormPrincipal(UsuarioSesion.GetIdUsuario());
+            //cc.Show();
         }
     }
 }
