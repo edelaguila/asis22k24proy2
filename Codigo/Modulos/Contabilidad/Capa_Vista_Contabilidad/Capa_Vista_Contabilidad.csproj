@@ -52,18 +52,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActivoFijo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo.Designer.cs">
-      <DependentUpon>ActivoFijo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AtivosFijos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AtivosFijos.Designer.cs">
-      <DependentUpon>AtivosFijos.cs</DependentUpon>
-    </Compile>
     <Compile Include="CierreContable.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +63,18 @@
     </Compile>
     <Compile Include="Cuentas.Designer.cs">
       <DependentUpon>Cuentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DatoActivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatoActivo.Designer.cs">
+      <DependentUpon>DatoActivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Depreciacionactivofijo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Depreciacionactivofijo.Designer.cs">
+      <DependentUpon>Depreciacionactivofijo.cs</DependentUpon>
     </Compile>
     <!-- Incluyendo ambos formularios -->
     <Compile Include="EstadosFinancieros.cs">
@@ -155,20 +155,26 @@
     <Compile Include="TipoPoliza.Designer.cs">
       <DependentUpon>TipoPoliza.cs</DependentUpon>
     </Compile>
+    <Compile Include="VIstaActivofijo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIstaActivofijo.Designer.cs">
+      <DependentUpon>VIstaActivofijo.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <!-- Incluyendo ambos recursos -->
-    <EmbeddedResource Include="ActivoFijo.resx">
-      <DependentUpon>ActivoFijo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AtivosFijos.resx">
-      <DependentUpon>AtivosFijos.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="CierreContable.resx">
       <DependentUpon>CierreContable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cuentas.resx">
       <DependentUpon>Cuentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DatoActivo.resx">
+      <DependentUpon>DatoActivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depreciacionactivofijo.resx">
+      <DependentUpon>Depreciacionactivofijo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EstadosFinancieros.resx">
       <DependentUpon>EstadosFinancieros.cs</DependentUpon>
@@ -210,9 +216,36 @@
     <EmbeddedResource Include="TipoPoliza.resx">
       <DependentUpon>TipoPoliza.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="VIstaActivofijo.resx">
+      <DependentUpon>VIstaActivofijo.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\pago-en-linea.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disco-flexible %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CANCELAR_V4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AYUDA_V4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agregar-archivo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EDITAR_V4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\impresora.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FULL IZQUIERDA_V4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FULL DERECHA_V4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
