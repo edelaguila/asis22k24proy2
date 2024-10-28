@@ -40,7 +40,7 @@ namespace Capa_Controlador_ListaPrecios
         {
             try
             {
-                OdbcDataAdapter dtClasificacion = sn.funconsultarClasificaciones(); // Asegúrate de implementar este método
+                OdbcDataAdapter dtClasificacion = sn.funconsultarClasificaciones(); 
                 DataTable tableClasificacion = new DataTable();
                 dtClasificacion.Fill(tableClasificacion);
                 return tableClasificacion;

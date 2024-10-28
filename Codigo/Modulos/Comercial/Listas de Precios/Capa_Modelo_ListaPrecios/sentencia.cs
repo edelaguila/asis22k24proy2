@@ -42,13 +42,12 @@ namespace Capa_Modelo_ListaPrecios
 
         public DataTable funConsultarproductos(string buscarTexto)
         {
-            // Abre la conexión a la base de datos
             cn.conectar();
 
             // Modifica la consulta para buscar por código o nombre y agregar estado activo
             string sProductos = "SELECT codigoProducto, nombreProducto, clasificacion, pesoProducto, precioUnitario, stock, empaque " +
                                 "FROM Tbl_productos " +
-                                "WHERE estado = 'activo' " + // Asegúrate de tener una columna `estado`
+                                "WHERE estado = 'activo' " + 
                                 "(codigoProducto LIKE ? OR nombreProducto LIKE ?)"; // Buscando por código o nombre
 
             using (OdbcCommand command = new OdbcCommand(sProductos, cn.conectar()))
@@ -57,14 +56,12 @@ namespace Capa_Modelo_ListaPrecios
                 command.Parameters.AddWithValue("@codigo", "%" + buscarTexto + "%"); // Para búsqueda por código
                 command.Parameters.AddWithValue("@nombre", "%" + buscarTexto + "%"); // Para búsqueda por nombre
 
-                // Crea un OdbcDataAdapter para ejecutar la consulta
                 OdbcDataAdapter dataProductos = new OdbcDataAdapter(command);
 
-                // Puedes registrar en bitácora si es necesario
+               
                 // funInsertarBitacora(idUsuario, "Realizó una búsqueda de productos", "Tbl_productos", "1000");
 
 
-                // Crea un DataTable para almacenar los resultados
                 DataTable tableProducto = new DataTable();
                 dataProductos.Fill(tableProducto); // Llena el DataTable con los resultados
 
@@ -77,10 +74,8 @@ namespace Capa_Modelo_ListaPrecios
 
             /*cn.conectar(); // Conectar a la base de datos
 
-            // Consulta SQL para obtener clasificaciones
             string sClasificaciones = "SELECT DISTINCT clasificacion FROM Tbl_productos WHERE estado = 1";
 
-            // Crea un OdbcDataAdapter para la consulta
             OdbcDataAdapter dataClasificacion = new OdbcDataAdapter(sClasificaciones, cn.conectar());
             return dataClasificacion; */
             cn.conectar(); // Conectar a la base de datos
@@ -103,7 +98,6 @@ namespace Capa_Modelo_ListaPrecios
         WHERE EXISTS (SELECT 1 FROM tbl_producto_inventario WHERE fk_id_inventario = pk_id_inventario);
         ";
 
-            // Crea un OdbcDataAdapter para la consulta
             OdbcDataAdapter dataClasificacion = new OdbcDataAdapter(sClasificaciones, cn.conectar());
 
           
@@ -132,7 +126,6 @@ namespace Capa_Modelo_ListaPrecios
         WHERE EXISTS (SELECT 1 FROM tbl_producto_inventario WHERE fk_id_inventario = pk_id_inventario);
     ";
 
-            // Crear un DataAdapter y llenar el DataTable
             using (OdbcDataAdapter adapter = new OdbcDataAdapter(sconsultaEspecifica, cn.conectar()))
             {
                 adapter.Fill(dtClasificacionesEspecificas); // Llena el DataTable con los resultados
@@ -153,22 +146,18 @@ namespace Capa_Modelo_ListaPrecios
 
     public OdbcDataAdapter funconsultarProductosPorMarca(string nombreMarca)
         {
-            // Conectar a la base de datos
             cn.conectar();
-            // Definir la consulta SQL
             string sProductos = "SELECT p.codigoProducto, p.nombreProducto, p.clasificacion, p.pesoProducto, p.precioUnitario, p.stock, p.empaque " +
                         "FROM Tbl_productos p " +
                         "JOIN tbl_producto_marca pm ON p.Pk_id_Producto = pm.fk_id_producto " +
                         "JOIN tbl_marcas m ON pm.fk_id_marca = m.pk_id_marca " +
                         "WHERE m.nombre_marca = ?";
 
-            // Crear el comando con la conexión existente
             using (OdbcCommand command = new OdbcCommand(sProductos, cn.conectar()))
             {
                 command.Parameters.AddWithValue("@nombreMarca", nombreMarca);
-                // Crear el adaptador de datos
+
                 OdbcDataAdapter dataProductos = new OdbcDataAdapter(command);
-                // Cerrar la conexión (si es necesario, dependiendo de tu implementación)
             
                 return dataProductos;
             }
@@ -176,7 +165,7 @@ namespace Capa_Modelo_ListaPrecios
 
         public OdbcDataAdapter funconsultarProductosPorLinea(string nombreLinea)
         {
-            // Conectar a la base de datos
+          
             cn.conectar();
 
             // Consulta SQL que utiliza el nombre de la línea directamente
@@ -184,13 +173,11 @@ namespace Capa_Modelo_ListaPrecios
                                 "FROM Tbl_productos " +
                                 "WHERE clasificacion = @nombre_linea";
 
-            // Crear el comando con la conexión abierta
             using (OdbcCommand command = new OdbcCommand(sProductos, cn.conectar()))
             {
                 // Añadir el parámetro con el valor de nombreLinea
                 command.Parameters.AddWithValue("@nombreLinea", nombreLinea);
 
-                // Crear el OdbcDataAdapter
                 OdbcDataAdapter dataProductos = new OdbcDataAdapter(command);
 
                 return dataProductos; // Retornar el DataAdapter
@@ -201,15 +188,15 @@ namespace Capa_Modelo_ListaPrecios
         {
             // Conectar a la base de datos
             cn.conectar();
-            // Definir la consulta SQL
+            
             string sProductos = "SELECT codigoProducto, nombreProducto, clasificacion, pesoProducto, precioUnitario, stock, empaque FROM Tbl_productos WHERE clasificacion IN (SELECT nombre_inventario FROM Tbl_inventarios WHERE nombre_inventario = ?)";
-            // Crear el comando con la conexión existente
+           
             using (OdbcCommand command = new OdbcCommand(sProductos, cn.conectar()))
             {
                 command.Parameters.AddWithValue("@nombreInventario", nombreInventario);
-                // Crear el adaptador de datos
+      
                 OdbcDataAdapter dataProductos = new OdbcDataAdapter(command);
-                // Cerrar la conexión (si es necesario, dependiendo de tu implementación)
+              
 
                 return dataProductos;
             }
@@ -218,7 +205,7 @@ namespace Capa_Modelo_ListaPrecios
         public OdbcDataAdapter funconsultarLineas()
         {
             cn.conectar();
-            string sLineas = "SELECT Pk_id_Linea, nombre_linea FROM Tbl_lineas"; // Asegúrate de que estos campos existan
+            string sLineas = "SELECT Pk_id_Linea, nombre_linea FROM Tbl_lineas"; 
             OdbcCommand command = new OdbcCommand(sLineas, cn.conectar());
             OdbcDataAdapter dataLineas = new OdbcDataAdapter(command);
             return dataLineas;
@@ -227,7 +214,7 @@ namespace Capa_Modelo_ListaPrecios
         public OdbcDataAdapter funconsultarMarcas()
         {
             cn.conectar();
-            string sMarcas = "SELECT Pk_id_Marca, nombre_marca FROM Tbl_marcas"; // Asegúrate de que estos campos existan
+            string sMarcas = "SELECT Pk_id_Marca, nombre_marca FROM Tbl_marcas"; 
             OdbcCommand command = new OdbcCommand(sMarcas, cn.conectar());
             OdbcDataAdapter dataMarcas = new OdbcDataAdapter(command);
             return dataMarcas;
@@ -236,7 +223,7 @@ namespace Capa_Modelo_ListaPrecios
         public OdbcDataAdapter funconsultarInventarios()
         {
             cn.conectar();
-            string sInventarios = "SELECT Pk_id_Inventario, nombre_inventario FROM Tbl_inventarios"; // Asegúrate de que estos campos existan
+            string sInventarios = "SELECT Pk_id_Inventario, nombre_inventario FROM Tbl_inventarios"; 
             OdbcCommand command = new OdbcCommand(sInventarios, cn.conectar());
             OdbcDataAdapter dataInventarios = new OdbcDataAdapter(command);
             return dataInventarios;

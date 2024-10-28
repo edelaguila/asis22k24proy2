@@ -41,18 +41,18 @@ namespace Capa_Vista_ListaPrecios
 
         private void frm_ListadoDetalle_Load(object sender, EventArgs e)
         {
-            CargarProductos();
+            
             CargarClasificaciones();
 
 
             Cbo_producto.DropDownStyle = ComboBoxStyle.DropDownList;
             Cbo_clasificacionGeneral.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            // Suscribirse al evento SelectedIndexChanged para el ComboBox de clasificaciones
+            //  evento para el ComboBox de clasificaciones
             Cbo_clasificacionGeneral.SelectedIndexChanged += new EventHandler(Cbo_clasificacion_SelectedIndexChanged);
             Cbo_clasificacionEspecifica.SelectedIndexChanged += Cbo_clasificacionEspecifica_SelectedIndexChanged;
 
-            // Suscribir al evento TextChanged
+        
             Txt_productobuscado.TextChanged += new EventHandler(Txt_productobuscado_TextChanged);
             Txt_clasificacionSeleccionada.Text = "";
 
@@ -60,45 +60,6 @@ namespace Capa_Vista_ListaPrecios
         }
 
 
-
-
-
-        private void CargarProductos()
-        {
-            /*if (Cbo_clasificacion.SelectedItem != null)
-                try
-                {
-                // Obtener la clasificación seleccionada del ComboBox 
-                string clasificacion = Cbo_clasificacion.SelectedItem?.ToString(); 
-
-                if (string.IsNullOrEmpty(clasificacion))
-                {
-                    Console.WriteLine("Error: Debes seleccionar una clasificación.");
-                    return;
-                }
-
-                // Llamar los productos que concuerden con la clasificación seleccionada
-                DataTable dtProducto = logic.funconsultalogicaproductos(clasificacion);
-
-                // Limpiar los items actuales en el ComboBox
-                Cbo_producto.Items.Clear();
-
-                // Agregar productos al ComboBox
-                foreach (DataRow row in dtProducto.Rows)
-                {
-                    // Concatenar el código y el nombre del producto
-                    string displayText = $"{row["codigoProducto"]} - {row["nombreProducto"]}";
-                    Cbo_producto.Items.Add(displayText);
-                }
-
-                // Suscribirse al evento SelectedIndexChanged
-                Cbo_producto.SelectedIndexChanged += new EventHandler(Cbo_producto_SelectedIndexChanged);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error al cargar productos: " + ex.Message);
-            }*/
-        }
 
         private void CargarClasificaciones()
         {
@@ -182,7 +143,6 @@ namespace Capa_Vista_ListaPrecios
             {
                 string clasificacionSeleccionada = Cbo_clasificacionEspecifica.SelectedValue.ToString();
 
-                // Llama al método para cargar productos
                 DataTable dtProductos = logic.CargarProductos(clasificacionSeleccionada);
 
                 if (dtProductos != null && dtProductos.Rows.Count > 0)
@@ -203,80 +163,12 @@ namespace Capa_Vista_ListaPrecios
 
 
 
-        private void CargarProductosPorClasificacion(string nombreClasificacion, string tipo)
-        {
-            /*try
-            {
-                // Llamar al método que consulta los productos según la clasificación
-                DataTable dtProductos = logic.funlogicaConsultaProductosPorClasificacion(nombreClasificacion, tipo);
-
-                if (dtProductos != null && dtProductos.Rows.Count > 0)
-                {
-                    Dgv_detalleProductos.DataSource = dtProductos; // Asignar el DataTable al DataGridView
-                }
-                else
-                {
-                    MessageBox.Show("No se encontraron productos para la clasificación seleccionada.");
-                    Dgv_detalleProductos.DataSource = null; // Limpiar el DataGridView
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar productos: " + ex.Message);
-            }*/
-
-
-        }
-
-
-        // Método para cargar productos según la clasificación seleccionada
-        private void CargarProductosPorClasificacion(string clasificacion)
-        {
-            try
-            {
-                // Llama a tu lógica para obtener productos según la clasificación seleccionada
-                DataTable dtProductos = logic.funconsultalogicaproductos(clasificacion);
-
-                // Verifica si se encontraron productos
-                if (dtProductos != null && dtProductos.Rows.Count > 0)
-                {
-                    Dgv_detalleProductos.DataSource = dtProductos;
-                }
-                else
-                {
-                    MessageBox.Show("No se encontraron productos para la clasificación seleccionada.");
-                    Dgv_detalleProductos.DataSource = null; // Limpiar el DataGridView
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar productos: " + ex.Message);
-            }
-        }
 
 
 
         private void Dgv_detalleProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            /*try
-            {
-                // Llamar a la lógica para obtener detalles del producto basado en el código
-                DataTable dtDetalles = logic.funconsultalogicaproductos(clasificacion); // Asegúrate de tener este método en tu lógica
-
-                // Limpiar el DataGridView antes de llenarlo
-                Dgv_detalleProductos.Rows.Clear();
-
-                // Llenar el DataGridView con los detalles del producto
-                foreach (DataRow row in dtDetalles.Rows)
-                {
-                    // Aquí asumiendo que tienes columnas específicas en tu DataGridView
-                    Dgv_detalleProductos.Rows.Add(row["nombre"], row["precio"], row["stock"]); // Ajusta según los nombres de tus columnas
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar detalles del producto: " + ex.Message);
-            }*/
+           
         }
 
         private void Txt_productobuscado_TextChanged(object sender, EventArgs e)
@@ -285,7 +177,6 @@ namespace Capa_Vista_ListaPrecios
 
             if (!string.IsNullOrWhiteSpace(textoBuscado))
             {
-                // Llama al método que retorna un DataTable
                 DataTable productosEncontrados = logic.funconsultalogicaproductos(textoBuscado);
 
                 // Limpia los resultados anteriores en el ListBox
@@ -302,7 +193,6 @@ namespace Capa_Vista_ListaPrecios
                 }
                 else
                 {
-                    // Mensaje opcional si no se encuentran resultados
                     MessageBox.Show("No se encontraron productos que coincidan con la búsqueda.");
                 }
             }
@@ -315,18 +205,16 @@ namespace Capa_Vista_ListaPrecios
 
         private void listBox_resultados_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Asegúrate de que hay un elemento seleccionado
             if (listBox_resultados.SelectedItem != null)
             {
-                // Obtener el texto seleccionado (ej. "codigo - nombre")
+                
                 string productoSeleccionado = listBox_resultados.SelectedItem.ToString();
 
-                // Separa el código y el nombre usando el guion como delimitador
+                // Separa el código y el nombre 
                 var partes = productoSeleccionado.Split(new[] { " - " }, StringSplitOptions.None);
                 string codigoSeleccionado = partes[0]; // El código
 
-                // Llama a tu lógica para obtener el producto completo basado en la selección
-                DataTable detallesProducto = logic.funconsultalogicaproductos(codigoSeleccionado); // Llama el método adecuado
+                DataTable detallesProducto = logic.funconsultalogicaproductos(codigoSeleccionado); 
 
                 // Verifica que el DataTable no sea nulo y contenga filas
                 if (detallesProducto != null && detallesProducto.Rows.Count > 0)
@@ -405,7 +293,7 @@ namespace Capa_Vista_ListaPrecios
             if (Rdb_precioventa.Checked)
             {
                 Txt_porcentaje.Visible = true; // Habilitar el TextBox
-                Txt_porcentaje.Focus(); // Focalizar en el TextBox si lo deseas
+                Txt_porcentaje.Focus(); 
             }
             else
             {
@@ -419,7 +307,7 @@ namespace Capa_Vista_ListaPrecios
             if (Rdb_costocompra.Checked)
             {
                 Txt_porcentaje.Visible = true; // Habilitar el TextBox
-                Txt_porcentaje.Focus(); // Focalizar en el TextBox si lo deseas
+                Txt_porcentaje.Focus();
             }
             else
             {
@@ -433,7 +321,7 @@ namespace Capa_Vista_ListaPrecios
             if (Rdb_costocompra.Checked)
             {
                 Txt_forzado.Visible = true; // Habilitar el TextBox
-                Txt_forzado.Focus(); // Focalizar en el TextBox si lo deseas
+                Txt_forzado.Focus(); 
             }
             else
             {
@@ -448,7 +336,6 @@ namespace Capa_Vista_ListaPrecios
         private void Txt_porcentaje_TextChanged(object sender, EventArgs e)
         {
 
-            // Asegúrate de que las columnas estén en el DataGridView
             if (!Dgv_seleccionados.Columns.Contains("Ganancia_Inicial"))
             {
                 Dgv_seleccionados.Columns.Add("Ganancia_Inicial", "Ganancia Inicial");
@@ -508,7 +395,7 @@ namespace Capa_Vista_ListaPrecios
                     row.Cells["Ganancia_Inicial"].Value = gananciaInicial; // Guardar ganancia inicial
                     row.Cells["Ganancia_Nueva"].Value = 0; // Reiniciar ganancia nueva
 
-                    // Realizar cálculos dependiendo del radio button seleccionado
+                    // Realizar cálculos 
                     if (Rdb_precioventa.Checked)
                     {
                         // Calcular el nuevo precio de venta (reducción)
@@ -544,18 +431,17 @@ namespace Capa_Vista_ListaPrecios
         private void Btn_cancelar_Click(object sender, EventArgs e)
         {
             // Limpiar el primer DataGridView
-            Dgv_detalleProductos.DataSource = null; // Desasigna cualquier DataSource existente
+            Dgv_detalleProductos.DataSource = null; 
             Dgv_detalleProductos.Rows.Clear(); // Limpia las filas del DataGridView
 
             // Limpiar el segundo DataGridView
-            Dgv_seleccionados.DataSource = null; // Desasigna cualquier DataSource existente
+            Dgv_seleccionados.DataSource = null; 
             Dgv_seleccionados.Rows.Clear(); // Limpia las filas del DataGridView
 
             // Limpiar combos
             Cbo_clasificacionGeneral.SelectedIndex = -1;
             Cbo_clasificacionEspecifica.SelectedIndex = -1;
 
-            // Opcionalmente, puedes mostrar un mensaje de confirmación
             MessageBox.Show("La seleccion ha sido limpiada.");
         }
     }

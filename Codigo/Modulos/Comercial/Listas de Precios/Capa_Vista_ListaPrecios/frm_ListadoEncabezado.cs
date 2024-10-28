@@ -25,7 +25,7 @@ namespace Capa_Vista_ListaPrecios
             navegador1.ObtenerIdAplicacion("1000");
             navegador1.ObtenerIdUsuario(idUsuario);
             navegador1.AsignarAyuda("1");
-            navegador1.AsignarNombreForm("Mantenimiento Listas de Precios");
+            navegador1.AsignarNombreForm("Listas de Precios");
         }
     }
 }
