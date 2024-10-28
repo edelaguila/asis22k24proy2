@@ -79,5 +79,29 @@ namespace Capa_Controlador_Polizas
             return;
         }
 
+        //----------------------------------- Ayuda ------------------------------------------------
+        public string ModRuta(string sRuta1)
+        {
+            string sRuta = sn.ModRuta(sRuta1);
+            return sRuta;
+        }
+
+        public string ModIndice(string sIndice1)
+
+        {
+            string sIndice = sn.ModIndice(sIndice1);
+            return sIndice;
+        }
+
+        public string TestTabla(string sTabla)
+        {
+            return sn.ProbarTabla(sTabla);
+        }
+
+        public int ContarRegAyuda(string sTabla)
+        {
+            return sn.ContarReg(sTabla);
+        }
+
     }
 }

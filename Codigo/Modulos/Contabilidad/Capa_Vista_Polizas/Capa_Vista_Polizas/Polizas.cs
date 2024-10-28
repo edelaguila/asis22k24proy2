@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 //using Capa_Controlador_Seguridad;
 using Capa_Controlador_Polizas;
+#pragma warning disable CS0414
 
 namespace Capa_Vista_Polizas
 {
@@ -18,9 +20,14 @@ namespace Capa_Vista_Polizas
         private string idoperacion;
         private string idtp;
         List<object[]> detalles = new List<object[]>();
+        string RutaAyuda;
+        string IndiceAyuda;
+        int iCorrecto = 0;
+
+        string sIdAyuda;
 
         //Seguridad y usuario
-        string idUsuario;
+        //string idUsuario;
 
         public frmPolizas()
         {
@@ -240,6 +247,10 @@ namespace Capa_Vista_Polizas
             //Vaciar el DataGridView
             dgvPolizas.Rows.Clear();
 
+            // Para eliminar el error asociado a un control, como textBox1
+            errorProvider1.SetError(txtConcepto, "");
+
+
             // Mostrar un mensaje de confirmación (opcional)
             MessageBox.Show("Se ha cancelado la creación de la póliza");
 
@@ -425,6 +436,10 @@ namespace Capa_Vista_Polizas
                 {
                     errorProvider1.SetError(txtConcepto, "Este campo es obligatorio."); // Mostrar mensaje de error
                     txtConcepto.Focus(); // Enfocar el TextBox
+                                         // Mostrar un error asociado al control usando ErrorProvider
+                    errorProvider1.SetError(this.txtConcepto, "Este campo es obligatorio");
+
+                    MessageBox.Show("El campo es obligatorio. Por favor, ingrese un valor.", "Campo Obligatorio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
@@ -519,9 +534,74 @@ namespace Capa_Vista_Polizas
 
             }
         }
+
         private void Polizas_Load(object sender, EventArgs e)
         {
             this.BackColor = Color.FromArgb(248, 140, 140);
+            AsignarAyuda("1");
+
+            // Crear una instancia de ToolTip
+            ToolTip ttCrear = new ToolTip();
+            ToolTip ttGuardar = new ToolTip();
+            ToolTip ttCancelar = new ToolTip();
+            ToolTip ttAyuda = new ToolTip();
+            ToolTip ttSalir = new ToolTip();
+            ToolTip ttCheck = new ToolTip();
+            ToolTip ttQuitar = new ToolTip();
+            ToolTip ttAviso = new ToolTip();
+
+            // Configurar el ToolTip
+            ttCrear.AutoPopDelay = 5000;  
+            ttCrear.InitialDelay = 1000;  
+            ttCrear.ReshowDelay = 500;    
+            ttCrear.ShowAlways = true;
+
+            ttGuardar.AutoPopDelay = 5000;
+            ttGuardar.InitialDelay = 1000;
+            ttGuardar.ReshowDelay = 500;
+            ttGuardar.ShowAlways = true;
+
+            ttCancelar.AutoPopDelay = 5000;
+            ttCancelar.InitialDelay = 1000;
+            ttCancelar.ReshowDelay = 500;
+            ttCancelar.ShowAlways = true;
+
+            ttAyuda.AutoPopDelay = 5000;
+            ttAyuda.InitialDelay = 1000;
+            ttAyuda.ReshowDelay = 500;
+            ttAyuda.ShowAlways = true;
+
+            ttSalir.AutoPopDelay = 5000;
+            ttSalir.InitialDelay = 1000;
+            ttSalir.ReshowDelay = 500;
+            ttSalir.ShowAlways = true;
+
+            ttCheck.AutoPopDelay = 5000;
+            ttCheck.InitialDelay = 1000;
+            ttCheck.ReshowDelay = 500;
+            ttCheck.ShowAlways = true;
+
+            ttQuitar.AutoPopDelay = 5000;
+            ttQuitar.InitialDelay = 1000;
+            ttQuitar.ReshowDelay = 500;
+            ttQuitar.ShowAlways = true;
+
+            ttAviso.AutoPopDelay = 5000;
+            ttAviso.InitialDelay = 1000;
+            ttAviso.ReshowDelay = 500;
+            ttAviso.ShowAlways = true;
+
+            // Asignar el ToolTip a un control (ejemplo: botón)
+            ttCrear.SetToolTip(this.btn_nueva_poliza, "Crear nueva póliza");
+            ttGuardar.SetToolTip(this.btn_registar_poliza, "Registrar póliza");
+            ttCancelar.SetToolTip(this.btnCancelar, "Cancelar creación de póliza");
+            ttAyuda.SetToolTip(this.btnAyuda, "Mostrar ayuda");
+            ttSalir.SetToolTip(this.btnSalir, "Salir");
+            ttCheck.SetToolTip(this.btn_aceptar, "Enviar cuenta");
+            ttQuitar.SetToolTip(this.btnQuitar, "Quitar cuenta");
+            ttAviso.SetToolTip(this.txtConcepto, "Agregar concepto");
+
+            
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -545,6 +625,78 @@ namespace Capa_Vista_Polizas
             }
         }
 
+        public void AsignarAyuda(string sAyudar)
+        {
+            controladorPolizas ctr = new controladorPolizas();
+
+            string sAyudaOK = ctr.TestTabla("ayuda");
+
+            if (sAyudaOK == "")
+            {
+                if (ctr.ContarRegAyuda(sAyudar) > 0)
+                {
+                    sIdAyuda = sAyudar;
+                    RutaAyuda = ctr.ModRuta(sIdAyuda);
+                    IndiceAyuda = ctr.ModIndice(sIdAyuda);
+                    if (RutaAyuda == "" || IndiceAyuda == "" || RutaAyuda == null || IndiceAyuda == null)
+                    {
+                        DialogResult drValidacion = MessageBox.Show("La Ruta o índice de la ayuda está vacía", "Verificación de requisitos", MessageBoxButtons.OK);
+                        if (drValidacion == DialogResult.OK)
+                        {
+                            iCorrecto = 1;
+                        }
+                    }
+                }
+                else
+                {
+                    DialogResult drValidacion = MessageBox.Show("Por favor verifique el id de Ayuda asignado al form", "Verificación de requisitos", MessageBoxButtons.OK);
+                    if (drValidacion == DialogResult.OK)
+                    {
+                        iCorrecto = 1;
+                    }
+                }
+
+            }
+            else
+            {
+                DialogResult drValidacion = MessageBox.Show(sAyudaOK + ", Por favor incluirla", "Verificación de requisitos", MessageBoxButtons.OK);
+                if (drValidacion == DialogResult.OK)
+                {
+                    iCorrecto = 1;
+                }
+            }
+        }
+
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Obtener el directorio raíz del proyecto subiendo suficientes niveles
+                string sProjectRootPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\..\..\.."));
+
+                // Combinar la ruta base con la carpeta "Ayuda\AyudaHTML"
+                string sAyudaPath = Path.Combine(sProjectRootPath, "Ayuda", "Ayuda_Navegador", RutaAyuda);
+
+                // Verificar que el archivo de ayuda exista antes de intentar abrirlo
+                if (File.Exists(sAyudaPath))
+                {
+                    // Mostrar la ayuda utilizando la ruta completa y el índice
+                    Help.ShowHelp(this, sAyudaPath, IndiceAyuda);
+                }
+                else
+                {
+                    // Mostrar un mensaje de error si el archivo de ayuda no se encuentra
+                    MessageBox.Show("No se encontró el archivo de ayuda en la ruta especificada.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Mostrar un mensaje de error en caso de una excepción
+                MessageBox.Show("Ocurrió un error al abrir la ayuda: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine("Error al abrir la ayuda: " + ex.ToString());
+            }
+        }
     }
 }
 

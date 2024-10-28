@@ -69,6 +69,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="Resources\Quitar.png" />
   </ItemGroup>
   <ItemGroup>
@@ -115,6 +118,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cerrar-sesion1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ayuda.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

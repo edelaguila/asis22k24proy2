@@ -83,6 +83,16 @@ namespace Capa_Vista_Polizas.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Ayuda {
+            get {
+                object obj = ResourceManager.GetObject("Ayuda", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap boton_menos {
             get {
                 object obj = ResourceManager.GetObject("boton-menos", resourceCulture);

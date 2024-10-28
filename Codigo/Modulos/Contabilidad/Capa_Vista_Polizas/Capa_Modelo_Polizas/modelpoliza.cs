@@ -493,6 +493,79 @@ namespace Capa_Modelo_Polizas
             }
         }
 
+        public string ModRuta(string sIdAyuda)
+        {
+            string sRuta = "";
+            string sQuery = "SELECT Ruta FROM ayuda WHERE Id_ayuda = ?"; // Parámetro seguro
 
+            using (OdbcCommand command = new OdbcCommand(sQuery, con.conectar()))
+            {
+                command.Parameters.AddWithValue("id_ayuda", sIdAyuda);
+                using (OdbcDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        sRuta = reader.GetString(0); // Asignamos el valor de la columna Ruta
+                    }
+                }
+            }
+
+            return sRuta;
+        }
+
+        public string ModIndice(string sIdAyuda)
+        {
+            string sIndice = "";
+            string sQuery = "SELECT indice FROM ayuda WHERE id_ayuda = ?"; // Parámetro seguro
+
+            using (OdbcCommand command = new OdbcCommand(sQuery, con.conectar()))
+            {
+                command.Parameters.AddWithValue("Id_ayuda", sIdAyuda);
+                using (OdbcDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        sIndice = reader.GetString(0); // Asignamos el valor de la columna Indice
+                    }
+                }
+            }
+            return sIndice;
+        }
+
+        public string ProbarTabla(string sTabla)
+        {
+            string sError = "";
+            try
+            {
+                OdbcCommand command = new OdbcCommand("SELECT * FROM " + sTabla + ";", con.conectar());
+                OdbcDataReader reader = command.ExecuteReader();
+                reader.Read();
+            }
+            catch (Exception)
+            {
+                sError = "La tabla " + sTabla.ToUpper() + " no existe.";
+            }
+            return sError;
+        }
+
+        public int ContarReg(string sIdIndice)
+        {
+            int iCampos = 0;
+            try
+            {
+                OdbcCommand command = new OdbcCommand("SELECT * FROM ayuda WHERE id_ayuda = " + sIdIndice + ";", con.conectar());
+                OdbcDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    iCampos++;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + " \nError en obtenerTipo, revise los parámetros de la tabla  \n -" + sIdIndice.ToUpper() + "\n -");
+            }
+            return iCampos;
+        }
     }
 }
