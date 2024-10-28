@@ -59,6 +59,8 @@ namespace Capa_Vista_Nominas
             this.Btn_guardar = new System.Windows.Forms.Button();
             this.Btn_editar = new System.Windows.Forms.Button();
             this.Btn_insertar = new System.Windows.Forms.Button();
+            this.Cbo_clase = new System.Windows.Forms.ComboBox();
+            this.Lbl_clase = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_perp_dec)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,7 +88,7 @@ namespace Capa_Vista_Nominas
             // 
             this.Lbl_concepto.AutoSize = true;
             this.Lbl_concepto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold);
-            this.Lbl_concepto.Location = new System.Drawing.Point(68, 172);
+            this.Lbl_concepto.Location = new System.Drawing.Point(68, 211);
             this.Lbl_concepto.Name = "Lbl_concepto";
             this.Lbl_concepto.Size = new System.Drawing.Size(100, 24);
             this.Lbl_concepto.TabIndex = 6;
@@ -96,7 +98,7 @@ namespace Capa_Vista_Nominas
             // 
             this.Lbl_tipo.AutoSize = true;
             this.Lbl_tipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold);
-            this.Lbl_tipo.Location = new System.Drawing.Point(68, 210);
+            this.Lbl_tipo.Location = new System.Drawing.Point(68, 247);
             this.Lbl_tipo.Name = "Lbl_tipo";
             this.Lbl_tipo.Size = new System.Drawing.Size(52, 24);
             this.Lbl_tipo.TabIndex = 7;
@@ -106,7 +108,7 @@ namespace Capa_Vista_Nominas
             // 
             this.Lbl_aplicacion.AutoSize = true;
             this.Lbl_aplicacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold);
-            this.Lbl_aplicacion.Location = new System.Drawing.Point(68, 246);
+            this.Lbl_aplicacion.Location = new System.Drawing.Point(513, 133);
             this.Lbl_aplicacion.Name = "Lbl_aplicacion";
             this.Lbl_aplicacion.Size = new System.Drawing.Size(108, 24);
             this.Lbl_aplicacion.TabIndex = 8;
@@ -116,7 +118,7 @@ namespace Capa_Vista_Nominas
             // 
             this.Lbl_excepcion.AutoSize = true;
             this.Lbl_excepcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold);
-            this.Lbl_excepcion.Location = new System.Drawing.Point(513, 145);
+            this.Lbl_excepcion.Location = new System.Drawing.Point(513, 173);
             this.Lbl_excepcion.Name = "Lbl_excepcion";
             this.Lbl_excepcion.Size = new System.Drawing.Size(110, 24);
             this.Lbl_excepcion.TabIndex = 9;
@@ -126,7 +128,7 @@ namespace Capa_Vista_Nominas
             // 
             this.Lbl_monto.AutoSize = true;
             this.Lbl_monto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold);
-            this.Lbl_monto.Location = new System.Drawing.Point(513, 188);
+            this.Lbl_monto.Location = new System.Drawing.Point(513, 210);
             this.Lbl_monto.Name = "Lbl_monto";
             this.Lbl_monto.Size = new System.Drawing.Size(68, 24);
             this.Lbl_monto.TabIndex = 10;
@@ -136,7 +138,7 @@ namespace Capa_Vista_Nominas
             // 
             this.Lbl_estado.AutoSize = true;
             this.Lbl_estado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_estado.Location = new System.Drawing.Point(512, 235);
+            this.Lbl_estado.Location = new System.Drawing.Point(512, 247);
             this.Lbl_estado.Name = "Lbl_estado";
             this.Lbl_estado.Size = new System.Drawing.Size(74, 24);
             this.Lbl_estado.TabIndex = 11;
@@ -144,14 +146,14 @@ namespace Capa_Vista_Nominas
             // 
             // Txt_concepto
             // 
-            this.Txt_concepto.Location = new System.Drawing.Point(222, 173);
+            this.Txt_concepto.Location = new System.Drawing.Point(222, 212);
             this.Txt_concepto.Name = "Txt_concepto";
             this.Txt_concepto.Size = new System.Drawing.Size(193, 22);
             this.Txt_concepto.TabIndex = 12;
             // 
             // Txt_monto
             // 
-            this.Txt_monto.Location = new System.Drawing.Point(649, 188);
+            this.Txt_monto.Location = new System.Drawing.Point(649, 210);
             this.Txt_monto.Name = "Txt_monto";
             this.Txt_monto.Size = new System.Drawing.Size(191, 22);
             this.Txt_monto.TabIndex = 13;
@@ -159,7 +161,7 @@ namespace Capa_Vista_Nominas
             // Cbo_tipo
             // 
             this.Cbo_tipo.FormattingEnabled = true;
-            this.Cbo_tipo.Location = new System.Drawing.Point(222, 210);
+            this.Cbo_tipo.Location = new System.Drawing.Point(222, 247);
             this.Cbo_tipo.Name = "Cbo_tipo";
             this.Cbo_tipo.Size = new System.Drawing.Size(193, 24);
             this.Cbo_tipo.TabIndex = 14;
@@ -168,7 +170,7 @@ namespace Capa_Vista_Nominas
             // Cbo_aplicacion
             // 
             this.Cbo_aplicacion.FormattingEnabled = true;
-            this.Cbo_aplicacion.Location = new System.Drawing.Point(222, 246);
+            this.Cbo_aplicacion.Location = new System.Drawing.Point(649, 133);
             this.Cbo_aplicacion.Name = "Cbo_aplicacion";
             this.Cbo_aplicacion.Size = new System.Drawing.Size(193, 24);
             this.Cbo_aplicacion.TabIndex = 15;
@@ -195,7 +197,7 @@ namespace Capa_Vista_Nominas
             // 
             // Btn_excepcion
             // 
-            this.Btn_excepcion.Location = new System.Drawing.Point(649, 138);
+            this.Btn_excepcion.Location = new System.Drawing.Point(649, 166);
             this.Btn_excepcion.Name = "Btn_excepcion";
             this.Btn_excepcion.Size = new System.Drawing.Size(121, 31);
             this.Btn_excepcion.TabIndex = 20;
@@ -205,7 +207,7 @@ namespace Capa_Vista_Nominas
             // 
             // Btn_estado
             // 
-            this.Btn_estado.Location = new System.Drawing.Point(649, 231);
+            this.Btn_estado.Location = new System.Drawing.Point(649, 243);
             this.Btn_estado.Name = "Btn_estado";
             this.Btn_estado.Size = new System.Drawing.Size(121, 31);
             this.Btn_estado.TabIndex = 22;
@@ -215,6 +217,7 @@ namespace Capa_Vista_Nominas
             // 
             // Btn_ayuda
             // 
+            this.Btn_ayuda.Enabled = false;
             this.Btn_ayuda.Image = global::Capa_Vista_Nominas.Properties.Resources.AYUDA_V4;
             this.Btn_ayuda.Location = new System.Drawing.Point(900, 12);
             this.Btn_ayuda.Name = "Btn_ayuda";
@@ -224,6 +227,7 @@ namespace Capa_Vista_Nominas
             // 
             // Btn_salir
             // 
+            this.Btn_salir.Enabled = false;
             this.Btn_salir.Image = global::Capa_Vista_Nominas.Properties.Resources.SALIR_V4;
             this.Btn_salir.Location = new System.Drawing.Point(974, 12);
             this.Btn_salir.Name = "Btn_salir";
@@ -233,6 +237,7 @@ namespace Capa_Vista_Nominas
             // 
             // Btn_masderecha
             // 
+            this.Btn_masderecha.Enabled = false;
             this.Btn_masderecha.Image = global::Capa_Vista_Nominas.Properties.Resources.FULL_DERECHA_V4;
             this.Btn_masderecha.Location = new System.Drawing.Point(826, 12);
             this.Btn_masderecha.Name = "Btn_masderecha";
@@ -242,6 +247,7 @@ namespace Capa_Vista_Nominas
             // 
             // Btn_derecha
             // 
+            this.Btn_derecha.Enabled = false;
             this.Btn_derecha.Image = global::Capa_Vista_Nominas.Properties.Resources.DERECHA_V4;
             this.Btn_derecha.Location = new System.Drawing.Point(752, 12);
             this.Btn_derecha.Name = "Btn_derecha";
@@ -251,6 +257,7 @@ namespace Capa_Vista_Nominas
             // 
             // Btn_izquierda
             // 
+            this.Btn_izquierda.Enabled = false;
             this.Btn_izquierda.Image = global::Capa_Vista_Nominas.Properties.Resources.IZQUIERDA_V4;
             this.Btn_izquierda.Location = new System.Drawing.Point(678, 12);
             this.Btn_izquierda.Name = "Btn_izquierda";
@@ -260,6 +267,7 @@ namespace Capa_Vista_Nominas
             // 
             // Btn_masizquierda
             // 
+            this.Btn_masizquierda.Enabled = false;
             this.Btn_masizquierda.Image = global::Capa_Vista_Nominas.Properties.Resources.FULL_IZQUIERDA_V4;
             this.Btn_masizquierda.Location = new System.Drawing.Point(604, 12);
             this.Btn_masizquierda.Name = "Btn_masizquierda";
@@ -269,6 +277,7 @@ namespace Capa_Vista_Nominas
             // 
             // Btn_actualizar
             // 
+            this.Btn_actualizar.Enabled = false;
             this.Btn_actualizar.Image = global::Capa_Vista_Nominas.Properties.Resources.ACTUALIZAR_V4;
             this.Btn_actualizar.Location = new System.Drawing.Point(530, 12);
             this.Btn_actualizar.Name = "Btn_actualizar";
@@ -279,6 +288,7 @@ namespace Capa_Vista_Nominas
             // 
             // Btn_impresora
             // 
+            this.Btn_impresora.Enabled = false;
             this.Btn_impresora.Image = global::Capa_Vista_Nominas.Properties.Resources.impresora;
             this.Btn_impresora.Location = new System.Drawing.Point(456, 12);
             this.Btn_impresora.Name = "Btn_impresora";
@@ -288,6 +298,7 @@ namespace Capa_Vista_Nominas
             // 
             // Btn_buscar
             // 
+            this.Btn_buscar.Enabled = false;
             this.Btn_buscar.Image = global::Capa_Vista_Nominas.Properties.Resources.BUCAR_V4;
             this.Btn_buscar.Location = new System.Drawing.Point(382, 12);
             this.Btn_buscar.Name = "Btn_buscar";
@@ -345,12 +356,32 @@ namespace Capa_Vista_Nominas
             this.Btn_insertar.UseVisualStyleBackColor = true;
             this.Btn_insertar.Click += new System.EventHandler(this.Btn_insertar_Click);
             // 
+            // Cbo_clase
+            // 
+            this.Cbo_clase.FormattingEnabled = true;
+            this.Cbo_clase.Location = new System.Drawing.Point(222, 173);
+            this.Cbo_clase.Name = "Cbo_clase";
+            this.Cbo_clase.Size = new System.Drawing.Size(193, 24);
+            this.Cbo_clase.TabIndex = 34;
+            // 
+            // Lbl_clase
+            // 
+            this.Lbl_clase.AutoSize = true;
+            this.Lbl_clase.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold);
+            this.Lbl_clase.Location = new System.Drawing.Point(68, 173);
+            this.Lbl_clase.Name = "Lbl_clase";
+            this.Lbl_clase.Size = new System.Drawing.Size(62, 24);
+            this.Lbl_clase.TabIndex = 33;
+            this.Lbl_clase.Text = "Clase";
+            // 
             // frm_procesos_percepciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CadetBlue;
             this.ClientSize = new System.Drawing.Size(1062, 675);
+            this.Controls.Add(this.Cbo_clase);
+            this.Controls.Add(this.Lbl_clase);
             this.Controls.Add(this.Btn_ayuda);
             this.Controls.Add(this.Btn_salir);
             this.Controls.Add(this.Btn_masderecha);
@@ -423,5 +454,7 @@ namespace Capa_Vista_Nominas
         private System.Windows.Forms.Button Btn_masderecha;
         private System.Windows.Forms.Button Btn_salir;
         private System.Windows.Forms.Button Btn_ayuda;
+        private System.Windows.Forms.ComboBox Cbo_clase;
+        private System.Windows.Forms.Label Lbl_clase;
     }
 }

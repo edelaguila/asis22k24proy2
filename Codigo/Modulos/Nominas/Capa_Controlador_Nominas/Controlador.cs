@@ -54,14 +54,14 @@ namespace Capa_Controlador_Nominas
             }
         }
 
-        public bool funcInsertarLogicaDeduPerp(string concepto, string tipo, string aplicacion, int excepcion, float monto)
+        public bool funcInsertarLogicaDeduPerp(string clase, string concepto, string tipo, string aplicacion, int excepcion, float monto)
         {
             try
             {
                 // Validaciones básicas antes de insertar
-                if (string.IsNullOrEmpty(concepto) || string.IsNullOrEmpty(tipo) || string.IsNullOrEmpty(aplicacion))
+                if (string.IsNullOrEmpty(clase) || string.IsNullOrEmpty(concepto) || string.IsNullOrEmpty(tipo) || string.IsNullOrEmpty(aplicacion))
                 {
-                    throw new ArgumentException("Los campos concepto, tipo y aplicación son obligatorios.");
+                    throw new ArgumentException("Los campos clase, concepto, tipo y aplicación son obligatorios.");
                 }
 
                 if (monto < 0)
@@ -70,7 +70,7 @@ namespace Capa_Controlador_Nominas
                 }
 
                 // Intenta realizar la inserción
-                sn.funcInsertarDeduPerp(concepto, tipo, aplicacion, excepcion, monto);
+                sn.funcInsertarDeduPerp(clase, concepto, tipo, aplicacion, excepcion, monto);
                 return true; // Si llegamos aquí, la inserción fue exitosa
             }
             catch (Exception ex)
@@ -85,11 +85,11 @@ namespace Capa_Controlador_Nominas
             }
         }
 
-        public void funcActualizarLogicaDeduPerp(int id, string concepto, string tipo, string aplicacion, int excepcion, float monto)
+        public void funcActualizarLogicaDeduPerp(int id, string clase, string concepto, string tipo, string aplicacion, int excepcion, float monto)
         {
             try
             {
-                sn.funcActualizarDeduPerp(id, concepto, tipo, aplicacion, excepcion, monto);
+                sn.funcActualizarDeduPerp(id, clase, concepto, tipo, aplicacion, excepcion, monto);
             }
             catch (Exception ex)
             {

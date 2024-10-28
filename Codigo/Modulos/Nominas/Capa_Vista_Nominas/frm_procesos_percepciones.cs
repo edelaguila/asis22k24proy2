@@ -48,6 +48,7 @@ namespace Capa_Vista_Nominas
             estadoActivo = 1;
             Cbo_tipo.DropDownStyle = ComboBoxStyle.DropDownList;
             Cbo_aplicacion.DropDownStyle = ComboBoxStyle.DropDownList;
+            Cbo_clase.DropDownStyle = ComboBoxStyle.DropDownList;
             // Actualizar los botones para reflejar su estado activo
             ActualizarBotonExcepcion();
             ActualizarBotonEstado();
@@ -73,6 +74,7 @@ namespace Capa_Vista_Nominas
             Cbo_tipo.Enabled = habilitar;
             Cbo_aplicacion.Enabled = habilitar;
             Txt_monto.Enabled = habilitar;
+            Cbo_clase.Enabled = habilitar;
 
             // Habilitar o deshabilitar los botones
             Btn_excepcion.Enabled = true; // Btn_excepcion permanece habilitado siempre
@@ -92,6 +94,10 @@ namespace Capa_Vista_Nominas
             Cbo_aplicacion.Items.Clear();
             Cbo_aplicacion.Items.Add("Todos");
             Cbo_aplicacion.Items.Add("Ninguno");
+
+            Cbo_clase.Items.Clear();
+            Cbo_clase.Items.Add("Percepción");
+            Cbo_clase.Items.Add("Deducción");
         }
 
         private void CargarDatos()
@@ -152,6 +158,7 @@ namespace Capa_Vista_Nominas
             Txt_concepto.Text = "";
             Cbo_tipo.SelectedIndex = -1;
             Cbo_aplicacion.SelectedIndex = -1;
+            Cbo_clase.SelectedIndex = -1;
             Txt_monto.Text = "";
             excepcionActiva = 1;
             estadoActivo = 1;
@@ -177,6 +184,14 @@ namespace Capa_Vista_Nominas
                 return;
             }
             Txt_concepto.Focus();
+            Cbo_clase.Enabled = true;
+            Txt_concepto.Enabled = true;
+            Cbo_tipo.Enabled = true;
+            Cbo_aplicacion.Enabled = true;
+            Btn_excepcion.Enabled = true;
+            Txt_monto.Enabled = true;
+            Btn_estado.Enabled = true;
+            Btn_guardar.Enabled = true;
         }
 
         private void Btn_guardar_Click(object sender, EventArgs e)
@@ -187,6 +202,7 @@ namespace Capa_Vista_Nominas
                 if (string.IsNullOrEmpty(Txt_concepto.Text) ||
                     Cbo_tipo.SelectedIndex == -1 ||
                     Cbo_aplicacion.SelectedIndex == -1 ||
+                    Cbo_clase.SelectedIndex == -1 ||
                     string.IsNullOrEmpty(Txt_monto.Text))
                 {
                     MessageBox.Show("Todos los campos son obligatorios");
@@ -197,6 +213,7 @@ namespace Capa_Vista_Nominas
                 string concepto = Txt_concepto.Text;
                 string tipo = Cbo_tipo.SelectedItem.ToString();
                 string aplicacion = Cbo_aplicacion.SelectedItem.ToString();
+                string clase = Cbo_clase.SelectedItem.ToString();
 
                 // Validar que el monto sea un número válido
                 if (!float.TryParse(Txt_monto.Text, out float monto))
@@ -209,7 +226,7 @@ namespace Capa_Vista_Nominas
                 if (idSeleccionado == 0)
                 {
                     // Insertar nuevo registro
-                    cn.funcInsertarLogicaDeduPerp(concepto, tipo, aplicacion, excepcionActiva, monto);
+                    cn.funcInsertarLogicaDeduPerp(clase, concepto, tipo, aplicacion, excepcionActiva, monto);
                     MessageBox.Show("Registro insertado exitosamente");
                     // Inicializar los botones de excepción y estado como activos
                     excepcionActiva = 1;
@@ -218,7 +235,7 @@ namespace Capa_Vista_Nominas
                 else
                 {
                     // Actualizar registro existente
-                    cn.funcActualizarLogicaDeduPerp(idSeleccionado, concepto, tipo, aplicacion, excepcionActiva, monto);
+                    cn.funcActualizarLogicaDeduPerp(idSeleccionado, clase, concepto, tipo, aplicacion, excepcionActiva, monto);
                     MessageBox.Show("Registro actualizado exitosamente");
                     // Inicializar los botones de excepción y estado como activos
                     excepcionActiva = 1;
@@ -234,6 +251,7 @@ namespace Capa_Vista_Nominas
                 MessageBox.Show("Error al guardar: " + ex.Message);
             }
         }
+
 
         private void Btn_eliminar_Click(object sender, EventArgs e)
         {
@@ -354,7 +372,7 @@ namespace Capa_Vista_Nominas
 
         }
 
-        //FIN
+        //FIN - Fernando García 0901-21-581
 
     }
 }
