@@ -34,7 +34,7 @@ namespace Capa_Vista_Nominas
             string[] alias = { "pk_id_departamento", "nombre_departamento", "descripcion", "estado" };
             navegador1.AsignarAlias(alias);
             navegador1.AsignarSalida(this);
-            navegador1.AsignarColorFondo(Color.CadetBlue);
+            navegador1.AsignarColorFondo(Color.MediumPurple);
             navegador1.AsignarColorFuente(Color.Black);
             navegador1.AsignarTabla("tbl_departamentos");
             navegador1.ObtenerIdAplicacion("1000");
