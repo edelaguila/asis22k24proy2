@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Capa_Vista_Implosion_Explosion;
 
 namespace Capa_Vista_Produccion
 {
@@ -106,9 +107,8 @@ namespace Capa_Vista_Produccion
         // Botón de implosión/explosión de materiales
         private void btnImplosionExplosion_Click(object sender, EventArgs e)
         {
-            /*
-              * Acá va la lógica para abrir el formulario de Implosión y Explosión
-            */
+            Frm_Implosion_Explosion_Materiales ie = new Frm_Implosion_Explosion_Materiales();
+            ie.Show();
         }
 
         // Botón de sistema de producción
