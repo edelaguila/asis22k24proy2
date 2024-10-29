@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Capa_Vista_Contabilidad
 {
-    public partial class PartidaCierre : Form
+    public partial class FormCierre : Form
     {
-        public PartidaCierre()
+        public FormCierre()
         {
             InitializeComponent();
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

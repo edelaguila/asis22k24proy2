@@ -9,6 +9,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Capa_Vista_CierreContable;
 
 namespace Capa_Vista_Contabilidad   
 {
@@ -172,9 +173,9 @@ namespace Capa_Vista_Contabilidad
 
         private void btnMenuCatalogosOpcion1_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<Presupuesto>();
-            btnPresupuestos.BackColor = Color.FromArgb(12, 61, 92);
-            ocultaSubMenu();
+            //AbrirFormulario<Presupuesto>();
+            //btnPresupuestos.BackColor = Color.FromArgb(12, 61, 92);
+            //ocultaSubMenu();
         }
         private void btnMenuCatalogosOpcion2_Click(object sender, EventArgs e)
         {
@@ -183,7 +184,7 @@ namespace Capa_Vista_Contabilidad
 
         private void btnMenuProcesos_Click(object sender, EventArgs e)
         {
-            muestraSubMenu(panelMenuMant);
+            //muestraSubMenu(panelMenuMant);
         }
 
         private void btnMenuCatalogosOpcion2_Click_1(object sender, EventArgs e)
@@ -193,9 +194,9 @@ namespace Capa_Vista_Contabilidad
 
         private void btnMenuProcesosOpcion1_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<MantenimientoEncabezadoCuenta>();
-            btnmAreaCuenta.BackColor = Color.FromArgb(12, 61, 92);
-            ocultaSubMenu();
+            //AbrirFormulario<MantenimientoEncabezadoCuenta>();
+            //btnmAreaCuenta.BackColor = Color.FromArgb(12, 61, 92);
+            //ocultaSubMenu();
         }
 
         /*private void btnSalir_Click(object sender, EventArgs e)
@@ -210,42 +211,40 @@ namespace Capa_Vista_Contabilidad
 
         private void btnmTipoPoliza_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<Mantenimiento_Tipo_Poliza>();
-            btnmTipoPoliza.BackColor = Color.FromArgb(12, 61, 92);
-            ocultaSubMenu();
+            //AbrirFormulario<Mantenimiento_Tipo_Poliza>();
+            //btnmTipoPoliza.BackColor = Color.FromArgb(12, 61, 92);
+            //ocultaSubMenu();
         }
 
         private void btnmTipoCuenta_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<MantenimientoTipoCuenta>();
-            btnmTipoCuenta.BackColor = Color.FromArgb(12, 61, 92);
-            ocultaSubMenu();
+            //AbrirFormulario<MantenimientoTipoCuenta>();
+            //btnmTipoCuenta.BackColor = Color.FromArgb(12, 61, 92);
+            //ocultaSubMenu();
         }
 
         private void btnCierreGeneral_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<CierreContable>();
-            BtnCierreCuentas.BackColor = Color.FromArgb(12, 61, 92);
-            ocultaSubMenu();
+
         }
 
         private void btnEstadosFin_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<EstadosFinancieros>();
-            btnEstadosFin.BackColor = Color.FromArgb(12, 61, 92);
-            ocultaSubMenu();
+            //AbrirFormulario<EstadosFinancieros>();
+            //btnEstadosFin.BackColor = Color.FromArgb(12, 61, 92);
+            //ocultaSubMenu();
         }
 
         private void btnPolizasLocales_Click(object sender, EventArgs e)
         {
-            muestraSubMenu(panelMenuPolizasLocales);
+            //muestraSubMenu(panelMenuPolizasLocales);
         }
 
         private void btnmCuenta_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<Mantenimiento_Cuentas>();
-            btnmCuenta.BackColor = Color.FromArgb(12, 61, 92);
-            ocultaSubMenu();
+            //AbrirFormulario<Mantenimiento_Cuentas>();
+            //btnmCuenta.BackColor = Color.FromArgb(12, 61, 92);
+            //ocultaSubMenu();
         }
 
         private void panelBarraTitulo_Paint(object sender, PaintEventArgs e)
@@ -256,9 +255,9 @@ namespace Capa_Vista_Contabilidad
         private void btnmActivosFijos_Click(object sender, EventArgs e)
         {
             
-            AbrirFormulario<Mantenimientoactivofijo>();
-            btnmCuenta.BackColor = Color.FromArgb(12, 61, 92);
-            ocultaSubMenu();
+            //AbrirFormulario<Mantenimientoactivofijo>();
+            //btnmCuenta.BackColor = Color.FromArgb(12, 61, 92);
+            //ocultaSubMenu();
         }
 
         private void lbl_usuario_Click(object sender, EventArgs e)
@@ -268,18 +267,25 @@ namespace Capa_Vista_Contabilidad
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            AbrirFormulario<Mantenimientotipoactivo>();
-            btnmCuenta.BackColor = Color.FromArgb(12, 61, 92);
-            ocultaSubMenu();
+            //AbrirFormulario<Mantenimientotipoactivo>();
+            //btnmCuenta.BackColor = Color.FromArgb(12, 61, 92);
+            //ocultaSubMenu();
            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<mantenimientomarca>();
-            btnmCuenta.BackColor = Color.FromArgb(12, 61, 92);
-            ocultaSubMenu();
+            //AbrirFormulario<mantenimientomarca>();
+            //btnmCuenta.BackColor = Color.FromArgb(12, 61, 92);
+            //ocultaSubMenu();
           
+        }
+
+        private void BtnCierreCuentas_Click(object sender, EventArgs e)
+        {
+             AbrirFormulario<FormCierre>();
+            BtnCierreCuentas.BackColor = Color.FromArgb(255, 51, 51);
+            ocultaSubMenu();
         }
         #endregion
         //Metodo para abrir formularios dentro de panel contenedor
