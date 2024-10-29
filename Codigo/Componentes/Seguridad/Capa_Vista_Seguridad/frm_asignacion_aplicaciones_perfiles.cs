@@ -95,7 +95,8 @@ namespace Capa_Vista_Seguridad
             Cbo_modulos.DropDownStyle = ComboBoxStyle.DropDownList;
             Cbo_perfiles.DropDownStyle = ComboBoxStyle.DropDownList;
             Btn_guardar.Enabled = false;
-            Btn_remover.Enabled = false;
+            Btn_remover.Enabled = true;
+            Btn_modificar.Enabled = false;
         }
 //****************************************FIN Kevin López***************************************************
         void limpieza()
@@ -236,33 +237,46 @@ namespace Capa_Vista_Seguridad
 
         private void btn_remover_Click_1(object sender, EventArgs e)
         {
-            if (Dgv_asignacionesperfiles.Rows.Count > 0)
+            try
             {
-                if (Dgv_asignacionesperfiles.CurrentRow != null)
+                // Verificar si se seleccionaron filas en Dgv_asignaciones
+                if (Dgv_asignaciones.SelectedRows.Count == 0)
                 {
-                    // Eliminar la fila seleccionada
-                    Dgv_asignacionesperfiles.Rows.RemoveAt(Dgv_asignacionesperfiles.CurrentRow.Index);
+                    MessageBox.Show("Por favor, selecciona al menos un permiso para eliminar.");
+                    return;
                 }
-                else
-                {
-                    MessageBox.Show("Por favor, selecciona una fila para eliminar.");
-                }
-            }
-            else
-            {
-                MessageBox.Show("No hay filas en el DataGridView.");
-            }
 
-            Btn_guardar.Enabled = false;
-            Btn_agregar.Enabled = true;
-            Btn_remover.Enabled = false;
-            Btn_buscar.Enabled = true;
-            Cbo_aplicaciones.Enabled = true;
-            Cbo_modulos.Enabled = true;
-            Cbo_perfiles.Enabled = true;
-            Cbo_aplicaciones.SelectedIndex = -1;
-            Cbo_modulos.SelectedIndex = -1;
-            Cbo_perfiles.SelectedIndex = -1;
+                // Mostrar mensaje de advertencia antes de proceder
+                DialogResult result = MessageBox.Show(
+                    "¿Estás seguro de que deseas eliminar el/los permisos seleccionado(s)? Esta acción no se puede deshacer.",
+                    "Confirmar eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+
+                // Verificar si el usuario presionó 'Sí'
+                if (result == DialogResult.Yes)
+                {
+                    // Recorrer cada fila seleccionada para eliminar
+                    foreach (DataGridViewRow fila in Dgv_asignaciones.SelectedRows)
+                    {
+                        string sIdPerfil = fila.Cells[0].Value.ToString(); // Código del perfil
+                        string snombreaplicacion = fila.Cells[1].Value.ToString(); // Nombre de la aplicación
+
+                        // Llamar al método que elimina los permisos
+                        logic.funEliminarPermisosPerfil(sIdPerfil, snombreaplicacion);
+                    }
+
+                    MessageBox.Show("Registro(s) eliminado(s) correctamente.");
+                    actualizardatagriew1(); // Refrescar la vista con los datos actualizados
+                    limpieza(); // Limpiar campos si es necesario
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                MessageBox.Show($"Error al eliminar permisos: {ex.Message}");
+            }
         }
 
 
@@ -450,9 +464,46 @@ namespace Capa_Vista_Seguridad
             }
         }
 
-
+        
         private void btn_buscar_Click_1(object sender, EventArgs e)
         {
+            Btn_agregar.Enabled = true;
+            Btn_remover.Enabled = true;
+            Btn_cancelar.Enabled = true;
+            Btn_modificar.Enabled = true;
+            Cbo_aplicaciones.Enabled = false;
+            Cbo_modulos.Enabled = false;
+            Cbo_perfiles.Enabled = false;
+
+            // Verifica si hay una fila seleccionada en Dgv_asignaciones
+            if (Dgv_asignaciones.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = Dgv_asignaciones.SelectedRows[0]; // La primera fila seleccionada
+
+                // Crear una nueva fila en Dgv_asignacionesperfiles y agregarle las celdas necesarias
+                int rowIndex = Dgv_asignacionesperfiles.Rows.Add();
+                DataGridViewRow newRow = Dgv_asignacionesperfiles.Rows[rowIndex];
+
+                // Obtener el ID del perfil y convertirlo en nombre
+                string idPerfil = selectedRow.Cells["Perfil"].Value.ToString();
+                string nombrePerfil = logic.obtenerNombrePerfil(idPerfil);
+
+                // Copiar los valores de la fila seleccionada
+                newRow.Cells["Perfil"].Value = nombrePerfil;
+                newRow.Cells["Aplicacion"].Value = selectedRow.Cells["Aplicacion"].Value;
+                newRow.Cells["Ingresar"].Value = selectedRow.Cells["Ingresar"].Value;
+                newRow.Cells["Consultar"].Value = selectedRow.Cells["Consultar"].Value;
+                newRow.Cells["Modificar"].Value = selectedRow.Cells["Modificar"].Value;
+                newRow.Cells["Eliminar"].Value = selectedRow.Cells["Eliminar"].Value;
+                newRow.Cells["Imprimir"].Value = selectedRow.Cells["Imprimir"].Value;
+
+                MessageBox.Show("Registro pasado a Dgv_asignacionesperfiles.");
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione una fila en Dgv_asignaciones.");
+            }
+
             Btn_agregar.Enabled = true;
             Cbo_aplicaciones.Enabled = false;
             Cbo_modulos.Enabled = false;
@@ -557,25 +608,72 @@ namespace Capa_Vista_Seguridad
 
         private void Btn_cancelar_Click(object sender, EventArgs e)
         {
+            limpieza();
+            Dgv_asignacionesperfiles.Rows.Clear();
+            iContadorFila = 0;
             Btn_agregar.Enabled = true;
-            Btn_guardar.Enabled = false;
-            Btn_remover.Enabled = false;
             Btn_buscar.Enabled = true;
+            Btn_remover.Enabled = true;
+            Btn_modificar.Enabled = false;
+            Btn_guardar.Enabled = false;
             Cbo_aplicaciones.SelectedIndex = -1;
             Cbo_modulos.SelectedIndex = -1;
             Cbo_perfiles.SelectedIndex = -1;
             Cbo_aplicaciones.Enabled = true;
             Cbo_modulos.Enabled = true;
             Cbo_perfiles.Enabled = true;
-            // Verificar si hay una fuente de datos
-            if (Dgv_asignacionesperfiles.DataSource != null)
-            {
-                // Crear una nueva DataTable vacía con las mismas columnas que el original
-                DataTable dt = (DataTable)Dgv_asignacionesperfiles.DataSource;
-                dt.Rows.Clear(); // Limpiar solo las filas, las columnas se mantienen.
+        }
 
-                // Reasignar el DataTable vacío como fuente de datos
-                Dgv_asignacionesperfiles.DataSource = dt;
+        private void Btn_modificar_Click(object sender, EventArgs e)
+        {
+            string singresar;
+            string sconsulta;
+            string smodificar;
+            string seliminar;
+            string simprimir;
+            try
+            {
+                foreach (DataGridViewRow Fila in Dgv_asignacionesperfiles.Rows)
+                {
+                    string scodigoperfil = Fila.Cells[0].Value.ToString(); // Utiliza la columna correcta
+                    string snombreaplicacion = Fila.Cells[1].Value.ToString(); // Utiliza la columna correcta
+                    bool cheked = ((bool)(Fila.Cells["Ingresar"].EditedFormattedValue));
+                    singresar = cheked ? "1" : "0";
+
+                    bool chekedM = ((bool)(Fila.Cells["Modificar"].EditedFormattedValue));
+                    smodificar = chekedM ? "1" : "0";
+
+                    bool chekedE = ((bool)(Fila.Cells["Eliminar"].EditedFormattedValue));
+                    seliminar = chekedE ? "1" : "0";
+
+                    bool chekedC = ((bool)(Fila.Cells["Consultar"].EditedFormattedValue));
+                    sconsulta = chekedC ? "1" : "0";
+
+                    bool chekedI = ((bool)(Fila.Cells["Imprimir"].EditedFormattedValue));
+                    simprimir = chekedI ? "1" : "0";
+
+                    DataTable dtAplicaciones = logic.funModificarPermisosPerfil(scodigoperfil, snombreaplicacion, singresar, smodificar, seliminar, sconsulta, simprimir);
+                }
+
+                MessageBox.Show("Datos modificados exitosamente");
+                actualizardatagriew1();
+                limpieza();
+                Dgv_asignacionesperfiles.Rows.Clear();
+                iContadorFila = 0;
+                Btn_agregar.Enabled = true;
+                Btn_buscar.Enabled = true;
+                Btn_remover.Enabled = false;
+                Btn_guardar.Enabled = false;
+                Cbo_aplicaciones.SelectedIndex = -1;
+                Cbo_modulos.SelectedIndex = -1;
+                Cbo_perfiles.SelectedIndex = -1;
+                Cbo_aplicaciones.Enabled = true;
+                Cbo_modulos.Enabled = true;
+                Cbo_perfiles.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
             }
         }
     }

@@ -42,6 +42,8 @@ namespace Capa_Vista_Nominas
                 Pnl_mantenimientos.Visible = false;
             if (Pnl_generacion.Visible == true)
                 Pnl_generacion.Visible = false;
+            if (Pnl_genproc.Visible == true)
+                Pnl_genproc.Visible = false;
         }
 
         private void muestraSubMenu(Panel subMenu)
@@ -234,8 +236,8 @@ namespace Capa_Vista_Nominas
 
         private void Btn_planilla_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<frm_genplanilla>(); // Pasa el idUsuario
-            Btn_puesto.BackColor = Color.FromArgb(12, 61, 92);
+            /*AbrirFormulario<frm_genplanilla>(); // Pasa el idUsuario
+            Btn_puesto.BackColor = Color.FromArgb(12, 61, 92);*/
             ocultaSubMenu();
         }
 
@@ -255,21 +257,21 @@ namespace Capa_Vista_Nominas
 
         private void Btn_generacionpercep_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<frm_genpercepciones>(); // Pasa el idUsuario
-            Btn_puesto.BackColor = Color.FromArgb(12, 61, 92);
+            /*AbrirFormulario<frm_genpercepciones>(); // Pasa el idUsuario
+            Btn_puesto.BackColor = Color.FromArgb(12, 61, 92);*/
             ocultaSubMenu();
         }
 
         private void Btn_generaciondeduc_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<frm_gendeducciones>(); // Pasa el idUsuario
-            Btn_puesto.BackColor = Color.FromArgb(12, 61, 92);
+            /*AbrirFormulario<frm_gendeducciones>(); // Pasa el idUsuario
+            Btn_puesto.BackColor = Color.FromArgb(12, 61, 92);*/
             ocultaSubMenu();
         }
 
         private void Btn_salir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            
         }
 
         private void Btn_reportes_Click(object sender, EventArgs e)
@@ -290,6 +292,36 @@ namespace Capa_Vista_Nominas
         {
             AbrirFormulario<frm_vacacionesempleados>(); // Pasa el idUsuario
             Btn_puesto.BackColor = Color.FromArgb(12, 61, 92);
+            ocultaSubMenu();
+        }
+
+        private void Btn_salir_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Btn_generacionproc_Click(object sender, EventArgs e)
+        {
+            muestraSubMenu(Pnl_genproc);
+        }
+
+        private void Btn_procfaltas_Click(object sender, EventArgs e)
+        {
+            ocultaSubMenu();
+        }
+
+        private void Btn_procanticipos_Click(object sender, EventArgs e)
+        {
+            ocultaSubMenu();
+        }
+
+        private void Btn_procliquidaciones_Click(object sender, EventArgs e)
+        {
+            ocultaSubMenu();
+        }
+
+        private void Btn_prochorasextra_Click(object sender, EventArgs e)
+        {
             ocultaSubMenu();
         }
 

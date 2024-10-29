@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_perfiles_mantenimiento));
             this.Txt_titulo = new System.Windows.Forms.Label();
             this.Gpb_buscarperfiles = new System.Windows.Forms.GroupBox();
+            this.Cbo_buscar = new System.Windows.Forms.ComboBox();
             this.Btn_buscarperfil = new System.Windows.Forms.Button();
-            this.Tbx_buscarperfil = new System.Windows.Forms.TextBox();
             this.Gpb_datos = new System.Windows.Forms.GroupBox();
             this.Txt_descipcion = new System.Windows.Forms.TextBox();
             this.Txt_nombre = new System.Windows.Forms.TextBox();
@@ -65,15 +65,15 @@
             this.Txt_titulo.ForeColor = System.Drawing.Color.Transparent;
             this.Txt_titulo.Location = new System.Drawing.Point(258, 14);
             this.Txt_titulo.Name = "Txt_titulo";
-            this.Txt_titulo.Size = new System.Drawing.Size(398, 44);
+            this.Txt_titulo.Size = new System.Drawing.Size(399, 44);
             this.Txt_titulo.TabIndex = 274;
             this.Txt_titulo.Text = "MANTENIMIENTO DE PERFILES ";
             // 
             // Gpb_buscarperfiles
             // 
             this.Gpb_buscarperfiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.Gpb_buscarperfiles.Controls.Add(this.Cbo_buscar);
             this.Gpb_buscarperfiles.Controls.Add(this.Btn_buscarperfil);
-            this.Gpb_buscarperfiles.Controls.Add(this.Tbx_buscarperfil);
             this.Gpb_buscarperfiles.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Gpb_buscarperfiles.Location = new System.Drawing.Point(95, 258);
             this.Gpb_buscarperfiles.Margin = new System.Windows.Forms.Padding(4);
@@ -83,6 +83,14 @@
             this.Gpb_buscarperfiles.TabIndex = 273;
             this.Gpb_buscarperfiles.TabStop = false;
             this.Gpb_buscarperfiles.Text = "Buscar perfiles";
+            // 
+            // Cbo_buscar
+            // 
+            this.Cbo_buscar.FormattingEnabled = true;
+            this.Cbo_buscar.Location = new System.Drawing.Point(29, 46);
+            this.Cbo_buscar.Name = "Cbo_buscar";
+            this.Cbo_buscar.Size = new System.Drawing.Size(121, 31);
+            this.Cbo_buscar.TabIndex = 267;
             // 
             // Btn_buscarperfil
             // 
@@ -97,15 +105,6 @@
             this.Btn_buscarperfil.TabIndex = 266;
             this.Btn_buscarperfil.UseVisualStyleBackColor = true;
             this.Btn_buscarperfil.Click += new System.EventHandler(this.btn_bsucarperfil_Click);
-            // 
-            // Tbx_buscarperfil
-            // 
-            this.Tbx_buscarperfil.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tbx_buscarperfil.Location = new System.Drawing.Point(30, 57);
-            this.Tbx_buscarperfil.Margin = new System.Windows.Forms.Padding(4);
-            this.Tbx_buscarperfil.Name = "Tbx_buscarperfil";
-            this.Tbx_buscarperfil.Size = new System.Drawing.Size(117, 27);
-            this.Tbx_buscarperfil.TabIndex = 6;
             // 
             // Gpb_datos
             // 
@@ -389,7 +388,6 @@
             this.Text = "Mantenimiento de Perfiles";
             this.Load += new System.EventHandler(this.Frm_perfiles_mantenimiento_Load);
             this.Gpb_buscarperfiles.ResumeLayout(false);
-            this.Gpb_buscarperfiles.PerformLayout();
             this.Gpb_datos.ResumeLayout(false);
             this.Gpb_datos.PerformLayout();
             this.Gpb_estado.ResumeLayout(false);
@@ -413,7 +411,6 @@
         private System.Windows.Forms.Label Txt_titulo;
         private System.Windows.Forms.GroupBox Gpb_buscarperfiles;
         private System.Windows.Forms.Button Btn_buscarperfil;
-        private System.Windows.Forms.TextBox Tbx_buscarperfil;
         private System.Windows.Forms.GroupBox Gpb_datos;
         private System.Windows.Forms.TextBox Txt_descipcion;
         private System.Windows.Forms.TextBox Txt_nombre;
@@ -425,5 +422,6 @@
         private System.Windows.Forms.RadioButton Rdb_inhabilitado;
         private System.Windows.Forms.RadioButton Rdb_habilitado;
         private System.Windows.Forms.DataGridView Dgv_perfiles;
+        private System.Windows.Forms.ComboBox Cbo_buscar;
     }
 }
