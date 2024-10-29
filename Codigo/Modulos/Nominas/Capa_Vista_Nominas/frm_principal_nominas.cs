@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Capa_Vista_Planilla;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -238,6 +239,8 @@ namespace Capa_Vista_Nominas
         {
             /*AbrirFormulario<frm_genplanilla>(); // Pasa el idUsuario
             Btn_puesto.BackColor = Color.FromArgb(12, 61, 92);*/
+            Frm_GenPlanilla planilla = new Frm_GenPlanilla();
+            planilla.Show();
             ocultaSubMenu();
         }
 
