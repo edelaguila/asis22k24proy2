@@ -53,78 +53,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Frm_Cierre.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frm_Cierre.Designer.cs">
-      <DependentUpon>Frm_Cierre.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frm_Conversiones.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frm_Conversiones.Designer.cs">
-      <DependentUpon>Frm_Conversiones.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frm_Enlace_Contabilidad_Cierre.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frm_Enlace_Contabilidad_Cierre.Designer.cs">
-      <DependentUpon>Frm_Enlace_Contabilidad_Cierre.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frm_Enlace_RRHH.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frm_Enlace_RRHH.Designer.cs">
-      <DependentUpon>Frm_Enlace_RRHH.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frm_Implosion_Explosion_Materiales.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frm_Implosion_Explosion_Materiales.Designer.cs">
-      <DependentUpon>Frm_Implosion_Explosion_Materiales.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frm_Lotes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frm_Lotes.Designer.cs">
-      <DependentUpon>Frm_Lotes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frm_Mantenimiento_Produccion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frm_Mantenimiento_Produccion.Designer.cs">
-      <DependentUpon>Frm_Mantenimiento_Produccion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frm_Maquinaria.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frm_Maquinaria.Designer.cs">
-      <DependentUpon>Frm_Maquinaria.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frm_Ordenes_De_Produccion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frm_Ordenes_De_Produccion.Designer.cs">
-      <DependentUpon>Frm_Ordenes_De_Produccion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frm_Receta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frm_Receta.Designer.cs">
-      <DependentUpon>Frm_Receta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frm_Series.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frm_Series.Designer.cs">
-      <DependentUpon>Frm_Series.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frm_Sistema_Produccion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frm_Sistema_Produccion.Designer.cs">
-      <DependentUpon>Frm_Sistema_Produccion.cs</DependentUpon>
-    </Compile>
     <Compile Include="MDI_Produccion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,42 +67,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Frm_Cierre.resx">
-      <DependentUpon>Frm_Cierre.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frm_Conversiones.resx">
-      <DependentUpon>Frm_Conversiones.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frm_Enlace_Contabilidad_Cierre.resx">
-      <DependentUpon>Frm_Enlace_Contabilidad_Cierre.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frm_Enlace_RRHH.resx">
-      <DependentUpon>Frm_Enlace_RRHH.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frm_Implosion_Explosion_Materiales.resx">
-      <DependentUpon>Frm_Implosion_Explosion_Materiales.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frm_Lotes.resx">
-      <DependentUpon>Frm_Lotes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frm_Mantenimiento_Produccion.resx">
-      <DependentUpon>Frm_Mantenimiento_Produccion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frm_Maquinaria.resx">
-      <DependentUpon>Frm_Maquinaria.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frm_Ordenes_De_Produccion.resx">
-      <DependentUpon>Frm_Ordenes_De_Produccion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frm_Receta.resx">
-      <DependentUpon>Frm_Receta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frm_Series.resx">
-      <DependentUpon>Frm_Series.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frm_Sistema_Produccion.resx">
-      <DependentUpon>Frm_Sistema_Produccion.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MDI_Produccion.resx">
       <DependentUpon>MDI_Produccion.cs</DependentUpon>
     </EmbeddedResource>
@@ -182,6 +74,18 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\INGRESAR_V4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guardar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CANCELAR_V4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SALIR_V4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

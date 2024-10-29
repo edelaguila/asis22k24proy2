@@ -44,7 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Control_Cierre.cs" />
     <Compile Include="Control_Implosion_Explosion_Materiales.cs" />
+    <Compile Include="Control_Polizas_Prod.cs" />
     <Compile Include="Control_Receta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

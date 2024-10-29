@@ -54,6 +54,7 @@
             this.Btn_guardar = new System.Windows.Forms.Button();
             this.Btn_cancelar = new System.Windows.Forms.Button();
             this.Dgv_asignaciones = new System.Windows.Forms.DataGridView();
+            this.Btn_modificar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_asignacionesperfiles)).BeginInit();
             this.Gpb_datos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_asignaciones)).BeginInit();
@@ -312,7 +313,6 @@
             this.Btn_buscar.Size = new System.Drawing.Size(69, 57);
             this.Btn_buscar.TabIndex = 278;
             this.Btn_buscar.UseVisualStyleBackColor = false;
-            this.Btn_buscar.Visible = false;
             this.Btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click_1);
             // 
             // Btn_remover
@@ -322,7 +322,7 @@
             this.Btn_remover.FlatAppearance.BorderSize = 0;
             this.Btn_remover.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_remover.Image = global::Capa_Vista_Seguridad.Properties.Resources.borrar11;
-            this.Btn_remover.Location = new System.Drawing.Point(424, 134);
+            this.Btn_remover.Location = new System.Drawing.Point(631, 134);
             this.Btn_remover.Margin = new System.Windows.Forms.Padding(0);
             this.Btn_remover.Name = "Btn_remover";
             this.Btn_remover.Size = new System.Drawing.Size(69, 57);
@@ -358,7 +358,6 @@
             this.Btn_cancelar.Size = new System.Drawing.Size(69, 57);
             this.Btn_cancelar.TabIndex = 292;
             this.Btn_cancelar.UseVisualStyleBackColor = false;
-            this.Btn_cancelar.Visible = false;
             this.Btn_cancelar.Click += new System.EventHandler(this.Btn_cancelar_Click);
             // 
             // Dgv_asignaciones
@@ -375,12 +374,28 @@
             this.Dgv_asignaciones.Size = new System.Drawing.Size(501, 212);
             this.Dgv_asignaciones.TabIndex = 293;
             // 
+            // Btn_modificar
+            // 
+            this.Btn_modificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.Btn_modificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Btn_modificar.FlatAppearance.BorderSize = 0;
+            this.Btn_modificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_modificar.Image = global::Capa_Vista_Seguridad.Properties.Resources.editar11;
+            this.Btn_modificar.Location = new System.Drawing.Point(424, 134);
+            this.Btn_modificar.Margin = new System.Windows.Forms.Padding(0);
+            this.Btn_modificar.Name = "Btn_modificar";
+            this.Btn_modificar.Size = new System.Drawing.Size(69, 57);
+            this.Btn_modificar.TabIndex = 295;
+            this.Btn_modificar.UseVisualStyleBackColor = false;
+            this.Btn_modificar.Click += new System.EventHandler(this.Btn_modificar_Click);
+            // 
             // frm_asignacion_aplicaciones_perfiles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(133)))), ((int)(((byte)(223)))));
             this.ClientSize = new System.Drawing.Size(1288, 574);
+            this.Controls.Add(this.Btn_modificar);
             this.Controls.Add(this.Dgv_asignaciones);
             this.Controls.Add(this.Btn_cancelar);
             this.Controls.Add(this.Btn_agregar);
@@ -436,5 +451,6 @@
         private System.Windows.Forms.Label Txt_titulo;
         private System.Windows.Forms.Button Btn_cancelar;
         private System.Windows.Forms.DataGridView Dgv_asignaciones;
+        private System.Windows.Forms.Button Btn_modificar;
     }
 }
