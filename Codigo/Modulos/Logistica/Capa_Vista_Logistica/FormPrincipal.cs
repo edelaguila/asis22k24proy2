@@ -186,8 +186,8 @@ namespace Capa_Vista_Logistica
 
         private void btnMenuProcesosOpcion1_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<Chofer>();
-            ocultaSubMenu();
+            /*AbrirFormulario<Capa_Vista_AmmyCatun.Chofer>();
+            ocultaSubMenu();*/
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -227,43 +227,37 @@ namespace Capa_Vista_Logistica
 
         private void Btn_MenuProcesosOpcion2_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<Transporte>();
-            ocultaSubMenu();
+            /*AbrirFormulario<Capa_Vista_AmmyCatun.Transporte_Vehiculos>();
+            ocultaSubMenu();*/
         }
 
         private void Btn_MenuProcesosOpcion3_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<Transporte_Vehiculos>();
-            ocultaSubMenu();
+            /*AbrirFormulario<Capa_Vista_MiguelCrisostomo.TrasladoDeProductos>();
+            ocultaSubMenu();*/
         }
 
         private void Btn_MenuProcesosOpcion4_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<TrasladoDProductos>();
-            ocultaSubMenu();
+            /*AbrirFormulario<MVC_JavierChamo.Mantenimiento_de_Vehiculos>();
+            ocultaSubMenu();*/
         }
 
         private void Btn_MenuProcesosOpcion5_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<MantenimientoVehiculos>();
-            ocultaSubMenu();
+            /*AbrirFormulario<MVC_JavierChamo.Movimiento_de_Inventario>();
+            ocultaSubMenu();*/
         }
 
         private void Btn_MenuProcesosOpcion6_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<Movimiento_de_Inventario>();
-            ocultaSubMenu();
+            /*AbrirFormulario<Capa_Vista_JDSC.MonitoreoAlmacen>();
+            ocultaSubMenu();*/
         }
 
         private void Btn_MenuProcesosOpcion7_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<Locales>();
-            ocultaSubMenu();
-        }
-
-        private void Btn_MenuProcesosOpcion8_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario<MonitoreoAlmacen>();
+            AbrirFormulario<frmPolizas>();
             ocultaSubMenu();
         }
 

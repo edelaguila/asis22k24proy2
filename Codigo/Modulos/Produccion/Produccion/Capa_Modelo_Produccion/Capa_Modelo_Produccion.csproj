@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="Conexion_Produccion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sentencia_Cierre.cs" />
+    <Compile Include="Sentencia_Polizas_Prod.cs" />
     <Compile Include="Sentencia_Produccion.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

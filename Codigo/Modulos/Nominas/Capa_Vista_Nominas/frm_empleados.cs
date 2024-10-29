@@ -31,7 +31,7 @@ namespace Capa_Vista_Nominas
             ///*****Con tabla que tenga comboboxs foraneas *****/
             string[] alias = { "Clave", "nombre", "apellido", "fecha nacimiento", "no_identificacion",
 
-                "codigo postal","fecha alta","fecha baja","causa baja","estado_modulo"
+                "codigo postal","fecha alta","fecha baja","causa baja"
 
                 ,"fk_id_departamento","fk_id_puestos","estado" };
 
@@ -46,14 +46,14 @@ namespace Capa_Vista_Nominas
 
             ///***Valores foraneos en Combobox*********/
 
-            navegador1.AsignarComboConTabla("tbl_puestos_trabajo", "pk_id_puestos", "nombre_puesto", 1);
-            navegador1.AsignarComboConTabla("tbl_departamentos", "pk_id_departamento", "nombre_departamento", 1);
+            navegador1.AsignarComboConTabla("tbl_puestos_trabajo", "pk_id_puestos", "puestos_nombre_puesto", 1);
+            navegador1.AsignarComboConTabla("tbl_departamentos", "pk_id_departamento", "departamentos_nombre_departamento", 1);
             ///******************/
 
             ///*****Se muestre en el dgv los nombres y no los numeros**/
 
-            navegador1.AsignarForaneas("tbl_puestos_trabajo", "nombre_puesto", "fk_id_puestos", "pk_id_puestos");
-            navegador1.AsignarForaneas("tbl_departamentos", "nombre_departamento", "fk_id_departamento", "pk_id_departamento");
+            navegador1.AsignarForaneas("tbl_puestos_trabajo", "puestos_nombre_puesto", "fk_id_puestos", "pk_id_puestos");
+            navegador1.AsignarForaneas("tbl_departamentos", "departamentos_nombre_departamento", "fk_id_departamento", "pk_id_departamento");
 
             ///*****************/
 

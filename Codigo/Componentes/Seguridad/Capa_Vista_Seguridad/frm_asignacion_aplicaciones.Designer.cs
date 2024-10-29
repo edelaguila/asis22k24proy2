@@ -54,6 +54,8 @@
             this.Btn_eliminar = new System.Windows.Forms.Button();
             this.Btn_ayuda = new System.Windows.Forms.Button();
             this.Btn_limpiar = new System.Windows.Forms.Button();
+            this.Btn_modificar = new System.Windows.Forms.Button();
+            this.Btn_actualizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_asignaciones)).BeginInit();
             this.Gpb_datos.SuspendLayout();
             this.Gbp_datos2.SuspendLayout();
@@ -68,7 +70,7 @@
             this.Cbo_usuarios.Location = new System.Drawing.Point(41, 47);
             this.Cbo_usuarios.Margin = new System.Windows.Forms.Padding(4);
             this.Cbo_usuarios.Name = "Cbo_usuarios";
-            this.Cbo_usuarios.Size = new System.Drawing.Size(334, 27);
+            this.Cbo_usuarios.Size = new System.Drawing.Size(334, 30);
             this.Cbo_usuarios.TabIndex = 0;
             // 
             // Cbo_aplicaciones
@@ -79,7 +81,7 @@
             this.Cbo_aplicaciones.Location = new System.Drawing.Point(806, 46);
             this.Cbo_aplicaciones.Margin = new System.Windows.Forms.Padding(4);
             this.Cbo_aplicaciones.Name = "Cbo_aplicaciones";
-            this.Cbo_aplicaciones.Size = new System.Drawing.Size(334, 27);
+            this.Cbo_aplicaciones.Size = new System.Drawing.Size(334, 30);
             this.Cbo_aplicaciones.TabIndex = 1;
             // 
             // Lbl_usuarios
@@ -89,7 +91,7 @@
             this.Lbl_usuarios.Location = new System.Drawing.Point(134, 25);
             this.Lbl_usuarios.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Lbl_usuarios.Name = "Lbl_usuarios";
-            this.Lbl_usuarios.Size = new System.Drawing.Size(80, 22);
+            this.Lbl_usuarios.Size = new System.Drawing.Size(95, 27);
             this.Lbl_usuarios.TabIndex = 2;
             this.Lbl_usuarios.Text = "Usuarios";
             // 
@@ -100,7 +102,7 @@
             this.Lbl_aplicaciones.Location = new System.Drawing.Point(909, 25);
             this.Lbl_aplicaciones.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Lbl_aplicaciones.Name = "Lbl_aplicaciones";
-            this.Lbl_aplicaciones.Size = new System.Drawing.Size(115, 22);
+            this.Lbl_aplicaciones.Size = new System.Drawing.Size(136, 27);
             this.Lbl_aplicaciones.TabIndex = 3;
             this.Lbl_aplicaciones.Text = "Aplicaciones";
             // 
@@ -221,7 +223,7 @@
             this.Cbo_modulos.Location = new System.Drawing.Point(424, 46);
             this.Cbo_modulos.Margin = new System.Windows.Forms.Padding(4);
             this.Cbo_modulos.Name = "Cbo_modulos";
-            this.Cbo_modulos.Size = new System.Drawing.Size(334, 27);
+            this.Cbo_modulos.Size = new System.Drawing.Size(334, 30);
             this.Cbo_modulos.TabIndex = 12;
             this.Cbo_modulos.SelectedIndexChanged += new System.EventHandler(this.Cbo_modulos_SelectedIndexChanged);
             // 
@@ -232,7 +234,7 @@
             this.Lbl_modulos.Location = new System.Drawing.Point(535, 25);
             this.Lbl_modulos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Lbl_modulos.Name = "Lbl_modulos";
-            this.Lbl_modulos.Size = new System.Drawing.Size(80, 22);
+            this.Lbl_modulos.Size = new System.Drawing.Size(96, 27);
             this.Lbl_modulos.TabIndex = 11;
             this.Lbl_modulos.Text = "Modulos";
             // 
@@ -244,7 +246,7 @@
             this.Lbl_titulo.ForeColor = System.Drawing.Color.Transparent;
             this.Lbl_titulo.Location = new System.Drawing.Point(286, 23);
             this.Lbl_titulo.Name = "Lbl_titulo";
-            this.Lbl_titulo.Size = new System.Drawing.Size(818, 45);
+            this.Lbl_titulo.Size = new System.Drawing.Size(952, 54);
             this.Lbl_titulo.TabIndex = 15;
             this.Lbl_titulo.Text = "A s i g n a c i ó n   d e   A p l i c a c i o n e s   a   U s u a r i o s";
             // 
@@ -297,13 +299,12 @@
             this.Btn_buscar.FlatAppearance.BorderSize = 0;
             this.Btn_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_buscar.Image = global::Capa_Vista_Seguridad.Properties.Resources.buscar11;
-            this.Btn_buscar.Location = new System.Drawing.Point(323, 83);
+            this.Btn_buscar.Location = new System.Drawing.Point(249, 83);
             this.Btn_buscar.Margin = new System.Windows.Forms.Padding(0);
             this.Btn_buscar.Name = "Btn_buscar";
             this.Btn_buscar.Size = new System.Drawing.Size(69, 57);
             this.Btn_buscar.TabIndex = 259;
             this.Btn_buscar.UseVisualStyleBackColor = false;
-            this.Btn_buscar.Visible = false;
             this.Btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click_1);
             // 
             // Btn_agregar
@@ -343,7 +344,7 @@
             this.Btn_eliminar.FlatAppearance.BorderSize = 0;
             this.Btn_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_eliminar.Image = global::Capa_Vista_Seguridad.Properties.Resources.borrar12;
-            this.Btn_eliminar.Location = new System.Drawing.Point(185, 83);
+            this.Btn_eliminar.Location = new System.Drawing.Point(387, 83);
             this.Btn_eliminar.Margin = new System.Windows.Forms.Padding(0);
             this.Btn_eliminar.Name = "Btn_eliminar";
             this.Btn_eliminar.Size = new System.Drawing.Size(69, 57);
@@ -374,21 +375,52 @@
             this.Btn_limpiar.FlatAppearance.BorderSize = 0;
             this.Btn_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_limpiar.Image = global::Capa_Vista_Seguridad.Properties.Resources.cancelar1;
-            this.Btn_limpiar.Location = new System.Drawing.Point(254, 83);
+            this.Btn_limpiar.Location = new System.Drawing.Point(456, 83);
             this.Btn_limpiar.Margin = new System.Windows.Forms.Padding(0);
             this.Btn_limpiar.Name = "Btn_limpiar";
             this.Btn_limpiar.Size = new System.Drawing.Size(69, 57);
             this.Btn_limpiar.TabIndex = 260;
             this.Btn_limpiar.UseVisualStyleBackColor = false;
-            this.Btn_limpiar.Visible = false;
             this.Btn_limpiar.Click += new System.EventHandler(this.btn_remover_Click_1);
+            // 
+            // Btn_modificar
+            // 
+            this.Btn_modificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.Btn_modificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Btn_modificar.FlatAppearance.BorderSize = 0;
+            this.Btn_modificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_modificar.Image = global::Capa_Vista_Seguridad.Properties.Resources.editar11;
+            this.Btn_modificar.Location = new System.Drawing.Point(318, 83);
+            this.Btn_modificar.Margin = new System.Windows.Forms.Padding(0);
+            this.Btn_modificar.Name = "Btn_modificar";
+            this.Btn_modificar.Size = new System.Drawing.Size(69, 57);
+            this.Btn_modificar.TabIndex = 292;
+            this.Btn_modificar.UseVisualStyleBackColor = false;
+            this.Btn_modificar.Click += new System.EventHandler(this.Btn_modificar_Click);
+            // 
+            // Btn_actualizar
+            // 
+            this.Btn_actualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.Btn_actualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Btn_actualizar.FlatAppearance.BorderSize = 0;
+            this.Btn_actualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_actualizar.Image = global::Capa_Vista_Seguridad.Properties.Resources.guardar21;
+            this.Btn_actualizar.Location = new System.Drawing.Point(185, 83);
+            this.Btn_actualizar.Margin = new System.Windows.Forms.Padding(0);
+            this.Btn_actualizar.Name = "Btn_actualizar";
+            this.Btn_actualizar.Size = new System.Drawing.Size(69, 57);
+            this.Btn_actualizar.TabIndex = 293;
+            this.Btn_actualizar.UseVisualStyleBackColor = false;
+            this.Btn_actualizar.Click += new System.EventHandler(this.Btn_actualizar_Click);
             // 
             // frm_asignacion_aplicaciones
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(133)))), ((int)(((byte)(223)))));
             this.ClientSize = new System.Drawing.Size(1362, 621);
+            this.Controls.Add(this.Btn_actualizar);
+            this.Controls.Add(this.Btn_modificar);
             this.Controls.Add(this.Btn_salir);
             this.Controls.Add(this.Btn_limpiar);
             this.Controls.Add(this.Gbp_datos2);
@@ -443,5 +475,7 @@
         private System.Windows.Forms.Button Btn_salir;
         private System.Windows.Forms.Button Btn_buscar;
         private System.Windows.Forms.Button Btn_limpiar;
+        private System.Windows.Forms.Button Btn_modificar;
+        private System.Windows.Forms.Button Btn_actualizar;
     }
 }

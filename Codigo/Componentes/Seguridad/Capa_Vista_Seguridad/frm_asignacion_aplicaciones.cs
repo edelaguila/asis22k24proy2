@@ -32,6 +32,8 @@ namespace Capa_Vista_Seguridad
             Cbo_aplicaciones.Enabled = false;
             Dgv_asignaciones.Enabled = false;
             Dgv_aplicaciones_asignados.Enabled = true;
+            Btn_modificar.Enabled = false;
+            Btn_actualizar.Enabled = false;
             logic = new logica(idUsuario);
             ToolTip tnuevo = new ToolTip();
             tnuevo.SetToolTip(Btn_agregar, "Crear Asignación");
@@ -47,6 +49,10 @@ namespace Capa_Vista_Seguridad
             tayuda.SetToolTip(Btn_ayuda, "Ayuda");
             ToolTip teliminar = new ToolTip();
             teliminar.SetToolTip(Btn_eliminar, "Cancelar Asignación");
+            ToolTip tmodificar = new ToolTip();
+            tnuevo.SetToolTip(Btn_modificar, "Modificar ");
+            ToolTip tactualizar = new ToolTip();
+            tnuevo.SetToolTip(Btn_agregar, "Actualizar Permisos");
             actualizardatagriew();
         }
         //####  FINALIZA ALYSON RODRIGUEZ 9959-21-829
@@ -282,6 +288,8 @@ namespace Capa_Vista_Seguridad
                 Btn_eliminar.Enabled = false;
                 Btn_limpiar.Enabled = true;
                 Btn_buscar.Enabled = false;
+                Btn_modificar.Enabled = false;
+                Btn_actualizar.Enabled = false;
                 MessageBox.Show("Empieza la asignación.", "Verificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 isInitialized = true;
                 return;
@@ -295,11 +303,13 @@ namespace Capa_Vista_Seguridad
                     Cbo_usuarios.Enabled = false;
                     Cbo_modulos.Enabled = false;
                     Cbo_aplicaciones.Enabled = false;
-
-                    Btn_eliminar.Enabled = true;
+                    Btn_limpiar.Enabled = true;
+                    Btn_eliminar.Enabled = false;
                     Btn_guardar.Enabled = true;
                     Btn_agregar.Enabled = false;
                     Btn_buscar.Enabled = false;
+                    Btn_modificar.Enabled = false;
+                    Btn_actualizar.Enabled = false;
 
                     string sUsuario = Cbo_usuarios.SelectedItem.ToString();
                     string sAplicacion = Cbo_aplicaciones.SelectedItem.ToString();
@@ -336,20 +346,60 @@ namespace Capa_Vista_Seguridad
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
+        //Trabajado por María José Véliz Ochoa, 9959-21-5909
         private void btn_buscar_Click_1(object sender, EventArgs e)
         {
             Btn_eliminar.Enabled = false;
             Btn_guardar.Enabled = false;
             Btn_agregar.Enabled = false;
             Btn_limpiar.Enabled = true;
-            Btn_eliminar.Enabled = false;
             Cbo_aplicaciones.Enabled = false;
             Cbo_modulos.Enabled = false;
             Cbo_usuarios.Enabled = false;
             Dgv_aplicaciones_asignados.Enabled = true;
-            actualizardatagriew();
+            Dgv_asignaciones.Enabled = true;
+            Btn_modificar.Enabled = true;
+            Btn_actualizar.Enabled = false;
+
+
+
+
+            // Método para manejar el evento de búsqueda al hacer clic en el botón
+            try
+            {
+                // Verificar si se ha seleccionado al menos una fila en Dgv_aplicaciones_asignados
+                if (Dgv_aplicaciones_asignados.CurrentRow != null)
+                {
+                    // Obtener la fila seleccionada
+                    DataGridViewRow filaSeleccionada = Dgv_aplicaciones_asignados.CurrentRow;
+
+                    // Crear una nueva fila para el DataGridView Dgv_asignaciones
+                    DataGridViewRow nuevaFila = new DataGridViewRow();
+                    nuevaFila.CreateCells(Dgv_asignaciones);
+
+                    // Asignar los valores de cada celda de la fila seleccionada a la nueva fila
+                    for (int i = 0; i < filaSeleccionada.Cells.Count; i++)
+                    {
+                        nuevaFila.Cells[i].Value = filaSeleccionada.Cells[i].Value;
+                    }
+
+                    // Agregar la nueva fila a Dgv_asignaciones
+                    Dgv_asignaciones.Rows.Add(nuevaFila);
+
+                    MessageBox.Show("Datos transferidos correctamente.");
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, selecciona una fila para transferir los datos.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al transferir datos: {ex.Message}");
+            }
         }
+
+        //termina
 
         private void btn_remover_Click_1(object sender, EventArgs e)
         {
@@ -369,6 +419,8 @@ namespace Capa_Vista_Seguridad
             Dgv_aplicaciones_asignados.Enabled = true;
             Btn_agregar.Enabled = true;
             Btn_buscar.Enabled = true;
+            Btn_modificar.Enabled = false;
+            Btn_actualizar.Enabled = false;
 
             limpieza();
             Dgv_asignaciones.Rows.Clear();
@@ -468,13 +520,15 @@ namespace Capa_Vista_Seguridad
 
                 MessageBox.Show("Datos ingresados exitosamente");
                 actualizardatagriew();
+                Btn_modificar.Enabled = false;
+                Btn_actualizar.Enabled = false;
                 Btn_guardar.Enabled = false;
                 Btn_eliminar.Enabled = false;
                 Btn_limpiar.Enabled = false;
-                Cbo_usuarios.Enabled = false;
-                Cbo_modulos.Enabled = false;
-                Cbo_aplicaciones.Enabled = false;
-                Dgv_asignaciones.Enabled = false;
+                Cbo_usuarios.Enabled = true;
+                Cbo_modulos.Enabled = true;
+                Cbo_aplicaciones.Enabled = true;
+                Dgv_asignaciones.Enabled = true;
                 Dgv_aplicaciones_asignados.Enabled = true;
                 Btn_agregar.Enabled = true;
                 Btn_buscar.Enabled = true;
@@ -568,24 +622,101 @@ namespace Capa_Vista_Seguridad
         }
         //************* Fin KATERYN DE LEON y Gabriela Suc ************************
 
+
+        //Trabajado por María José Véliz Ochoa, 9959-21-5909
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
-            if (iContadorFila > 0 && Dgv_asignaciones.CurrentRow != null)
-            {
-                // Eliminar la fila seleccionada
-                Dgv_asignaciones.Rows.RemoveAt(Dgv_asignaciones.CurrentRow.Index);
-                iContadorFila--;
+                     Btn_agregar.Enabled = true;
+            Btn_buscar.Enabled = true;
+            Btn_eliminar.Enabled = false;
+            Btn_actualizar.Enabled = false;
 
-                // Mostrar mensaje de confirmación
-                MessageBox.Show("Relación eliminada correctamente.", "Eliminación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("No hay relaciones que eliminar", "Eliminación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
 
-            // Reiniciar el estado del formulario
-            ReiniciarEstado();
+            {
+                try
+                {
+                    // Verificar si se seleccionaron filas
+                    if (Dgv_asignaciones.SelectedRows.Count == 0)
+                    {
+                        MessageBox.Show("Por favor, selecciona al menos un permiso para eliminar.");
+                        return;
+                    }
+
+                    // Recorrer cada fila seleccionada para eliminar
+                    foreach (DataGridViewRow fila in Dgv_asignaciones.SelectedRows)
+                    {
+                        string sUsuario = fila.Cells["Usuarios"].Value.ToString();
+                        string sAplicacion = fila.Cells["Aplicacion"].Value.ToString();
+
+                        // Llamar al método que elimina los permisos
+                        logic.funEliminarRegistroUA(sUsuario, sAplicacion); // Llamar a la lógica
+
+
+                    }
+
+                    actualizardatagriew(); // Refrescar la vista con los datos actualizados
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al eliminar permisos: {ex.Message}");
+                }
+                ReiniciarEstado();
+            }
         }
-    }
+
+        private void Btn_modificar_Click(object sender, EventArgs e)
+        {
+            Cbo_usuarios.Enabled = true;
+            Cbo_aplicaciones.Enabled = true;
+            Cbo_modulos.Enabled = true;
+            Dgv_asignaciones.Enabled = true;
+            Btn_actualizar.Enabled = true;
+            Btn_eliminar.Enabled = true;
+            Btn_modificar.Enabled = false;
+            Btn_limpiar.Enabled = true;
+
+        }
+        //Termina
+
+        //Trabajado María José Véliz Ochoa, 9959-21-5909
+
+        private void Btn_actualizar_Click(object sender, EventArgs e)
+        {
+                Btn_agregar.Enabled = true;
+                Btn_buscar.Enabled = true;
+                Btn_actualizar.Enabled = false;
+                Btn_eliminar.Enabled = false;
+                try
+                {
+                    foreach (DataGridViewRow Fila in Dgv_asignaciones.Rows)
+                    {
+                        string sUsuario = Fila.Cells["Usuarios"].Value.ToString();
+                        string sAplicacion = Fila.Cells["Aplicacion"].Value.ToString();
+
+                        string sIngresar = (bool)(Fila.Cells["Ingresar"].EditedFormattedValue) ? "1" : "0";
+                        string sConsulta = (bool)(Fila.Cells["Consultar"].EditedFormattedValue) ? "1" : "0";
+                        string sModificar = (bool)(Fila.Cells["Modificar"].EditedFormattedValue) ? "1" : "0";
+                        string sEliminar = (bool)(Fila.Cells["Eliminar"].EditedFormattedValue) ? "1" : "0";
+                        string sImprimir = (bool)(Fila.Cells["Imprimir"].EditedFormattedValue) ? "1" : "0";
+
+                        // Llamar al método que actualiza los permisos en la base de datos
+                        logic.funactualizarpermisos(sUsuario, sAplicacion, sIngresar, sConsulta, sModificar, sEliminar, sImprimir);
+                    }
+
+                    MessageBox.Show("Permisos actualizados correctamente.");
+                    actualizardatagriew(); // Refrescar la vista con los datos actualizados
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al actualizar permisos: {ex.Message}");
+                }
+
+                limpieza();
+                Dgv_asignaciones.Rows.Clear();
+
+            }
+
+
+        }
+    //Termina 
 }
