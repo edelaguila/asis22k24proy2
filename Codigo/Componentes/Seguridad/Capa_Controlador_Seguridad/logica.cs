@@ -214,6 +214,22 @@ namespace Capa_Controlador_Seguridad
             }
         }
 
+        public DataTable funconsultaPerfilesUsuarios(string sID_apUsu)
+        {
+            try
+            {
+                OdbcDataAdapter dt = sn.funConsultarAsignaciones(sID_apUsu);
+                DataTable table = new DataTable();
+                dt.Fill(table);
+                return table;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
         public bool funconsultaLogicaInsertarPerfilUsuario(string scodigoUsuario, string scodigoPerfil)
         {
             try
@@ -227,6 +243,46 @@ namespace Capa_Controlador_Seguridad
                 return false;
             }
         }
+
+        public bool funconsultaLogicaAtualizarPerfilUsuario(string scodigo, string nuevoUsuarioID, string nuevoPerfilID)
+        {
+            try
+            {
+                // Llamar al método de actualización en la capa de servicio o datos
+                sn.funactualizarPerfilUsuario(scodigo, nuevoUsuarioID, nuevoPerfilID);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Manejar errores y registrar en la consola
+                Console.WriteLine("Error al actualizar la asignación: " + ex.Message);
+                return false;
+            }
+        }
+
+        public bool funeliminarPerfilUsuario(string scodigo)
+        {
+            try
+            {
+                bool result = sn.funeliminarPerfilUsuario(scodigo);
+                if (result)
+                {
+                    MessageBox.Show("asignacion eliminado correctamente.");
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar la asignacion.");
+                }
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return false;
+            }
+        }
+
+
 
         public DataTable funvalidarIDAplicacion()
         {
@@ -665,6 +721,46 @@ namespace Capa_Controlador_Seguridad
         }
         // termina
 
+        //María José Véliz Ochoa, 9959-21-5909
+        //ACTUALIZAR PERMISOS USUARIOS
+        public DataTable funactualizarpermisos(string sCodigoUsuario, string sNombreAplicacion, string sIngresar, string sConsulta, string sModificar, string sEliminar, string sImprimir)
+        {
+            try
+            {
+                OdbcDataAdapter dtPermisosUA = sn.proactualizarpermisosUA(sCodigoUsuario, sNombreAplicacion, sIngresar, sConsulta, sModificar, sEliminar, sImprimir);
+                DataTable tablePermisosUA = new DataTable();
+                dtPermisosUA.Fill(tablePermisosUA);
+                return tablePermisosUA;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
+
+        //María José Véliz Ochoa, 9959-21-5909
+
+        public DataTable funEliminarRegistroUA(string sCodigoUsuario, string sNombreAplicacion)
+        {
+            try
+            {
+                OdbcDataAdapter dtPermisosUA = sn.proEliminarRegistroUA(sCodigoUsuario, sNombreAplicacion);
+                DataTable tablePermisosUA = new DataTable();
+                dtPermisosUA.Fill(tablePermisosUA);
+                return tablePermisosUA;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }//termina
+
+
+
+
 
         // Alyson Rodríguez 9959-21-829
         public DataTable funactualizarmodulo(string sIdModulo, string sNombre, string sDescripcion, string sEstado)
@@ -907,5 +1003,79 @@ namespace Capa_Controlador_Seguridad
                 return false;
             }
         }
+
+        //********************************KEVIN LOPEZ*************************************************
+        public DataTable funconsultaLogPerfiles()
+        {
+            try
+            {
+                OdbcDataAdapter dtPerfiles = sn.proconsultarPerfiles();
+                DataTable tablePerfiles = new DataTable();
+                dtPerfiles.Fill(tablePerfiles);
+                return tablePerfiles;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+
+        }
+
+        //********************************FIN KEVIN LOPEZ*************************************************
+
+        //-----------------------Emerzon Garcia --------------------------------------------------
+        public string obtenerNombrePerfil(string idPerfil)
+        {
+            try
+            {
+                return sn.obtenerNombrePerfil(idPerfil); // Llamada al método en la capa de sentencias
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
+        public DataTable funModificarPermisosPerfil(string scodigoPerfil, string snombreAplicacion, string singresar, string smodificar, string seliminar, string sconsulta, string simprimir)
+        {
+            try
+            {
+                OdbcDataAdapter dtPermisosPerfilM = sn.proModificarPermisosPerfil(scodigoPerfil, snombreAplicacion, singresar, smodificar, seliminar, sconsulta, simprimir);
+                DataTable tablePermisosPerfilM = new DataTable();
+                dtPermisosPerfilM.Fill(tablePermisosPerfilM);
+                return tablePermisosPerfilM;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
+        public bool funEliminarPermisosPerfil(string sIdPerfil, string snombreAplicacion)
+        {
+            try
+            {
+                bool result = sn.proEliminarPermisosPerfil(sIdPerfil, snombreAplicacion);
+                if (result)
+                {
+                    MessageBox.Show("Registro(s) eliminado(s) correctamente.");
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar el registro.");
+                }
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return false;
+            }
+        }
+
+
     }
 }

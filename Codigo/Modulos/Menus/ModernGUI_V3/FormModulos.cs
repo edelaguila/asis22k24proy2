@@ -13,6 +13,7 @@ using Capa_Vista_Nominas;
 using Capa_Vista_Banco;
 using Capa_Vista_Contabilidad;
 using Capa_Vista_Produccion;
+using Capa_Vista_CompraVenta;
 
 namespace Interfac_V3
 {
@@ -98,9 +99,8 @@ namespace Interfac_V3
 
         private void Btn_Compras_Click(object sender, EventArgs e)
         {
-            /*
-            Aqui debe de agregarse la referencia a Compras y ventas
-            */
+            Frm_MDI_general_CompraVenta Cv = new Frm_MDI_general_CompraVenta(UsuarioSesion.GetIdUsuario());
+            Cv.Show();
         }
 
         private void Btn_Bancos_Click(object sender, EventArgs e)

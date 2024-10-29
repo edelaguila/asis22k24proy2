@@ -234,18 +234,46 @@ namespace Capa_Modelo_Seguridad
         //Finaliza
 
         //###################  lo que hizo Karla  Sofia Gómez Tobar #######################
-        public OdbcDataAdapter funmostrarPerfilesDeUsuario()
+        public OdbcDataAdapter funmostrarPerfilesDeUsuario()///
         {
             /*string sql = "SELECT * FROM " + TablaPerfilUsuario + ";";
             OdbcDataAdapter dataTable = new OdbcDataAdapter(sql, cn.conectar());
             return dataTable;*/
 
             cn.conectar();
-            string sqlPerfilUsuario = " SELECT  a.Fk_id_usuario AS UsuarioID,   m.nombre_usuario AS NombreUsuario, a.Fk_id_perfil AS PerfilID,  ap.nombre_perfil AS NombrePerfil  FROM Tbl_asignaciones_perfils_usuario a  JOIN Tbl_usuarios m ON a.Fk_id_usuario = m.Pk_id_usuario JOIN Tbl_perfiles ap ON a.Fk_id_perfil = ap.Pk_id_perfil";
+            string sqlPerfilUsuario = @"
+    SELECT 
+        a.PK_id_Perfil_Usuario AS PerfilUsuarioID, 
+        a.Fk_id_usuario AS UsuarioID, 
+        m.nombre_usuario AS NombreUsuario, 
+        a.Fk_id_perfil AS PerfilID, 
+        ap.nombre_perfil AS NombrePerfil 
+    FROM 
+        Tbl_asignaciones_perfils_usuario a  
+    JOIN 
+        Tbl_usuarios m ON a.Fk_id_usuario = m.Pk_id_usuario 
+    JOIN 
+        Tbl_perfiles ap ON a.Fk_id_perfil = ap.Pk_id_perfil";
+
             OdbcDataAdapter dataPerfilUsuario = new OdbcDataAdapter(sqlPerfilUsuario, cn.conectar());
-            funInsertarBitacora(idUsuario, "Realizo una consulta  a Asignacion de perfil a un usuario", "Tbl_asignaciones_perfils_usuario", "1000");
+            funInsertarBitacora(idUsuario, "Realizó una consulta a Asignación de perfil a un usuario", "Tbl_asignaciones_perfils_usuario", "1000");
             return dataPerfilUsuario;
         }
+
+        public OdbcDataAdapter funConsultarAsignaciones(string sID_apUsu)
+        {
+            cn.conectar();
+            // Modificar la consulta SQL para la tabla tbl_asignaciones_perfils_usuario
+            string ssqlAsignaciones = "SELECT PK_id_Perfil_Usuario, Fk_id_usuario, Fk_id_perfil FROM tbl_asignaciones_perfils_usuario WHERE Fk_id_usuario = " + sID_apUsu;
+
+            // Insertar en la bitácora
+            funInsertarBitacora(idUsuario, "Realizó una consulta a asignaciones de perfil", "tbl_asignaciones_perfils_usuario", "1000");
+
+            // Crear y devolver el DataAdapter
+            OdbcDataAdapter dataTable = new OdbcDataAdapter(ssqlAsignaciones, cn.conectar());
+            return dataTable;
+        }
+
 
         public bool funeliminarPerfilUsuario(string sId_Perfil_Usuario)
         {
@@ -315,6 +343,44 @@ namespace Capa_Modelo_Seguridad
                 MessageBox.Show("Error al insertar la asignacion: " + ex.Message);
             }
         }
+
+        public OdbcDataAdapter funactualizarPerfilUsuario(string scodigo, string nuevoUsuarioID, string nuevoPerfilID)
+        {
+            try
+            {
+                // Conectar a la base de datos
+                cn.conectar();
+
+                // Construir la sentencia SQL de actualización
+                string ssqlactualizar = "UPDATE tbl_asignaciones_perfils_usuario " +
+                                        "SET Fk_id_usuario = '" + nuevoUsuarioID + "', " +
+                                        "Fk_id_perfil = '" + nuevoPerfilID + "' " +
+                                        "WHERE PK_id_Perfil_Usuario = '" + scodigo + "'";
+
+                // Mostrar la sentencia en consola (opcional para depuración)
+                Console.WriteLine("SQL Ejecutada: " + ssqlactualizar);
+
+                // Ejecutar la consulta usando un OdbcDataAdapter
+                OdbcDataAdapter dataAdapter = new OdbcDataAdapter(ssqlactualizar, cn.conectar());
+
+                // Insertar en la bitácora
+                funInsertarBitacora(idUsuario,
+                    "Actualizó una asignación: " + scodigo + " - Usuario: " + nuevoUsuarioID + " - Perfil: " + nuevoPerfilID,
+                    "tbl_asignaciones_perfils_usuario",
+                    "1001");
+
+                // Devolver el adaptador de datos
+                return dataAdapter;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                Console.WriteLine("Error al actualizar la asignación: " + ex.Message);
+                return null;
+            }
+        }
+
+
 
         public OdbcDataAdapter funvalidarIDAplicacion()
         {
@@ -781,16 +847,17 @@ namespace Capa_Modelo_Seguridad
         }
         //*****************ACA TERMINA LA PRIMERA PARTE ACTUALIZADA POR JOSUÉ DAVID PAZ GÓMEZ*************************
 
-
+        //*****************KEVIN LOPEZ*************************
         public OdbcDataAdapter proconsultar(string sperfil)
         {
             cn.conectar();
-            string sqlPerfil = "SELECT * FROM Tbl_perfiles WHERE Pk_id_perfil = " + sperfil;
+            string sqlPerfil = "SELECT * FROM Tbl_perfiles WHERE nombre_perfil = '" + sperfil + "'"; ;
             OdbcDataAdapter dataTable = new OdbcDataAdapter(sqlPerfil, cn.conectar());
             funInsertarBitacora(idUsuario, "Realizo una consulta a perfiles ", "Tbl_perfiles", "1000");
 
             return dataTable;
         }
+        //*****************FIN KEVIN LOPEZ*************************
 
         public OdbcDataAdapter funactualizarperfil(string sID_perfil, string snombre, string sdescripcion, string sestado)
         {
@@ -938,6 +1005,100 @@ namespace Capa_Modelo_Seguridad
             OdbcDataAdapter dataTable = new OdbcDataAdapter(sqlModulos, cn.conectar());
             return dataTable;
         } //termina
+
+
+        //Actualizar Permisos ua
+        //María José Véliz Ochoa, 9959-21-5909
+        public OdbcDataAdapter proactualizarpermisosUA(string sCodigoUsuario, string sNombreAplicacion, string sIngresar, string sConsulta, string sModificar, string sEliminar, string sImprimir)
+        {
+            try
+            {
+                // Obtener el ID de la aplicación basado en su nombre
+                string sqlObtenerIdAplicacion = "SELECT Pk_id_aplicacion FROM Tbl_aplicaciones WHERE nombre_aplicacion = '" + sNombreAplicacion + "'";
+                OdbcCommand command = new OdbcCommand(sqlObtenerIdAplicacion, cn.conectar());
+                object idAplicacion = command.ExecuteScalar();
+
+                if (idAplicacion == null)
+                {
+                    MessageBox.Show("No se encontró la aplicación con el nombre: " + sNombreAplicacion);
+                    return null;
+                }
+
+                // Generar la consulta SQL para actualizar los permisos en la base de datos
+                string sqlActualizarPermisos = "UPDATE tbl_permisos_aplicaciones_usuario SET " +
+                                               "guardar_permiso = '" + sIngresar + "', " +
+                                               "buscar_permiso= '" + sConsulta + "', " +
+                                               "modificar_permiso = '" + sModificar + "', " +
+                                               "eliminar_permiso = '" + sEliminar + "', " +
+                                               "imprimir_permiso = '" + sImprimir + "' " +
+                                               "WHERE Fk_id_usuario = '" + sCodigoUsuario + "' AND Fk_id_aplicacion = '" + idAplicacion + "'";
+
+                OdbcDataAdapter dataTable = new OdbcDataAdapter(sqlActualizarPermisos, cn.conectar());
+                funInsertarBitacora(idUsuario, $"Actualizó permisos para usuario: {sCodigoUsuario} en aplicación: {sNombreAplicacion}", "tbl_permisos_aplicaciones_usuario", "1000");
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
+
+
+        //María José Véliz Ochoa, 9959-21-5909
+        public OdbcDataAdapter proEliminarRegistroUA(string sCodigoUsuario, string sNombreAplicacion)
+        {
+            try
+            {
+                // Obtener el ID de la aplicación basado en su nombre
+                string sqlObtenerIdAplicacion = "SELECT Pk_id_aplicacion FROM Tbl_aplicaciones WHERE nombre_aplicacion = ?";
+
+                using (OdbcCommand command = new OdbcCommand(sqlObtenerIdAplicacion, cn.conectar()))
+                {
+                    command.Parameters.AddWithValue("?", sNombreAplicacion);
+                    object idAplicacion = command.ExecuteScalar();
+
+                    if (idAplicacion == null)
+                    {
+                        MessageBox.Show("No se encontró la aplicación con el nombre: " + sNombreAplicacion);
+                        return null;
+                    }
+
+                    // Generar la consulta SQL para eliminar registro en la base de datos
+                    string sqlEliminarPermisos = "DELETE FROM tbl_permisos_aplicaciones_usuario " +
+                                                  "WHERE Fk_id_usuario = ? AND Fk_id_aplicacion = ?";
+
+                    using (OdbcCommand deleteCommand = new OdbcCommand(sqlEliminarPermisos, cn.conectar()))
+                    {
+                        deleteCommand.Parameters.AddWithValue("?", sCodigoUsuario);
+                        deleteCommand.Parameters.AddWithValue("?", idAplicacion);
+
+                        // Ejecutar el comando
+                        int rowsAffected = deleteCommand.ExecuteNonQuery();
+
+                        // Si se eliminó al menos un registro, registrar en la bitácora
+                        if (rowsAffected > 0)
+                        {
+                            funInsertarBitacora(idUsuario, $"Eliminó el registro para usuario: {sCodigoUsuario} en aplicación: {sNombreAplicacion}", "tbl_permisos_aplicaciones_usuario", "1000");
+                            MessageBox.Show("Registro eliminado correctamente.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se encontraron registros para eliminar.");
+                        }
+
+                        return new OdbcDataAdapter(); // Retorna un objeto vacío, ya que no hay datos que cargar
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al eliminar permisos: {ex.Message}");
+                return null;
+            }
+        }
+        //termina
 
         //###############ALYSON RODRIGUEZ BOTON ACTUALIZAR 
         public OdbcDataAdapter proactualizarmodulo(string sIdModulo, string sNombre, string sDescripcion, string sEstado)
@@ -1714,7 +1875,132 @@ namespace Capa_Modelo_Seguridad
             }
         }
 
-        //*********************************FIN KEVIN LOPEZ*********************************************
+        public OdbcDataAdapter proconsultarPerfiles()
+        {
+            cn.conectar();
+            string sqlPerfiles = "SELECT nombre_perfil FROM Tbl_perfiles";
+            funInsertarBitacora(idUsuario, "Realizo una consulta a perfiles", "Tbl_perfiles", "1000");
+            OdbcDataAdapter dataTable = new OdbcDataAdapter(sqlPerfiles, cn.conectar());
+            return dataTable;
+        }
 
+        //*********************************FIN KEVIN LOPEZ*********************************************
+        //---------------------------------Emerzon Garcia --------------------------------------------------
+        public string obtenerNombrePerfil(string idPerfil)
+        {
+            try
+            {
+                string nombrePerfil = "";
+                string consulta = "SELECT nombre_perfil FROM Tbl_perfiles WHERE Pk_id_perfil = '" + idPerfil + "'";
+                OdbcCommand comando = new OdbcCommand(consulta, cn.conectar());
+                OdbcDataReader reader = comando.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    nombrePerfil = reader.GetString(0);
+                }
+
+                reader.Close();
+                comando.Connection.Close();
+
+                return nombrePerfil;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
+        public OdbcDataAdapter proModificarPermisosPerfil(string scodigoperfil, string snombreaplicacion, string singresar, string smodificar, string seliminar, string sconsulta, string simprimir)
+        {
+            string sCodigoAplicacion = " ";
+            string sCodigoPerfil = "";
+            try
+            {
+                OdbcCommand sqlCodigoModulo = new OdbcCommand("SELECT Pk_id_aplicacion FROM Tbl_aplicaciones WHERE nombre_aplicacion = '" + snombreaplicacion + "' ", cn.conectar());
+                OdbcDataReader almacena = sqlCodigoModulo.ExecuteReader();
+
+                if (almacena.Read())
+                {
+                    sCodigoAplicacion = almacena.GetString(0);
+                }
+
+                OdbcCommand sqlCodigoPerfil = new OdbcCommand("SELECT Pk_id_perfil FROM Tbl_perfiles WHERE nombre_perfil = '" + scodigoperfil + "' ", cn.conectar());
+                OdbcDataReader almacenaPerfil = sqlCodigoPerfil.ExecuteReader();
+                // Para Pk_id_perfil
+                if (almacenaPerfil.Read())
+                {
+                    sCodigoPerfil = almacenaPerfil.GetString(0);
+                }
+
+                string sqlModificarPermisosPerfilApp = "UPDATE Tbl_permisos_aplicacion_perfil SET guardar_permiso = '" + singresar + "', modificar_permiso = '" + smodificar +
+                                                   "', eliminar_permiso = '" + seliminar + "', buscar_permiso = '" + sconsulta + "', imprimir_permiso = '" +
+                                                   simprimir + "' WHERE Fk_id_perfil = '" + sCodigoPerfil + "' AND Fk_id_aplicacion = '" + sCodigoAplicacion + "';";
+
+                OdbcDataAdapter dataPermisosPerfilAplicacion = new OdbcDataAdapter(sqlModificarPermisosPerfilApp, cn.conectar());
+
+                funInsertarBitacora(idUsuario, "Modificó permiso: " + snombreaplicacion + " para perfil: " + scodigoperfil, "Tbl_permisos_aplicacion_perfil", "1000");
+
+                almacena.Close();
+                sqlCodigoModulo.Connection.Close();
+
+                return dataPermisosPerfilAplicacion;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
+        public bool proEliminarPermisosPerfil(string sIdPerfil, string snombreaplicacion)
+        {
+            string sCodigoAplicacion = "";
+            try
+            {
+                // Obtener ID de la aplicación basado en el nombre de la aplicación
+                string sqlObtenerIdAplicacion = "SELECT Pk_id_aplicacion FROM Tbl_aplicaciones WHERE nombre_aplicacion = ?";
+                using (OdbcCommand command = new OdbcCommand(sqlObtenerIdAplicacion, cn.conectar()))
+                {
+                    command.Parameters.AddWithValue("?", snombreaplicacion);
+                    object idAplicacion = command.ExecuteScalar();
+                    if (idAplicacion == null)
+                    {
+                        MessageBox.Show("No se encontró la aplicación con el nombre: " + snombreaplicacion);
+                        return false;
+                    }
+
+                    // Generar la consulta SQL para eliminar registro en la base de datos
+                    string sqlEliminarPermisos = "DELETE FROM Tbl_permisos_aplicacion_perfil WHERE Fk_id_perfil = ? AND Fk_id_aplicacion = ?";
+                    using (OdbcCommand deleteCommand = new OdbcCommand(sqlEliminarPermisos, cn.conectar()))
+                    {
+                        deleteCommand.Parameters.AddWithValue("?", sIdPerfil);
+                        deleteCommand.Parameters.AddWithValue("?", idAplicacion);
+
+                        // Ejecutar el comando
+                        int rowsAffected = deleteCommand.ExecuteNonQuery();
+                        // Si se eliminó al menos un registro, registrar en la bitácora
+                        if (rowsAffected > 0)
+                        {
+                            funInsertarBitacora(idUsuario, $"Eliminó el registro para perfil: {sIdPerfil} en aplicación: {snombreaplicacion}", "Tbl_permisos_aplicacion_perfil", "1000");
+                            return true; // Indica que la eliminación fue exitosa
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se encontraron registros para eliminar.");
+                            return false; // No se afectó ninguna fila
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al eliminar permisos: {ex.Message}");
+                return false;
+            }
+        }
+
+        //---------------------------------Emerzon Garcia Termina------------------------------------------------------------------------------------------
     }
 }

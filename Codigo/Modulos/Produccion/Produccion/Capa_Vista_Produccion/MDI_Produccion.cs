@@ -20,13 +20,27 @@ namespace Capa_Vista_Produccion
         {
             InitializeComponent();
             ocultaSubMenu(); // Solo oculta los menús al inicio
+            lbl_user.Text = idUsuario;
+
+            // Configura el evento Tick de timer1 y comienza a ejecutarlo
+            timer1.Tick += ActualizarFechaHora;
+            timer1.Interval = 1000; // 1 segundo
+            timer1.Start(); // Iniciar el Timer
         }
+
+        string idUsuario = Interfac_V3.UsuarioSesion.GetIdUsuario();
 
         // Ocultar submenús al iniciar (sin cerrar al abrir otro)
         private void ocultaSubMenu()
         {
             panelMenuProcesos.Visible = false;
             panelMenuMantenimiento.Visible = false;
+        }
+
+        // Evento Tick del Timer para actualizar la fecha y hora
+        private void ActualizarFechaHora(object sender, EventArgs e)
+        {
+            lbl_fecha_y_hora.Text = DateTime.Now.ToString("G"); // Muestra la fecha y hora actual
         }
 
         // Mostrar u ocultar submenús (ahora se permite que los dos estén abiertos al mismo tiempo)
@@ -52,78 +66,89 @@ namespace Capa_Vista_Produccion
         // Botón de mantenimiento
         private void btnMantenimiento_Click(object sender, EventArgs e)
         {
-            Frm_Mantenimiento_Produccion produccion = new Frm_Mantenimiento_Produccion();
-            produccion.Show();
+            /*
+              * Acá va la lógica para abrir el formulario de Mantenimientos
+            */
         }
 
         // Botón de órdenes de producción
         private void btnOrdenesProduccion_Click(object sender, EventArgs e)
         {
-            Frm_Ordenes_De_Produccion OP = new Frm_Ordenes_De_Produccion();
-            OP.Show();
+            /*
+              * Acá va la lógica para abrir el formulario de Órdenes de Producción
+            */
         }
 
         // Botón de maquinaria
         private void btnMaquinaria_Click_1(object sender, EventArgs e)
         {
-            Frm_Maquinaria maquinaria = new Frm_Maquinaria();
-            maquinaria.Show();
+            /*
+              * Acá va la lógica para abrir el formulario de Recetas
+            */
         }
 
         // Botón de empleados (enlace a RRHH)
         private void btnEmpleados_Click(object sender, EventArgs e)
         {
-            Frm_Enlace_RRHH RRHH = new Frm_Enlace_RRHH();
-            RRHH.Show();
+            /*
+              * Acá va la lógica para abrir el formulario de RRHH
+            */
         }
 
         // Botón de cierre
         private void btnCierre_Click(object sender, EventArgs e)
         {
-            Frm_Cierre Cierre = new Frm_Cierre();
-            Cierre.Show();
+            /*
+              * Acá va la lógica para abrir el formulario de RCierres
+            */
         }
 
         // Botón de implosión/explosión de materiales
         private void btnImplosionExplosion_Click(object sender, EventArgs e)
         {
-            Frm_Implosion_Explosion_Materiales IEM = new Frm_Implosion_Explosion_Materiales();
-            IEM.Show();
+            /*
+              * Acá va la lógica para abrir el formulario de Implosión y Explosión
+            */
         }
 
         // Botón de sistema de producción
         private void btnProduccion_Click(object sender, EventArgs e)
         {
-            Frm_Sistema_Produccion SP = new Frm_Sistema_Produccion();
-            SP.Show();
+            /*
+              * Acá va la lógica para abrir el formulario de Producción
+            */
         }
 
-        // Botón de enlace a contabilidad y cierre (Pólizas)
+        // Botón de enlace a contabilidad (Pólizas)
         private void btnPolizas_Click(object sender, EventArgs e)
         {
-            Frm_Enlace_Contabilidad_Cierre Polizas = new Frm_Enlace_Contabilidad_Cierre();
-            Polizas.Show();
+            /*
+              * Acá va la lógica para abrir el formulario de Pólizas
+            */
         }
 
         // Botón de conversiones
         private void btnConversiones_Click_1(object sender, EventArgs e)
         {
-            Frm_Conversiones Conv = new Frm_Conversiones();
-            Conv.Show();
+            /*
+              * Acá va la lógica para abrir el formulario de Conversiones
+            */
         }
 
         // Botón de series
         private void btnSeries_Click_1(object sender, EventArgs e)
         {
-            Frm_Series Series = new Frm_Series();
-            Series.Show();
+            /*
+              * Acá va la lógica para abrir el formulario de Series
+            */
         }
 
         // Botón de lotes
         private void btnLotes_Click_1(object sender, EventArgs e)
         {
-            Frm_Lotes Lotes = new Frm_Lotes();
-            Lotes.Show();
+            /*
+              * Acá va la lógica para abrir el formulario de Lotes
+            */
         }
         #endregion
 
@@ -161,10 +186,10 @@ namespace Capa_Vista_Produccion
 
         private void Btn_Recetas_Click_1(object sender, EventArgs e)
         {
-            Frm_Receta receta = new Frm_Receta();
-            receta.Show();
+            /*
+              * Acá va la lógica para abrir el formulario de Recetas
+            */
         }
-
 
         // Restaurar el tamaño original de la ventana
         private void btnRestaurar_Click_1(object sender, EventArgs e)

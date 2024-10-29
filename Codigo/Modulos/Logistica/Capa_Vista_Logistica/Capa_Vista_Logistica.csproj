@@ -35,6 +35,15 @@
     <Reference Include="Capa_Controlador_Logistica">
       <HintPath>..\Capa_Controlador_Logistica\bin\Debug\Capa_Controlador_Logistica.dll</HintPath>
     </Reference>
+    <Reference Include="Capa_Vista_AmmyCatun">
+      <HintPath>..\MVC_AmmyCatun\Capa_Vista_AmmyCatun\bin\Debug\Capa_Vista_AmmyCatun.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_JDSC">
+      <HintPath>..\MVC_JoseDanielSierra\Capa_Vista_JDSC\bin\Debug\Capa_Vista_JDSC.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_MiguelCrisostomo">
+      <HintPath>..\MVC_MiguelCrisostomo\Capa_Vista_MiguelCrisostomo\bin\Debug\Capa_Vista_MiguelCrisostomo.dll</HintPath>
+    </Reference>
     <Reference Include="Capa_Vista_Navegador">
       <HintPath>..\..\..\Componentes\Navegador\Capa_Vista_Navegador\bin\Debug\Capa_Vista_Navegador.dll</HintPath>
     </Reference>
@@ -44,6 +53,9 @@
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Interfac_V3">
       <HintPath>..\..\Menus\ModernGUI_V3\bin\Debug\Interfac_V3.exe</HintPath>
+    </Reference>
+    <Reference Include="MVC_JavierChamo">
+      <HintPath>..\MVC_JavierChamo\MVC_JavierChamo\bin\Debug\MVC_JavierChamo.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -59,29 +71,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Administración de Lotes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Administración de Lotes.Designer.cs">
-      <DependentUpon>Administración de Lotes.cs</DependentUpon>
-    </Compile>
     <Compile Include="Almacenes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Almacenes.Designer.cs">
       <DependentUpon>Almacenes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Chofer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Chofer.Designer.cs">
-      <DependentUpon>Chofer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EnlaceContabilidad.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EnlaceContabilidad.Designer.cs">
-      <DependentUpon>EnlaceContabilidad.cs</DependentUpon>
     </Compile>
     <Compile Include="FormPrincipal.cs">
       <SubType>Form</SubType>
@@ -89,23 +83,11 @@
     <Compile Include="FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Linea.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Linea.Designer.cs">
-      <DependentUpon>Linea.cs</DependentUpon>
-    </Compile>
     <Compile Include="Locales.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Locales.Designer.cs">
       <DependentUpon>Locales.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MantenimientoVehiculos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MantenimientoVehiculos.Designer.cs">
-      <DependentUpon>MantenimientoVehiculos.cs</DependentUpon>
     </Compile>
     <Compile Include="LineaNav.cs">
       <SubType>Form</SubType>
@@ -125,29 +107,17 @@
     <Compile Include="MantenimientoNav.Designer.cs">
       <DependentUpon>MantenimientoNav.cs</DependentUpon>
     </Compile>
-    <Compile Include="Marca.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Marca.Designer.cs">
-      <DependentUpon>Marca.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MonitoreoAlmacen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MonitoreoAlmacen.Designer.cs">
-      <DependentUpon>MonitoreoAlmacen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Movimiento de Inventario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Movimiento de Inventario.Designer.cs">
-      <DependentUpon>Movimiento de Inventario.cs</DependentUpon>
-    </Compile>
     <Compile Include="Movimientos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Movimientos.Designer.cs">
       <DependentUpon>Movimientos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EnlaceContabilidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EnlaceContabilidad.designer.cs">
+      <DependentUpon>EnlaceContabilidad.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -155,67 +125,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ReporteInventario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReporteInventario.Designer.cs">
-      <DependentUpon>ReporteInventario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ReporteMantenimientos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReporteMantenimientos.Designer.cs">
-      <DependentUpon>ReporteMantenimientos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Transporte Vehiculos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Transporte Vehiculos.Designer.cs">
-      <DependentUpon>Transporte Vehiculos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Transporte.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Transporte.Designer.cs">
-      <DependentUpon>Transporte.cs</DependentUpon>
-    </Compile>
     <Compile Include="TrasDProductos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TrasDProductos.Designer.cs">
       <DependentUpon>TrasDProductos.cs</DependentUpon>
     </Compile>
-    <Compile Include="TrasladoDProductos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TrasladoDProductos.Designer.cs">
-      <DependentUpon>TrasladoDProductos.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Administración de Lotes.resx">
-      <DependentUpon>Administración de Lotes.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Almacenes.resx">
       <DependentUpon>Almacenes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Chofer.resx">
-      <DependentUpon>Chofer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EnlaceContabilidad.resx">
-      <DependentUpon>EnlaceContabilidad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Linea.resx">
-      <DependentUpon>Linea.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Locales.resx">
       <DependentUpon>Locales.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MantenimientoVehiculos.resx">
-      <DependentUpon>MantenimientoVehiculos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LineaNav.resx">
       <DependentUpon>LineaNav.cs</DependentUpon>
@@ -226,40 +151,55 @@
     <EmbeddedResource Include="MantenimientoNav.resx">
       <DependentUpon>MantenimientoNav.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Marca.resx">
-      <DependentUpon>Marca.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MonitoreoAlmacen.resx">
-      <DependentUpon>MonitoreoAlmacen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Movimiento de Inventario.resx">
-      <DependentUpon>Movimiento de Inventario.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Movimientos.resx">
       <DependentUpon>Movimientos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnlaceContabilidad.resx">
+      <DependentUpon>EnlaceContabilidad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReporteInventario.resx">
-      <DependentUpon>ReporteInventario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ReporteMantenimientos.resx">
-      <DependentUpon>ReporteMantenimientos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Transporte Vehiculos.resx">
-      <DependentUpon>Transporte Vehiculos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Transporte.resx">
-      <DependentUpon>Transporte.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="TrasDProductos.resx">
       <DependentUpon>TrasDProductos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TrasladoDProductos.resx">
-      <DependentUpon>TrasladoDProductos.cs</DependentUpon>
-    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agregar-archivo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boton-menos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boton-menos1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boton-menos2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boton-menos3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cerrar-sesion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disco-flexible %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disco-flexible %2864%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disco-flexible.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lista-de-verificacion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Quitar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

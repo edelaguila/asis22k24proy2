@@ -23,9 +23,9 @@ namespace Capa_Vista_Seguridad
             Btn_actualizar.Enabled = false;
             Btn_cancelar.Enabled = false;
             logic = new logica(sidUsuario);
-            Txt_codigo.Enabled = false;
-            Txt_nombre.Enabled = false;
-            Txt_descipcion.Enabled = false;
+            //Txt_codigo.Enabled = false;
+            //Txt_nombre.Enabled = false;
+            //Txt_descipcion.Enabled = false;
             Btn_guardar.Enabled = false;
             Gpb_estado.Enabled = false;
             Btn_eliminar.Enabled = false;   // se agrega el boton eliminar 
@@ -39,7 +39,7 @@ namespace Capa_Vista_Seguridad
 
         void limpiar()
         {
-            Tbx_buscarperfil.Text = "";
+            Cbo_buscar.Text = "";
             Txt_codigo.Text = "";
             Txt_descipcion.Text = "";
             Txt_nombre.Text = "";
@@ -99,6 +99,8 @@ namespace Capa_Vista_Seguridad
             tsalir.SetToolTip(Btn_salir, "Salir");
             ToolTip tayuda = new ToolTip();
             tayuda.SetToolTip(Btn_ayuda, "Ayuda");
+
+            Fun_cargar_busqueda();
         }
 
     
@@ -110,9 +112,9 @@ namespace Capa_Vista_Seguridad
 
         private void btn_ingresar_Click(object sender, EventArgs e)
         {
-            Txt_codigo.Enabled=false;
-            Txt_nombre.Enabled = false;
-            Txt_descipcion.Enabled = false;
+            //Txt_codigo.Enabled=false;
+            //Txt_nombre.Enabled = false;
+            //Txt_descipcion.Enabled = false;
 
             if (Txt_codigo.Text == "")
             {
@@ -204,9 +206,9 @@ namespace Capa_Vista_Seguridad
                 Btn_cancelar.Enabled = false;
                 Btn_guardar.Enabled = false;
                 Btn_ingreso.Enabled = true;
-                Txt_codigo.Enabled = false;
-                Txt_nombre.Enabled = false;
-                Txt_descipcion.Enabled = false;
+                //Txt_codigo.Enabled = false;
+                //Txt_nombre.Enabled = false;
+                //Txt_descipcion.Enabled = false;
                 Gpb_estado.Enabled = false;
                 limpiar();
 
@@ -220,7 +222,7 @@ namespace Capa_Vista_Seguridad
 
         private void btn_nuevo_Click_1(object sender, EventArgs e)
         {
-            Txt_codigo.Enabled = true;
+            //Txt_codigo.Enabled = true;
             Btn_ingreso.Enabled = false;
             Btn_actualizar.Enabled = false;
             Gpb_buscarperfiles.Enabled = false;
@@ -228,8 +230,8 @@ namespace Capa_Vista_Seguridad
             Rdb_habilitado.Checked = true;
             Rdb_inhabilitado.Checked = true;
             Gpb_estado.Enabled = true;
-            Txt_nombre.Enabled = true;
-            Txt_descipcion.Enabled = true;
+            //Txt_nombre.Enabled = true;
+            //Txt_descipcion.Enabled = true;
             Btn_guardar.Enabled = true;
             Btn_cancelar.Enabled = true;
 
@@ -258,13 +260,13 @@ namespace Capa_Vista_Seguridad
 
         private void btn_modif_Click(object sender, EventArgs e)
         {
-            Txt_codigo.Enabled = false;
+            //Txt_codigo.Enabled = false;
             Btn_ingreso.Enabled = false;
             Btn_cancelar.Enabled = true;
             Btn_actualizar.Enabled = true;
             Btn_modificar.Enabled = false;
-            Txt_nombre.Enabled = true;
-            Txt_descipcion.Enabled = true;
+            //Txt_nombre.Enabled = true;
+            //Txt_descipcion.Enabled = true;
             Rdb_habilitado.Enabled = true;
             Rdb_inhabilitado.Enabled = true;
             Gpb_estado.Enabled = true;
@@ -291,7 +293,7 @@ namespace Capa_Vista_Seguridad
                     Btn_cancelar.Enabled = false;
                     Btn_guardar.Enabled = false;
                     Btn_ingreso.Enabled = true;
-                    Txt_codigo.Enabled = false;
+                    //Txt_codigo.Enabled = false;
                     Gpb_estado.Enabled = false;  // Desactiva el grupo de radio buttons
                     limpiar();  // Limpiar campos
                 }
@@ -309,8 +311,8 @@ namespace Capa_Vista_Seguridad
             Btn_actualizar.Enabled = false;
             Btn_cancelar.Enabled = false;
             Btn_guardar.Enabled = false;
-            Txt_nombre.Enabled = false;
-            Txt_descipcion.Enabled = false;
+            //Txt_nombre.Enabled = false;
+            //Txt_descipcion.Enabled = false;
             Gpb_buscarperfiles.Enabled = true;
             Btn_ingreso.Enabled = true;
             Gpb_estado.Enabled = false;
@@ -398,9 +400,10 @@ namespace Capa_Vista_Seguridad
 
         //------------------------------------------ Fin KATERYN DE LEON y Gabriela Suc ------------------------------------------
 
+        //**************************KEVIN LOPEZ***********************************
         private void btn_bsucarperfil_Click(object sender, EventArgs e)
         {
-            string sperfil = Tbx_buscarperfil.Text;
+            string sperfil = Cbo_buscar.Text;
 
             if (string.IsNullOrWhiteSpace(sperfil))
             {
@@ -441,9 +444,9 @@ namespace Capa_Vista_Seguridad
 
                 Btn_modificar.Enabled = true;
                 Btn_guardar.Enabled = false;
-                Txt_codigo.Enabled = false;
-                Txt_nombre.Enabled = false;
-                Txt_descipcion.Enabled = false;
+                //Txt_codigo.Enabled = false;
+                //Txt_nombre.Enabled = false;
+                //Txt_descipcion.Enabled = false;
                 Rdb_habilitado.Enabled = false;
                 Rdb_inhabilitado.Enabled = false;
                 Btn_eliminar.Enabled = true;
@@ -457,5 +460,25 @@ namespace Capa_Vista_Seguridad
                 Console.WriteLine(ex);
             }
         }
+
+        private void Fun_cargar_busqueda()
+        {
+            try
+            {
+
+                DataTable dtPerfiles = logic.funconsultaLogPerfiles();
+                Cbo_buscar.Items.Clear();
+                foreach (DataRow row in dtPerfiles.Rows)
+                {
+                    Cbo_buscar.Items.Add(row[0].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al cargar busqueda: " + ex.Message);
+            }
+        }
+
+        //**************************FIN KEVIN LOPEZ***********************************
     }
 }

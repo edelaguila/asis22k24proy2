@@ -44,12 +44,14 @@
             this.label5 = new System.Windows.Forms.Label();
             this.Gpb_vista_previa = new System.Windows.Forms.GroupBox();
             this.Btn_ayuda = new System.Windows.Forms.Button();
-            this.Btn_buscar = new System.Windows.Forms.Button();
             this.Btn_remover = new System.Windows.Forms.Button();
             this.Btn_agregar = new System.Windows.Forms.Button();
             this.Btn_guardar = new System.Windows.Forms.Button();
             this.Btn_cancelar = new System.Windows.Forms.Button();
             this.Btn_salir = new System.Windows.Forms.Button();
+            this.Btn_modificar = new System.Windows.Forms.Button();
+            this.Btn_actualizar = new System.Windows.Forms.Button();
+            this.Btn_bsucar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_perfiles_asignados)).BeginInit();
             this.Gpb_datos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_asignacion_perfiles)).BeginInit();
@@ -104,7 +106,7 @@
             this.lbl_perfiles.Location = new System.Drawing.Point(80, 92);
             this.lbl_perfiles.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_perfiles.Name = "lbl_perfiles";
-            this.lbl_perfiles.Size = new System.Drawing.Size(72, 22);
+            this.lbl_perfiles.Size = new System.Drawing.Size(53, 19);
             this.lbl_perfiles.TabIndex = 7;
             this.lbl_perfiles.Text = "Perfiles";
             // 
@@ -115,7 +117,7 @@
             this.Cbo_perfiles.Location = new System.Drawing.Point(11, 127);
             this.Cbo_perfiles.Margin = new System.Windows.Forms.Padding(4);
             this.Cbo_perfiles.Name = "Cbo_perfiles";
-            this.Cbo_perfiles.Size = new System.Drawing.Size(199, 27);
+            this.Cbo_perfiles.Size = new System.Drawing.Size(199, 23);
             this.Cbo_perfiles.TabIndex = 6;
             this.Cbo_perfiles.SelectedIndexChanged += new System.EventHandler(this.Cbo_perfiles_SelectedIndexChanged);
             // 
@@ -126,7 +128,7 @@
             this.label1.Location = new System.Drawing.Point(80, 28);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 22);
+            this.label1.Size = new System.Drawing.Size(56, 19);
             this.label1.TabIndex = 5;
             this.label1.Text = "Usuario";
             // 
@@ -137,7 +139,7 @@
             this.Cbo_usuario.Location = new System.Drawing.Point(11, 54);
             this.Cbo_usuario.Margin = new System.Windows.Forms.Padding(4);
             this.Cbo_usuario.Name = "Cbo_usuario";
-            this.Cbo_usuario.Size = new System.Drawing.Size(199, 27);
+            this.Cbo_usuario.Size = new System.Drawing.Size(199, 23);
             this.Cbo_usuario.TabIndex = 4;
             this.Cbo_usuario.SelectedIndexChanged += new System.EventHandler(this.Cbo_usuario_SelectedIndexChanged);
             // 
@@ -148,7 +150,7 @@
             this.label2.Location = new System.Drawing.Point(246, 18);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 33);
+            this.label2.Size = new System.Drawing.Size(0, 24);
             this.label2.TabIndex = 6;
             // 
             // Txt_titulo
@@ -158,7 +160,7 @@
             this.Txt_titulo.ForeColor = System.Drawing.Color.Transparent;
             this.Txt_titulo.Location = new System.Drawing.Point(132, 18);
             this.Txt_titulo.Name = "Txt_titulo";
-            this.Txt_titulo.Size = new System.Drawing.Size(717, 45);
+            this.Txt_titulo.Size = new System.Drawing.Size(554, 37);
             this.Txt_titulo.TabIndex = 259;
             this.Txt_titulo.Text = "A s i g n a c i o n   d e  p e r f i l e s   a   U s u a r i o s";
             // 
@@ -197,7 +199,7 @@
             this.label5.Location = new System.Drawing.Point(80, 28);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 22);
+            this.label5.Size = new System.Drawing.Size(0, 19);
             this.label5.TabIndex = 5;
             // 
             // Gpb_vista_previa
@@ -228,22 +230,6 @@
             this.Btn_ayuda.TabIndex = 267;
             this.Btn_ayuda.UseVisualStyleBackColor = false;
             this.Btn_ayuda.Click += new System.EventHandler(this.Btn_ayuda_Click_1);
-            // 
-            // Btn_buscar
-            // 
-            this.Btn_buscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.Btn_buscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Btn_buscar.FlatAppearance.BorderSize = 0;
-            this.Btn_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_buscar.Image = global::Capa_Vista_Seguridad.Properties.Resources.buscar11;
-            this.Btn_buscar.Location = new System.Drawing.Point(321, 83);
-            this.Btn_buscar.Margin = new System.Windows.Forms.Padding(0);
-            this.Btn_buscar.Name = "Btn_buscar";
-            this.Btn_buscar.Size = new System.Drawing.Size(69, 57);
-            this.Btn_buscar.TabIndex = 259;
-            this.Btn_buscar.UseVisualStyleBackColor = false;
-            this.Btn_buscar.Visible = false;
-            this.Btn_buscar.Click += new System.EventHandler(this.Btn_buscar_Click);
             // 
             // Btn_remover
             // 
@@ -320,16 +306,60 @@
             this.Btn_salir.UseVisualStyleBackColor = false;
             this.Btn_salir.Click += new System.EventHandler(this.Btn_salir_Click);
             // 
+            // Btn_modificar
+            // 
+            this.Btn_modificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.Btn_modificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Btn_modificar.FlatAppearance.BorderSize = 0;
+            this.Btn_modificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_modificar.Image = global::Capa_Vista_Seguridad.Properties.Resources.editar11;
+            this.Btn_modificar.Location = new System.Drawing.Point(319, 83);
+            this.Btn_modificar.Margin = new System.Windows.Forms.Padding(0);
+            this.Btn_modificar.Name = "Btn_modificar";
+            this.Btn_modificar.Size = new System.Drawing.Size(69, 57);
+            this.Btn_modificar.TabIndex = 305;
+            this.Btn_modificar.UseVisualStyleBackColor = false;
+            // 
+            // Btn_actualizar
+            // 
+            this.Btn_actualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.Btn_actualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Btn_actualizar.FlatAppearance.BorderSize = 0;
+            this.Btn_actualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_actualizar.Image = global::Capa_Vista_Seguridad.Properties.Resources.guardar21;
+            this.Btn_actualizar.Location = new System.Drawing.Point(388, 83);
+            this.Btn_actualizar.Margin = new System.Windows.Forms.Padding(0);
+            this.Btn_actualizar.Name = "Btn_actualizar";
+            this.Btn_actualizar.Size = new System.Drawing.Size(69, 57);
+            this.Btn_actualizar.TabIndex = 304;
+            this.Btn_actualizar.UseVisualStyleBackColor = false;
+            // 
+            // Btn_bsucar
+            // 
+            this.Btn_bsucar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.Btn_bsucar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Btn_bsucar.FlatAppearance.BorderSize = 0;
+            this.Btn_bsucar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_bsucar.Image = global::Capa_Vista_Seguridad.Properties.Resources.buscar11;
+            this.Btn_bsucar.Location = new System.Drawing.Point(457, 83);
+            this.Btn_bsucar.Margin = new System.Windows.Forms.Padding(0);
+            this.Btn_bsucar.Name = "Btn_bsucar";
+            this.Btn_bsucar.Size = new System.Drawing.Size(65, 57);
+            this.Btn_bsucar.TabIndex = 306;
+            this.Btn_bsucar.UseVisualStyleBackColor = false;
+            // 
             // frm_asignacion_perfiles
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(133)))), ((int)(((byte)(226)))));
             this.ClientSize = new System.Drawing.Size(865, 601);
+            this.Controls.Add(this.Btn_bsucar);
+            this.Controls.Add(this.Btn_modificar);
+            this.Controls.Add(this.Btn_actualizar);
             this.Controls.Add(this.Btn_agregar);
             this.Controls.Add(this.Btn_remover);
             this.Controls.Add(this.Btn_guardar);
-            this.Controls.Add(this.Btn_buscar);
             this.Controls.Add(this.Dgv_perfiles_asignados);
             this.Controls.Add(this.Btn_ayuda);
             this.Controls.Add(this.Dgv_asignacion_perfiles);
@@ -369,7 +399,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView Dgv_perfiles_asignados;
         private System.Windows.Forms.Label Txt_titulo;
-        private System.Windows.Forms.Button Btn_buscar;
         private System.Windows.Forms.Button Btn_agregar;
         private System.Windows.Forms.Button Btn_salir;
         private System.Windows.Forms.Button Btn_remover;
@@ -381,5 +410,8 @@
         private System.Windows.Forms.GroupBox Gpb_vista_previa;
         private System.Windows.Forms.Button Btn_ayuda;
         private System.Windows.Forms.Button Btn_cancelar;
+        private System.Windows.Forms.Button Btn_modificar;
+        private System.Windows.Forms.Button Btn_actualizar;
+        private System.Windows.Forms.Button Btn_bsucar;
     }
 }

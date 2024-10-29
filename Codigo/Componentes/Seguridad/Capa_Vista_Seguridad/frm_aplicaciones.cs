@@ -17,7 +17,7 @@ namespace Capa_Vista_Seguridad
     {
 
         logica logic;
-
+        string valorSeleccionadoap;
         //###################  lo que hizo Karla  Sofia Gómez Tobar #######################
         public frm_aplicaciones(string idUsuario)
         {
@@ -54,10 +54,81 @@ namespace Capa_Vista_Seguridad
             ToolTip tayuda = new ToolTip();
             tayuda.SetToolTip(Btn_ayuda, "Ayuda");
             mostraraplicaciones();
+
+
+            string stablaU = "Tbl_aplicaciones";
+            string scampo1U = "Pk_id_aplicacion";
+            string scampo2U = "nombre_aplicacion";
+
+            prollenarseAplicaciones(stablaU, scampo1U, scampo2U);
+            Cbo_buscar.SelectedIndexChanged += new EventHandler(Cbo_buscar_SelectedIndexChanged);
         }
+
+        public void prollenarseAplicaciones(string tabla, string campo1, string campo2)
+        {
+            // Obtén los datos para el ComboBox
+            var dt2 = logic.funenviarUsuario(tabla, campo1, campo2);
+
+            // Limpia el ComboBox antes de llenarlo
+            Cbo_buscar.Items.Clear();
+
+            foreach (DataRow row in dt2.Rows)
+            {
+                // Agrega el elemento mostrando el formato "ID-Nombre"
+                Cbo_buscar.Items.Add(new ComboBoxItemU
+                {
+                    Value = row[campo1].ToString(),
+                    Display = row[campo2].ToString()
+                });
+            }
+
+            // Configura AutoComplete para el ComboBox con el formato deseado
+            AutoCompleteStringCollection coleccion = new AutoCompleteStringCollection();
+            foreach (DataRow row in dt2.Rows)
+            {
+                coleccion.Add(Convert.ToString(row[campo1]) + "-" + Convert.ToString(row[campo2]));
+                coleccion.Add(Convert.ToString(row[campo2]) + "-" + Convert.ToString(row[campo1]));
+            }
+
+            Cbo_buscar.AutoCompleteCustomSource = coleccion;
+            Cbo_buscar.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            Cbo_buscar.AutoCompleteSource = AutoCompleteSource.CustomSource;
+        }
+
+        // Clase auxiliar para almacenar Value y Display
+        public class ComboBoxItemU
+        {
+            public string Value { get; set; }
+            public string Display { get; set; }
+
+            // Sobrescribir el método ToString para mostrar "ID-Nombre" en el ComboBox
+            public override string ToString()
+            {
+                return $"{Value}-{Display}"; // Formato "ID-Nombre"
+            }
+        }
+
+
 
         public frm_aplicaciones()
         {
+        }
+
+        private void ActualizarComboBox()
+        {
+
+            // Limpiar los ítems actuales del ComboBox
+            Cbo_buscar.Items.Clear();
+
+            string stablaU = "Tbl_aplicaciones";
+            string scampo1U = "Pk_id_aplicacion";
+            string scampo2U = "nombre_aplicacion";
+
+            // Llamar a la función que llena el ComboBox
+            prollenarseAplicaciones(stablaU, scampo1U, scampo2U);
+
+            // (Opcional) Puedes también registrar el evento si aún no lo has hecho
+            Cbo_buscar.SelectedIndexChanged += new EventHandler(Cbo_buscar_SelectedIndexChanged);
         }
 
 
@@ -122,6 +193,7 @@ namespace Capa_Vista_Seguridad
 
         private void Btn_bsucar_Click(object sender, EventArgs e)
         {
+            Txt_buscar.Text = valorSeleccionadoap; // Muestra el valor seleccionado en el ComboBox
             string aplicacion = Txt_buscar.Text;
 
             if (string.IsNullOrWhiteSpace(aplicacion))
@@ -273,6 +345,7 @@ namespace Capa_Vista_Seguridad
                 Btn_nuevo.Enabled = true;
                 Txt_idaplicacion.Enabled = false;
                 mostraraplicaciones();
+                ActualizarComboBox();
             }
         }
 
@@ -343,6 +416,7 @@ namespace Capa_Vista_Seguridad
                 Txt_descripcion.Enabled = false;
                 Gpb_estado.Enabled = true;
                 Gpb_buscar.Enabled = true;
+                ActualizarComboBox();
             }
         }
 
@@ -467,12 +541,26 @@ namespace Capa_Vista_Seguridad
             return null;
         }
 
+        //************* Fin KATERYN DE LEON y Gabriela Suc ************************
+
+
         private void Txt_idaplicacion_TextChanged(object sender, EventArgs e)
         {
 
         }
-        //************* Fin KATERYN DE LEON y Gabriela Suc ************************
 
+        private void Cbo_buscar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Cbo_buscar.SelectedItem != null)
+            {
+
+                var selectedItem = (ComboBoxItemU)Cbo_buscar.SelectedItem;
+                valorSeleccionadoap = selectedItem.Value;
+
+                // MessageBox.Show($"Valor seleccionado: {valorSeleccionadousuario}", "Valor Seleccionado");
+            }
+        }
+        
 
     }
 }
