@@ -2,6 +2,7 @@
 using System;
 using System.Data;
 using System.Data.Odbc;
+using System.Windows.Forms;
 
 namespace Capa_Modelo_Planilla
 {
@@ -9,16 +10,17 @@ namespace Capa_Modelo_Planilla
     {
         private readonly Conexion cn = new Conexion();
 
-        public OdbcDataAdapter ObtenerEncabezado()
+        public OdbcDataAdapter funObtenerEncabezado()
         {
             // Consulta SQL solo con los campos de tbl_planilla_Encabezado
             string query = @"
         SELECT 
-            pk_registro_planilla_Encabezado AS EncabezadoID,
-            encabezado_correlativo_planilla AS CorrelativoPlanilla,
+            pk_registro_planilla_Encabezado AS ClaveEncabezado,
+            encabezado_correlativo_planilla AS Correlativo,
             encabezado_fecha_inicio AS FechaInicio,
             encabezado_fecha_final AS FechaFinal,
-            encabezado_total_mes AS TotalMes
+            encabezado_total_mes AS TotalMes,
+            estado AS Estado
         FROM 
             tbl_planilla_Encabezado
         WHERE 
@@ -36,29 +38,32 @@ namespace Capa_Modelo_Planilla
             }
         }
 
-        public OdbcDataAdapter ObtenerDetalle()
+        public OdbcDataAdapter funObtenerDetalle()
         {
             // Consulta detallada para obtener los detalles de planilla y otras tablas relacionadas
             string query = @"
-        SELECT 
-            pd.pk_registro_planilla_Detalle AS DetalleID,
-            pd.detalle_total_Percepciones AS TotalPercepciones,
-            pd.detalle_total_Deducciones AS TotalDeducciones,
-            pd.detalle_total_liquido AS TotalLiquido,
-            e.empleados_nombre AS NombreEmpleado,
-            e.empleados_apellido AS ApellidoEmpleado,
-            pt.puestos_nombre_puesto AS PuestoEmpleado,
-            d.departamentos_nombre_departamento AS DepartamentoEmpleado
-        FROM 
-            tbl_planilla_Detalle AS pd
-        INNER JOIN 
-            tbl_empleados AS e ON pd.fk_clave_empleado = e.pk_clave
-        INNER JOIN 
-            tbl_puestos_trabajo AS pt ON e.fk_id_puestos = pt.pk_id_puestos
-        INNER JOIN 
-            tbl_departamentos AS d ON e.fk_id_departamento = d.pk_id_departamento
-        WHERE 
-            pd.estado = 1;";
+                SELECT 
+                    pd.pk_registro_planilla_Detalle AS DetalleID,
+                    pd.detalle_total_Percepciones AS TotalPercepciones,
+                    pd.detalle_total_Deducciones AS TotalDeducciones,
+                    pd.detalle_total_liquido AS TotalLiquido,
+                    pd.fk_id_registro_planilla_Encabezado AS EncabezadoID, -- Aquí se agrega el ID del encabezado
+                    e.empleados_nombre AS NombreEmpleado,
+                    e.empleados_apellido AS ApellidoEmpleado,
+                    pt.puestos_nombre_puesto AS PuestoEmpleado,
+                    d.departamentos_nombre_departamento AS DepartamentoEmpleado,
+                    pd.estado AS Estado
+                FROM 
+                    tbl_planilla_Detalle AS pd
+                INNER JOIN 
+                    tbl_empleados AS e ON pd.fk_clave_empleado = e.pk_clave
+                INNER JOIN 
+                    tbl_puestos_trabajo AS pt ON e.fk_id_puestos = pt.pk_id_puestos
+                INNER JOIN 
+                    tbl_departamentos AS d ON e.fk_id_departamento = d.pk_id_departamento
+                WHERE 
+                    pd.estado = 1;
+                ";
 
             try
             {
@@ -73,34 +78,25 @@ namespace Capa_Modelo_Planilla
         }
 
 
-
-        public bool CalcularPlanillaDetalle(int pkRegistroPlanillaDetalle, int fkIdRegistroPlanillaEncabezado, int fkClaveEmpleado)
+        public bool funCalcularPlanillaDetalle(int ifkIdRegistroPlanillaEncabezado, int ifkClaveEmpleado)
         {
             using (var connection = cn.conexion())
             {
                 try
                 {
-                    decimal salarioBase = ObtenerSalarioBase(connection, fkClaveEmpleado, out int contratoId);
+                    decimal desalarioBase = funObtenerSalarioBase(connection, ifkClaveEmpleado, out int icontratoId);
+                    decimal detotalPercepciones = funObtenerTotalPercepciones(connection, ifkClaveEmpleado);
+                    decimal detotalDeducciones = funObtenerTotalDeducciones(connection, ifkClaveEmpleado);
 
-                    if (contratoId != 0)
-                    {
-                        decimal totalPercepciones = ObtenerTotalPercepciones(connection, fkClaveEmpleado);
-                        decimal totalDeducciones = ObtenerTotalDeducciones(connection, fkClaveEmpleado);
+                    decimal detotalLiquido = desalarioBase + detotalPercepciones - detotalDeducciones;
 
-                        decimal totalLiquido = salarioBase + totalPercepciones - totalDeducciones;
+                    funInsertarDetallePlanilla(connection,detotalPercepciones, detotalDeducciones, detotalLiquido, ifkClaveEmpleado, icontratoId, ifkIdRegistroPlanillaEncabezado);
 
-                        InsertarDetallePlanilla(connection, pkRegistroPlanillaDetalle, totalPercepciones, totalDeducciones, totalLiquido, fkClaveEmpleado, contratoId, fkIdRegistroPlanillaEncabezado);
-
-                        return true;
-                    }
-                    else
-                    {
-                        throw new Exception("No se encontró contrato para este empleado.");
-                    }
+                    return true;
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Error: {ex.Message}");
+                    MessageBox.Show($"Error: {ex.Message}", "Error en el cálculo de la planilla", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
                 finally
@@ -110,94 +106,107 @@ namespace Capa_Modelo_Planilla
             }
         }
 
-        private decimal ObtenerSalarioBase(OdbcConnection connection, int fkClaveEmpleado, out int contratoId)
+        private decimal funObtenerSalarioBase(OdbcConnection connection, int ifkClaveEmpleado, out int icontratoId)
         {
-            contratoId = 0;
-            decimal salarioBase = 0;
+            icontratoId = 0;
+            decimal desalarioBase = 0;
 
             string query = @"
-                SELECT pk_id_contrato, contratos_salario 
-                FROM tbl_contratos 
-                WHERE fk_clave_empleado = ? 
-                ORDER BY contratos_fecha_creacion DESC 
-                LIMIT 1";
+        SELECT pk_id_contrato, contratos_salario 
+        FROM tbl_contratos 
+        WHERE fk_clave_empleado = ? 
+        ORDER BY contratos_fecha_creacion DESC 
+        LIMIT 1";
 
             using (OdbcCommand cmd = new OdbcCommand(query, connection))
             {
-                cmd.Parameters.AddWithValue("@fk_clave_empleado", fkClaveEmpleado);
+                cmd.Parameters.AddWithValue("@fk_clave_empleado", ifkClaveEmpleado);
 
                 using (OdbcDataReader reader = cmd.ExecuteReader())
                 {
-                    if (reader.Read())
+                    if (reader.Read() && !reader.IsDBNull(0) && !reader.IsDBNull(1))
                     {
-                        contratoId = reader.GetInt32(0);
-                        salarioBase = reader.GetDecimal(1);
+                        icontratoId = reader.GetInt32(0);
+                        desalarioBase = reader.GetDecimal(1);
+                    }
+                    else
+                    {
+                        throw new Exception("No se encontró un contrato para este empleado.");
                     }
                 }
             }
-            return salarioBase;
+
+            return desalarioBase;
         }
 
-        private decimal ObtenerTotalPercepciones(OdbcConnection connection, int fkClaveEmpleado)
+        private decimal funObtenerTotalPercepciones(OdbcConnection connection, int ifkClaveEmpleado)
         {
-            decimal totalPercepciones = 0;
-
             string query = @"
-                SELECT SUM(dpe.dedu_perp_emp_cantidad)
-                FROM tbl_dedu_perp_emp dpe
-                INNER JOIN tbl_dedu_perp dp ON dpe.Fk_dedu_perp = dp.pk_dedu_perp
-                WHERE dpe.Fk_clave_empleado = ? AND dp.dedu_perp_clase = 'Percepcion' AND dpe.estado = 1";
+        SELECT SUM(dpe.dedu_perp_emp_cantidad)
+        FROM tbl_dedu_perp_emp dpe
+        INNER JOIN tbl_dedu_perp dp ON dpe.Fk_dedu_perp = dp.pk_dedu_perp
+        WHERE dpe.Fk_clave_empleado = ? AND dp.dedu_perp_clase = 'Percepcion' AND dpe.estado = 1";
 
             using (OdbcCommand cmd = new OdbcCommand(query, connection))
             {
-                cmd.Parameters.AddWithValue("@fk_clave_empleado", fkClaveEmpleado);
+                cmd.Parameters.AddWithValue("@fk_clave_empleado", ifkClaveEmpleado);
 
-                totalPercepciones = Convert.ToDecimal(cmd.ExecuteScalar() ?? 0);
+                object result = cmd.ExecuteScalar();
+
+                if (result == DBNull.Value || result == null)
+                {
+                    throw new Exception("El empleado no tiene percepciones registradas.");
+                }
+
+                return Convert.ToDecimal(result);
             }
-            return totalPercepciones;
         }
 
-        private decimal ObtenerTotalDeducciones(OdbcConnection connection, int fkClaveEmpleado)
+        private decimal funObtenerTotalDeducciones(OdbcConnection connection, int ifkClaveEmpleado)
         {
-            decimal totalDeducciones = 0;
-
             string query = @"
-                SELECT SUM(dpe.dedu_perp_emp_cantidad)
-                FROM tbl_dedu_perp_emp dpe
-                INNER JOIN tbl_dedu_perp dp ON dpe.Fk_dedu_perp = dp.pk_dedu_perp
-                WHERE dpe.Fk_clave_empleado = ? AND dp.dedu_perp_clase = 'Deduccion' AND dpe.estado = 1";
+        SELECT SUM(dpe.dedu_perp_emp_cantidad)
+        FROM tbl_dedu_perp_emp dpe
+        INNER JOIN tbl_dedu_perp dp ON dpe.Fk_dedu_perp = dp.pk_dedu_perp
+        WHERE dpe.Fk_clave_empleado = ? AND dp.dedu_perp_clase = 'Deduccion' AND dpe.estado = 1";
 
             using (OdbcCommand cmd = new OdbcCommand(query, connection))
             {
-                cmd.Parameters.AddWithValue("@fk_clave_empleado", fkClaveEmpleado);
+                cmd.Parameters.AddWithValue("@fk_clave_empleado", ifkClaveEmpleado);
 
-                totalDeducciones = Convert.ToDecimal(cmd.ExecuteScalar() ?? 0);
+                object result = cmd.ExecuteScalar();
+
+                if (result == DBNull.Value || result == null)
+                {
+                    throw new Exception("El empleado no tiene deducciones registradas.");
+                }
+
+                return Convert.ToDecimal(result);
             }
-            return totalDeducciones;
         }
 
-        private void InsertarDetallePlanilla(OdbcConnection connection, int pkRegistroPlanillaDetalle, decimal totalPercepciones, decimal totalDeducciones, decimal totalLiquido, int fkClaveEmpleado, int contratoId, int fkIdRegistroPlanillaEncabezado)
+        private void funInsertarDetallePlanilla(OdbcConnection connection,decimal detotalPercepciones, decimal detotalDeducciones, decimal detotalLiquido, int ifkClaveEmpleado, int icontratoId, int ifkIdRegistroPlanillaEncabezado)
         {
             string query = @"
                 INSERT INTO tbl_planilla_Detalle 
-                (pk_registro_planilla_Detalle, detalle_total_Percepciones, detalle_total_Deducciones, detalle_total_liquido, fk_clave_empleado, fk_id_contrato, fk_id_registro_planilla_Encabezado, estado)
-                VALUES (?, ?, ?, ?, ?, ?, ?, 1)";
+                (detalle_total_Percepciones, detalle_total_Deducciones, detalle_total_liquido, fk_clave_empleado, fk_id_contrato, fk_id_registro_planilla_Encabezado, estado)
+                VALUES (?, ?, ?, ?, ?, ?, 1)";
 
             using (OdbcCommand cmd = new OdbcCommand(query, connection))
             {
-                cmd.Parameters.AddWithValue("@pk_registro_planilla_Detalle", pkRegistroPlanillaDetalle);
-                cmd.Parameters.AddWithValue("@detalle_total_Percepciones", totalPercepciones);
-                cmd.Parameters.AddWithValue("@detalle_total_Deducciones", totalDeducciones);
-                cmd.Parameters.AddWithValue("@detalle_total_liquido", totalLiquido);
-                cmd.Parameters.AddWithValue("@fk_clave_empleado", fkClaveEmpleado);
-                cmd.Parameters.AddWithValue("@fk_id_contrato", contratoId);
-                cmd.Parameters.AddWithValue("@fk_id_registro_planilla_Encabezado", fkIdRegistroPlanillaEncabezado);
+                //cmd.Parameters.AddWithValue("@pk_registro_planilla_Detalle", ipkRegistroPlanillaDetalle);
+                cmd.Parameters.AddWithValue("@detalle_total_Percepciones", detotalPercepciones);
+                cmd.Parameters.AddWithValue("@detalle_total_Deducciones", detotalDeducciones);
+                cmd.Parameters.AddWithValue("@detalle_total_liquido", detotalLiquido);
+                cmd.Parameters.AddWithValue("@fk_clave_empleado", ifkClaveEmpleado);
+                cmd.Parameters.AddWithValue("@fk_id_contrato", icontratoId);
+                cmd.Parameters.AddWithValue("@fk_id_registro_planilla_Encabezado", ifkIdRegistroPlanillaEncabezado);
 
                 cmd.ExecuteNonQuery();
             }
         }
 
-        public DataTable obtener2(string sTabla, string sCampo1, string sCampo2)
+        public DataTable funobtener2(string sTabla, string sCampo1, string sCampo2)
         {
             Conexion cn = new Conexion();
             string sql = "SELECT DISTINCT " + sCampo1 + "," + sCampo2 + " FROM " + sTabla;
@@ -212,7 +221,7 @@ namespace Capa_Modelo_Planilla
         }
 
 
-        public bool InsertarPlanillaEncabezado(int correlativoPlanilla, DateTime fechaInicio, DateTime fechaFinal, decimal totalMes)
+        public bool funInsertarPlanillaEncabezado(int icorrelativoPlanilla, DateTime dfechaInicio, DateTime dfechaFinal, decimal detotalMes)
         {
             string query = "INSERT INTO tbl_planilla_Encabezado (encabezado_correlativo_planilla, encabezado_fecha_inicio, encabezado_fecha_final, encabezado_total_mes, estado) " +
                            "VALUES (?, ?, ?, ?, 1)";
@@ -230,10 +239,10 @@ namespace Capa_Modelo_Planilla
 
                     using (OdbcCommand command = new OdbcCommand(query, conn))
                     {
-                        command.Parameters.AddWithValue("@correlativoPlanilla", correlativoPlanilla);
-                        command.Parameters.AddWithValue("@fechaInicio", fechaInicio);
-                        command.Parameters.AddWithValue("@fechaFinal", fechaFinal);
-                        command.Parameters.AddWithValue("@totalMes", totalMes);
+                        command.Parameters.AddWithValue("@correlativoPlanilla", icorrelativoPlanilla);
+                        command.Parameters.AddWithValue("@fechaInicio", dfechaInicio);
+                        command.Parameters.AddWithValue("@fechaFinal", dfechaFinal);
+                        command.Parameters.AddWithValue("@totalMes", detotalMes);
 
                         command.ExecuteNonQuery();
                         return true;
@@ -248,7 +257,99 @@ namespace Capa_Modelo_Planilla
         }
 
 
+        public void funcActualizarEncabezado(int iidSeleccionado, int icorrelativo, DateTime dfechaInicio, DateTime dfechaFinal)
+        {
+            try
+            {
+                string sql = "UPDATE tbl_planilla_Encabezado SET " +
+                             "encabezado_correlativo_planilla = ?, " +
+                             "encabezado_fecha_inicio = ?, " +
+                             "encabezado_fecha_final = ? " + // Elimina la coma aquí
+                             "WHERE pk_registro_planilla_Encabezado = ?";
 
+                using (OdbcConnection conn = cn.conexion())
+                {
+                    using (OdbcCommand cmd = new OdbcCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("?", icorrelativo);
+                        cmd.Parameters.AddWithValue("?", dfechaInicio);
+                        cmd.Parameters.AddWithValue("?", dfechaFinal);
+                        cmd.Parameters.AddWithValue("?", iidSeleccionado);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error enfuncActualizarEncabezado: " + ex.Message);
+            }
+        }
+
+        public void funcEliminarEncabezado(int iidSeleccionado)
+        {
+            try
+            {
+                string sql = "UPDATE tbl_planilla_Encabezado SET estado = 0 WHERE pk_registro_planilla_Encabezado = ?";
+                using (OdbcConnection conn = cn.conexion())
+                {
+                    using (OdbcCommand cmd = new OdbcCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("?", iidSeleccionado);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error en funcEliminarDeduPerp: " + ex.Message);
+            }
+        }
+
+        public void funcActualizarDetalle(int iidSeleccionado2, int ifkIdRegistroPlanillaEncabezado, int ifkClaveEmpleado)
+        {
+            try
+            {
+                string sql = "UPDATE tbl_planilla_Detalle SET " +
+                             "fk_clave_empleado = ?, " +
+                             "fk_id_registro_planilla_Encabezado = ? " + 
+                             "WHERE pk_registro_planilla_Detalle = ?";
+
+                using (OdbcConnection conn = cn.conexion())
+                {
+                    using (OdbcCommand cmd = new OdbcCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("?", ifkClaveEmpleado);
+                        cmd.Parameters.AddWithValue("?", ifkIdRegistroPlanillaEncabezado);
+                        cmd.Parameters.AddWithValue("?", iidSeleccionado2);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error en funcActualizarDetalle: " + ex.Message);
+            }
+        }
+
+        public void funcEliminarDetalle(int iidSeleccionado2)
+        {
+            try
+            {
+                string sql = "UPDATE tbl_planilla_Detalle SET estado = 0 WHERE pk_registro_planilla_Detalle = ?";
+                using (OdbcConnection conn = cn.conexion())
+                {
+                    using (OdbcCommand cmd = new OdbcCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("?", iidSeleccionado2);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error en funcEliminarDetall: " + ex.Message);
+            }
+        }
 
 
 

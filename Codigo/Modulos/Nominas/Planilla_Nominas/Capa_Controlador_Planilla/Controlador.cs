@@ -13,14 +13,14 @@ namespace Capa_Controlador_Planilla
     {
         Sentencias sn = new Sentencias();
 
-        public bool EjecutarCalculoPlanilla(int pkRegistroPlanillaDetalle, int fkIdRegistroPlanillaEncabezado, int fkClaveEmpleado)
+        public bool funEjecutarCalculoPlanilla(int ifkIdRegistroPlanillaEncabezado, int ifkClaveEmpleado)
         {
-            return sn.CalcularPlanillaDetalle(pkRegistroPlanillaDetalle, fkIdRegistroPlanillaEncabezado, fkClaveEmpleado);
+            return sn.funCalcularPlanillaDetalle(ifkIdRegistroPlanillaEncabezado, ifkClaveEmpleado);
         }
 
-        public DataTable ObtenerEncabezado()
+        public DataTable funObtenerEncabezado()
         {
-            OdbcDataAdapter adapter = sn.ObtenerEncabezado();
+            OdbcDataAdapter adapter = sn.funObtenerEncabezado();
             DataTable tablaDeducciones = new DataTable();
 
             if (adapter != null)
@@ -31,9 +31,9 @@ namespace Capa_Controlador_Planilla
         }
 
 
-        public DataTable ObtenerDetalle()
+        public DataTable funObtenerDetalle()
         {
-            OdbcDataAdapter adapter = sn.ObtenerDetalle();
+            OdbcDataAdapter adapter = sn.funObtenerDetalle();
             DataTable tablaDeducciones = new DataTable();
 
             if (adapter != null)
@@ -43,30 +43,77 @@ namespace Capa_Controlador_Planilla
             return tablaDeducciones;
         }
 
-        public DataTable enviar(string tabla, string campo1, string campo2)
+        public DataTable funenviar(string stabla, string scampo1, string scampo2)
         {
 
-            var dt1 = sn.obtener2(tabla, campo1, campo2);
+            var dt1 = sn.funobtener2(stabla, scampo1, scampo2);
 
             return dt1;
         }
 
-        public DataTable enviar2(string tabla, string campo1, string campo2)
+        public DataTable funenviar2(string stabla, string scampo1, string scampo2)
         {
 
 
             /**/
-            var dt1 = sn.obtener2(tabla, campo1, campo2);
+            var dt1 = sn.funobtener2(stabla, scampo1, scampo2);
 
             return dt1;
         }
 
-        public bool AgregarPlanillaEncabezado(int correlativo, DateTime fechaInicio, DateTime fechaFinal, decimal totalMes)
+        public bool funAgregarPlanillaEncabezado(int icorrelativo, DateTime dfechaInicio, DateTime dfechaFinal, decimal detotalMes)
         {
             Sentencias sentencias = new Sentencias();
-            return sentencias.InsertarPlanillaEncabezado(correlativo, fechaInicio, fechaFinal, totalMes);
+            return sentencias.funInsertarPlanillaEncabezado(icorrelativo, dfechaInicio, dfechaFinal, detotalMes);
         }
 
+        public void funcActualizarEncabezado(int iidSeleccionado, int icorrelativo, DateTime dfechaInicio, DateTime dfechaFinal)
+        {
+            try
+            {
+                sn.funcActualizarEncabezado(iidSeleccionado, icorrelativo, dfechaInicio,dfechaFinal);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error en funcActualizarLogicaDeduPerp: " + ex.Message);
+            }
+        }
+
+        public void funcEliminarEncabezado(int iidSeleccionado)
+        {
+            try
+            {
+                sn.funcEliminarEncabezado(iidSeleccionado);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error en funcEliminarLogicaDeduPerp: " + ex.Message);
+            }
+        }
+
+        public void funcActualizarDetalle(int iidSeleccionado2, int ifkIdRegistroPlanillaEncabezado, int ifkClaveEmpleado)
+        {
+            try
+            {
+                sn.funcActualizarDetalle(iidSeleccionado2, ifkIdRegistroPlanillaEncabezado, ifkClaveEmpleado);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error en funcActualizarLogicaDeduPerp: " + ex.Message);
+            }
+        }
+
+        public void funcEliminarDetalle(int iidSeleccionado2)
+        {
+            try
+            {
+                sn.funcEliminarDetalle(iidSeleccionado2);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error en funcEliminarLogicaDeduPerp: " + ex.Message);
+            }
+        }
 
 
 
