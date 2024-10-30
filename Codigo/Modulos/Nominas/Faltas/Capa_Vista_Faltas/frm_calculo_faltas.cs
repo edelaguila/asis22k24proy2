@@ -5,7 +5,6 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Capa_Controlador_Faltas;
@@ -24,7 +23,6 @@ namespace Capa_Vista_Faltas
             CargarMeses();
         }
 
-        // Cargar la lista de empleados en el ComboBox
         private void CargarEmpleados()
         {
             try
@@ -41,7 +39,6 @@ namespace Capa_Vista_Faltas
             }
         }
 
-        // Cargar todas las faltas en el DataGridView
         private void CargarTodasLasFaltas()
         {
             try
@@ -61,10 +58,6 @@ namespace Capa_Vista_Faltas
             Cbo_Mes.DataSource = meses;
             Cbo_Mes.SelectedIndex = -1;
         }
-        private void Dgv_Faltas_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void Btn_Calculo_Falta_Click_1(object sender, EventArgs e)
         {
@@ -75,40 +68,46 @@ namespace Capa_Vista_Faltas
 
                 try
                 {
-                    int totalFaltas = controlador.CalcularFaltasEmpleado(idEmpleado, mesSeleccionado);
-                    decimal deduccion = controlador.CalcularDeduccionPorFaltas(idEmpleado, totalFaltas);
+                    // Calcular el descuento
+                    decimal descuento = controlador.CalcularDescuentoPorFaltas(idEmpleado, mesSeleccionado);
 
-                    MessageBox.Show("Total de faltas en el mes de " + mesSeleccionado + ": " + totalFaltas +
-                                    "\nDeducción calculada: " + deduccion.ToString("C"));
+                    // Mostrar mensaje con el descuento calculado
+                    string mensaje = $"Resultados para {Cbo_Empleados.Text} en {mesSeleccionado}:\n\n" +
+                                   $"Descuento a aplicar: ${descuento:F2}";
 
-                    // Guardar la deducción en la base de datos
-                    controlador.GuardarDeduccionPorFaltas(idEmpleado, deduccion);
+                    MessageBox.Show(mensaje, "Resultado del Cálculo",
+                                  MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Guardar el descuento en la base de datos
+                    controlador.GuardarDeduccionPorFaltas(idEmpleado, mesSeleccionado);
                     MessageBox.Show("La deducción por faltas se ha guardado correctamente.");
 
-                    // Actualiza el DataGridView después del cálculo
+                    // Actualizar el DataGridView después del cálculo
                     CargarTodasLasFaltas();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error: " + ex.Message, "Error",
+                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Por favor, selecciona un empleado y un mes.");
+                MessageBox.Show("Por favor, selecciona un empleado y un mes.",
+                              "Datos Incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
+        private void Dgv_Faltas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+        }
 
         private void Cbo_Empleados_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         private void frm_calculo_faltas_Load(object sender, EventArgs e)
         {
-
         }
     }
 }
-

@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capa_Modelo_Faltas", "Capa_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capa_Controlador_Faltas", "Capa_Controlador_Faltas\Capa_Controlador_Faltas.csproj", "{C0BA06A0-FCFE-4F30-B22E-E47CFA95A81D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_Falta", "Test_Falta\Test_Falta.csproj", "{AD093760-0432-48F6-B25E-0D8071C851CB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_Faltas", "Test_Faltas\Test_Faltas.csproj", "{A205D3CA-B1B4-4CAF-B7C1-3417F69F2F60}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{C0BA06A0-FCFE-4F30-B22E-E47CFA95A81D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0BA06A0-FCFE-4F30-B22E-E47CFA95A81D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0BA06A0-FCFE-4F30-B22E-E47CFA95A81D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AD093760-0432-48F6-B25E-0D8071C851CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AD093760-0432-48F6-B25E-0D8071C851CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AD093760-0432-48F6-B25E-0D8071C851CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AD093760-0432-48F6-B25E-0D8071C851CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A205D3CA-B1B4-4CAF-B7C1-3417F69F2F60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A205D3CA-B1B4-4CAF-B7C1-3417F69F2F60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A205D3CA-B1B4-4CAF-B7C1-3417F69F2F60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A205D3CA-B1B4-4CAF-B7C1-3417F69F2F60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -12,12 +12,6 @@ namespace Capa_Controlador_Faltas
     {
         private readonly Sentencia sn = new Sentencia();
 
-        // Método para obtener las faltas de un empleado específico en un mes
-        public int CalcularFaltasEmpleado(int idEmpleado, string mes)
-        {
-            return sn.CalcularFaltasEmpleado(idEmpleado, mes);
-        }
-
         // Método para obtener todos los empleados
         public DataTable ObtenerEmpleados()
         {
@@ -30,21 +24,16 @@ namespace Capa_Controlador_Faltas
             return sn.ObtenerTodasLasFaltas();
         }
 
-        // Método para guardar o actualizar la deducción por faltas
-        public void GuardarDeduccionPorFaltas(int idEmpleado, decimal deduccion)
+        // Método para calcular el descuento por faltas de un empleado
+        public decimal CalcularDescuentoPorFaltas(int idEmpleado, string mes)
         {
-            sn.GuardarDeduccionPorFaltas(idEmpleado, deduccion);
+            return sn.CalcularDescuentoPorFaltas(idEmpleado, mes);
         }
 
-        // Método para calcular la deducción por faltas
-        public decimal CalcularDeduccionPorFaltas(int idEmpleado, int numFaltas)
+        // Método para guardar o actualizar la deducción por faltas
+        public void GuardarDeduccionPorFaltas(int idEmpleado, string mes)
         {
-            // Obtener el salario del empleado
-            decimal salario = sn.ObtenerSalarioEmpleado(idEmpleado);
-
-            // Calcular la deducción usando la fórmula dada
-            decimal deduccion = (salario * numFaltas) / 30;
-            return deduccion;
+            sn.GuardarDeduccionPorFaltas(idEmpleado, mes);
         }
     }
 }
