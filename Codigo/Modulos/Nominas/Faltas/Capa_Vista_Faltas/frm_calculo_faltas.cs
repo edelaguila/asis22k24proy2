@@ -109,5 +109,10 @@ namespace Capa_Vista_Faltas
         private void frm_calculo_faltas_Load(object sender, EventArgs e)
         {
         }
+
+        private void Lbl_ControlFaltas_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
