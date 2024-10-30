@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Capa_Vista_Contabilidad.Properties {
+namespace Capa_Vista_Planilla.Properties {
     using System;
     
     
@@ -19,7 +19,7 @@ namespace Capa_Vista_Contabilidad.Properties {
     // a través de una herramienta como ResGen o Visual Studio.
     // Para agregar o quitar un miembro, edite el archivo .ResX y, a continuación, vuelva a ejecutar ResGen
     // con la opción /str o recompile su proyecto de VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -39,7 +39,7 @@ namespace Capa_Vista_Contabilidad.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Capa_Vista_Contabilidad.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Capa_Vista_Planilla.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,9 +63,9 @@ namespace Capa_Vista_Contabilidad.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Mant {
+        internal static System.Drawing.Bitmap BORRAR_V4 {
             get {
-                object obj = ResourceManager.GetObject("Mant", resourceCulture);
+                object obj = ResourceManager.GetObject("BORRAR_V4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Capa_Vista_Contabilidad.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Mant1 {
+        internal static System.Drawing.Bitmap CANCELAR_V4 {
             get {
-                object obj = ResourceManager.GetObject("Mant1", resourceCulture);
+                object obj = ResourceManager.GetObject("CANCELAR_V4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace Capa_Vista_Contabilidad.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap marca_de_verificacion {
+        internal static System.Drawing.Bitmap EDITAR_V4 {
             get {
-                object obj = ResourceManager.GetObject("marca-de-verificacion", resourceCulture);
+                object obj = ResourceManager.GetObject("EDITAR_V4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace Capa_Vista_Contabilidad.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pago_en_linea {
+        internal static System.Drawing.Bitmap guardar {
             get {
-                object obj = ResourceManager.GetObject("pago-en-linea", resourceCulture);
+                object obj = ResourceManager.GetObject("guardar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,19 +103,9 @@ namespace Capa_Vista_Contabilidad.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ProcCOnta {
+        internal static System.Drawing.Bitmap INGRESAR_V4 {
             get {
-                object obj = ResourceManager.GetObject("ProcCOnta", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap SalirMDI {
-            get {
-                object obj = ResourceManager.GetObject("SalirMDI", resourceCulture);
+                object obj = ResourceManager.GetObject("INGRESAR_V4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
