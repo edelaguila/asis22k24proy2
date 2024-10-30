@@ -353,5 +353,67 @@ namespace Capa_Modelo_Planilla
 
 
 
+        public bool funCalcularPlanillaDetalleSimulado(int ifkIdRegistroPlanillaEncabezado, int ifkClaveEmpleado)
+        {
+            try
+            {
+                // Simulación de obtener valores de salario base, percepciones y deducciones
+                decimal desalarioBase = funObtenerSalarioBaseSimulado(ifkClaveEmpleado, out int icontratoId);
+                decimal detotalPercepciones = funObtenerTotalPercepcionesSimulado(ifkClaveEmpleado);
+                decimal detotalDeducciones = funObtenerTotalDeduccionesSimulado(ifkClaveEmpleado);
+
+                // Calculo del total líquido
+                decimal detotalLiquido = desalarioBase + detotalPercepciones - detotalDeducciones;
+
+                // Simulación de la inserción del detalle de la planilla
+                funInsertarDetallePlanillaSimulado(detotalPercepciones, detotalDeducciones, detotalLiquido, ifkClaveEmpleado, icontratoId, ifkIdRegistroPlanillaEncabezado);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                return false;
+            }
+        }
+
+        private decimal funObtenerSalarioBaseSimulado(int ifkClaveEmpleado, out int icontratoId)
+        {
+            // Valores simulados para el salario base y el ID del contrato
+            icontratoId = 1; // Simulamos que el contrato ID es 1
+            decimal desalarioBase = 1000.00m; // Salario base simulado
+            Console.WriteLine($"Salario base simulado: {desalarioBase} para empleado {ifkClaveEmpleado} con contrato ID {icontratoId}");
+            return desalarioBase;
+        }
+
+        private decimal funObtenerTotalPercepcionesSimulado(int ifkClaveEmpleado)
+        {
+            // Valor simulado para el total de percepciones
+            decimal detotalPercepciones = 500.00m; // Percepciones simuladas
+            Console.WriteLine($"Total percepciones simulado: {detotalPercepciones} para empleado {ifkClaveEmpleado}");
+            return detotalPercepciones;
+        }
+
+        private decimal funObtenerTotalDeduccionesSimulado(int ifkClaveEmpleado)
+        {
+            // Valor simulado para el total de deducciones
+            decimal detotalDeducciones = 200.00m; // Deducciones simuladas
+            Console.WriteLine($"Total deducciones simulado: {detotalDeducciones} para empleado {ifkClaveEmpleado}");
+            return detotalDeducciones;
+        }
+
+        private void funInsertarDetallePlanillaSimulado(decimal detotalPercepciones, decimal detotalDeducciones, decimal detotalLiquido,
+                                                        int ifkClaveEmpleado, int icontratoId, int ifkIdRegistroPlanillaEncabezado)
+        {
+            // Simulación de la inserción del detalle de la planilla
+            Console.WriteLine("Insertando detalle de planilla simulado:");
+            Console.WriteLine($"Percepciones: {detotalPercepciones}, Deducciones: {detotalDeducciones}, Total Líquido: {detotalLiquido}");
+            Console.WriteLine($"Empleado ID: {ifkClaveEmpleado}, Contrato ID: {icontratoId}, Encabezado ID: {ifkIdRegistroPlanillaEncabezado}");
+        }
+
+
+
+
+
     }
 }
