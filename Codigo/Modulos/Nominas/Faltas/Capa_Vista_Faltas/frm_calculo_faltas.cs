@@ -22,8 +22,6 @@ namespace Capa_Vista_Faltas
             CargarEmpleados();
             CargarTodasLasFaltas();
             CargarMeses();
-
-
         }
 
         // Cargar la lista de empleados en el ComboBox
@@ -59,7 +57,6 @@ namespace Capa_Vista_Faltas
 
         private void CargarMeses()
         {
-            // Puedes reemplazar estos meses por una lista obtenida de la base de datos, si es necesario
             string[] meses = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" };
             Cbo_Mes.DataSource = meses;
             Cbo_Mes.SelectedIndex = -1;
@@ -75,13 +72,17 @@ namespace Capa_Vista_Faltas
             {
                 int idEmpleado = Convert.ToInt32(Cbo_Empleados.SelectedValue);
                 string mesSeleccionado = Cbo_Mes.SelectedItem.ToString();
+
                 try
                 {
                     int totalFaltas = controlador.CalcularFaltasEmpleado(idEmpleado, mesSeleccionado);
-                    MessageBox.Show("Total de faltas en el mes de " + mesSeleccionado + ": " + totalFaltas);
+                    decimal deduccion = controlador.CalcularDeduccionPorFaltas(idEmpleado, totalFaltas);
 
-                    // Guardar la deducción de faltas en la base de datos
-                    controlador.GuardarDeduccionPorFaltas(idEmpleado, totalFaltas);
+                    MessageBox.Show("Total de faltas en el mes de " + mesSeleccionado + ": " + totalFaltas +
+                                    "\nDeducción calculada: " + deduccion.ToString("C"));
+
+                    // Guardar la deducción en la base de datos
+                    controlador.GuardarDeduccionPorFaltas(idEmpleado, deduccion);
                     MessageBox.Show("La deducción por faltas se ha guardado correctamente.");
 
                     // Actualiza el DataGridView después del cálculo

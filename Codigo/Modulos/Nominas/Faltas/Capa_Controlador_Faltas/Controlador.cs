@@ -31,13 +31,20 @@ namespace Capa_Controlador_Faltas
         }
 
         // Método para guardar o actualizar la deducción por faltas
-        public void GuardarDeduccionPorFaltas(int idEmpleado, int totalFaltas)
+        public void GuardarDeduccionPorFaltas(int idEmpleado, decimal deduccion)
         {
-            sn.GuardarDeduccionPorFaltas(idEmpleado, totalFaltas);
+            sn.GuardarDeduccionPorFaltas(idEmpleado, deduccion);
         }
 
+        // Método para calcular la deducción por faltas
+        public decimal CalcularDeduccionPorFaltas(int idEmpleado, int numFaltas)
+        {
+            // Obtener el salario del empleado
+            decimal salario = sn.ObtenerSalarioEmpleado(idEmpleado);
+
+            // Calcular la deducción usando la fórmula dada
+            decimal deduccion = (salario * numFaltas) / 30;
+            return deduccion;
+        }
     }
 }
-
-
-

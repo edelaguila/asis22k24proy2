@@ -45,74 +45,36 @@ namespace Capa_Modelo_Faltas
         }
 
         // Método para registrar o actualizar la deducción de faltas en tbl_dedu_perp_emp
-        public void GuardarDeduccionPorFaltas(int idEmpleado, int totalFaltas)
+        public void GuardarDeduccionPorFaltas(int idEmpleado, decimal deduccion)
         {
             using (var connection = cn.conexion())
             {
                 try
                 {
-                    // Primero verificamos si existe el registro
-                    string queryVerificar = @"
-                SELECT COUNT(*) 
-                FROM tbl_dedu_perp_emp 
-                WHERE Fk_clave_empleado = ?";
-
+                    string queryVerificar = "SELECT COUNT(*) FROM tbl_dedu_perp_emp WHERE Fk_clave_empleado = ?";
                     using (var cmdVerificar = new OdbcCommand(queryVerificar, connection))
                     {
                         cmdVerificar.Parameters.AddWithValue("@Fk_clave_empleado", idEmpleado);
                         int existe = Convert.ToInt32(cmdVerificar.ExecuteScalar());
 
-                        // Obtenemos el ID de la deducción por faltas
-                        string queryDeduccionId = @"
-                    SELECT pk_dedu_perp 
-                    FROM tbl_dedu_perp 
-                    WHERE dedu_perp_concepto = 'Faltas' 
-                    LIMIT 1";
-
+                        string queryDeduccionId = "SELECT pk_dedu_perp FROM tbl_dedu_perp WHERE dedu_perp_concepto = 'Faltas' LIMIT 1";
                         using (var cmdDeduccionId = new OdbcCommand(queryDeduccionId, connection))
                         {
                             object deduccionId = cmdDeduccionId.ExecuteScalar();
-
                             if (deduccionId == null)
                             {
                                 throw new Exception("No se encontró el concepto 'Faltas' en tbl_dedu_perp");
                             }
 
-                            string query;
-                            if (existe > 0)
-                            {
-                                // Actualizar
-                                query = @"
-                            UPDATE tbl_dedu_perp_emp 
-                            SET dedu_perp_emp_cantidad = ?, 
-                                estado = 1
-                            WHERE Fk_clave_empleado = ? 
-                            AND Fk_dedu_perp = ?";
-                            }
-                            else
-                            {
-                                // Insertar
-                                query = @"
-                            INSERT INTO tbl_dedu_perp_emp 
-                            (Fk_clave_empleado, Fk_dedu_perp, dedu_perp_emp_cantidad, estado)
-                            VALUES (?, ?, ?, 1)";
-                            }
+                            string query = existe > 0
+                                ? "UPDATE tbl_dedu_perp_emp SET dedu_perp_emp_cantidad = ?, estado = 1 WHERE Fk_clave_empleado = ? AND Fk_dedu_perp = ?"
+                                : "INSERT INTO tbl_dedu_perp_emp (Fk_clave_empleado, Fk_dedu_perp, dedu_perp_emp_cantidad, estado) VALUES (?, ?, ?, 1)";
 
                             using (var cmd = new OdbcCommand(query, connection))
                             {
-                                if (existe > 0)
-                                {
-                                    cmd.Parameters.AddWithValue("@cantidad", totalFaltas);
-                                    cmd.Parameters.AddWithValue("@empleado", idEmpleado);
-                                    cmd.Parameters.AddWithValue("@deduccion", deduccionId);
-                                }
-                                else
-                                {
-                                    cmd.Parameters.AddWithValue("@empleado", idEmpleado);
-                                    cmd.Parameters.AddWithValue("@deduccion", deduccionId);
-                                    cmd.Parameters.AddWithValue("@cantidad", totalFaltas);
-                                }
-
+                                cmd.Parameters.AddWithValue("@cantidad", deduccion);
+                                cmd.Parameters.AddWithValue("@empleado", idEmpleado);
+                                cmd.Parameters.AddWithValue("@deduccion", deduccionId);
                                 cmd.ExecuteNonQuery();
                             }
                         }
@@ -120,12 +82,10 @@ namespace Capa_Modelo_Faltas
                 }
                 catch (Exception ex)
                 {
-                    // Solo relanzamos la excepción
                     throw new Exception("Error al guardar la deducción por faltas: " + ex.Message, ex);
                 }
             }
         }
-
 
         // Método para calcular las faltas de un empleado en un mes específico
         public int CalcularFaltasEmpleado(int idEmpleado, string mes)
@@ -133,10 +93,7 @@ namespace Capa_Modelo_Faltas
             int totalFaltas = 0;
             using (var connection = cn.conexion())
             {
-                string query = @"
-                    SELECT COUNT(*) FROM tbl_control_faltas
-                    WHERE fk_clave_empleado = ? AND faltas_mes = ?";
-
+                string query = "SELECT COUNT(*) FROM tbl_control_faltas WHERE fk_clave_empleado = ? AND faltas_mes = ?";
                 using (var command = new OdbcCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@fk_clave_empleado", idEmpleado);
@@ -146,6 +103,22 @@ namespace Capa_Modelo_Faltas
                 }
             }
             return totalFaltas;
+        }
+
+        // Método para obtener el salario del empleado
+        public decimal ObtenerSalarioEmpleado(int idEmpleado)
+        {
+            decimal salario = 0;
+            using (var connection = cn.conexion())
+            {
+                string query = "SELECT contratos_salario FROM tbl_contratos WHERE fk_clave_empleado = ?";
+                using (var command = new OdbcCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@fk_clave_empleado", idEmpleado);
+                    salario = Convert.ToDecimal(command.ExecuteScalar());
+                }
+            }
+            return salario;
         }
     }
 }
