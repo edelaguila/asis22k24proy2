@@ -4,7 +4,10 @@
 
 INSERT INTO `ayuda` (`Id_ayuda`, `Ruta`, `indice`, `estado`) VALUES
 (1, 'AyudaNavegador.chm', 'AyudaNav.html', 1),
-(2, 'AyudaReportes.chm', 'AyudaRep.html', 1);
+(2, 'AyudaReportes.chm', 'AyudaRep.html', 1),
+(6, 'AyudaCierreI.chm', 'AyudaCierre.html', 1),
+(7, 'AyudaCierreI.chm0', 'AyudaCierre2.html', 1),
+(8, 'AyudaMonitoreoAlmacen.chm', 'AyudaMonAlmacen.html', 1);
 --
 -- Volcado de datos para la tabla `factura`
 --
