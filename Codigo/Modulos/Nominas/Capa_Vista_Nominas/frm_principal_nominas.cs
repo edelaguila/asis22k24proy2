@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Capa_Vista_Planilla;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +10,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Capa_Vista_Faltas;
 
 
 namespace Capa_Vista_Nominas
@@ -238,6 +240,8 @@ namespace Capa_Vista_Nominas
         {
             /*AbrirFormulario<frm_genplanilla>(); // Pasa el idUsuario
             Btn_puesto.BackColor = Color.FromArgb(12, 61, 92);*/
+            Frm_GenPlanilla planilla = new Frm_GenPlanilla();
+            planilla.Show();
             ocultaSubMenu();
         }
 
@@ -307,7 +311,10 @@ namespace Capa_Vista_Nominas
 
         private void Btn_procfaltas_Click(object sender, EventArgs e)
         {
+            frm_calculo_faltas falta = new frm_calculo_faltas();
+            falta.Show();
             ocultaSubMenu();
+            
         }
 
         private void Btn_procanticipos_Click(object sender, EventArgs e)
