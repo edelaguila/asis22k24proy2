@@ -15,7 +15,7 @@ namespace Capa_Controlador_CierreContable
         // Método para llenar una tabla
         public DataTable llenarTbl(string tabla)
         {
-            OdbcDataAdapter dt = sn.llenarTbl(tabla);
+            OdbcDataAdapter dt = sn.LlenarTbl(tabla);
             DataTable table = new DataTable();
             dt.Fill(table);
             return table;

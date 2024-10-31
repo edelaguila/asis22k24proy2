@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Odbc;
 
@@ -7,7 +6,7 @@ namespace Capa_Modelo_CierreContable
 {
     public class sentencias
     {
-        private conexion con = new conexion();
+        private readonly conexion con = new conexion();
 
         public OdbcConnection ObtenerConexion()
         {
@@ -15,11 +14,10 @@ namespace Capa_Modelo_CierreContable
         }
 
         // Método para llenar la tabla genérico
-        public OdbcDataAdapter llenarTbl(string tabla)
+        public OdbcDataAdapter LlenarTbl(string tabla)
         {
             string sql = "SELECT * FROM " + tabla + ";";
-            OdbcDataAdapter dataTable = new OdbcDataAdapter(sql, con.Conexion());
-            return dataTable;
+            return new OdbcDataAdapter(sql, ObtenerConexion());
         }
 
         public (decimal sumaSaldoAnt, decimal sumaSaldoAct) ObtenerSumasSaldos(int periodo, string cuenta)
@@ -27,28 +25,25 @@ namespace Capa_Modelo_CierreContable
             decimal sumaSaldoAnt = 0;
             decimal sumaSaldoAct = 0;
 
-            // Actualiza la consulta para incluir el JOIN con tbl_cuentas
             string query = "SELECT SUM(hc.saldo_ant) AS SumaSaldoAnt, SUM(hc.saldo_act) AS SumaSaldoAct " +
                            "FROM tbl_historico_cuentas hc " +
                            "JOIN tbl_cuentas c ON hc.Pk_id_cuenta = c.Pk_id_cuenta " +
                            "WHERE hc.mes = ? AND c.nombre_cuenta = ?";
 
-            using (OdbcConnection conn = con.Conexion())
+            using (OdbcConnection conn = ObtenerConexion())
             {
                 OdbcCommand cmd = new OdbcCommand(query, conn);
-                cmd.Parameters.AddWithValue("?", periodo); // Agregar el parámetro del periodo
-                cmd.Parameters.AddWithValue("?", cuenta);   // Agregar el parámetro de cuenta
+                cmd.Parameters.AddWithValue("?", periodo);
+                cmd.Parameters.AddWithValue("?", cuenta);
 
-                OdbcDataReader reader = cmd.ExecuteReader();
-
-                if (reader.Read())
+                using (OdbcDataReader reader = cmd.ExecuteReader())
                 {
-                    // Manejo de valores nulos y conversión
-                    sumaSaldoAnt = reader.IsDBNull(0) ? 0 : Convert.ToDecimal(reader["SumaSaldoAnt"]);
-                    sumaSaldoAct = reader.IsDBNull(1) ? 0 : Convert.ToDecimal(reader["SumaSaldoAct"]);
+                    if (reader.Read())
+                    {
+                        sumaSaldoAnt = reader.IsDBNull(0) ? 0 : reader.GetDecimal(0);
+                        sumaSaldoAct = reader.IsDBNull(1) ? 0 : reader.GetDecimal(1);
+                    }
                 }
-
-                reader.Close();
             }
 
             return (sumaSaldoAnt, sumaSaldoAct);
@@ -58,14 +53,14 @@ namespace Capa_Modelo_CierreContable
         {
             int cuentaExistente = 0;
 
-            string query = "SELECT COUNT(*) FROM tbl_historico_cuentas WHERE mes = @mes AND Pk_id_cuenta = @idCuenta";
+            string query = "SELECT COUNT(*) FROM tbl_historico_cuentas WHERE mes = ? AND Pk_id_cuenta = ?";
 
-            using (OdbcConnection conn = con.Conexion())
+            using (OdbcConnection conn = ObtenerConexion())
             {
                 using (OdbcCommand cmd = new OdbcCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@mes", mes);
-                    cmd.Parameters.AddWithValue("@idCuenta", idCuenta);
+                    cmd.Parameters.AddWithValue("?", mes);
+                    cmd.Parameters.AddWithValue("?", idCuenta);
                     cuentaExistente = Convert.ToInt32(cmd.ExecuteScalar());
                 }
             }
@@ -77,16 +72,12 @@ namespace Capa_Modelo_CierreContable
         public DataTable EjecutarConsulta(string query)
         {
             DataTable dt = new DataTable();
-            using (OdbcConnection conn = con.Conexion())
+            using (OdbcConnection conn = ObtenerConexion())
             {
                 OdbcDataAdapter adapter = new OdbcDataAdapter(query, conn);
                 adapter.Fill(dt);
             }
             return dt;
         }
-
-
     }
-
 }
-

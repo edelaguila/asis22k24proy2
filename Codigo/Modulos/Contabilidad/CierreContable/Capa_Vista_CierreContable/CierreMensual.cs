@@ -22,9 +22,9 @@ namespace Capa_Vista_CierreContable
         private void ConsultasCierre_Load(object sender, EventArgs e)
         {
             LlenarCuentas();
-            
             LlenarCboAnio();
             LlenarCboMes();
+
             // Configuración del ToolTip
             ToolTip toolTip = new ToolTip
             {
@@ -33,7 +33,21 @@ namespace Capa_Vista_CierreContable
             toolTip.SetToolTip(btn_GuardarCierre, "Guarda el cierre contable, no se podrá modificar nada luego de esto.");
             toolTip.SetToolTip(btn_cancelar, "Cancela el guardado del cierre actual");
             toolTip.SetToolTip(btn_nuevocierre, "Genera el cierre del mes actual");
+
+            // Suscribirse al evento MouseHover para los botones deshabilitados
+            btn_GuardarCierre.MouseHover += (s, args) => MostrarToolTipBotonDeshabilitado(btn_GuardarCierre, toolTip, "Guarda el cierre contable, no se podrá modificar nada luego de esto.");
+            btn_cancelar.MouseHover += (s, args) => MostrarToolTipBotonDeshabilitado(btn_cancelar, toolTip, "Cancela el guardado del cierre actual");
         }
+
+        // Método para mostrar el ToolTip en botones deshabilitados (fuera del método Load)
+        private void MostrarToolTipBotonDeshabilitado(Control control, ToolTip tip, string texto)
+        {
+            if (!control.Enabled)
+            {
+                tip.Show(texto, control, control.Width / 2, control.Height / 2);
+            }
+        }
+
 
         private void LlenarCboAnio()
         {
