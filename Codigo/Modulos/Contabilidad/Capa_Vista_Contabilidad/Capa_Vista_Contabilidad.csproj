@@ -34,8 +34,21 @@
     <Reference Include="Capa_Controlador_Contabilidad">
       <HintPath>..\Capa_Controlador_Contabilidad\bin\Debug\Capa_Controlador_Contabilidad.dll</HintPath>
     </Reference>
+    <Reference Include="Capa_Vista_CierreContable">
+      <HintPath>..\CierreContable\Capa_Vista_CierreContable\bin\Debug\Capa_Vista_CierreContable.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_EstadosFinancieros">
+      <HintPath>..\EstadosFinancieros\Capa_Vista_EstadosFinancieros\bin\Debug\Capa_Vista_EstadosFinancieros.dll</HintPath>
+    </Reference>
     <Reference Include="Capa_Vista_Navegador">
       <HintPath>..\..\..\Componentes\Navegador\Capa_Vista_Navegador\bin\Debug\Capa_Vista_Navegador.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Polizas, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Capa_Vista_Polizas\Capa_Vista_Polizas\bin\Debug\Capa_Vista_Polizas.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Presupuesto">
+      <HintPath>..\..\..\..\..\..\ProyectoAS2Individual\asis22k24proy2\Codigo\Modulos\Contabilidad\Presupuesto\Capa_Vista_Presupuesto\bin\Debug\Capa_Vista_Presupuesto.dll</HintPath>
     </Reference>
     <Reference Include="Interfac_V3">
       <HintPath>..\..\Menus\ModernGUI_V3\bin\Debug\Interfac_V3.exe</HintPath>
@@ -64,12 +77,6 @@
     <Compile Include="AtivosFijos.Designer.cs">
       <DependentUpon>AtivosFijos.cs</DependentUpon>
     </Compile>
-    <Compile Include="CierreContable.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CierreContable.Designer.cs">
-      <DependentUpon>CierreContable.cs</DependentUpon>
-    </Compile>
     <Compile Include="Cuentas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +95,12 @@
     </Compile>
     <Compile Include="Contabilidad_MDI.Designer.cs">
       <DependentUpon>Contabilidad_MDI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCierre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCierre.Designer.cs">
+      <DependentUpon>FormCierre.cs</DependentUpon>
     </Compile>
     <Compile Include="Mantenimiento Tipo Poliza.cs">
       <SubType>Form</SubType>
@@ -131,12 +144,6 @@
     <Compile Include="Mantenimiento_Cuentas.Designer.cs">
       <DependentUpon>Mantenimiento_Cuentas.cs</DependentUpon>
     </Compile>
-    <Compile Include="PartidaCierre.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PartidaCierre.Designer.cs">
-      <DependentUpon>PartidaCierre.cs</DependentUpon>
-    </Compile>
     <Compile Include="Presupuesto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,9 +171,6 @@
     <EmbeddedResource Include="AtivosFijos.resx">
       <DependentUpon>AtivosFijos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CierreContable.resx">
-      <DependentUpon>CierreContable.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Cuentas.resx">
       <DependentUpon>Cuentas.cs</DependentUpon>
     </EmbeddedResource>
@@ -175,6 +179,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Contabilidad_MDI.resx">
       <DependentUpon>Contabilidad_MDI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCierre.resx">
+      <DependentUpon>FormCierre.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimiento Tipo Poliza.resx">
       <DependentUpon>Mantenimiento Tipo Poliza.cs</DependentUpon>
@@ -197,9 +204,6 @@
     <EmbeddedResource Include="Mantenimiento_Cuentas.resx">
       <DependentUpon>Mantenimiento_Cuentas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PartidaCierre.resx">
-      <DependentUpon>PartidaCierre.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Presupuesto.resx">
       <DependentUpon>Presupuesto.cs</DependentUpon>
     </EmbeddedResource>
@@ -213,6 +217,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\pago-en-linea.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mant.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mant1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ProcCOnta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\marca-de-verificacion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SalirMDI.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
