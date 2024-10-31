@@ -35,7 +35,7 @@
       <HintPath>..\Capa_Controlador_Contabilidad\bin\Debug\Capa_Controlador_Contabilidad.dll</HintPath>
     </Reference>
     <Reference Include="Capa_Vista_CierreContable">
-      <HintPath>..\CierreContable\Capa_Vista_CierreContable\bin\Debug\Capa_Vista_CierreContable.dll</HintPath>
+      <HintPath>..\CierreContable\CierreContable\Capa_Vista_CierreContable\bin\Debug\Capa_Vista_CierreContable.dll</HintPath>
     </Reference>
     <Reference Include="Capa_Vista_EstadosFinancieros">
       <HintPath>..\EstadosFinancieros\Capa_Vista_EstadosFinancieros\bin\Debug\Capa_Vista_EstadosFinancieros.dll</HintPath>
@@ -232,6 +232,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\SalirMDI.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SALIR_V4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

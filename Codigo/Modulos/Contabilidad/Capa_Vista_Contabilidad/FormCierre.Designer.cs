@@ -30,6 +30,7 @@ namespace Capa_Vista_Contabilidad
         private void InitializeComponent()
         {
             this.cierre1 = new Capa_Vista_CierreContable.Cierre();
+            this.btn_Salir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cierre1
@@ -41,11 +42,23 @@ namespace Capa_Vista_Contabilidad
             this.cierre1.TabIndex = 0;
             this.cierre1.Load += new System.EventHandler(this.cierre1_Load);
             // 
+            // btn_Salir
+            // 
+            this.btn_Salir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(55)))), ((int)(((byte)(62)))));
+            this.btn_Salir.BackgroundImage = global::Capa_Vista_Contabilidad.Properties.Resources.SALIR_V4;
+            this.btn_Salir.Location = new System.Drawing.Point(889, 40);
+            this.btn_Salir.Name = "btn_Salir";
+            this.btn_Salir.Size = new System.Drawing.Size(72, 66);
+            this.btn_Salir.TabIndex = 88;
+            this.btn_Salir.UseVisualStyleBackColor = false;
+            this.btn_Salir.Click += new System.EventHandler(this.btn_Salir_Click);
+            // 
             // FormCierre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1079, 610);
+            this.Controls.Add(this.btn_Salir);
             this.Controls.Add(this.cierre1);
             this.Name = "FormCierre";
             this.Text = "FormCierre";
@@ -56,5 +69,6 @@ namespace Capa_Vista_Contabilidad
         #endregion
 
         private Capa_Vista_CierreContable.Cierre cierre1;
+        private System.Windows.Forms.Button btn_Salir;
     }
 }

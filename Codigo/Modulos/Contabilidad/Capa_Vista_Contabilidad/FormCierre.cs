@@ -8,10 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Capa_Vista_Contabilidad
 {
     public partial class FormCierre : Form
     {
+        public string idUsuario { get; set; }
+
         public FormCierre()
         {
             InitializeComponent();
@@ -20,6 +23,11 @@ namespace Capa_Vista_Contabilidad
         private void cierre1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_Salir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
