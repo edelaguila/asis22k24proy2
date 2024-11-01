@@ -41,6 +41,7 @@ namespace Capa_Vista_CierreContable
             toolTip.SetToolTip(btn_nuevocierre, "Genera el cierre del mes actual");
             toolTip.SetToolTip(btn_Actualizar, "Limpia los DataGridView y los Textbox de las sumas.");
             toolTip.SetToolTip(btn_Ayuda2, "Muestra la Ayuda del formulario actual.");
+            toolTip.SetToolTip(btn_Reporte, "Muestra el Reporte del los datos del Mes Actual.");
         }
 
         public void LlenarCboAnio()
@@ -350,6 +351,17 @@ namespace Capa_Vista_CierreContable
                 MessageBox.Show("Ocurrió un error al abrir la ayuda: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Console.WriteLine("Error al abrir la ayuda: " + ex.ToString());
             }
+        }
+
+        private void btn_Reporte_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Reporte_Click_1(object sender, EventArgs e)
+        {
+            ReporteMes frm = new ReporteMes();
+            frm.Show();
         }
     }
 }

@@ -52,6 +52,7 @@ namespace Capa_Vista_CierreContable
             this.btn_cancelar = new System.Windows.Forms.Button();
             this.btn_nuevocierre = new System.Windows.Forms.Button();
             this.btn_GuardarCierre = new System.Windows.Forms.Button();
+            this.btn_Reporte = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_cierre)).BeginInit();
             this.gpb_datosmes.SuspendLayout();
             this.SuspendLayout();
@@ -61,7 +62,7 @@ namespace Capa_Vista_CierreContable
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label8.Location = new System.Drawing.Point(326, 144);
+            this.label8.Location = new System.Drawing.Point(357, 144);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(199, 24);
             this.label8.TabIndex = 41;
@@ -72,7 +73,7 @@ namespace Capa_Vista_CierreContable
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Haettenschweiler", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(334, 9);
+            this.label3.Location = new System.Drawing.Point(365, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(180, 37);
             this.label3.TabIndex = 36;
@@ -83,7 +84,7 @@ namespace Capa_Vista_CierreContable
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(270, 73);
+            this.label2.Location = new System.Drawing.Point(301, 73);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 24);
             this.label2.TabIndex = 54;
@@ -93,7 +94,7 @@ namespace Capa_Vista_CierreContable
             // 
             this.cbo_mes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbo_mes.FormattingEnabled = true;
-            this.cbo_mes.Location = new System.Drawing.Point(341, 76);
+            this.cbo_mes.Location = new System.Drawing.Point(372, 76);
             this.cbo_mes.Name = "cbo_mes";
             this.cbo_mes.Size = new System.Drawing.Size(163, 21);
             this.cbo_mes.TabIndex = 53;
@@ -103,7 +104,7 @@ namespace Capa_Vista_CierreContable
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(269, 49);
+            this.label1.Location = new System.Drawing.Point(300, 49);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 24);
             this.label1.TabIndex = 56;
@@ -126,7 +127,7 @@ namespace Capa_Vista_CierreContable
             "2032",
             "2033",
             "2034"});
-            this.cbo_año.Location = new System.Drawing.Point(341, 49);
+            this.cbo_año.Location = new System.Drawing.Point(372, 49);
             this.cbo_año.Name = "cbo_año";
             this.cbo_año.Size = new System.Drawing.Size(163, 21);
             this.cbo_año.TabIndex = 55;
@@ -144,7 +145,7 @@ namespace Capa_Vista_CierreContable
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label12.Location = new System.Drawing.Point(241, 103);
+            this.label12.Location = new System.Drawing.Point(272, 103);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(75, 24);
             this.label12.TabIndex = 71;
@@ -154,7 +155,7 @@ namespace Capa_Vista_CierreContable
             // 
             this.cbo_cuenta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbo_cuenta.FormattingEnabled = true;
-            this.cbo_cuenta.Location = new System.Drawing.Point(341, 106);
+            this.cbo_cuenta.Location = new System.Drawing.Point(372, 106);
             this.cbo_cuenta.Name = "cbo_cuenta";
             this.cbo_cuenta.Size = new System.Drawing.Size(163, 21);
             this.cbo_cuenta.TabIndex = 72;
@@ -256,7 +257,7 @@ namespace Capa_Vista_CierreContable
             // 
             this.btn_Ayuda2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(55)))), ((int)(((byte)(62)))));
             this.btn_Ayuda2.BackgroundImage = global::Capa_Vista_CierreContable.Properties.Resources.AYUDA_V4;
-            this.btn_Ayuda2.Location = new System.Drawing.Point(91, 34);
+            this.btn_Ayuda2.Location = new System.Drawing.Point(122, 34);
             this.btn_Ayuda2.Name = "btn_Ayuda2";
             this.btn_Ayuda2.Size = new System.Drawing.Size(72, 66);
             this.btn_Ayuda2.TabIndex = 101;
@@ -267,7 +268,7 @@ namespace Capa_Vista_CierreContable
             // 
             this.btn_Actualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(55)))), ((int)(((byte)(62)))));
             this.btn_Actualizar.BackgroundImage = global::Capa_Vista_CierreContable.Properties.Resources.ACTUALIZAR_V4;
-            this.btn_Actualizar.Location = new System.Drawing.Point(169, 34);
+            this.btn_Actualizar.Location = new System.Drawing.Point(200, 34);
             this.btn_Actualizar.Name = "btn_Actualizar";
             this.btn_Actualizar.Size = new System.Drawing.Size(72, 66);
             this.btn_Actualizar.TabIndex = 100;
@@ -281,7 +282,7 @@ namespace Capa_Vista_CierreContable
             this.btn_cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_cancelar.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btn_cancelar.Image = global::Capa_Vista_CierreContable.Properties.Resources.CANCELAR_V4;
-            this.btn_cancelar.Location = new System.Drawing.Point(623, 41);
+            this.btn_cancelar.Location = new System.Drawing.Point(654, 41);
             this.btn_cancelar.Name = "btn_cancelar";
             this.btn_cancelar.Size = new System.Drawing.Size(76, 66);
             this.btn_cancelar.TabIndex = 90;
@@ -294,7 +295,7 @@ namespace Capa_Vista_CierreContable
             this.btn_nuevocierre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_nuevocierre.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btn_nuevocierre.Image = global::Capa_Vista_CierreContable.Properties.Resources.INGRESAR_V4;
-            this.btn_nuevocierre.Location = new System.Drawing.Point(545, 41);
+            this.btn_nuevocierre.Location = new System.Drawing.Point(576, 41);
             this.btn_nuevocierre.Name = "btn_nuevocierre";
             this.btn_nuevocierre.Size = new System.Drawing.Size(72, 66);
             this.btn_nuevocierre.TabIndex = 89;
@@ -308,12 +309,23 @@ namespace Capa_Vista_CierreContable
             this.btn_GuardarCierre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_GuardarCierre.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btn_GuardarCierre.Image = global::Capa_Vista_CierreContable.Properties.Resources.guardar;
-            this.btn_GuardarCierre.Location = new System.Drawing.Point(705, 41);
+            this.btn_GuardarCierre.Location = new System.Drawing.Point(736, 41);
             this.btn_GuardarCierre.Name = "btn_GuardarCierre";
             this.btn_GuardarCierre.Size = new System.Drawing.Size(76, 66);
             this.btn_GuardarCierre.TabIndex = 88;
             this.btn_GuardarCierre.UseVisualStyleBackColor = false;
             this.btn_GuardarCierre.Click += new System.EventHandler(this.btn_GuardarCierre_Click);
+            // 
+            // btn_Reporte
+            // 
+            this.btn_Reporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(55)))), ((int)(((byte)(62)))));
+            this.btn_Reporte.BackgroundImage = global::Capa_Vista_CierreContable.Properties.Resources.impresora;
+            this.btn_Reporte.Location = new System.Drawing.Point(44, 37);
+            this.btn_Reporte.Name = "btn_Reporte";
+            this.btn_Reporte.Size = new System.Drawing.Size(72, 63);
+            this.btn_Reporte.TabIndex = 104;
+            this.btn_Reporte.UseVisualStyleBackColor = false;
+            this.btn_Reporte.Click += new System.EventHandler(this.btn_Reporte_Click_1);
             // 
             // CierreMensual
             // 
@@ -321,6 +333,7 @@ namespace Capa_Vista_CierreContable
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
             this.ClientSize = new System.Drawing.Size(901, 532);
+            this.Controls.Add(this.btn_Reporte);
             this.Controls.Add(this.btn_Ayuda2);
             this.Controls.Add(this.btn_Actualizar);
             this.Controls.Add(this.gpb_datosmes);
@@ -371,5 +384,6 @@ namespace Capa_Vista_CierreContable
         private System.Windows.Forms.TextBox txt_cargomes;
         private System.Windows.Forms.Button btn_Actualizar;
         private System.Windows.Forms.Button btn_Ayuda2;
+        private System.Windows.Forms.Button btn_Reporte;
     }
 }

@@ -219,7 +219,8 @@ namespace Capa_Vista_CierreContable
             // Asignar texto a los botones
             toolTip.SetToolTip(btn_consultar, "Muestra los cargos, abonos y el saldo de cada consulta.");
             toolTip.SetToolTip(btn_Actualizar, "Limpia los DataGridView y los Textbox de las sumas.");
-            toolTip.SetToolTip(btn_Ayuda1, "Muestra la Ayuda del formulario actual.");
+            toolTip.SetToolTip(btn_Ayuda1, "Muestra la Ayuda del formulario actual."); 
+            toolTip.SetToolTip(btn_Reporte, "Imprime el Reporte General de los Cierres.");
 
         }
 
@@ -278,6 +279,12 @@ namespace Capa_Vista_CierreContable
                 MessageBox.Show("Ocurrió un error al abrir la ayuda: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Console.WriteLine("Error al abrir la ayuda: " + ex.ToString());
             }
+        }
+
+        private void btn_Reporte_Click(object sender, EventArgs e)
+        {
+            ReporteCierre frm = new ReporteCierre();
+            frm.Show();
         }
     }
 }

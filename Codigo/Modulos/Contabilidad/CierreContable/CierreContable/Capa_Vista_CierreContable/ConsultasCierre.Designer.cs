@@ -53,6 +53,7 @@ namespace Capa_Vista_CierreContable
             this.btn_Ayuda1 = new System.Windows.Forms.Button();
             this.btn_Actualizar = new System.Windows.Forms.Button();
             this.btn_consultar = new System.Windows.Forms.Button();
+            this.btn_Reporte = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_cargos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_abonos)).BeginInit();
             this.SuspendLayout();
@@ -335,12 +336,24 @@ namespace Capa_Vista_CierreContable
             this.btn_consultar.UseVisualStyleBackColor = false;
             this.btn_consultar.Click += new System.EventHandler(this.btn_mensual_Click_1);
             // 
+            // btn_Reporte
+            // 
+            this.btn_Reporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(55)))), ((int)(((byte)(62)))));
+            this.btn_Reporte.BackgroundImage = global::Capa_Vista_CierreContable.Properties.Resources.impresora;
+            this.btn_Reporte.Location = new System.Drawing.Point(113, 29);
+            this.btn_Reporte.Name = "btn_Reporte";
+            this.btn_Reporte.Size = new System.Drawing.Size(72, 63);
+            this.btn_Reporte.TabIndex = 103;
+            this.btn_Reporte.UseVisualStyleBackColor = false;
+            this.btn_Reporte.Click += new System.EventHandler(this.btn_Reporte_Click);
+            // 
             // ConsultasCierre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(152)))), ((int)(((byte)(151)))));
             this.ClientSize = new System.Drawing.Size(1052, 520);
+            this.Controls.Add(this.btn_Reporte);
             this.Controls.Add(this.btn_Ayuda1);
             this.Controls.Add(this.btn_Actualizar);
             this.Controls.Add(this.label7);
@@ -400,5 +413,6 @@ namespace Capa_Vista_CierreContable
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btn_Actualizar;
         private System.Windows.Forms.Button btn_Ayuda1;
+        private System.Windows.Forms.Button btn_Reporte;
     }
 }
