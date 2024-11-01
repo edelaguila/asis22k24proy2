@@ -71,31 +71,60 @@ namespace Capa_Vista_CierreContable
 
         public void Totales(DataGridView dgv_DebeCG, DataGridView dgv_HaberCG, TextBox txt_boxtotD, TextBox txt_boxtotH)
         {
-            int totalDebe = 0;
-            int totalHaber = 0;
+            float suma1 = 0;
+            float suma2 = 0;
 
-            // Asegurar que existen filas antes de intentar acceder a los índices
-            if (dgv_DebeCG.Rows.Count > 0)
+            // Para el total de debe
+            foreach (DataGridViewRow row in dgv_DebeCG.Rows)
             {
-                foreach (DataGridViewRow row in dgv_DebeCG.Rows)
+                // Verificar que la fila tiene al menos 5 celdas y que la celda no es nula
+                if (row.Cells.Count > 4 && row.Cells[4].Value != null && float.TryParse(row.Cells[4].Value.ToString(), out float valorDebe))
                 {
-                    if (row.Cells[0].Value != null)
-                        totalDebe += Convert.ToInt32(row.Cells[0].Value);
+                    suma1 += valorDebe;
                 }
             }
+            txt_boxtotD.Text = suma1.ToString("F2");
 
-            if (dgv_HaberCG.Rows.Count > 0)
+            // Para el total de haber
+            foreach (DataGridViewRow row in dgv_HaberCG.Rows)
             {
-                foreach (DataGridViewRow row in dgv_HaberCG.Rows)
+                // Verificar que la fila tiene al menos 5 celdas y que la celda no es nula
+                if (row.Cells.Count > 4 && row.Cells[4].Value != null && float.TryParse(row.Cells[4].Value.ToString(), out float valorHaber))
                 {
-                    if (row.Cells[0].Value != null)
-                        totalHaber += Convert.ToInt32(row.Cells[0].Value);
+                    suma2 += valorHaber;
                 }
             }
-
-            txt_boxtotD.Text = totalDebe.ToString();
-            txt_boxtotH.Text = totalHaber.ToString();
+            txt_boxtotH.Text = suma2.ToString("F2");
         }
+
+
+        //private void Totales(DataGridView dgv_DebeCG, DataGridView dgv_HaberCG, TextBox txt_boxtotD, TextBox txt_boxtotH)
+        //{
+        //    float suma1 = 0;
+        //    float suma2 = 0;
+        //    //float saldofinal = 0;
+        //    //float saldoanterior = 0; // Cambiar de saldoanterior a saldoanterior acumulado
+
+        //    // Para el total de debe
+        //    foreach (DataGridViewRow row in dgv_DebeCG.Rows)
+        //    {
+        //        if (row.Cells[4].Value != null)
+        //            suma1 += Convert.ToSingle(row.Cells[4].Value);
+        //    }
+        //    txt_boxtotD.Text = suma1.ToString("F2");
+
+        //    // Para el total de haber
+        //    foreach (DataGridViewRow row in dgv_HaberCG.Rows)
+        //    {
+        //        if (row.Cells[4].Value != null)
+        //            suma2 += Convert.ToSingle(row.Cells[4].Value);
+        //    }
+        //    txt_boxtotH.Text = suma2.ToString("F2");
+
+        //    //saldofinal = suma2 - suma1;
+        //    //txt_saldofinal.Text = saldofinal.ToString("F2");
+        //    //txt_saldoant.Text = saldoanterior.ToString("F2");
+        //}
 
 
 
@@ -189,6 +218,8 @@ namespace Capa_Vista_CierreContable
 
             // Asignar texto a los botones
             toolTip.SetToolTip(btn_consultar, "Muestra los cargos, abonos y el saldo de cada consulta.");
+            toolTip.SetToolTip(btn_Actualizar, "Limpia los DataGridView y los Textbox de las sumas.");
+            toolTip.SetToolTip(btn_Ayuda1, "Muestra la Ayuda del formulario actual.");
 
         }
 

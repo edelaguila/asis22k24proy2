@@ -39,6 +39,8 @@ namespace Capa_Vista_CierreContable
             toolTip.SetToolTip(btn_GuardarCierre, "Guarda el cierre contable, no se podrá modificar nada luego de esto.");
             toolTip.SetToolTip(btn_cancelar, "Cancela el guardado del cierre actual");
             toolTip.SetToolTip(btn_nuevocierre, "Genera el cierre del mes actual");
+            toolTip.SetToolTip(btn_Actualizar, "Limpia los DataGridView y los Textbox de las sumas.");
+            toolTip.SetToolTip(btn_Ayuda2, "Muestra la Ayuda del formulario actual.");
         }
 
         public void LlenarCboAnio()

@@ -18,23 +18,31 @@ namespace TestConsultasCierre
             TextBox txtTotD = new TextBox();
             TextBox txtTotH = new TextBox();
 
-            // Añadir columnas y filas de prueba al DataGridView
+            // Añadir columnas vacías para que "Monto" esté en la posición 4
+            for (int i = 0; i < 4; i++)
+            {
+                dgvDebe.Columns.Add($"Columna{i}", $"Columna{i}");
+                dgvHaber.Columns.Add($"Columna{i}", $"Columna{i}");
+            }
+
+            // Añadir la columna "Monto" en el índice 4
             dgvDebe.Columns.Add("Monto", "Monto");
-            dgvDebe.Rows.Add("100");
-            dgvDebe.Rows.Add("200");
+            dgvDebe.Rows.Add(null, null, null, null, "100");
+            dgvDebe.Rows.Add(null, null, null, null, "200");
 
             dgvHaber.Columns.Add("Monto", "Monto");
-            dgvHaber.Rows.Add("150");
-            dgvHaber.Rows.Add("250");
+            dgvHaber.Rows.Add(null, null, null, null, "150");
+            dgvHaber.Rows.Add(null, null, null, null, "250");
 
             // Ejecutar el método
             ConsultasCierre consultasCierre = new ConsultasCierre();
             consultasCierre.Totales(dgvDebe, dgvHaber, txtTotD, txtTotH);
 
             // Verificar el resultado esperado
-            Assert.AreEqual("300", txtTotD.Text); // Verifica que el total en txtTotD sea correcto
-            Assert.AreEqual("400", txtTotH.Text); // Verifica que el total en txtTotH sea correcto
+            Assert.AreEqual("300.00", txtTotD.Text); // Verifica que el total en txtTotD sea correcto
+            Assert.AreEqual("400.00", txtTotH.Text); // Verifica que el total en txtTotH sea correcto
         }
+
 
         [TestMethod]
         public void LlenarCuentas_Test()
