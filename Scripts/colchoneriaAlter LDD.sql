@@ -94,12 +94,6 @@ ALTER TABLE `tbl_proceso_produccion_detalle`
 
 -- **3. Integración de claves foráneas en tablas existentes**
 
--- Aseguramos que `tbl_cierre_produccion` tenga su clave primaria antes de ser referenciada
-ALTER TABLE `tbl_cuentas`
-    ADD COLUMN `Fk_id_cierre_produccion` INT(11),
-    ADD INDEX `idx_fk_cierre_produccion` (`Fk_id_cierre_produccion`),
-    ADD CONSTRAINT `fk_cierre_produccion` FOREIGN KEY (`Fk_id_cierre_produccion`) REFERENCES `tbl_cierre_produccion` (`pk_id_cierre`);
-
 -- Aseguramos que `tbl_recetas` tenga su clave primaria antes de ser referenciada
 ALTER TABLE `Tbl_Productos`
     ADD COLUMN `Fk_id_receta` INT(11),
@@ -143,3 +137,38 @@ DROP COLUMN id_RRHH;
 ALTER TABLE tbl_rrhh_produccion
 ADD COLUMN pk_id_RRHH INT AUTO_INCREMENT PRIMARY KEY;
  -- Fin
+-- ALTERS DEL MODULO DE LOGISTICA 31-10-2024
+ALTER TABLE Tbl_TrasladoProductos
+MODIFY costoTotal INT NOT NULL;
+ALTER TABLE Tbl_TrasladoProductos
+MODIFY costoTotalGeneral INT NOT NULL;
+ALTER TABLE Tbl_TrasladoProductos
+MODIFY precioTotal INT NOT NULL;
+
+ALTER TABLE Tbl_TrasladoProductos
+ADD COLUMN codigoProducto INT NOT NULL;
+
+ALTER TABLE Tbl_chofer
+ADD COLUMN estado TINYINT NOT NULL DEFAULT 1;
+ALTER TABLE Tbl_remitente
+ADD COLUMN estado TINYINT NOT NULL DEFAULT 1;
+ALTER TABLE Tbl_destinatario
+ADD COLUMN estado TINYINT NOT NULL DEFAULT 1;
+
+ALTER TABLE Tbl_Productos
+ADD COLUMN comisionInventario DOUBLE NOT NULL;
+ALTER TABLE Tbl_Productos
+ADD COLUMN comisionCosto DOUBLE NOT NULL;
+ALTER TABLE Tbl_Marca
+ADD COLUMN comision DOUBLE NOT NULL;
+ALTER TABLE Tbl_Linea
+ADD COLUMN comision DOUBLE NOT NULL;
+
+-- ALTERS DEL MODULO DE CUENTAS CORRIENTES 31-10-2024
+
+ALTER TABLE Tbl_caja_cliente
+DROP COLUMN caja_deuda_monto,
+DROP COLUMN caja_mora_monto,
+DROP COLUMN caja_transaccion_monto;
+ALTER TABLE Tbl_caja_cliente
+ADD COLUMN Fk_id_factura INT NOT NULL;
