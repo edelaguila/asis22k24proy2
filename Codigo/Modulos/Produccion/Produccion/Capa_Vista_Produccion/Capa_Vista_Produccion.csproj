@@ -41,8 +41,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Componentes\Navegador\Capa_Vista_Navegador\bin\Debug\Capa_Vista_Navegador.dll</HintPath>
     </Reference>
-    <Reference Include="Capa_Vista_Polizas_Prod">
-      <HintPath>..\..\Polizas Producción\Capa_Vista_Polizas_Prod\bin\Debug\Capa_Vista_Polizas_Prod.dll</HintPath>
+    <Reference Include="Capa_Vista_Polizas_Prod, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Polizas_Produccion\Capa_Vista_Polizas_Prod\bin\Debug\Capa_Vista_Polizas_Prod.dll</HintPath>
     </Reference>
     <Reference Include="Interfac_V3">
       <HintPath>..\..\..\Menus\ModernGUI_V3\bin\Debug\Interfac_V3.exe</HintPath>

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Capa_Vista_Cierre_Produccion
 {
@@ -39,6 +40,8 @@ namespace Capa_Vista_Cierre_Produccion
             toolTip.SetToolTip(txt_cargos_acumulados, "Cargos acumulados para el año en curso.");
             toolTip.SetToolTip(txt_abonos_acumulados, "Abonos acumulados para el año en curso.");
             toolTip.SetToolTip(dgv_historico_cierres, "Historial de cierres contables.");
+            toolTip.SetToolTip(btn_Ayuda, "Ayuda sobre el formulario.");
+            toolTip.SetToolTip(btn_Reporte, "Muestra el reporte.");
         }
 
         // Método para cargar el historial de cierres en el DataGridView
@@ -190,6 +193,37 @@ namespace Capa_Vista_Cierre_Produccion
                 txt_abonos_mes.Text = filaSeleccionada.Cells["abonos_mes"].Value.ToString();
                 txt_saldo_actual.Text = filaSeleccionada.Cells["saldo_actual"].Value.ToString();
             }
+        }
+
+        private void btn_Reporte_Click(object sender, EventArgs e)
+        {
+            Frm_Reportes reporte = new Frm_Reportes();
+            reporte.Show();
+        }
+
+        public string sRutaProyectoAyuda { get; private set; } = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\..\..\"));
+
+        private void btn_Ayuda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Ruta para que se ejecute desde la ejecucion de Interfac3
+                string sAyudaPath = Path.Combine(sRutaProyectoAyuda, "Ayuda", "Modulos", "Produccion", "Ayuda_Cierre", "Ayuda_Cierre.chm");
+                //string sIndiceAyuda = Path.Combine(sRutaProyecto, "EstadosFinancieros", "ReportesEstados", "Htmlayuda.hmtl");
+                MessageBox.Show("Ruta del reporte: " + sAyudaPath, "Ruta Generada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                Help.ShowHelp(this, sAyudaPath, "Ayuda_Cierre.html");
+
+               
+            }
+            catch (Exception ex)
+            {
+                // Mostrar un mensaje de error en caso de una excepción
+                MessageBox.Show("Ocurrió un error al abrir la ayuda: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine("Error al abrir la ayuda: " + ex.ToString());
+            }
+
         }
     }
 }

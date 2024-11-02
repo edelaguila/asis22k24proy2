@@ -117,34 +117,32 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="Codigo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Cuenta.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Cargo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Abono.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btn_aceptar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAJSSURBVHhe7ZrL
-        SsNAFIYLghdERMEL3t7KhTtXomISK+JCEHwUVy66EERNUhVE3CjoxhtqFRcurBlbqi9QJ2WOaDrVJDNJ
-        Z6bzwb9Jw5l8P20zNM1oNBqNRqMOWfej33K9VcNGi9ncSxc53BrM73nDpotuTQdVSc7ndit95GW1och/
-        l+C/K8hpavKHfC2Ggy6ULeE/eYiSJYSVhyhVQlR5iBIlxJWHSF0CqzxEyhKyO++jpo0eaELx4m2R0eLD
-        Xx5VLQdVyHixSULeDy5gkywhLrw+85ScrGyjHrKMmGh5LU8VYImWJ8uIiZDyk7lqG941TRmON23YhQ5y
-        mDsL+2gEX+h94MLZ46Lj5XyxmywTjemj5048xPkx7HTmoNxLXuaGkPLruWo73nzsBIfy3kNbh29DeO5N
-        cB0Oif+2byQP4VWClPIQ1hKklofELUEJeUjUEpSSh4QtQUl5yH8lCCnvYzreBmVo3JzR9gnkPn8XOJc9
-        LPd5AA/6rBvMll8lCC3vg4ft1Q1nT60E4eV9DPt1wHLeL6kLseUMR2x5IMESeIftC+8vJCghOXnAL8G0
-        vSvK4s1O8vLAbL44KFgJ6ckDfgl4Y3NNuZi0k748IEAJzZMHmlhC8+WBBPfwjSKOPJBiCeLJAymUIK48
-        UCuhVR9aAAk8vJBHHuBYgnzygGGXxvAtskCRCht55QG/BCzyGBALE/nlgaV8aRwLRSlBHXkgQgnqyQMh
-        SlBXHiAlPAXEW0MesA7KE1j4ZwmtIw/Uflly0Zppe0aSf6rQaDQajYaFTOYL1qZYOaaUNOoAAAAASUVO
-        RK5CYII=
-</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="INGRESAR_V4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\INGRESAR_V4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CANCELAR_V4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CANCELAR_V4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="guardar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\guardar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SALIR_V41" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SALIR_V41.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ACTUALIZAR_V4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ACTUALIZAR_V4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="calculadora" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\calculadora.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="impresora" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\impresora.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SALIR_V4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SALIR_V4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AYUDA_V4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AYUDA_V4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

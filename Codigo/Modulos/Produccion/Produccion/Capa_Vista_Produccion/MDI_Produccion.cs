@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Capa_Vista_Cierre_Produccion;
 using Capa_Vista_Polizas_Prod;
 
+
 namespace Capa_Vista_Produccion
 {
     public partial class MDI_Produccion : Form
@@ -123,8 +124,8 @@ namespace Capa_Vista_Produccion
         // Botón de enlace a contabilidad (Pólizas)
         private void btnPolizas_Click(object sender, EventArgs e)
         {
-            Frm_Polizas_Prod polizas = new Frm_Polizas_Prod();
-            polizas.Show();
+            Frm_Polizas_Prod PP = new Frm_Polizas_Prod();
+            PP.Show();
         }
 
         // Botón de conversiones

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capa_Modelo_Cierre_Producci
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capa_Vista_Cierre_Produccion", "Capa_Vista_Cierre_Produccion\Capa_Vista_Cierre_Produccion.csproj", "{62A434D6-5CC6-40BB-BA93-21F7D3ED791E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_Cierre_Produccion", "Test_Cierre_Produccion\Test_Cierre_Produccion.csproj", "{22F2362B-F94C-4410-9035-B83C6BEBE94F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{62A434D6-5CC6-40BB-BA93-21F7D3ED791E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62A434D6-5CC6-40BB-BA93-21F7D3ED791E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62A434D6-5CC6-40BB-BA93-21F7D3ED791E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22F2362B-F94C-4410-9035-B83C6BEBE94F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22F2362B-F94C-4410-9035-B83C6BEBE94F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22F2362B-F94C-4410-9035-B83C6BEBE94F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22F2362B-F94C-4410-9035-B83C6BEBE94F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

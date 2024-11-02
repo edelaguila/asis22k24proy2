@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Capa_Vista_Polizas_Prod.Properties {
+namespace Capa_Vista_Cierre_Produccion.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Capa_Vista_Polizas_Prod.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Capa_Vista_Polizas_Prod.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Capa_Vista_Cierre_Produccion.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,6 +57,36 @@ namespace Capa_Vista_Polizas_Prod.Properties {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ACTUALIZAR_V4 {
+            get {
+                object obj = ResourceManager.GetObject("ACTUALIZAR_V4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AYUDA_V4 {
+            get {
+                object obj = ResourceManager.GetObject("AYUDA_V4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap calculadora {
+            get {
+                object obj = ResourceManager.GetObject("calculadora", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -83,6 +113,16 @@ namespace Capa_Vista_Polizas_Prod.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap impresora {
+            get {
+                object obj = ResourceManager.GetObject("impresora", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap INGRESAR_V4 {
             get {
                 object obj = ResourceManager.GetObject("INGRESAR_V4", resourceCulture);
@@ -93,9 +133,9 @@ namespace Capa_Vista_Polizas_Prod.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap rechazado {
+        internal static System.Drawing.Bitmap SALIR_V4 {
             get {
-                object obj = ResourceManager.GetObject("rechazado", resourceCulture);
+                object obj = ResourceManager.GetObject("SALIR_V4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +143,9 @@ namespace Capa_Vista_Polizas_Prod.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap SALIR_V4 {
+        internal static System.Drawing.Bitmap SALIR_V41 {
             get {
-                object obj = ResourceManager.GetObject("SALIR_V4", resourceCulture);
+                object obj = ResourceManager.GetObject("SALIR_V41", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

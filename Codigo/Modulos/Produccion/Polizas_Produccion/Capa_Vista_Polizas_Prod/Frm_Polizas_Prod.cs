@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Capa_Control_Polizas_Prod; // Importamos el controlador
 
@@ -46,6 +43,7 @@ namespace Capa_Vista_Polizas_Prod
             toolTip.SetToolTip(dgvPolizas, "Detalles de la póliza actual.");
             toolTip.SetToolTip(lblCargo, "Total de cargos en la póliza.");
             toolTip.SetToolTip(lblAbono, "Total de abonos en la póliza.");
+            toolTip.SetToolTip(lbl_saldo, "Diferencia entre cargos y abonos.");
         }
 
         // Método para cargar datos en los ComboBox al inicio
@@ -86,6 +84,7 @@ namespace Capa_Vista_Polizas_Prod
             btnCancelar.Enabled = false;
             lblCargo.Text = "00.00";
             lblAbono.Text = "00.00";
+            lbl_saldo.Text = "00.00"; // Inicializamos lbl_saldo
         }
 
         // Botón Nueva Póliza
@@ -111,6 +110,9 @@ namespace Capa_Vista_Polizas_Prod
             }
         }
 
+        // Variable para manejar el saldo
+        private int iSaldo = 0;
+
         // Botón Aceptar - Añade un detalle de póliza
         private void btn_aceptar_Click(object sender, EventArgs e)
         {
@@ -120,12 +122,16 @@ namespace Capa_Vista_Polizas_Prod
                 {
                     int idCuenta = Convert.ToInt32(cbCuenta.SelectedValue);
                     int idOperacion = Convert.ToInt32(cboperacion.SelectedValue);
-                    decimal valor = Convert.ToDecimal(txtValor.Text);
+                    int valor = Convert.ToInt32(txtValor.Text); // Convertimos a entero para manejar en iSaldo
 
+                    // Añadir el detalle en el DataGridView
                     dgvPolizas.Rows.Add(idCuenta, cbCuenta.Text, idOperacion == 1 ? valor : 0, idOperacion == 2 ? valor : 0);
-
                     detalles.Add(new object[] { idCuenta, idOperacion, valor });
+
+                    // Actualizar el saldo en función de si es Cargo o Abono
+                    iSaldo += (idOperacion == 1) ? valor : -valor; // Suma en caso de Cargo, resta en caso de Abono
                     ActualizarTotales();
+
                     LimpiarCamposDetalle();
                 }
             }
@@ -166,6 +172,21 @@ namespace Capa_Vista_Polizas_Prod
             {
                 if (dgvPolizas.Rows.Count > 0 && ValidarCamposEncabezado())
                 {
+                    // Verificar si el saldo es diferente de 0 antes de registrar
+                    if (iSaldo > 0)
+                    {
+                        MessageBox.Show("La póliza está desbalanceada. El total de cargos es mayor que el de abonos.",
+                                        "Error de Balance", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else if (iSaldo < 0)
+                    {
+                        MessageBox.Show("La póliza está desbalanceada. El total de abonos es mayor que el de cargos.",
+                                        "Error de Balance", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    // Continuar con el registro si el saldo es 0
                     string fecha = dtpfecha.Value.ToString("yyyy-MM-dd");
                     string concepto = txtConcepto.Text;
                     int tipoPoliza = Convert.ToInt32(cbtipopoliza.SelectedValue);
@@ -179,6 +200,7 @@ namespace Capa_Vista_Polizas_Prod
                         InicializarComponentes();
                         dgvPolizas.Rows.Clear();
                         detalles.Clear();
+                        iSaldo = 0; // Reiniciar saldo después del registro
                     }
                     else
                     {
@@ -195,6 +217,7 @@ namespace Capa_Vista_Polizas_Prod
                 MessageBox.Show("Error al registrar la póliza: " + ex.Message, "Error");
             }
         }
+
 
         // Botón Cancelar - Restablece los campos
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -231,16 +254,22 @@ namespace Capa_Vista_Polizas_Prod
         {
             try
             {
-                decimal totalCargo = 0, totalAbono = 0;
+                int totalCargo = 0, totalAbono = 0;
 
                 foreach (DataGridViewRow row in dgvPolizas.Rows)
                 {
-                    totalCargo += Convert.ToDecimal(row.Cells["Cargo"].Value ?? 0);
-                    totalAbono += Convert.ToDecimal(row.Cells["Abono"].Value ?? 0);
+                    totalCargo += Convert.ToInt32(row.Cells["Cargo"].Value ?? 0);
+                    totalAbono += Convert.ToInt32(row.Cells["Abono"].Value ?? 0);
                 }
 
                 lblCargo.Text = totalCargo.ToString("N2");
                 lblAbono.Text = totalAbono.ToString("N2");
+
+                // Mostrar el saldo usando iSaldo
+                lbl_saldo.Text = iSaldo.ToString("N2");
+
+                // Cambia el color de lbl_saldo según el balance
+                lbl_saldo.ForeColor = iSaldo != 0 ? Color.Red : Color.Green;
             }
             catch (Exception ex)
             {
@@ -310,6 +339,7 @@ namespace Capa_Vista_Polizas_Prod
                 txtConcepto.Clear();
                 lblCargo.Text = "00.00";
                 lblAbono.Text = "00.00";
+                lbl_saldo.Text = "00.00";
             }
             catch (Exception ex)
             {

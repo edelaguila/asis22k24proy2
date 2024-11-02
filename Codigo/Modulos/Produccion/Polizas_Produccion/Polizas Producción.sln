@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capa_Modelo_Polizas_Prod", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capa_Vista_Polizas_Prod", "Capa_Vista_Polizas_Prod\Capa_Vista_Polizas_Prod.csproj", "{5303A9C6-9C10-4688-981F-9FC9CD4C34DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPolizaProduccion", "TestPolizaProduccion\TestPolizaProduccion.csproj", "{A721CA52-E1EB-4E37-BF21-E39F485519BA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{5303A9C6-9C10-4688-981F-9FC9CD4C34DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5303A9C6-9C10-4688-981F-9FC9CD4C34DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5303A9C6-9C10-4688-981F-9FC9CD4C34DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A721CA52-E1EB-4E37-BF21-E39F485519BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A721CA52-E1EB-4E37-BF21-E39F485519BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A721CA52-E1EB-4E37-BF21-E39F485519BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A721CA52-E1EB-4E37-BF21-E39F485519BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
