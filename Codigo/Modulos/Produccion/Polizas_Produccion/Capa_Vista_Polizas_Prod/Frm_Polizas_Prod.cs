@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Capa_Control_Polizas_Prod; // Importamos el controlador
+using System.IO;
 
 namespace Capa_Vista_Polizas_Prod
 {
@@ -142,6 +143,7 @@ namespace Capa_Vista_Polizas_Prod
         }
 
         // Botón Quitar - Remueve un detalle seleccionado en el DataGridView
+        // Botón Quitar - Remueve un detalle seleccionado en el DataGridView
         private void btnQuitar_Click(object sender, EventArgs e)
         {
             try
@@ -150,6 +152,11 @@ namespace Capa_Vista_Polizas_Prod
                 {
                     foreach (DataGridViewRow row in dgvPolizas.SelectedRows)
                     {
+                        // Determinar si el detalle es cargo o abono y ajustar el saldo en consecuencia
+                        int valor = Convert.ToInt32(row.Cells["Cargo"].Value ?? 0) - Convert.ToInt32(row.Cells["Abono"].Value ?? 0);
+                        iSaldo -= valor;
+
+                        // Remover la fila seleccionada
                         dgvPolizas.Rows.Remove(row);
                     }
                     ActualizarTotales();
@@ -164,6 +171,7 @@ namespace Capa_Vista_Polizas_Prod
                 MessageBox.Show("Error al quitar el detalle seleccionado: " + ex.Message, "Error");
             }
         }
+
 
         // Botón Registrar Póliza - Crea el encabezado y detalles de la póliza
         private void btn_registar_poliza_Click(object sender, EventArgs e)
@@ -345,6 +353,37 @@ namespace Capa_Vista_Polizas_Prod
             {
                 MessageBox.Show("Error al limpiar campos de encabezado: " + ex.Message, "Error");
             }
+        }
+
+        private void btn_Reporte_Click(object sender, EventArgs e)
+        {
+            Frm_Reporte pr = new Frm_Reporte();
+            pr.Show();
+        }
+
+        public string sRutaProyectoAyuda { get; private set; } = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\..\..\"));
+
+        private void btn_Ayuda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Ruta para que se ejecute desde la ejecucion de Interfac3
+                string sAyudaPath = Path.Combine(sRutaProyectoAyuda, "Ayuda", "Modulos", "Produccion", "Ayuda_Polizas", "Ayuda_Polizas.chm");
+                //string sIndiceAyuda = Path.Combine(sRutaProyecto, "EstadosFinancieros", "ReportesEstados", "Htmlayuda.hmtl");
+                MessageBox.Show("Ruta del reporte: " + sAyudaPath, "Ruta Generada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                Help.ShowHelp(this, sAyudaPath, "Ayuda_Polizas.html");
+
+
+            }
+            catch (Exception ex)
+            {
+                // Mostrar un mensaje de error en caso de una excepción
+                MessageBox.Show("Ocurrió un error al abrir la ayuda: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine("Error al abrir la ayuda: " + ex.ToString());
+            }
+
         }
     }
 }

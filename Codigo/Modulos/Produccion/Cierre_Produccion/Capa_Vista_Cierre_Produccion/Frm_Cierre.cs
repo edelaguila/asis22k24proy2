@@ -22,6 +22,7 @@ namespace Capa_Vista_Cierre_Produccion
             toolTip = new ToolTip(); // Inicializamos el ToolTip
             ConfigurarToolTips(); // Configuramos los ToolTips
             CargarHistorialCierres(); // Cargar el historial de cierres al abrir el formulario
+
         }
 
         // Método para configurar ToolTips en los componentes
@@ -197,7 +198,7 @@ namespace Capa_Vista_Cierre_Produccion
 
         private void btn_Reporte_Click(object sender, EventArgs e)
         {
-            Frm_Reportes reporte = new Frm_Reportes();
+            Frm_Cierre_Reporte reporte = new Frm_Cierre_Reporte();
             reporte.Show();
         }
 

@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using Capa_Vista_Cierre_Produccion;
 using Capa_Vista_Polizas_Prod;
 
-
 namespace Capa_Vista_Produccion
 {
     public partial class MDI_Produccion : Form
@@ -18,10 +17,18 @@ namespace Capa_Vista_Produccion
         // Variables para capturar la posición y el tamaño del formulario antes de maximizar
         int lx, ly;
         int sw, sh;
+        private bool arrastrando = false;
+        private Point posicionInicialCursor;
+        private Point posicionInicialFormulario;
+
+        // Variables para almacenar la referencia a los formularios de cierre y pólizas
+        private Frm_Cierre cierreForm;
+        private Frm_Polizas_Prod polizasForm;
 
         public MDI_Produccion(string idUsuario)
         {
             InitializeComponent();
+            this.IsMdiContainer = true;  // Configura el formulario como contenedor MDI
             ocultaSubMenu(); // Solo oculta los menús al inicio
             lbl_user.Text = idUsuario;
 
@@ -29,9 +36,38 @@ namespace Capa_Vista_Produccion
             timer1.Tick += ActualizarFechaHora;
             timer1.Interval = 1000; // 1 segundo
             timer1.Start(); // Iniciar el Timer
+
+            // Asignar eventos de arrastre al panelBarraTitulo
+            panelBarraTitulo.MouseDown += PanelBarraTitulo_MouseDown;
+            panelBarraTitulo.MouseMove += PanelBarraTitulo_MouseMove;
+            panelBarraTitulo.MouseUp += PanelBarraTitulo_MouseUp;
         }
 
         string idUsuario = Interfac_V3.UsuarioSesion.GetIdUsuario();
+
+        // Evento MouseDown para iniciar el arrastre
+        private void PanelBarraTitulo_MouseDown(object sender, MouseEventArgs e)
+        {
+            arrastrando = true;
+            posicionInicialCursor = Cursor.Position;
+            posicionInicialFormulario = this.Location;
+        }
+
+        // Evento MouseMove para mover el formulario mientras se arrastra
+        private void PanelBarraTitulo_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (arrastrando)
+            {
+                Point diferencia = Point.Subtract(Cursor.Position, new Size(posicionInicialCursor));
+                this.Location = Point.Add(posicionInicialFormulario, new Size(diferencia));
+            }
+        }
+
+        // Evento MouseUp para finalizar el arrastre
+        private void PanelBarraTitulo_MouseUp(object sender, MouseEventArgs e)
+        {
+            arrastrando = false;
+        }
 
         // Ocultar submenús al iniciar (sin cerrar al abrir otro)
         private void ocultaSubMenu()
@@ -101,8 +137,51 @@ namespace Capa_Vista_Produccion
         // Botón de cierre
         private void btnCierre_Click(object sender, EventArgs e)
         {
-            Frm_Cierre Cierre = new Frm_Cierre();
-            Cierre.Show();
+            // Verifica si el formulario de cierre ya está abierto
+            if (cierreForm == null || cierreForm.IsDisposed)
+            {
+                pb_Fondo.Visible = false;
+
+                // Crea el formulario de cierre y configura sus propiedades
+                cierreForm = new Frm_Cierre();
+                cierreForm.MdiParent = this;
+                cierreForm.StartPosition = FormStartPosition.CenterScreen;
+
+                // Maneja el evento FormClosing para volver a mostrar pb_Fondo al cerrar el formulario
+                cierreForm.FormClosing += (s, args) => { pb_Fondo.Visible = true; };
+
+                // Muestra el formulario de cierre
+                cierreForm.Show();
+            }
+            else
+            {
+                cierreForm.BringToFront(); // Si el formulario ya está abierto, lo trae al frente
+            }
+        }
+
+        // Botón de enlace a contabilidad (Pólizas)
+        private void btnPolizas_Click(object sender, EventArgs e)
+        {
+            // Verifica si el formulario de pólizas ya está abierto
+            if (polizasForm == null || polizasForm.IsDisposed)
+            {
+                pb_Fondo.Visible = false;
+
+                // Crea el formulario de pólizas y configura sus propiedades
+                polizasForm = new Frm_Polizas_Prod();
+                polizasForm.MdiParent = this;
+                polizasForm.StartPosition = FormStartPosition.CenterScreen;
+
+                // Maneja el evento FormClosing para volver a mostrar pb_Fondo al cerrar el formulario
+                polizasForm.FormClosing += (s, args) => { pb_Fondo.Visible = true; };
+
+                // Muestra el formulario de pólizas
+                polizasForm.Show();
+            }
+            else
+            {
+                polizasForm.BringToFront(); // Si el formulario ya está abierto, lo trae al frente
+            }
         }
 
         // Botón de implosión/explosión de materiales
@@ -119,13 +198,6 @@ namespace Capa_Vista_Produccion
             /*
               * Acá va la lógica para abrir el formulario de Producción
             */
-        }
-
-        // Botón de enlace a contabilidad (Pólizas)
-        private void btnPolizas_Click(object sender, EventArgs e)
-        {
-            Frm_Polizas_Prod PP = new Frm_Polizas_Prod();
-            PP.Show();
         }
 
         // Botón de conversiones
@@ -174,7 +246,6 @@ namespace Capa_Vista_Produccion
         // Maximizar el formulario
         private void btnMaximizar_Click(object sender, EventArgs e)
         {
-            // Capturar la posición y el tamaño antes de maximizar
             lx = this.Location.X;
             ly = this.Location.Y;
             sw = this.Size.Width;
@@ -183,6 +254,8 @@ namespace Capa_Vista_Produccion
             this.WindowState = FormWindowState.Maximized;
             btnMaximizar.Visible = false;
             btnRestaurar.Visible = true;
+            btn_Maximizar.Visible = false;
+            btn_Restaurar.Visible = true;
         }
 
         private void Btn_Recetas_Click_1(object sender, EventArgs e)
@@ -200,6 +273,8 @@ namespace Capa_Vista_Produccion
             this.Location = new Point(lx, ly);
             btnMaximizar.Visible = true;
             btnRestaurar.Visible = false;
+            btn_Maximizar.Visible = true;
+            btn_Restaurar.Visible = false;
         }
 
         // Función para salir del formulario

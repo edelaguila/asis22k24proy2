@@ -1,7 +1,7 @@
 ﻿
-namespace Capa_Vista_Cierre_Produccion
+namespace Capa_Vista_Polizas_Prod
 {
-    partial class Frm_Reportes
+    partial class Frm_Reporte
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace Capa_Vista_Cierre_Produccion
         private void InitializeComponent()
         {
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.Cierre_Produccion1 = new Capa_Vista_Cierre_Produccion.Cierre_Produccion();
+            this.Reporte_Polizas1 = new Capa_Vista_Polizas_Prod.Reporte_Polizas();
             this.SuspendLayout();
             // 
             // crystalReportViewer1
@@ -41,18 +41,18 @@ namespace Capa_Vista_Cierre_Produccion
             this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crystalReportViewer1.Location = new System.Drawing.Point(0, 0);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.ReportSource = this.Cierre_Produccion1;
+            this.crystalReportViewer1.ReportSource = this.Reporte_Polizas1;
             this.crystalReportViewer1.Size = new System.Drawing.Size(800, 450);
             this.crystalReportViewer1.TabIndex = 0;
             // 
-            // Frm_Reportes
+            // Frm_Reporte
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.crystalReportViewer1);
-            this.Name = "Frm_Reportes";
-            this.Text = "Formulario";
+            this.Name = "Frm_Reporte";
+            this.Text = "Frm_Reporte";
             this.ResumeLayout(false);
 
         }
@@ -60,6 +60,6 @@ namespace Capa_Vista_Cierre_Produccion
         #endregion
 
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
-        private Cierre_Produccion Cierre_Produccion1;
+        private Reporte_Polizas Reporte_Polizas1;
     }
 }

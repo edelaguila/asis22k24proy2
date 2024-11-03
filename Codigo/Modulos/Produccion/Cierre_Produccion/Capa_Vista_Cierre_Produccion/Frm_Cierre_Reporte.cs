@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Capa_Vista_Cierre_Produccion
 {
-    public partial class Frm_Reportes : Form
+    public partial class Frm_Cierre_Reporte : Form
     {
-        public Frm_Reportes()
+        public Frm_Cierre_Reporte()
         {
             InitializeComponent();
         }

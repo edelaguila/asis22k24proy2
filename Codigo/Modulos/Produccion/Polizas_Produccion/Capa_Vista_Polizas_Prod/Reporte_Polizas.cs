@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Capa_Vista_Cierre_Produccion {
+namespace Capa_Vista_Polizas_Prod {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace Capa_Vista_Cierre_Produccion {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class Cierre_Produccion : ReportClass {
+    public class Reporte_Polizas : ReportClass {
         
-        public Cierre_Produccion() {
+        public Reporte_Polizas() {
         }
         
         public override string ResourceName {
             get {
-                return "Cierre_Produccion.rpt";
+                return "Reporte_Polizas.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Capa_Vista_Cierre_Produccion {
         
         public override string FullResourceName {
             get {
-                return "Capa_Vista_Cierre_Produccion.Cierre_Produccion.rpt";
+                return "Capa_Vista_Polizas_Prod.Reporte_Polizas.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace Capa_Vista_Cierre_Produccion {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCierre_Produccion : Component, ICachedReport {
+    public class CachedReporte_Polizas : Component, ICachedReport {
         
-        public CachedCierre_Produccion() {
+        public CachedReporte_Polizas() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace Capa_Vista_Cierre_Produccion {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            Cierre_Produccion rpt = new Cierre_Produccion();
+            Reporte_Polizas rpt = new Reporte_Polizas();
             rpt.Site = this.Site;
             return rpt;
         }
