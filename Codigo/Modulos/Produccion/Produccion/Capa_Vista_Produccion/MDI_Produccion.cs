@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Capa_Vista_Mantenimiento;
+using Capa_Vista_Maquinaria;
 
 namespace Capa_Vista_Produccion
 {
@@ -82,9 +84,8 @@ namespace Capa_Vista_Produccion
         // Botón de maquinaria
         private void btnMaquinaria_Click_1(object sender, EventArgs e)
         {
-            /*
-              * Acá va la lógica para abrir el formulario de Recetas
-            */
+            Frm_Maquinaria maquinaria = new Frm_Maquinaria();
+            maquinaria.Show();
         }
 
         // Botón de empleados (enlace a RRHH)
@@ -146,9 +147,8 @@ namespace Capa_Vista_Produccion
         // Botón de lotes
         private void btnLotes_Click_1(object sender, EventArgs e)
         {
-            /*
-              * Acá va la lógica para abrir el formulario de Lotes
-            */
+            Capa_Vista_Lotes.Frm_Lotes lotes = new Capa_Vista_Lotes.Frm_Lotes();
+            lotes.Show();
         }
         #endregion
 
@@ -189,6 +189,12 @@ namespace Capa_Vista_Produccion
             /*
               * Acá va la lógica para abrir el formulario de Recetas
             */
+        }
+
+        private void btnMantenimiento_Click_1(object sender, EventArgs e)
+        {
+            Frm_Mantenimiento_Produccion produccion = new Frm_Mantenimiento_Produccion();
+            produccion.Show();
         }
 
         // Restaurar el tamaño original de la ventana
