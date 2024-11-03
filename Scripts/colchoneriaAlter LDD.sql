@@ -94,12 +94,6 @@ ALTER TABLE `tbl_proceso_produccion_detalle`
 
 -- **3. Integración de claves foráneas en tablas existentes**
 
--- Aseguramos que `tbl_cierre_produccion` tenga su clave primaria antes de ser referenciada
-ALTER TABLE `tbl_cuentas`
-    ADD COLUMN `Fk_id_cierre_produccion` INT(11),
-    ADD INDEX `idx_fk_cierre_produccion` (`Fk_id_cierre_produccion`),
-    ADD CONSTRAINT `fk_cierre_produccion` FOREIGN KEY (`Fk_id_cierre_produccion`) REFERENCES `tbl_cierre_produccion` (`pk_id_cierre`);
-
 -- Aseguramos que `tbl_recetas` tenga su clave primaria antes de ser referenciada
 ALTER TABLE `Tbl_Productos`
     ADD COLUMN `Fk_id_receta` INT(11),
