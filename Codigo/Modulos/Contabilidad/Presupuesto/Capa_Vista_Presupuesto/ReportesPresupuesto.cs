@@ -21,12 +21,17 @@ namespace Capa_Vista_Presupuesto
         public int iIdPres;
         Controlador control = new Controlador();
         logica logicaSeg = new logica();
+        ToolTip toolTip = new ToolTip();
         public string sIdUsuario { get; set; } //Para Bitacora-------------!!!
         public ReportesPresupuesto(int iIdPresupuesto)
         { 
             InitializeComponent();
             this.iIdPres = iIdPresupuesto;
-            
+            toolTip.SetToolTip(Btn_reporte1, "Haz click para ver reporte");
+            toolTip.SetToolTip(Btn_reporte2, "Haz click para ver reporte");
+            toolTip.SetToolTip(Btn_reporte3, "Haz click para ver reporte");
+            toolTip.SetToolTip(Btn_ayuda, "Haz click para ver ayuda");
+
         }
         private void ReportesPresupuesto_Load(object sender, EventArgs e)
         {
