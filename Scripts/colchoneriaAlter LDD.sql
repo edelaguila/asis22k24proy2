@@ -172,3 +172,13 @@ DROP COLUMN caja_mora_monto,
 DROP COLUMN caja_transaccion_monto;
 ALTER TABLE Tbl_caja_cliente
 ADD COLUMN Fk_id_factura INT NOT NULL;
+
+
+-- NUEVOS ALTER DEL MODULO DE PRODUCCIÓN 03-11-2024 aprobado por Brandon Boch
+-- 2. Alter para añadir la foránea a la tabla de mantenimiento
+ALTER TABLE `tbl_mantenimientos`
+ADD COLUMN `fk_id_maquina` int(11) NOT NULL;
+
+ALTER TABLE `tbl_mantenimientos`
+ADD CONSTRAINT `fk_maquina`
+FOREIGN KEY (`fk_id_maquina`) REFERENCES `tbl_maquinaria`(`pk_id_maquina`);
