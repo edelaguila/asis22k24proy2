@@ -39,15 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Capa_Controlador_Presupuesto">
-      <HintPath>..\Capa_Controlador_Presupuesto\bin\Debug\Capa_Controlador_Presupuesto.dll</HintPath>
-    </Reference>
     <Reference Include="Capa_Modelo_Presupuesto, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Capa_Modelo_Presupuesto\bin\Debug\Capa_Modelo_Presupuesto.dll</HintPath>
-    </Reference>
-    <Reference Include="Capa_Vista_Presupuesto">
-      <HintPath>..\Capa_Vista_Presupuesto\bin\Debug\Capa_Vista_Presupuesto.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\MSTest.TestFramework.2.1.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>

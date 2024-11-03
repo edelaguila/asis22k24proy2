@@ -46,15 +46,16 @@ namespace Capa_Vista_Presupuesto
             toolTip.SetToolTip(Btn_modificar, "Haz click para guardar el presupuesto");
             toolTip.SetToolTip(Btn_opciones, "Haz click para configurar");
             toolTip.SetToolTip(Btn_eliminar, "Haz click para eliminar el presupuesto");
-            toolTip.SetToolTip(Btn_Informe, "Haz click para ver el informe de presupuesto: PENDIENTE");
+            toolTip.SetToolTip(Btn_Informe, "Haz click para ver el informe de presupuesto");
             toolTip.SetToolTip(Btn_incremento, "Haz click para incrementar");
             toolTip.SetToolTip(Btn_ajustar, "Haz click para ajustar el presupuesto");
             toolTip.SetToolTip(Btn_Salir, "Haz click para salir");
-            toolTip.SetToolTip(Btn_ayuda, "Haz click para ver ayuda : PENDIENTE");
+            toolTip.SetToolTip(Btn_ayuda, "Haz click para ver ayuda");
 
         }
         private void Presupuesto_Load(object sender, EventArgs e)
         {
+            
             BloquearTextBox();
             BloquearBotones();
             Txtbx_anual.Enabled = false;
@@ -65,7 +66,7 @@ namespace Capa_Vista_Presupuesto
         //Se ejecuta al presionar el boton de opciones
         private void CargarDatos()
         {
-            Txt_NombrePresupuesto.Text = sNombreP; //Cambiar
+            Txt_nombrePresupuesto.Text = sNombreP; //Cambiar
             //MessageBox.Show(Convert.ToString(iIdPresupuestoP)); //Bandera
             //Operacion
             switch (sOperacionP)
@@ -157,7 +158,7 @@ namespace Capa_Vista_Presupuesto
             }
             catch (Exception ex) { MessageBox.Show("Ocurrió un error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
 
-            Txt_EjercicioPres.Text = Convert.ToString(iEjercicio);
+            Txt_ejercicioPres.Text = Convert.ToString(iEjercicio);
         }
 
 
@@ -182,7 +183,7 @@ namespace Capa_Vista_Presupuesto
             Btn_ajustar.Enabled = false;
             Btn_eliminar.Enabled = false;
             Btn_incremento.Enabled = false;
-            Btn_Informe.Enabled = false;
+            Btn_Informe.Enabled = false; //Cambio 
             Btn_modificar.Enabled = false;
         }
 
@@ -352,61 +353,61 @@ namespace Capa_Vista_Presupuesto
         private void Txtbx_enero_TextChanged(object sender, EventArgs e)
         {
             CambioDinamico("Column3", Txtbx_enero);
-            VerificacionVacio(Txtbx_enero);
+            //VerificacionVacio(Txtbx_enero);
             SumaDeValores();
         }
         private void Txtbx_febrero_TextChanged(object sender, EventArgs e)
         {
             CambioDinamico("Column4", Txtbx_febrero);
-            VerificacionVacio(Txtbx_febrero);
+            //VerificacionVacio(Txtbx_febrero);
             SumaDeValores();
         }
         private void Txtbx_marzo_TextChanged(object sender, EventArgs e)
         {
             CambioDinamico("Column5", Txtbx_marzo);
-            VerificacionVacio(Txtbx_marzo);
+            //VerificacionVacio(Txtbx_marzo);
             SumaDeValores();
         }
 
         private void Txtbx_abril_TextChanged(object sender, EventArgs e)
         {
             CambioDinamico("Column6", Txtbx_abril);
-            VerificacionVacio(Txtbx_abril);
+            //VerificacionVacio(Txtbx_abril);
             SumaDeValores();
         }
 
         private void Txtbx_mayo_TextChanged(object sender, EventArgs e)
         {
             CambioDinamico("Column7", Txtbx_mayo);
-            VerificacionVacio(Txtbx_mayo);
+            //VerificacionVacio(Txtbx_mayo);
             SumaDeValores();
         }
 
         private void Txtbx_junio_TextChanged(object sender, EventArgs e)
         {
             CambioDinamico("Column8", Txtbx_junio);
-            VerificacionVacio(Txtbx_junio);
+            //VerificacionVacio(Txtbx_junio);
             SumaDeValores();
         }
 
         private void Txtbx_julio_TextChanged(object sender, EventArgs e)
         {
             CambioDinamico("Column9", Txtbx_julio);
-            VerificacionVacio(Txtbx_julio);
+            //VerificacionVacio(Txtbx_julio);
             SumaDeValores();
         }
 
         private void Txtbx_agosto_TextChanged(object sender, EventArgs e)
         {
             CambioDinamico("Column10", Txtbx_agosto);
-            VerificacionVacio(Txtbx_agosto);
+            //VerificacionVacio(Txtbx_agosto);
             SumaDeValores();
         }
 
         private void Txtbx_septiembre_TextChanged(object sender, EventArgs e)
         {
             CambioDinamico("Column11", Txtbx_septiembre);
-            VerificacionVacio(Txtbx_septiembre);
+            //VerificacionVacio(Txtbx_septiembre);
             SumaDeValores();
         }
 
@@ -419,21 +420,21 @@ namespace Capa_Vista_Presupuesto
         private void Txtbx_noviembre_TextChanged(object sender, EventArgs e)
         {
             CambioDinamico("Column13", Txtbx_noviembre);
-            VerificacionVacio(Txtbx_noviembre);
+            //VerificacionVacio(Txtbx_noviembre);
             SumaDeValores();
         }
 
         private void Txtbx_diciembre_TextChanged(object sender, EventArgs e)
         {
             CambioDinamico("Column14", Txtbx_diciembre);
-            VerificacionVacio(Txtbx_diciembre);
+            //VerificacionVacio(Txtbx_diciembre);
             SumaDeValores();
         }
 
         private void Txtbx_anual_TextChanged(object sender, EventArgs e)
         {
             CambioDinamico("Column15", Txtbx_anual);
-            VerificacionVacio(Txtbx_anual);
+            //VerificacionVacio(Txtbx_anual);
         }
 
         private void Btn_modificar_Click(object sender, EventArgs e)
@@ -487,10 +488,16 @@ namespace Capa_Vista_Presupuesto
         private void button2_Click(object sender, EventArgs e)
         {
             // Obtener el valor del presupuesto anual y convertirlo a decimal
+            AjustaValores();
+        }
+
+        private void AjustaValores()
+        {
             decimal dePresupuestoAnual;
 
             if (decimal.TryParse(Txtbx_anual.Text, out dePresupuestoAnual))
             {
+                try { 
                 // Dividir el presupuesto anual entre 12
                 decimal deMontoMensual = dePresupuestoAnual / 12;
 
@@ -510,6 +517,10 @@ namespace Capa_Vista_Presupuesto
 
                 //Bitacora-------------!!!
                 logicaSeg.funinsertarabitacora(sIdUsuario, $"Se ajusto el IdPres: {iIdPresupuestoP}", "Presupuesto", "8000");
+                }catch (Exception ex)
+                {
+                    MessageBox.Show("Ocurrió un error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
@@ -519,13 +530,6 @@ namespace Capa_Vista_Presupuesto
 
         private void Btn_incremento_Click(object sender, EventArgs e)
         {
-            //Incremento vResultado = new Incremento();
-            //
-            ////var vResultado = frmIncremento.ShowDialog();
-            //if (vResultado.ShowDialog() == DialogResult.OK)
-            //frmIncremento.sLlenado = sLlenadoP;
-            //var vResultado = frmIncremento.ShowDialog();
-            //if (vResultado == DialogResult.OK)
             Incremento frmIncremento = new Incremento(sLlenadoP); // asume que Incremento tiene un constructor que recibe sLlenadoP
             frmIncremento.sLlenado = sLlenadoP;
 
@@ -559,11 +563,11 @@ namespace Capa_Vista_Presupuesto
         private void IncrementarAnual(decimal dePorcentaje)
         {
             decimal deValorAnual = Convert.ToDecimal(Txtbx_anual.Text);
-
             // Calcular el incremento
             decimal deIncremento = deValorAnual * (dePorcentaje / 100);
             Txtbx_anual.Text = (deValorAnual + deIncremento).ToString("F2");
-            MessageBox.Show("Porfavor , ajustar el valor anual de la cuenta. ","Consejo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            AjustaValores(); 
+            MessageBox.Show("Se ajustaron los valores automaticamente","Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         //Incremento de todos los meses
@@ -664,9 +668,22 @@ namespace Capa_Vista_Presupuesto
             {
                 e.Handled = true; // Cancela el evento si la entrada no es válida
             }
+
             if (e.KeyChar == '.' && tbTexto.Text.Contains("."))
             {
                 e.Handled = true; // Cancelar si ya hay un punto
+            }
+
+            // Limitar a 2 decimales si ya hay un punto decimal
+            if (tbTexto.Text.Contains("."))
+            {
+                int indexOfDecimal = tbTexto.Text.IndexOf('.');
+
+                // Si el cursor está después del punto decimal y ya hay 2 dígitos, cancelar la entrada
+                if (tbTexto.SelectionStart > indexOfDecimal && tbTexto.Text.Length - indexOfDecimal > 2 && !char.IsControl(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
             }
         }
 
@@ -778,73 +795,169 @@ namespace Capa_Vista_Presupuesto
 
         private void Btn_Informe_Click(object sender, EventArgs e)
         {
-            {
-                // Crear una instancia del reporte
-                ReportDocument reporte = new ReportDocument();
-
-                // Retroceder varios niveles desde el directorio base de la aplicación
-                //string sRutaProyecto = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\"));
-
-                //string sRutaReporte = Path.Combine(sRutaProyecto, "Capa_Vista_Presupuesto", "CrystalReport2.rpt");
-
-                //Ruta para que se ejecute desde la ejecucion de Interfac3
-                string sRutaReporte = Path.Combine(sRutaProyectoReportes,"Reportes","Modulos","Contabilidad", "ReportePresupuesto", "ReportePresupuesto.rpt");
-
-                try
-                {
-                    // Mostrar la ruta en un MessageBox para verificar
-                    //MessageBox.Show("Ruta del reporte: " + sRutaReporte, "Ruta Generada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    // Cargar el reporte desde la ruta especificada
-                    reporte.Load(sRutaReporte);
-                    reporte.Refresh();
-
-                    // Mostrar el reporte en un formulario de Crystal Report Viewer
-                    Form viewerForm = new Form();
-                    CrystalReportViewer viewer = new CrystalReportViewer();
-                    viewer.Dock = DockStyle.Fill;
-                    viewer.ReportSource = reporte;
-                    
-                    viewerForm.Controls.Add(viewer);
-                    viewerForm.WindowState = FormWindowState.Maximized;
-                    viewerForm.ShowDialog();
-
-                    //Bitacora------------------------!!!
-                    logicaSeg.funinsertarabitacora(sIdUsuario, $"Se abrio reporte", "Presupuesto", "8000");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al abrir el reporte: " + ex.Message);
-                }
-                finally
-                {
-                    // Libera los recursos del reporte
-                    reporte.Close();
-                    reporte.Dispose();
-                }
-            }
+            ReportesPresupuesto reportes = new ReportesPresupuesto(iIdPresupuestoP);
+            logicaSeg.funinsertarabitacora(sIdUsuario, $"Se abrio Reportes", "Reprotes Presupuesto", "8000");
+            reportes.Show();
         }
+
+
+        
 
         private void Btn_ayuda_Click(object sender, EventArgs e)
         {
+            //AyudaFuncional
+            //try
+            //{
+            //    //Ruta para que se ejecute desde la ejecucion de Interfac3
+            //    string sAyudaPath = Path.Combine(sRutaProyectoAyuda, "Ayuda", "Modulos", "Contabilidad", "AyudaPresupuesto", "AyudaModPresupuesto.chm");
+            //    //string sIndiceAyuda = Path.Combine(sRutaProyecto, "EstadosFinancieros", "ReportesEstados", "Htmlayuda.hmtl");
+            //    //MessageBox.Show("Ruta del reporte: " + sAyudaPath, "Ruta Generada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            //    Help.ShowHelp(this, sAyudaPath, "AyudaPresupuesto.html");
+
+            //    //Bitacora--------------!!!
+            //    logicaSeg.funinsertarabitacora(sIdUsuario, $"Se presiono Ayuda", "Presupuesto", "8000");
+            //}
+            //catch (Exception ex)
+            //{
+            //    // Mostrar un mensaje de error en caso de una excepción
+            //    MessageBox.Show("Ocurrió un error al abrir la ayuda: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    Console.WriteLine("Error al abrir la ayuda: " + ex.ToString());
+            //}
+
             try
             {
-                //Ruta para que se ejecute desde la ejecucion de Interfac3
-                string sAyudaPath = Path.Combine(sRutaProyectoAyuda, "Ayuda", "Modulos", "Contabilidad", "AyudaPresupuesto", "AyudaModPresupuesto.chm");
-                //string sIndiceAyuda = Path.Combine(sRutaProyecto, "EstadosFinancieros", "ReportesEstados", "Htmlayuda.hmtl");
-                //MessageBox.Show("Ruta del reporte: " + sAyudaPath, "Ruta Generada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Buscar la carpeta raíz del proyecto (donde está la carpeta "Codigo")
+                string executablePath = AppDomain.CurrentDomain.BaseDirectory;
+                string projectRoot = executablePath;
 
-                Help.ShowHelp(this, sAyudaPath, "AyudaPresupuesto.html");
+                // Buscar hacia arriba hasta encontrar la carpeta "Codigo"
+                while (!Directory.Exists(Path.Combine(projectRoot, "Codigo")) &&
+                       Directory.GetParent(projectRoot) != null)
+                {
+                    projectRoot = Directory.GetParent(projectRoot).FullName;
+                }
 
-                //Bitacora--------------!!!
-                logicaSeg.funinsertarabitacora(sIdUsuario, $"Se presiono Ayuda", "Presupuesto", "8000");
+                // Construir la ruta a la carpeta de ayuda
+                string ayudaFolderPath = Path.Combine(projectRoot, "Ayuda", "Modulos", "Contabilidad", "AyudaPresupuesto");
+
+                //MessageBox.Show("Ruta de búsqueda: " + ayudaFolderPath);
+
+                // Busca el archivo .chm en la carpeta especificada
+                string pathAyuda = FindFileInDirectory(ayudaFolderPath, "AyudaModPresupuesto.chm");
+
+                if (!string.IsNullOrEmpty(pathAyuda))
+                {
+                    Help.ShowHelp(null, pathAyuda, "AyudaPresupuesto.html");
+                }
+                else
+                {
+                    MessageBox.Show("El archivo de ayuda no se encontró.");
+                }
             }
             catch (Exception ex)
             {
-                // Mostrar un mensaje de error en caso de una excepción
-                MessageBox.Show("Ocurrió un error al abrir la ayuda: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Console.WriteLine("Error al abrir la ayuda: " + ex.ToString());
+                MessageBox.Show("Error al buscar el archivo de ayuda: " + ex.Message);
             }
+
+        }
+
+        //AyudasV2
+        private string FindFileInDirectory(string directory, string fileName)
+        {
+            try
+            {
+                // Verificamos si la carpeta existe
+                if (Directory.Exists(directory))
+                {
+                    // Buscamos el archivo .chm en la carpeta
+                    string[] files = Directory.GetFiles(directory, "*.chm", SearchOption.TopDirectoryOnly);
+                    // Si encontramos el archivo, verificamos si coincide con el archivo que se busca y retornamos su ruta
+                    foreach (var file in files)
+                    {
+                        if (Path.GetFileName(file).Equals(fileName, StringComparison.OrdinalIgnoreCase))
+                        {
+                            //MessageBox.Show("Archivo encontrado: " + file);
+                            return file;
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró la carpeta: " + directory);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al buscar el archivo: " + ex.Message);
+            }
+            // Retorna null si no se encontró el archivo
+            return null;
+        }
+
+        private void Txtbx_enero_Leave(object sender, EventArgs e)
+        {
+            VerificacionVacio(Txtbx_enero);
+        }
+
+        private void Txtbx_febrero_Leave(object sender, EventArgs e)
+        {
+            VerificacionVacio(Txtbx_febrero);
+        }
+
+        private void Txtbx_marzo_Leave(object sender, EventArgs e)
+        {
+            VerificacionVacio(Txtbx_marzo);
+        }
+
+        private void Txtbx_abril_Leave(object sender, EventArgs e)
+        {
+            VerificacionVacio(Txtbx_abril);
+        }
+
+        private void Txtbx_mayo_Leave(object sender, EventArgs e)
+        {
+            VerificacionVacio(Txtbx_mayo);
+        }
+
+        private void Txtbx_junio_Leave(object sender, EventArgs e)
+        {
+            VerificacionVacio(Txtbx_junio);
+        }
+
+        private void Txtbx_julio_Leave(object sender, EventArgs e)
+        {
+            VerificacionVacio(Txtbx_julio);
+        }
+
+        private void Txtbx_agosto_Leave(object sender, EventArgs e)
+        {
+            VerificacionVacio(Txtbx_agosto);
+        }
+
+        private void Txtbx_septiembre_Leave(object sender, EventArgs e)
+        {
+            VerificacionVacio(Txtbx_septiembre);
+        }
+
+        private void Txtbx_octubre_Leave(object sender, EventArgs e)
+        {
+            VerificacionVacio(Txtbx_octubre);
+        }
+
+        private void Txtbx_noviembre_Leave(object sender, EventArgs e)
+        {
+            VerificacionVacio(Txtbx_noviembre);
+        }
+
+        private void Txtbx_diciembre_Leave(object sender, EventArgs e)
+        {
+            VerificacionVacio(Txtbx_diciembre);
+        }
+
+        private void Txtbx_anual_Leave(object sender, EventArgs e)
+        {
+            VerificacionVacio(Txtbx_febrero);
         }
     }
 }

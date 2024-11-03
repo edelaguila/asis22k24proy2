@@ -112,8 +112,7 @@ namespace Capa_Vista_Presupuesto
             "Septiembre",
             "Octubre",
             "Noviembre",
-            "Diciembre",
-            ""});
+            "Diciembre"});
             this.Cb_meses.Location = new System.Drawing.Point(90, 185);
             this.Cb_meses.Name = "Cb_meses";
             this.Cb_meses.Size = new System.Drawing.Size(131, 27);

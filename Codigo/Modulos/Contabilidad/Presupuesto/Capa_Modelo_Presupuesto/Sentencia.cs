@@ -16,7 +16,7 @@ namespace Capa_Modelo_Presupuesto
 
         public OdbcDataAdapter ObtenerCuentas()
         {
-            string sSql = "SELECT Pk_id_cuenta , nombre_cuenta FROM tbl_cuentas";
+            string sSql = "SELECT Pk_id_cuenta , nombre_cuenta FROM tbl_cuentas WHERE estado=1";
             OdbcCommand comando = new OdbcCommand(sSql, con.NuevaConexion());
             OdbcDataAdapter adaptador = new OdbcDataAdapter(comando);
             return adaptador;
@@ -214,7 +214,17 @@ namespace Capa_Modelo_Presupuesto
 
         public bool VerificarCuentas()
         {
-            string sSql = "SELECT COUNT(*) FROM tbl_cuentas";
+            string sSql = "SELECT COUNT(*) FROM tbl_cuentas WHERE estado=1";
+            using (OdbcCommand comando = new OdbcCommand(sSql, con.NuevaConexion()))
+            {
+                int count = Convert.ToInt32(comando.ExecuteScalar());
+                return count > 0; // Devuelve true si hay al menos una cuenta
+            }
+        }
+
+        public bool VerificarForaneas()
+        {
+            string sSql = " SELECT COUNT(*) AS TotalRegistros FROM tbl_encabezadoclasecuenta WHERE Pk_id_encabezadocuenta IS NOT NULL AND nombre_tipocuenta IS NOT NULL AND estado IS NOT NULL ";
             using (OdbcCommand comando = new OdbcCommand(sSql, con.NuevaConexion()))
             {
                 int count = Convert.ToInt32(comando.ExecuteScalar());

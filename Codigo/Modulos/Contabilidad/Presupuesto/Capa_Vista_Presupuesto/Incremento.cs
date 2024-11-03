@@ -133,24 +133,93 @@ namespace Capa_Vista_Presupuesto
 
         private void Btn_ayuda_Click(object sender, EventArgs e)
         {
+            //Viejo Ayuda
+            //try
+            //{
+            //    //Ruta para que se ejecute desde la ejecucion de Interfac3
+            //    string sAyudaPath = Path.Combine(sRutaProyectoAyuda, "Ayuda", "Modulos", "Contabilidad", "AyudaPresupuesto", "AyudaModPresupuesto.chm");
+            //    //string sIndiceAyuda = Path.Combine(sRutaProyecto, "EstadosFinancieros", "ReportesEstados", "Htmlayuda.hmtl");
+            //    //MessageBox.Show("Ruta del reporte: " + sAyudaPath, "Ruta Generada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            //    Help.ShowHelp(this, sAyudaPath, "AyudaIncremento.html");
+
+            //    //Bitacora--------------!!!
+            //    logicaSeg.funinsertarabitacora(sIdUsuario, $"Se presiono Ayuda", "Incremento", "8000");
+            //}
+            //catch (Exception ex)
+            //{
+            //    // Mostrar un mensaje de error en caso de una excepción
+            //    MessageBox.Show("Ocurrió un error al abrir la ayuda: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    Console.WriteLine("Error al abrir la ayuda: " + ex.ToString());
+            //}
+
             try
             {
-                //Ruta para que se ejecute desde la ejecucion de Interfac3
-                string sAyudaPath = Path.Combine(sRutaProyectoAyuda, "Ayuda", "Modulos", "Contabilidad", "AyudaPresupuesto", "AyudaModPresupuesto.chm");
-                //string sIndiceAyuda = Path.Combine(sRutaProyecto, "EstadosFinancieros", "ReportesEstados", "Htmlayuda.hmtl");
-                //MessageBox.Show("Ruta del reporte: " + sAyudaPath, "Ruta Generada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Buscar la carpeta raíz del proyecto (donde está la carpeta "Codigo")
+                string executablePath = AppDomain.CurrentDomain.BaseDirectory;
+                string projectRoot = executablePath;
 
-                Help.ShowHelp(this, sAyudaPath, "AyudaIncremento.html");
+                // Buscar hacia arriba hasta encontrar la carpeta "Codigo"
+                while (!Directory.Exists(Path.Combine(projectRoot, "Codigo")) &&
+                       Directory.GetParent(projectRoot) != null)
+                {
+                    projectRoot = Directory.GetParent(projectRoot).FullName;
+                }
 
-                //Bitacora--------------!!!
-                logicaSeg.funinsertarabitacora(sIdUsuario, $"Se presiono Ayuda", "Incremento", "8000");
+                // Construir la ruta a la carpeta de ayuda
+                string ayudaFolderPath = Path.Combine(projectRoot, "Ayuda", "Modulos", "Contabilidad", "AyudaPresupuesto");
+
+                //MessageBox.Show("Ruta de búsqueda: " + ayudaFolderPath);
+
+                // Busca el archivo .chm en la carpeta especificada
+                string pathAyuda = FindFileInDirectory(ayudaFolderPath, "AyudaModPresupuesto.chm");
+
+                if (!string.IsNullOrEmpty(pathAyuda))
+                {
+                    Help.ShowHelp(null, pathAyuda, "AyudaIncremento.html");
+                }
+                else
+                {
+                    MessageBox.Show("El archivo de ayuda no se encontró.");
+                }
             }
             catch (Exception ex)
             {
-                // Mostrar un mensaje de error en caso de una excepción
-                MessageBox.Show("Ocurrió un error al abrir la ayuda: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Console.WriteLine("Error al abrir la ayuda: " + ex.ToString());
+                MessageBox.Show("Error al buscar el archivo de ayuda: " + ex.Message);
             }
+
+        }
+
+        private string FindFileInDirectory(string directory, string fileName)
+        {
+            try
+            {
+                // Verificamos si la carpeta existe
+                if (Directory.Exists(directory))
+                {
+                    // Buscamos el archivo .chm en la carpeta
+                    string[] files = Directory.GetFiles(directory, "*.chm", SearchOption.TopDirectoryOnly);
+                    // Si encontramos el archivo, verificamos si coincide con el archivo que se busca y retornamos su ruta
+                    foreach (var file in files)
+                    {
+                        if (Path.GetFileName(file).Equals(fileName, StringComparison.OrdinalIgnoreCase))
+                        {
+                            //MessageBox.Show("Archivo encontrado: " + file);
+                            return file;
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró la carpeta: " + directory);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al buscar el archivo: " + ex.Message);
+            }
+            // Retorna null si no se encontró el archivo
+            return null;
         }
     }
 }

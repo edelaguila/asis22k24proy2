@@ -158,18 +158,18 @@ namespace Capa_Vista_Presupuesto
             this.Txt_forma.AutoSize = true;
             this.Txt_forma.Location = new System.Drawing.Point(6, 26);
             this.Txt_forma.Name = "Txt_forma";
-            this.Txt_forma.Size = new System.Drawing.Size(119, 19);
+            this.Txt_forma.Size = new System.Drawing.Size(171, 19);
             this.Txt_forma.TabIndex = 10;
-            this.Txt_forma.Text = "Forma de trabajar";
+            this.Txt_forma.Text = "Modo de registro de datos";
             // 
             // Chb_plantilla
             // 
             this.Chb_plantilla.AutoSize = true;
             this.Chb_plantilla.Location = new System.Drawing.Point(220, 50);
             this.Chb_plantilla.Name = "Chb_plantilla";
-            this.Chb_plantilla.Size = new System.Drawing.Size(92, 23);
+            this.Chb_plantilla.Size = new System.Drawing.Size(184, 23);
             this.Chb_plantilla.TabIndex = 3;
-            this.Chb_plantilla.Text = "Prellenado";
+            this.Chb_plantilla.Text = "Presupuesto de referencia";
             this.Chb_plantilla.UseVisualStyleBackColor = true;
             this.Chb_plantilla.CheckedChanged += new System.EventHandler(this.Chb_plantilla_CheckedChanged);
             // 
@@ -197,9 +197,9 @@ namespace Capa_Vista_Presupuesto
             this.Txt_trabajar.AutoSize = true;
             this.Txt_trabajar.Location = new System.Drawing.Point(216, 106);
             this.Txt_trabajar.Name = "Txt_trabajar";
-            this.Txt_trabajar.Size = new System.Drawing.Size(119, 19);
+            this.Txt_trabajar.Size = new System.Drawing.Size(171, 19);
             this.Txt_trabajar.TabIndex = 13;
-            this.Txt_trabajar.Text = "Forma de trabajar";
+            this.Txt_trabajar.Text = "Modo de registro de datos";
             this.Txt_trabajar.Click += new System.EventHandler(this.Txt_trabajar_Click);
             // 
             // Cb_LlenadoCrear
@@ -220,9 +220,9 @@ namespace Capa_Vista_Presupuesto
             this.Txt_nombre.AutoSize = true;
             this.Txt_nombre.Location = new System.Drawing.Point(6, 54);
             this.Txt_nombre.Name = "Txt_nombre";
-            this.Txt_nombre.Size = new System.Drawing.Size(60, 19);
+            this.Txt_nombre.Size = new System.Drawing.Size(169, 19);
             this.Txt_nombre.TabIndex = 3;
-            this.Txt_nombre.Text = "Nombre";
+            this.Txt_nombre.Text = "Nombre para Presupuesto";
             // 
             // Gpb_modificar
             // 

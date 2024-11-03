@@ -119,6 +119,10 @@ namespace Capa_Controlador_Presupuesto
         {
             return sn.VerificarCuentas();
         }
+        public bool PuedeCrearPresupuestoForaneo()
+        {
+            return sn.VerificarForaneas();
+        }
         public void ActualizarEstadosPresupuesto()
         {
             sn.ActualizarEstadosPresupuestos();
