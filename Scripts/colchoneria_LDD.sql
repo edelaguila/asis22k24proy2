@@ -127,84 +127,6 @@ CREATE TABLE `ayuda` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
-
-
---
--- Estructura de tabla para la tabla `detallefactura`
---
-
-CREATE TABLE `detallefactura` (
-  `Pk_id_detalle_factura` int(11) NOT NULL,
-  `fk_id_factura` int(11) DEFAULT NULL,
-  `descripcion_factura` varchar(255) DEFAULT NULL,
-  `cantidad` int(11) DEFAULT NULL,
-  `monto_factura` decimal(10,2) DEFAULT NULL,
-  `estado` tinyint(1) DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `empleados`
---
-
-CREATE TABLE `empleados` (
-  `codigo_empleado` int(11) NOT NULL,
-  `nombre_completo` varchar(75) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `puesto` varchar(75) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `departamento` varchar(75) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `estado` tinyint(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `factura`
---
-
-CREATE TABLE `factura` (
-  `Pk_id_factura` int(11) NOT NULL,
-  `fecha_factura` date DEFAULT NULL,
-  `monto_factura` decimal(10,2) DEFAULT NULL,
-  `estado` tinyint(1) DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pagos`
---
-
-CREATE TABLE `pagos` (
-  `Pk_id_pago` int(11) NOT NULL,
-  `fk_id_factura` int(11) DEFAULT NULL,
-  `fecha_pago` date DEFAULT NULL,
-  `monto_factura` decimal(10,2) DEFAULT NULL,
-  `estado` tinyint(1) DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `registro_empleados`
---
-
-CREATE TABLE `registro_empleados` (
-  `codigo_registro` int(11) NOT NULL,
-  `codigo_empleado` int(11) NOT NULL,
-  `fecha_registro` date NOT NULL,
-  `hora_entrada` time NOT NULL,
-  `hora_salida` time DEFAULT NULL,
-  `total_de_horas` time DEFAULT NULL,
-  `estado` tinyint(4) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
--- --------------------------------------------------------
-
 --
 -- Estructura de tabla para la tabla `tbl_aplicaciones`
 --
@@ -504,42 +426,6 @@ ALTER TABLE `ayuda`
   ADD PRIMARY KEY (`Id_ayuda`);
 
 --
--- Indices de la tabla `detallefactura`
---
-ALTER TABLE `detallefactura`
-  ADD PRIMARY KEY (`Pk_id_detalle_factura`),
-  ADD KEY `fk_id_factura` (`fk_id_factura`);
-
---
--- Indices de la tabla `empleados`
---
-ALTER TABLE `empleados`
-  ADD PRIMARY KEY (`codigo_empleado`);
-
---
--- Indices de la tabla `factura`
---
-ALTER TABLE `factura`
-  ADD PRIMARY KEY (`Pk_id_factura`);
-
---
--- Indices de la tabla `pagos`
---
-ALTER TABLE `pagos`
-  ADD PRIMARY KEY (`Pk_id_pago`),
-  ADD KEY `fk_id_factura` (`fk_id_factura`);
-
-
--- Indices de la tabla `registro_empleados`
---
-ALTER TABLE `registro_empleados`
-  ADD PRIMARY KEY (`codigo_registro`),
-  ADD KEY `fk_codigo_empleado` (`codigo_empleado`);
-
-
---
-
---
 -- Indices de la tabla `tbl_asignaciones_perfils_usuario`
 --
 ALTER TABLE `tbl_asignaciones_perfils_usuario`
@@ -618,37 +504,6 @@ ALTER TABLE `venta`
 --
 ALTER TABLE `ayuda`
   MODIFY `Id_ayuda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de la tabla `detallefactura`
---
-ALTER TABLE `detallefactura`
-  MODIFY `Pk_id_detalle_factura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
---
--- AUTO_INCREMENT de la tabla `empleados`
---
-ALTER TABLE `empleados`
-  MODIFY `codigo_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
-
---
--- AUTO_INCREMENT de la tabla `factura`
---
-ALTER TABLE `factura`
-  MODIFY `Pk_id_factura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT de la tabla `pagos`
---
-ALTER TABLE `pagos`
-  MODIFY `Pk_id_pago` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT de la tabla `registro_empleados`
---
-ALTER TABLE `registro_empleados`
-  MODIFY `codigo_registro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
-
 --
 -- AUTO_INCREMENT de la tabla `tbl_asignaciones_perfils_usuario`
 --
@@ -705,26 +560,6 @@ ALTER TABLE `venta`
 
 --
 -- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `detallefactura`
---
-ALTER TABLE `detallefactura`
-  ADD CONSTRAINT `detallefactura_ibfk_1` FOREIGN KEY (`fk_id_factura`) REFERENCES `factura` (`Pk_id_factura`);
-
---
--- Filtros para la tabla `pagos`
---
-ALTER TABLE `pagos`
-  ADD CONSTRAINT `pagos_ibfk_1` FOREIGN KEY (`fk_id_factura`) REFERENCES `factura` (`Pk_id_factura`);
-
---
--- Filtros para la tabla `registro_empleados`
---
-ALTER TABLE `registro_empleados`
-  ADD CONSTRAINT `fk_codigo_empleado` FOREIGN KEY (`codigo_empleado`) REFERENCES `empleados` (`codigo_empleado`) ON DELETE CASCADE ON UPDATE CASCADE;
-
 --
 -- Filtros para la tabla `tbl_asignaciones_perfils_usuario`
 --
@@ -1736,6 +1571,14 @@ CREATE TABLE IF NOT EXISTS Tbl_caja_proveedor (
     FOREIGN KEY (Fk_id_deuda) REFERENCES Tbl_Deudas_Proveedores (Pk_id_deuda)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- Tabla nueva Transacciones_cuentas
+CREATE TABLE IF NOT EXISTS Tbl_transaccion_cuentas (
+	Pk_id_tran_cue INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    tran_nombre VARCHAR(150) NOT NULL,
+    tran_efecto VARCHAR(15) NOT NULL,
+    estado TINYINT DEFAULT 1 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci; 
+
 -- FIN TABLAS MAESTRAS CUENTAS CORRIENTES
 
 -- INICIA CREACIÓN DE TABLAS PRODUCCIÓN
@@ -1855,3 +1698,16 @@ CREATE TABLE IF NOT EXISTS `tbl_rrhh_produccion` (
   `estado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 -- FIN DE CREACIÓN DE TABLA DE PRODUCCIÓN
+
+
+-- Nueva tabla creada por parte de producción 03-11-2024 aprobado por Brandon Boch
+-- 1. Creación de tabla maquinaria, hablada con el ingeniero.
+CREATE TABLE IF NOT EXISTS `tbl_maquinaria` (
+  `pk_id_maquina` int(11) AUTO_INCREMENT PRIMARY KEY,
+  `nombre_maquina` varchar(100) NOT NULL,
+  `tipo_maquina` varchar(50) NOT NULL,
+  `capacidad_produccion` decimal(10,2) NOT NULL,
+  `estado` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Fin
