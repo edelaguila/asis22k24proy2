@@ -16,7 +16,7 @@ namespace Capa_Vista_Logistica
         {
             InitializeComponent();
             string idUsuario = Interfac_V3.UsuarioSesion.GetIdUsuario();
-            string[] alias = { "id_movimiento", "estado", "id_producto", "id_stock", "bodega Destino", "sucursal Destino"};
+            string[] alias = { "id_movimiento", "estado", "id_producto", "id_stock", "id_locales"};
             navegador1.AsignarAlias(alias);
             navegador1.AsignarSalida(this);
             navegador1.AsignarColorFondo(Color.CadetBlue);

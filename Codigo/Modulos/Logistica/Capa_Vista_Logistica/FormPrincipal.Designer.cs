@@ -36,9 +36,7 @@
             this.lbl_usuario2 = new System.Windows.Forms.Label();
             this.lbl_usuario = new System.Windows.Forms.Label();
             this.panelformularios = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.btnSalir = new System.Windows.Forms.Button();
             this.panelMenuProcesos = new System.Windows.Forms.Panel();
             this.Btn_MenuProcesosOpcion7 = new System.Windows.Forms.Button();
             this.Btn_MenuProcesosOpcion6 = new System.Windows.Forms.Button();
@@ -47,7 +45,6 @@
             this.Btn_MenuProcesosOpcion3 = new System.Windows.Forms.Button();
             this.Btn_MenuProcesosOpcion2 = new System.Windows.Forms.Button();
             this.Btn_MenuProcesosOpcion1 = new System.Windows.Forms.Button();
-            this.btnMenuProcesos = new System.Windows.Forms.Button();
             this.panelMenuCatalogos = new System.Windows.Forms.Panel();
             this.Btn_MenuCatalogosOpcion7 = new System.Windows.Forms.Button();
             this.Btn_MenuCatalogosOpcion6 = new System.Windows.Forms.Button();
@@ -56,21 +53,25 @@
             this.Btn_MenuCatalogosOpcion3 = new System.Windows.Forms.Button();
             this.Btn_MenuCatalogosOpcion2 = new System.Windows.Forms.Button();
             this.Btn_MenuCatalogosOpcion1 = new System.Windows.Forms.Button();
-            this.btnMenuCatalogos = new System.Windows.Forms.Button();
             this.panelBarraTitulo = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnMenuProcesos = new System.Windows.Forms.Button();
+            this.btnMenuCatalogos = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnRestaurar = new System.Windows.Forms.PictureBox();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
             this.btnMaximizar = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.Btn_ayuda = new System.Windows.Forms.Button();
             this.panelContenedor.SuspendLayout();
             this.panelIdentificacion.SuspendLayout();
             this.panelformularios.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.panelMenuProcesos.SuspendLayout();
             this.panelMenuCatalogos.SuspendLayout();
             this.panelBarraTitulo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
@@ -159,23 +160,11 @@
             this.panelformularios.TabIndex = 2;
             this.panelformularios.Paint += new System.Windows.Forms.PaintEventHandler(this.panelformularios_Paint);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(425, 191);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(225, 225);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // panelMenu
             // 
             this.panelMenu.AutoScroll = true;
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(210)))), ((int)(((byte)(197)))));
+            this.panelMenu.Controls.Add(this.Btn_ayuda);
             this.panelMenu.Controls.Add(this.btnSalir);
             this.panelMenu.Controls.Add(this.panelMenuProcesos);
             this.panelMenu.Controls.Add(this.btnMenuProcesos);
@@ -187,27 +176,6 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(182, 634);
             this.panelMenu.TabIndex = 1;
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSalir.FlatAppearance.BorderSize = 0;
-            this.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
-            this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalir.Location = new System.Drawing.Point(0, 526);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(182, 35);
-            this.btnSalir.TabIndex = 7;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // panelMenuProcesos
             // 
@@ -323,7 +291,7 @@
             this.Btn_MenuProcesosOpcion2.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
             this.Btn_MenuProcesosOpcion2.Size = new System.Drawing.Size(182, 31);
             this.Btn_MenuProcesosOpcion2.TabIndex = 1;
-            this.Btn_MenuProcesosOpcion2.Text = "Transporte de Vehículos";
+            this.Btn_MenuProcesosOpcion2.Text = "Transporte de pedidos";
             this.Btn_MenuProcesosOpcion2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Btn_MenuProcesosOpcion2.UseVisualStyleBackColor = true;
             this.Btn_MenuProcesosOpcion2.Click += new System.EventHandler(this.Btn_MenuProcesosOpcion2_Click);
@@ -340,31 +308,10 @@
             this.Btn_MenuProcesosOpcion1.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
             this.Btn_MenuProcesosOpcion1.Size = new System.Drawing.Size(182, 30);
             this.Btn_MenuProcesosOpcion1.TabIndex = 0;
-            this.Btn_MenuProcesosOpcion1.Text = "Chofer";
+            this.Btn_MenuProcesosOpcion1.Text = "Vehículos";
             this.Btn_MenuProcesosOpcion1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Btn_MenuProcesosOpcion1.UseVisualStyleBackColor = true;
             this.Btn_MenuProcesosOpcion1.Click += new System.EventHandler(this.btnMenuProcesosOpcion1_Click);
-            // 
-            // btnMenuProcesos
-            // 
-            this.btnMenuProcesos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMenuProcesos.FlatAppearance.BorderSize = 0;
-            this.btnMenuProcesos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.btnMenuProcesos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.btnMenuProcesos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenuProcesos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuProcesos.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnMenuProcesos.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuProcesos.Image")));
-            this.btnMenuProcesos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenuProcesos.Location = new System.Drawing.Point(0, 268);
-            this.btnMenuProcesos.Margin = new System.Windows.Forms.Padding(2);
-            this.btnMenuProcesos.Name = "btnMenuProcesos";
-            this.btnMenuProcesos.Size = new System.Drawing.Size(182, 37);
-            this.btnMenuProcesos.TabIndex = 5;
-            this.btnMenuProcesos.Text = "Procesos";
-            this.btnMenuProcesos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnMenuProcesos.UseVisualStyleBackColor = true;
-            this.btnMenuProcesos.Click += new System.EventHandler(this.btnMenuProcesos_Click);
             // 
             // panelMenuCatalogos
             // 
@@ -395,7 +342,7 @@
             this.Btn_MenuCatalogosOpcion7.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
             this.Btn_MenuCatalogosOpcion7.Size = new System.Drawing.Size(182, 33);
             this.Btn_MenuCatalogosOpcion7.TabIndex = 6;
-            this.Btn_MenuCatalogosOpcion7.Text = "Mantenimiento de vehículos";
+            this.Btn_MenuCatalogosOpcion7.Text = "Chofer";
             this.Btn_MenuCatalogosOpcion7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Btn_MenuCatalogosOpcion7.UseVisualStyleBackColor = true;
             this.Btn_MenuCatalogosOpcion7.Click += new System.EventHandler(this.Btn_MenuCatalogosOpcion7_Click);
@@ -502,6 +449,56 @@
             this.Btn_MenuCatalogosOpcion1.UseVisualStyleBackColor = true;
             this.Btn_MenuCatalogosOpcion1.Click += new System.EventHandler(this.btnMenuCatalogosOpcion1_Click);
             // 
+            // panelBarraTitulo
+            // 
+            this.panelBarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(223)))), ((int)(((byte)(200)))));
+            this.panelBarraTitulo.Controls.Add(this.pictureBox2);
+            this.panelBarraTitulo.Controls.Add(this.btnRestaurar);
+            this.panelBarraTitulo.Controls.Add(this.btnMinimizar);
+            this.panelBarraTitulo.Controls.Add(this.btnMaximizar);
+            this.panelBarraTitulo.Controls.Add(this.btnCerrar);
+            this.panelBarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelBarraTitulo.Location = new System.Drawing.Point(0, 0);
+            this.panelBarraTitulo.Margin = new System.Windows.Forms.Padding(2);
+            this.panelBarraTitulo.Name = "panelBarraTitulo";
+            this.panelBarraTitulo.Size = new System.Drawing.Size(1212, 32);
+            this.panelBarraTitulo.TabIndex = 0;
+            this.panelBarraTitulo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelBarraTitulo_MouseMove);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(425, 191);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(225, 225);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnMenuProcesos
+            // 
+            this.btnMenuProcesos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuProcesos.FlatAppearance.BorderSize = 0;
+            this.btnMenuProcesos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.btnMenuProcesos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnMenuProcesos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenuProcesos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuProcesos.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnMenuProcesos.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuProcesos.Image")));
+            this.btnMenuProcesos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMenuProcesos.Location = new System.Drawing.Point(0, 268);
+            this.btnMenuProcesos.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMenuProcesos.Name = "btnMenuProcesos";
+            this.btnMenuProcesos.Size = new System.Drawing.Size(182, 37);
+            this.btnMenuProcesos.TabIndex = 5;
+            this.btnMenuProcesos.Text = "Procesos";
+            this.btnMenuProcesos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnMenuProcesos.UseVisualStyleBackColor = true;
+            this.btnMenuProcesos.Click += new System.EventHandler(this.btnMenuProcesos_Click);
+            // 
             // btnMenuCatalogos
             // 
             this.btnMenuCatalogos.Dock = System.Windows.Forms.DockStyle.Top;
@@ -523,22 +520,6 @@
             this.btnMenuCatalogos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnMenuCatalogos.UseVisualStyleBackColor = true;
             this.btnMenuCatalogos.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // panelBarraTitulo
-            // 
-            this.panelBarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(223)))), ((int)(((byte)(200)))));
-            this.panelBarraTitulo.Controls.Add(this.pictureBox2);
-            this.panelBarraTitulo.Controls.Add(this.btnRestaurar);
-            this.panelBarraTitulo.Controls.Add(this.btnMinimizar);
-            this.panelBarraTitulo.Controls.Add(this.btnMaximizar);
-            this.panelBarraTitulo.Controls.Add(this.btnCerrar);
-            this.panelBarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelBarraTitulo.Location = new System.Drawing.Point(0, 0);
-            this.panelBarraTitulo.Margin = new System.Windows.Forms.Padding(2);
-            this.panelBarraTitulo.Name = "panelBarraTitulo";
-            this.panelBarraTitulo.Size = new System.Drawing.Size(1212, 32);
-            this.panelBarraTitulo.TabIndex = 0;
-            this.panelBarraTitulo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelBarraTitulo_MouseMove);
             // 
             // pictureBox2
             // 
@@ -608,6 +589,47 @@
             this.btnCerrar.TabStop = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
+            // btnSalir
+            // 
+            this.btnSalir.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnSalir.FlatAppearance.BorderSize = 0;
+            this.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
+            this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSalir.Location = new System.Drawing.Point(0, 599);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(182, 35);
+            this.btnSalir.TabIndex = 7;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // Btn_ayuda
+            // 
+            this.Btn_ayuda.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Btn_ayuda.FlatAppearance.BorderSize = 0;
+            this.Btn_ayuda.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.Btn_ayuda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.Btn_ayuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_ayuda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_ayuda.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Btn_ayuda.Image = ((System.Drawing.Image)(resources.GetObject("Btn_ayuda.Image")));
+            this.Btn_ayuda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_ayuda.Location = new System.Drawing.Point(0, 526);
+            this.Btn_ayuda.Margin = new System.Windows.Forms.Padding(2);
+            this.Btn_ayuda.Name = "Btn_ayuda";
+            this.Btn_ayuda.Size = new System.Drawing.Size(182, 35);
+            this.Btn_ayuda.TabIndex = 8;
+            this.Btn_ayuda.Text = "Ayuda";
+            this.Btn_ayuda.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Btn_ayuda.UseVisualStyleBackColor = true;
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -627,11 +649,11 @@
             this.panelIdentificacion.PerformLayout();
             this.panelformularios.ResumeLayout(false);
             this.panelformularios.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.panelMenuProcesos.ResumeLayout(false);
             this.panelMenuCatalogos.ResumeLayout(false);
             this.panelBarraTitulo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
@@ -662,7 +684,6 @@
         private System.Windows.Forms.Button Btn_MenuProcesosOpcion2;
         private System.Windows.Forms.Button Btn_MenuProcesosOpcion1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button Btn_MenuCatalogosOpcion6;
         private System.Windows.Forms.Button Btn_MenuCatalogosOpcion5;
         private System.Windows.Forms.Button Btn_MenuCatalogosOpcion4;
@@ -677,6 +698,8 @@
         private System.Windows.Forms.Label lbl_usuario2;
         private System.Windows.Forms.Label lbl_usuario;
         private System.Windows.Forms.Button Btn_MenuProcesosOpcion7;
+        private System.Windows.Forms.Button Btn_ayuda;
+        private System.Windows.Forms.Button btnSalir;
     }
 }
 
