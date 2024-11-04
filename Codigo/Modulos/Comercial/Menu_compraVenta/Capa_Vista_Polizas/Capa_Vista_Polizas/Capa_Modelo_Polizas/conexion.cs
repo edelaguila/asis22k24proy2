@@ -11,7 +11,7 @@ namespace Capa_Modelo_Polizas
     {
         public OdbcConnection conectar()
         {
-            OdbcConnection conectar = new OdbcConnection("Dsn=PruebaContabilidad");
+            OdbcConnection conectar = new OdbcConnection("Dsn=colchoneria");
 
             try
             {
