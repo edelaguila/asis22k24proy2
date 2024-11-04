@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Capa_Vista_Produccion.Properties {
+namespace Capa_Vista_Ordenes.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Capa_Vista_Produccion.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Capa_Vista_Produccion.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Capa_Vista_Ordenes.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,9 +63,9 @@ namespace Capa_Vista_Produccion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap CANCELAR_V4 {
+        internal static System.Drawing.Bitmap ACTUALIZAR_V4 {
             get {
-                object obj = ResourceManager.GetObject("CANCELAR_V4", resourceCulture);
+                object obj = ResourceManager.GetObject("ACTUALIZAR_V4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Capa_Vista_Produccion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Fondo_Produccion {
+        internal static System.Drawing.Bitmap BORRAR_V4 {
             get {
-                object obj = ResourceManager.GetObject("Fondo_Produccion", resourceCulture);
+                object obj = ResourceManager.GetObject("BORRAR_V4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace Capa_Vista_Produccion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap guardar {
+        internal static System.Drawing.Bitmap BUCAR_V4 {
             get {
-                object obj = ResourceManager.GetObject("guardar", resourceCulture);
+                object obj = ResourceManager.GetObject("BUCAR_V4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

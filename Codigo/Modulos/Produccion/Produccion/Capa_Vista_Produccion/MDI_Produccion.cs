@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Capa_Vista_Ordenes;
+using Capa_Vista_Sistema_Produccion;
+
 
 namespace Capa_Vista_Produccion
 {
@@ -15,10 +18,18 @@ namespace Capa_Vista_Produccion
         // Variables para capturar la posición y el tamaño del formulario antes de maximizar
         int lx, ly;
         int sw, sh;
+        private bool arrastrando = false;
+        private Point posicionInicialCursor;
+        private Point posicionInicialFormulario;
+
+        // Variables para almacenar la referencia a los formularios de cierre y pólizas
+        private Frm_Ordenes_De_Produccion ordenesForm;
+        private Frm_Sistema_Produccion sistemaForm;
 
         public MDI_Produccion(string idUsuario)
         {
             InitializeComponent();
+            this.IsMdiContainer = true;  // Configura el formulario como contenedor MDI
             ocultaSubMenu(); // Solo oculta los menús al inicio
             lbl_user.Text = idUsuario;
 
@@ -26,9 +37,38 @@ namespace Capa_Vista_Produccion
             timer1.Tick += ActualizarFechaHora;
             timer1.Interval = 1000; // 1 segundo
             timer1.Start(); // Iniciar el Timer
+
+            // Asignar eventos de arrastre al panelBarraTitulo
+            panelBarraTitulo.MouseDown += PanelBarraTitulo_MouseDown;
+            panelBarraTitulo.MouseMove += PanelBarraTitulo_MouseMove;
+            panelBarraTitulo.MouseUp += PanelBarraTitulo_MouseUp;
         }
 
         string idUsuario = Interfac_V3.UsuarioSesion.GetIdUsuario();
+
+        // Evento MouseDown para iniciar el arrastre
+        private void PanelBarraTitulo_MouseDown(object sender, MouseEventArgs e)
+        {
+            arrastrando = true;
+            posicionInicialCursor = Cursor.Position;
+            posicionInicialFormulario = this.Location;
+        }
+
+        // Evento MouseMove para mover el formulario mientras se arrastra
+        private void PanelBarraTitulo_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (arrastrando)
+            {
+                Point diferencia = Point.Subtract(Cursor.Position, new Size(posicionInicialCursor));
+                this.Location = Point.Add(posicionInicialFormulario, new Size(diferencia));
+            }
+        }
+
+        // Evento MouseUp para finalizar el arrastre
+        private void PanelBarraTitulo_MouseUp(object sender, MouseEventArgs e)
+        {
+            arrastrando = false;
+        }
 
         // Ocultar submenús al iniciar (sin cerrar al abrir otro)
         private void ocultaSubMenu()
@@ -74,9 +114,27 @@ namespace Capa_Vista_Produccion
         // Botón de órdenes de producción
         private void btnOrdenesProduccion_Click(object sender, EventArgs e)
         {
-            /*
-              * Acá va la lógica para abrir el formulario de Órdenes de Producción
-            */
+            // Verifica si el formulario de órdenes de producción ya está abierto
+            if (ordenesForm == null || ordenesForm.IsDisposed)
+            {
+                pb_Fondo.Visible = false;
+
+                // Crea el formulario de órdenes de producción y configura sus propiedades
+                ordenesForm = new Frm_Ordenes_De_Produccion();
+                ordenesForm.MdiParent = this;
+                ordenesForm.StartPosition = FormStartPosition.CenterScreen;
+
+                // Maneja el evento FormClosing para volver a mostrar pb_Fondo al cerrar el formulario
+                ordenesForm.FormClosing += (s, args) => { pb_Fondo.Visible = true; };
+
+                // Muestra el formulario de órdenes de producción
+                ordenesForm.Show();
+            }
+            else
+            {
+                // Si el formulario ya está abierto, lo trae al frente
+                ordenesForm.BringToFront();
+            }
         }
 
         // Botón de maquinaria
@@ -98,9 +156,51 @@ namespace Capa_Vista_Produccion
         // Botón de cierre
         private void btnCierre_Click(object sender, EventArgs e)
         {
-            /*
-              * Acá va la lógica para abrir el formulario de RCierres
-            */
+           /* // Verifica si el formulario de cierre ya está abierto
+            if (cierreForm == null || cierreForm.IsDisposed)
+            {
+                pb_Fondo.Visible = false;
+
+                // Crea el formulario de cierre y configura sus propiedades
+                cierreForm = new Frm_Cierre();
+                cierreForm.MdiParent = this;
+                cierreForm.StartPosition = FormStartPosition.CenterScreen;
+
+                // Maneja el evento FormClosing para volver a mostrar pb_Fondo al cerrar el formulario
+                cierreForm.FormClosing += (s, args) => { pb_Fondo.Visible = true; };
+
+                // Muestra el formulario de cierre
+                cierreForm.Show();
+            }
+            else
+            {
+                cierreForm.BringToFront(); // Si el formulario ya está abierto, lo trae al frente
+            }*/
+        }
+
+        // Botón de enlace a contabilidad (Pólizas)
+        private void btnPolizas_Click(object sender, EventArgs e)
+        {
+          /*  // Verifica si el formulario de pólizas ya está abierto
+            if (polizasForm == null || polizasForm.IsDisposed)
+            {
+                pb_Fondo.Visible = false;
+
+                // Crea el formulario de pólizas y configura sus propiedades
+                polizasForm = new Frm_Polizas_Prod();
+                polizasForm.MdiParent = this;
+                polizasForm.StartPosition = FormStartPosition.CenterScreen;
+
+                // Maneja el evento FormClosing para volver a mostrar pb_Fondo al cerrar el formulario
+                polizasForm.FormClosing += (s, args) => { pb_Fondo.Visible = true; };
+
+                // Muestra el formulario de pólizas
+                polizasForm.Show();
+            }
+            else
+            {
+                polizasForm.BringToFront(); // Si el formulario ya está abierto, lo trae al frente
+            }*/
         }
 
         // Botón de implosión/explosión de materiales
@@ -114,17 +214,27 @@ namespace Capa_Vista_Produccion
         // Botón de sistema de producción
         private void btnProduccion_Click(object sender, EventArgs e)
         {
-            /*
-              * Acá va la lógica para abrir el formulario de Producción
-            */
-        }
+            // Verifica si el formulario de sistema de producción ya está abierto
+            if (sistemaForm == null || sistemaForm.IsDisposed)
+            {
+                pb_Fondo.Visible = false;
 
-        // Botón de enlace a contabilidad (Pólizas)
-        private void btnPolizas_Click(object sender, EventArgs e)
-        {
-            /*
-              * Acá va la lógica para abrir el formulario de Pólizas
-            */
+                // Crea el formulario de sistema de producción y configura sus propiedades
+                sistemaForm = new Frm_Sistema_Produccion();
+                sistemaForm.MdiParent = this;
+                sistemaForm.StartPosition = FormStartPosition.CenterScreen;
+
+                // Maneja el evento FormClosing para volver a mostrar pb_Fondo al cerrar el formulario
+                sistemaForm.FormClosing += (s, args) => { pb_Fondo.Visible = true; };
+
+                // Muestra el formulario de sistema de producción
+                sistemaForm.Show();
+            }
+            else
+            {
+                // Si el formulario ya está abierto, lo trae al frente
+                sistemaForm.BringToFront();
+            }
         }
 
         // Botón de conversiones
@@ -173,7 +283,6 @@ namespace Capa_Vista_Produccion
         // Maximizar el formulario
         private void btnMaximizar_Click(object sender, EventArgs e)
         {
-            // Capturar la posición y el tamaño antes de maximizar
             lx = this.Location.X;
             ly = this.Location.Y;
             sw = this.Size.Width;
@@ -182,6 +291,8 @@ namespace Capa_Vista_Produccion
             this.WindowState = FormWindowState.Maximized;
             btnMaximizar.Visible = false;
             btnRestaurar.Visible = true;
+            btn_Maximizar.Visible = false;
+            btn_Restaurar.Visible = true;
         }
 
         private void Btn_Recetas_Click_1(object sender, EventArgs e)
@@ -199,6 +310,8 @@ namespace Capa_Vista_Produccion
             this.Location = new Point(lx, ly);
             btnMaximizar.Visible = true;
             btnRestaurar.Visible = false;
+            btn_Maximizar.Visible = true;
+            btn_Restaurar.Visible = false;
         }
 
         // Función para salir del formulario
