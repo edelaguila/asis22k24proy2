@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Capa_Modelo_Planilla;
+using System.Windows.Forms;
 
 namespace Capa_Controlador_Planilla
 {
@@ -13,27 +14,42 @@ namespace Capa_Controlador_Planilla
     {
         Sentencias sn = new Sentencias();
 
-        public bool funEjecutarCalculoPlanilla(int ifkIdRegistroPlanillaEncabezado, int ifkClaveEmpleado)
+        public bool funEjecutarCalculoPlanilla(int icorrelativoPlanilla, DateTime dfechaInicio, DateTime dfechaFinal, string smesTexto)
         {
-            return sn.funCalcularPlanillaDetalle(ifkIdRegistroPlanillaEncabezado, ifkClaveEmpleado);
+            return sn.funInsertarPlanillaEncabezado(icorrelativoPlanilla,dfechaInicio, dfechaFinal,smesTexto);
         }
 
-        public DataTable funObtenerEncabezado()
+        public DataTable funObtenerEncabezado(string mesTexto)
         {
-            OdbcDataAdapter adapter = sn.funObtenerEncabezado();
             DataTable tablaDeducciones = new DataTable();
 
-            if (adapter != null)
+            try
             {
-                adapter.Fill(tablaDeducciones); // Llenar el DataTable con el resultado del OdbcDataAdapter
+                // Llama al método que obtiene el OdbcDataAdapter con los datos de la consulta
+                OdbcDataAdapter adapter = sn.funObtenerPlanillaConDetalleCompleto(mesTexto);
+
+                if (adapter != null)
+                {
+                    // Llenar el DataTable con los datos utilizando el OdbcDataAdapter
+                    adapter.Fill(tablaDeducciones);
+                }
+                else
+                {
+                    MessageBox.Show("Error: No se pudieron obtener los datos de la planilla.");
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener el encabezado: " + ex.Message);
+            }
+
             return tablaDeducciones;
         }
 
 
-        public DataTable funObtenerDetalle()
+        public DataTable funObtenerDedu()
         {
-            OdbcDataAdapter adapter = sn.funObtenerDetalle();
+            OdbcDataAdapter adapter = sn.funObtenerDedu();
             DataTable tablaDeducciones = new DataTable();
 
             if (adapter != null)
@@ -46,7 +62,7 @@ namespace Capa_Controlador_Planilla
         public DataTable funenviar(string stabla, string scampo1, string scampo2)
         {
 
-            var dt1 = sn.funobtener2(stabla, scampo1, scampo2);
+            var dt1 = sn.funobtener1(stabla, scampo1, scampo2);
 
             return dt1;
         }
@@ -61,11 +77,11 @@ namespace Capa_Controlador_Planilla
             return dt1;
         }
 
-        public bool funAgregarPlanillaEncabezado(int icorrelativo, DateTime dfechaInicio, DateTime dfechaFinal, decimal detotalMes)
-        {
-            Sentencias sentencias = new Sentencias();
-            return sentencias.funInsertarPlanillaEncabezado(icorrelativo, dfechaInicio, dfechaFinal, detotalMes);
-        }
+        //public bool funAgregarPlanillaEncabezado(int icorrelativo, DateTime dfechaInicio, DateTime dfechaFinal, decimal detotalMes)
+        //{
+        //    Sentencias sentencias = new Sentencias();
+        //    return sentencias.funInsertarPlanillaEncabezado(icorrelativo, dfechaInicio, dfechaFinal, detotalMes);
+        //}
 
         public void funcActualizarEncabezado(int iidSeleccionado, int icorrelativo, DateTime dfechaInicio, DateTime dfechaFinal)
         {
@@ -114,6 +130,13 @@ namespace Capa_Controlador_Planilla
                 Console.WriteLine("Error en funcEliminarLogicaDeduPerp: " + ex.Message);
             }
         }
+
+        public bool funIngresarDedu(int iempleado,int idedu, string mes)
+        {
+            return sn.funInsertarDeduccionPercepcion(iempleado, idedu, mes);
+        }
+
+
 
 
 
