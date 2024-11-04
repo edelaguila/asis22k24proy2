@@ -637,3 +637,31 @@ VALUES
 (116, 2, 5, 'Otros Gastos', 0, 0, 0, 0, 0, 0, 101, 1, 1);
 
 -- LMD DE CONTABILIDAD FINAL
+
+-- LMD de Nominas
+-- Ingresos obligatorios Nominas
+INSERT INTO tbl_dedu_perp (dedu_perp_clase, dedu_perp_concepto, dedu_perp_tipo, dedu_perp_aplicacion, dedu_perp_excepcion, dedu_perp_monto, estado) 
+VALUES ('Faltas', 'Porcentaje', 'Todos', 'Sin excepción', 0, 20.00, 1);
+
+INSERT INTO tbl_dedu_perp (dedu_perp_clase, dedu_perp_concepto, dedu_perp_tipo, dedu_perp_aplicacion, dedu_perp_excepcion, dedu_perp_monto, estado) 
+VALUES ('Anticipo', 'Monto', 'Todos', 'Sin excepción', 0, 1, 1);
+
+INSERT INTO tbl_dedu_perp (dedu_perp_clase, dedu_perp_concepto, dedu_perp_tipo, dedu_perp_aplicacion, dedu_perp_excepcion, dedu_perp_monto, estado) 
+VALUES ('Horas Extras', 'Monto', 'Todos', 'Sin excepción', 0, 1, 1);
+
+INSERT INTO tbl_dedu_perp (dedu_perp_clase, dedu_perp_concepto, dedu_perp_tipo, dedu_perp_aplicacion, dedu_perp_excepcion, dedu_perp_monto,estado) 
+VALUES ('Bono 14','Bono 14','Porcentaje','Todos',0,0.0833,1);
+
+INSERT INTO tbl_dedu_perp (dedu_perp_clase, dedu_perp_concepto,dedu_perp_tipo,dedu_perp_aplicacion,dedu_perp_excepcion,dedu_perp_monto,estado) 
+VALUES ('Aguinaldo','Aguinaldo','Porcentaje','Todos',0,0.0833,1);
+
+INSERT INTO tbl_dedu_perp (dedu_perp_clase,dedu_perp_concepto,dedu_perp_tipo,dedu_perp_aplicacion,dedu_perp_excepcion,dedu_perp_monto,estado) 
+VALUES ('Vacaciones','Vacaciones','Porcentaje','Todos',0, 0.0575 ,1);
+
+-- Para seguridad
+
+insert into tbl_aplicaciones (pk_id_aplicacion, nombre_aplicacion, descripcion_aplicacion, estado_aplicacion) values
+(6008, "Mant. Anticipos", "PARA NOMINAS", 1);
+
+INSERT INTO Tbl_aplicaciones (Pk_id_aplicacion,nombre_aplicacion,descripcion_aplicacion,estado_aplicacion) 
+VALUES (6107,'Cálculo liquidaciones','PARA NÓMINAS',1);
