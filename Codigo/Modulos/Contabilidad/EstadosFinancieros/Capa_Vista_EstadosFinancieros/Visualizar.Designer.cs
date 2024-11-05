@@ -42,8 +42,8 @@ namespace Capa_Vista_EstadosFinancieros
             this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crystalReportViewer1.Location = new System.Drawing.Point(0, 0);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.ReportSource = "C:\\ProyectoFinalAnalisis2\\asis22k24proy2\\Codigo\\Modulos\\Contabilidad\\EstadosFinan" +
-    "cieros\\ReportesEstados\\Balance.rpt";
+            this.crystalReportViewer1.ReportSource = "C:\\PRUEBAA\\asis22k24proy2\\Codigo\\Modulos\\Contabilidad\\EstadosFinancieros\\Reportes" +
+    "Estados\\Balance.rpt";
             this.crystalReportViewer1.Size = new System.Drawing.Size(1129, 450);
             this.crystalReportViewer1.TabIndex = 0;
             // 
