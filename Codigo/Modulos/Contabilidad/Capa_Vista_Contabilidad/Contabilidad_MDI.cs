@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using Capa_Vista_EstadosFinancieros;
+using Capa_Vista_EstadosFinancieros;
 //using Capa_Vista_CierreContable;
 using Capa_Vista_Presupuesto;
 //using Capa_Vista_Polizas;
