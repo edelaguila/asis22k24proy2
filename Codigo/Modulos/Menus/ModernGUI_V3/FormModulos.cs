@@ -52,7 +52,7 @@ namespace Interfac_V3
            frm_login login = new frm_login();
            login.ShowDialog();
 
-           MDI_Seguridad formMDI = new MDI_Seguridad(idUsuario);
+           MDI_Seguridad formMDI = new MDI_Seguridad(UsuarioSesion.GetIdUsuario());
             formMDI.Show();
             this.Hide();
         }
