@@ -10,10 +10,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Capa_Vista_Nominas;
-using Capa_Vista_Banco;
+//using Capa_Vista_Banco;
 using Capa_Vista_Contabilidad;
-using Capa_Vista_Produccion;
-using Capa_Vista_CompraVenta;
+//using Capa_Vista_Produccion;
+//using Capa_Vista_CompraVenta;
 
 namespace Interfac_V3
 {
@@ -87,8 +87,8 @@ namespace Interfac_V3
 
         private void Btn_Logistica_Click(object sender, EventArgs e)
         {
-            Capa_Vista_Logistica.FormPrincipal logistica = new Capa_Vista_Logistica.FormPrincipal(UsuarioSesion.GetIdUsuario());
-            logistica.Show();
+            /*Capa_Vista_Logistica.FormPrincipal logistica = new Capa_Vista_Logistica.FormPrincipal(UsuarioSesion.GetIdUsuario());
+            logistica.Show();*/
         }
 
         private void Btn_Contabilidad_Click(object sender, EventArgs e)
@@ -99,21 +99,21 @@ namespace Interfac_V3
 
         private void Btn_Compras_Click(object sender, EventArgs e)
         {
-            Frm_MDI_general_CompraVenta Cv = new Frm_MDI_general_CompraVenta(UsuarioSesion.GetIdUsuario());
-            Cv.Show();
+            /*Frm_MDI_general_CompraVenta Cv = new Frm_MDI_general_CompraVenta(UsuarioSesion.GetIdUsuario());
+            Cv.Show();*/
         }
 
         private void Btn_Bancos_Click(object sender, EventArgs e)
         {
-            frm_principal_bancos banco = new frm_principal_bancos(UsuarioSesion.GetIdUsuario());
-            banco.Show();
+            /*frm_principal_bancos banco = new frm_principal_bancos(UsuarioSesion.GetIdUsuario());
+            banco.Show();*/
 
         }
 
         private void Btn_Produccion_Click(object sender, EventArgs e)
         {
-            MDI_Produccion produccion = new MDI_Produccion(UsuarioSesion.GetIdUsuario());
-            produccion.Show();
+            /*MDI_Produccion produccion = new MDI_Produccion(UsuarioSesion.GetIdUsuario());
+            produccion.Show();*/
         }
 
         private void Btn_CuentasCorrientes_Click(object sender, EventArgs e)
