@@ -2,6 +2,7 @@
 
 -- ALTERS DEL MODULO DE CONTABILIDAD 28-10-2024
 ALTER TABLE tbl_cuentas
+
 ADD COLUMN es_efectivo TINYINT DEFAULT 0 AFTER Pk_id_cuenta_enlace;
 -- FIN DE ALTER 28-10-2024
     
@@ -272,3 +273,15 @@ ADD CONSTRAINT fk_factura_caja FOREIGN KEY (Fk_id_factura) REFERENCES Tbl_factur
 ALTER TABLE Tbl_caja_proveedor
 DROP COLUMN caja_deuda_monto, 
 DROP COLUMN caja_transaccion_monto;
+
+
+-- ALTER MODULO LOGISTICA 04/11/2024
+ALTER TABLE tbl_productos ADD CONSTRAINT UQ_codigoProducto UNIQUE
+(codigoProducto);
+
+-- Alter del modulo de nominas 4/11/2024
+ALTER TABLE tbl_dedu_perp_emp
+ADD COLUMN dedu_perp_emp_mes VARCHAR(25) NOT NULL AFTER dedu_perp_emp_cantidad;
+
+ALTER TABLE tbl_horas_extra
+MODIFY COLUMN horas_cantidad_horas INT;

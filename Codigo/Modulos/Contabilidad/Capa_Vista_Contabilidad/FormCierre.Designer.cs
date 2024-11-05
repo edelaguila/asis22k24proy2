@@ -29,7 +29,7 @@ namespace Capa_Vista_Contabilidad
         /// </summary>
         private void InitializeComponent()
         {
-            this.cierre1 = new Capa_Vista_CierreContable.Cierre();
+            /*this.cierre1 = new Capa_Vista_CierreContable.Cierre();
             this.SuspendLayout();
             // 
             // cierre1
@@ -49,12 +49,12 @@ namespace Capa_Vista_Contabilidad
             this.Controls.Add(this.cierre1);
             this.Name = "FormCierre";
             this.Text = "FormCierre";
-            this.ResumeLayout(false);
+            this.ResumeLayout(false);*/
 
         }
 
         #endregion
 
-        private Capa_Vista_CierreContable.Cierre cierre1;
+        //private Capa_Vista_CierreContable.Cierre cierre1;
     }
 }

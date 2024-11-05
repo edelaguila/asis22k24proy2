@@ -34,9 +34,24 @@
     <Reference Include="Capa_Controlador_Produccion">
       <HintPath>..\Capa_Controlador_Produccion\bin\Debug\Capa_Controlador_Produccion.dll</HintPath>
     </Reference>
+    <Reference Include="Capa_Vista_Cierre_Produccion">
+      <HintPath>..\..\Cierre_Produccion\Capa_Vista_Cierre_Produccion\bin\Debug\Capa_Vista_Cierre_Produccion.dll</HintPath>
+    </Reference>
     <Reference Include="Capa_Vista_Navegador, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Componentes\Navegador\Capa_Vista_Navegador\bin\Debug\Capa_Vista_Navegador.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Polizas_Prod, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Polizas_Produccion\Capa_Vista_Polizas_Prod\bin\Debug\Capa_Vista_Polizas_Prod.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Receta, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Componente Receta\Componente Receta\Capa_Vista_Receta\bin\Debug\Capa_Vista_Receta.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_RRHH, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Componente RRHH\Componente RRHH\Capa_Vista_RRHH\bin\Debug\Capa_Vista_RRHH.dll</HintPath>
     </Reference>
     <Reference Include="Interfac_V3">
       <HintPath>..\..\..\Menus\ModernGUI_V3\bin\Debug\Interfac_V3.exe</HintPath>
@@ -86,6 +101,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\SALIR_V4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fondo_Produccion.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

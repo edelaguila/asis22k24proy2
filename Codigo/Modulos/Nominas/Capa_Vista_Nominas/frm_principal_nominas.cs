@@ -257,15 +257,15 @@ namespace Capa_Vista_Nominas
 
         private void Btn_generacionpercep_Click(object sender, EventArgs e)
         {
-            /*AbrirFormulario<frm_genpercepciones>(); // Pasa el idUsuario
-            Btn_puesto.BackColor = Color.FromArgb(12, 61, 92);*/
+            AbrirFormulario<Capa_Vista_PercepcionesDeducciones.frm_generacionpercepciones>(); // Pasa el idUsuario
+            Btn_puesto.BackColor = Color.FromArgb(12, 61, 92);
             ocultaSubMenu();
         }
 
         private void Btn_generaciondeduc_Click(object sender, EventArgs e)
         {
-            /*AbrirFormulario<frm_gendeducciones>(); // Pasa el idUsuario
-            Btn_puesto.BackColor = Color.FromArgb(12, 61, 92);*/
+           AbrirFormulario<Capa_Vista_PercepcionesDeducciones.frm_generaciondeducciones>(); // Pasa el idUsuario
+            Btn_puesto.BackColor = Color.FromArgb(12, 61, 92);
             ocultaSubMenu();
         }
 

@@ -28,7 +28,7 @@ DELIMITER $$
 --
 -- Procedimientos
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `cambiarContraModulo` (IN `p_usuario` INT, IN `p_nueva_contrasenia` VARCHAR(100))   BEGIN
+CREATE   PROCEDURE `cambiarContraModulo` (IN `p_usuario` INT, IN `p_nueva_contrasenia` VARCHAR(100))   BEGIN
     -- Actualizar la contraseña del usuario
     UPDATE tbl_usuarios
     SET password_usuario = p_nueva_contrasenia
@@ -43,7 +43,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `cambiarContraModulo` (IN `p_usuario
 END$$
 
 -- Cambio de contraseña procedimiento ----------------------------------------------------------------------
-CREATE DEFINER=`root`@`localhost` PROCEDURE `cambioContrasenia` (IN `p_usuario` VARCHAR(20))   BEGIN
+CREATE   PROCEDURE `cambioContrasenia` (IN `p_usuario` VARCHAR(20))   BEGIN
     DECLARE usuario_existe INT;
 
     SELECT COUNT(*) INTO usuario_existe
@@ -58,7 +58,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `cambioContrasenia` (IN `p_usuario` 
     END IF;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `cambiarContrasenia` (IN `usuario` VARCHAR(255), IN `nuevaContrasenia` VARCHAR(255), IN `respuestaSeguridad` VARCHAR(255))   BEGIN
+CREATE   PROCEDURE `cambiarContrasenia` (IN `usuario` VARCHAR(255), IN `nuevaContrasenia` VARCHAR(255), IN `respuestaSeguridad` VARCHAR(255))   BEGIN
     DECLARE respuestaGuardada VARCHAR(255);
     DECLARE usuarioExiste INT;
 
@@ -92,7 +92,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `cambiarContrasenia` (IN `usuario` V
     END IF;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `procedimientoLogin` (IN `p_usuario` VARCHAR(20), IN `p_clave` VARCHAR(100))   BEGIN
+CREATE   PROCEDURE `procedimientoLogin` (IN `p_usuario` VARCHAR(20), IN `p_clave` VARCHAR(100))   BEGIN
     DECLARE usuario_existe INT;
 
     SELECT COUNT(*) INTO usuario_existe
@@ -386,7 +386,7 @@ CREATE TABLE `vwperfilusuario` (
 --
 DROP TABLE IF EXISTS `vwaplicacionperfil`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vwaplicacionperfil`  AS SELECT `b`.`Fk_id_perfil` AS `ID`, `a`.`nombre_perfil` AS `Perfil`, `b`.`Fk_id_aplicacion` AS `Aplicacion`, `b`.`guardar_permiso` AS `Insertar`, `b`.`modificar_permiso` AS `Modificar`, `b`.`eliminar_permiso` AS `Eliminar`, `b`.`buscar_permiso` AS `Buscar`, `b`.`imprimir_permiso` AS `Reporte` FROM (`tbl_permisos_aplicacion_perfil` `b` join `tbl_perfiles` `a` on(`a`.`Pk_id_perfil` = `b`.`Fk_id_perfil`)) ;
+CREATE ALGORITHM=UNDEFINED   SQL SECURITY DEFINER VIEW `vwaplicacionperfil`  AS SELECT `b`.`Fk_id_perfil` AS `ID`, `a`.`nombre_perfil` AS `Perfil`, `b`.`Fk_id_aplicacion` AS `Aplicacion`, `b`.`guardar_permiso` AS `Insertar`, `b`.`modificar_permiso` AS `Modificar`, `b`.`eliminar_permiso` AS `Eliminar`, `b`.`buscar_permiso` AS `Buscar`, `b`.`imprimir_permiso` AS `Reporte` FROM (`tbl_permisos_aplicacion_perfil` `b` join `tbl_perfiles` `a` on(`a`.`Pk_id_perfil` = `b`.`Fk_id_perfil`)) ;
 
 -- --------------------------------------------------------
 
@@ -395,7 +395,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `vwaplicacionusuario`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vwaplicacionusuario`  AS SELECT `b`.`Fk_id_aplicacion` AS `Aplicacion`, `b`.`Fk_id_usuario` AS `ID`, `a`.`nombre_usuario` AS `Usuario`, `b`.`guardar_permiso` AS `Insertar`, `b`.`modificar_permiso` AS `Editar`, `b`.`eliminar_permiso` AS `Eliminar`, `b`.`buscar_permiso` AS `Buscar`, `b`.`imprimir_permiso` AS `Reporte` FROM (`tbl_permisos_aplicaciones_usuario` `b` join `tbl_usuarios` `a` on(`a`.`Pk_id_usuario` = `b`.`Fk_id_usuario`)) ;
+CREATE ALGORITHM=UNDEFINED   SQL SECURITY DEFINER VIEW `vwaplicacionusuario`  AS SELECT `b`.`Fk_id_aplicacion` AS `Aplicacion`, `b`.`Fk_id_usuario` AS `ID`, `a`.`nombre_usuario` AS `Usuario`, `b`.`guardar_permiso` AS `Insertar`, `b`.`modificar_permiso` AS `Editar`, `b`.`eliminar_permiso` AS `Eliminar`, `b`.`buscar_permiso` AS `Buscar`, `b`.`imprimir_permiso` AS `Reporte` FROM (`tbl_permisos_aplicaciones_usuario` `b` join `tbl_usuarios` `a` on(`a`.`Pk_id_usuario` = `b`.`Fk_id_usuario`)) ;
 
 -- --------------------------------------------------------
 
@@ -404,7 +404,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `vwmoduloaplicacion`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vwmoduloaplicacion`  AS SELECT `b`.`Fk_id_modulos` AS `ID`, `a`.`nombre_modulo` AS `Modulo`, `b`.`Fk_id_aplicacion` AS `Aplicacion`, `c`.`nombre_aplicacion` AS `Nombre`, `c`.`descripcion_aplicacion` AS `Descripcion` FROM ((`tbl_asignacion_modulo_aplicacion` `b` join `tbl_modulos` `a` on(`a`.`Pk_id_modulos` = `b`.`Fk_id_modulos`)) join `tbl_aplicaciones` `c` on(`c`.`Pk_id_aplicacion` = `b`.`Fk_id_aplicacion`)) ;
+CREATE ALGORITHM=UNDEFINED   SQL SECURITY DEFINER VIEW `vwmoduloaplicacion`  AS SELECT `b`.`Fk_id_modulos` AS `ID`, `a`.`nombre_modulo` AS `Modulo`, `b`.`Fk_id_aplicacion` AS `Aplicacion`, `c`.`nombre_aplicacion` AS `Nombre`, `c`.`descripcion_aplicacion` AS `Descripcion` FROM ((`tbl_asignacion_modulo_aplicacion` `b` join `tbl_modulos` `a` on(`a`.`Pk_id_modulos` = `b`.`Fk_id_modulos`)) join `tbl_aplicaciones` `c` on(`c`.`Pk_id_aplicacion` = `b`.`Fk_id_aplicacion`)) ;
 
 -- --------------------------------------------------------
 
@@ -413,7 +413,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `vwperfilusuario`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vwperfilusuario`  AS SELECT `b`.`Fk_id_usuario` AS `ID`, `a`.`nombre_usuario` AS `Usuario`, `a`.`username_usuario` AS `nickName`, `b`.`Fk_id_perfil` AS `perfil`, `c`.`nombre_perfil` AS `Nombre` FROM ((`tbl_asignaciones_perfils_usuario` `b` join `tbl_usuarios` `a` on(`a`.`Pk_id_usuario` = `b`.`Fk_id_usuario`)) join `tbl_perfiles` `c` on(`c`.`Pk_id_perfil` = `b`.`Fk_id_perfil`)) ;
+CREATE ALGORITHM=UNDEFINED   SQL SECURITY DEFINER VIEW `vwperfilusuario`  AS SELECT `b`.`Fk_id_usuario` AS `ID`, `a`.`nombre_usuario` AS `Usuario`, `a`.`username_usuario` AS `nickName`, `b`.`Fk_id_perfil` AS `perfil`, `c`.`nombre_perfil` AS `Nombre` FROM ((`tbl_asignaciones_perfils_usuario` `b` join `tbl_usuarios` `a` on(`a`.`Pk_id_usuario` = `b`.`Fk_id_usuario`)) join `tbl_perfiles` `c` on(`c`.`Pk_id_perfil` = `b`.`Fk_id_perfil`)) ;
 
 --
 -- Índices para tablas volcadas
@@ -1711,3 +1711,65 @@ CREATE TABLE IF NOT EXISTS `tbl_maquinaria` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Fin
+
+--  CREACIÓN DE NUEVAS TABLAS PARA EL MODULO DE CONTABILIDAD - ACTIVOS FIJOS APROBADO POR BRANDON BOCH 03-11-2024
+
+DROP TABLE IF EXISTS `tbl_ActivoFijo`;
+
+-- Creación de la tabla `tbl_TipoActivoFijo`
+CREATE TABLE IF NOT EXISTS `tbl_TipoActivoFijo` (
+  `Pk_Id_TipoActivoFijo` INT(11) NOT NULL AUTO_INCREMENT,
+  `Nombre_Tipo` VARCHAR(50) NOT NULL,
+  `Estado` TINYINT(4) NOT NULL,
+  PRIMARY KEY (`Pk_Id_TipoActivoFijo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS `tbl_IdentidadActivo` (
+  `Pk_Id_Identidad` INT(11) NOT NULL AUTO_INCREMENT,
+  `Nombre_Identidad` VARCHAR(50) NOT NULL,
+  `Estado` TINYINT(4) NOT NULL,
+  PRIMARY KEY (`Pk_Id_Identidad`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS `tbl_ActivoFijo` (
+  `Pk_Id_ActivoFijo` INT(11) NOT NULL AUTO_INCREMENT,
+  `Codigo_Activo` VARCHAR(50) NOT NULL UNIQUE,
+  `Pk_Id_TipoActivoFijo` INT(11) DEFAULT NULL,
+  `Descripcion` VARCHAR(255) NOT NULL,
+  `Pk_Id_Identidad` INT(11) DEFAULT NULL,
+  `Modelo` VARCHAR(100) DEFAULT NULL,
+  `Fecha_Adquisicion` DATE DEFAULT NULL,
+  `Costo_Adquisicion` DECIMAL(10,2) DEFAULT NULL,
+  `Vida_Util` DECIMAL(5,2) DEFAULT NULL,
+  `Valor_Residual` DECIMAL(10,2) DEFAULT NULL,
+  `Estado` TINYINT(4) DEFAULT NULL,
+  `Pk_Id_Cuenta` INT(11) NOT NULL,
+  PRIMARY KEY (`Pk_Id_ActivoFijo`),
+  KEY `Fk_TipoActivoFijo` (`Pk_Id_TipoActivoFijo`),
+  KEY `Fk_Identidad` (`Pk_Id_Identidad`),
+  KEY `Fk_Cuenta` (`Pk_Id_Cuenta`),
+  CONSTRAINT `Fk_TipoActivoFijo_New` FOREIGN KEY (`Pk_Id_TipoActivoFijo`) REFERENCES `tbl_TipoActivoFijo` (`Pk_Id_TipoActivoFijo`) ON DELETE SET NULL,
+  CONSTRAINT `Fk_Identidad_New` FOREIGN KEY (`Pk_Id_Identidad`) REFERENCES `tbl_IdentidadActivo` (`Pk_Id_Identidad`) ON DELETE SET NULL,
+  CONSTRAINT `Fk_Cuenta_New` FOREIGN KEY (`Pk_Id_Cuenta`) REFERENCES `tbl_Cuentas` (`Pk_Id_Cuenta`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Creación de la tabla `tbl_Depreciacion_ActivoFijo`
+CREATE TABLE IF NOT EXISTS `tbl_Depreciacion_ActivoFijo` (
+  `Pk_Id_Depreciacion` INT(11) NOT NULL AUTO_INCREMENT,
+  `Pk_Id_ActivoFijo` INT(11) NOT NULL,
+  `Nombre_Activo` VARCHAR(100) NOT NULL,
+  `Tipo_Activo` VARCHAR(50) NOT NULL,
+  `Encargado` VARCHAR(100) DEFAULT NULL,
+  `Departamento` VARCHAR(100) DEFAULT NULL,
+  `Fecha_Depreciacion` DATE DEFAULT NULL,
+  `Depreciacion` DECIMAL(10,2) DEFAULT NULL,
+  `Depreciacion_Fiscal` DECIMAL(10,2) DEFAULT NULL,
+  `Descripcion` VARCHAR(255) DEFAULT NULL,
+  `Estado` TINYINT(4) DEFAULT NULL,
+  `Pk_Id_Cuenta` INT(11) NOT NULL,
+  PRIMARY KEY (`Pk_Id_Depreciacion`),
+  CONSTRAINT `Fk_IdActivoFijo_Depreciacion` FOREIGN KEY (`Pk_Id_ActivoFijo`) REFERENCES `tbl_ActivoFijo` (`Pk_Id_ActivoFijo`) ON DELETE CASCADE,
+  CONSTRAINT `Fk_Cuenta_Depreciacion_New` FOREIGN KEY (`Pk_Id_Cuenta`) REFERENCES `tbl_Cuentas` (`Pk_Id_Cuenta`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- FIN
