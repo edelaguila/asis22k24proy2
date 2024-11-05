@@ -21,11 +21,11 @@ namespace Capa_Vista_Contabilidad
             navegador1.AsignarSalida(this);
             navegador1.AsignarColorFondo(Color.LightBlue);
             navegador1.AsignarColorFuente(Color.BlueViolet);
-            navegador1.ObtenerIdAplicacion("1000");
+            navegador1.ObtenerIdAplicacion("8000");
             navegador1.AsignarAyuda("1");
             navegador1.ObtenerIdUsuario(idusuario);
-            navegador1.AsignarTabla("tbl_marca");
-            navegador1.AsignarNombreForm("tipo marca");
+            navegador1.AsignarTabla("tbl_identidadactivo");
+            navegador1.AsignarNombreForm("Marca");
         }
     }
 }
