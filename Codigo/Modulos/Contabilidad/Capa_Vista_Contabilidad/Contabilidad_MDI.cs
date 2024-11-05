@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 //using Capa_Vista_EstadosFinancieros;
 //using Capa_Vista_CierreContable;
+using Capa_Vista_Presupuesto;
+//using Capa_Vista_Polizas;
 //using Capa_Vista_Presupuesto;
 using Capa_Vista_Polizas;
 using System.IO;
@@ -411,9 +413,9 @@ namespace Capa_Vista_Contabilidad
 
         private void btnPresupuestos_Click(object sender, EventArgs e)
         {
-            //AbrirFormulario<Capa_Vista_Presupuesto.Presupuesto>();
-            //btnPresupuestos.BackColor = Color.FromArgb(255, 51, 51);
-            //ocultaSubMenu();
+            AbrirFormulario<Capa_Vista_Presupuesto.Presupuesto>();
+            btnPresupuestos.BackColor = Color.FromArgb(255, 51, 51);
+            ocultaSubMenu();
         }
 
         private void BtnCierreCuentas_Click(object sender, EventArgs e)
