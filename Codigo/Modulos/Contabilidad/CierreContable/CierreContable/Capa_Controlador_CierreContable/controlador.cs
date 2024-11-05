@@ -588,57 +588,63 @@ namespace Capa_Controlador_CierreContable
 
         public void ConsultaCG(int periodo, string anio, string cuenta, DataTable dt1, DataTable dt2)
         {
-            // Actualiza las consultas para incluir el año
-            string cadena1 = "SELECT c.Pk_id_cuenta AS 'ID de Cuenta', " +
-                             "cu.nombre_cuenta AS 'Nombre de Cuenta', " +
-                             "e.nombre_tipocuenta AS 'Encabezado de Cuenta', " +
-                             "t.nombre_tipocuenta AS 'Tipo de Cuenta', " +
-                             "c.cargo_mes AS 'Cargo del Mes' " +
-                             "FROM tbl_historico_cuentas c " +
-                             "JOIN tbl_encabezadoclasecuenta e ON c.Pk_id_cuenta = e.Pk_id_encabezadocuenta " +
-                             "JOIN tbl_cuentas cu ON c.Pk_id_cuenta = cu.Pk_id_cuenta " +
-                             "JOIN tbl_tipocuenta t ON cu.Pk_id_tipocuenta = t.PK_id_tipocuenta " +
-                             "WHERE c.mes = ? AND c.anio = ?";
-
-            // Consulta para la segunda tabla
-            string cadena2 = "SELECT c.Pk_id_cuenta AS 'ID de Cuenta', " +
-                             "cu.nombre_cuenta AS 'Nombre de Cuenta', " +
-                             "e.nombre_tipocuenta AS 'Encabezado de Cuenta', " +
-                             "t.nombre_tipocuenta AS 'Tipo de Cuenta', " +
-                             "c.abono_mes AS 'Abono del Mes' " +
-                             "FROM tbl_historico_cuentas c " +
-                             "JOIN tbl_encabezadoclasecuenta e ON c.Pk_id_cuenta = e.Pk_id_encabezadocuenta " +
-                             "JOIN tbl_cuentas cu ON c.Pk_id_cuenta = cu.Pk_id_cuenta " +
-                             "JOIN tbl_tipocuenta t ON cu.Pk_id_tipocuenta = t.PK_id_tipocuenta " +
-                             "WHERE c.mes = ? AND c.anio = ?";
-
-            // Añadir el filtro de cuenta solo si no es null
-            if (!string.IsNullOrEmpty(cuenta))
-            {
-                cadena1 += " AND cu.nombre_cuenta = ?";
-                cadena2 += " AND cu.nombre_cuenta = ?";
-            }
+            // Define la consulta SQL con LEFT JOIN y filtros de mes, año, y cuenta si es necesario
+            string consulta = @"
+        SELECT 
+            c.Pk_id_cuenta AS 'ID de Cuenta', 
+            c.nombre_cuenta AS 'Nombre de Cuenta', 
+            h.mes AS 'Mes', 
+            h.anio AS 'Anio', 
+            e.nombre_tipocuenta AS 'Encabezado Cuenta', 
+            t.nombre_tipocuenta AS 'Tipo de Cuenta', 
+            h.cargo_mes AS 'Cargo del Mes', 
+            h.abono_mes AS 'Abono del Mes', 
+            h.saldo_ant AS 'Saldo Anterior', 
+            h.saldo_act AS 'Saldo Actual', 
+            h.cargo_acumulado AS 'Cargo Acumulado', 
+            h.abono_acumulado AS 'Abono Acumulado', 
+            h.saldoanual AS 'Saldo Anual'
+        FROM 
+            tbl_cuentas AS c
+        LEFT JOIN 
+            tbl_historico_cuentas AS h ON c.Pk_id_cuenta = h.Pk_id_cuenta
+        LEFT JOIN 
+            tbl_encabezadoclasecuenta AS e ON c.Pk_id_encabezadocuenta = e.Pk_id_encabezadocuenta
+        LEFT JOIN 
+            tbl_tipocuenta AS t ON c.Pk_id_tipocuenta = t.PK_id_tipocuenta
+        WHERE 
+            (h.mes = ? AND h.anio = ?) 
+            AND (c.nombre_cuenta = ? OR ? IS NULL)
+            OR h.Pk_id_cuenta IS NULL";
 
             using (OdbcConnection con = sn.ObtenerConexion())
             {
-                OdbcDataAdapter datos1 = new OdbcDataAdapter(cadena1, con);
-                OdbcDataAdapter datos2 = new OdbcDataAdapter(cadena2, con);
+                // Crea un adaptador con la consulta
+                OdbcDataAdapter datos = new OdbcDataAdapter(consulta, con);
 
-                datos1.SelectCommand.Parameters.AddWithValue("?", periodo);
-                datos1.SelectCommand.Parameters.AddWithValue("?", anio);
-                datos2.SelectCommand.Parameters.AddWithValue("?", periodo);
-                datos2.SelectCommand.Parameters.AddWithValue("?", anio);
+                // Añade los parámetros de mes y año
+                datos.SelectCommand.Parameters.AddWithValue("?", periodo);
+                datos.SelectCommand.Parameters.AddWithValue("?", anio);
 
+                // Añade el parámetro de cuenta si es necesario
                 if (!string.IsNullOrEmpty(cuenta))
                 {
-                    datos1.SelectCommand.Parameters.AddWithValue("?", cuenta);
-                    datos2.SelectCommand.Parameters.AddWithValue("?", cuenta);
+                    datos.SelectCommand.Parameters.AddWithValue("?", cuenta);
+                    datos.SelectCommand.Parameters.AddWithValue("?", cuenta);
+                }
+                else
+                {
+                    datos.SelectCommand.Parameters.AddWithValue("?", DBNull.Value);
+                    datos.SelectCommand.Parameters.AddWithValue("?", DBNull.Value);
                 }
 
-                datos1.Fill(dt1);
-                datos2.Fill(dt2);
+                // Llena ambos DataTables con la misma consulta (si es necesario, se pueden dividir más adelante)
+                datos.Fill(dt1);
+                datos.Fill(dt2);
             }
         }
+
+
 
 
     }

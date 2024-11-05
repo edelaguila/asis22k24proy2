@@ -98,34 +98,6 @@ namespace Capa_Vista_CierreContable
         }
 
 
-        //private void Totales(DataGridView dgv_DebeCG, DataGridView dgv_HaberCG, TextBox txt_boxtotD, TextBox txt_boxtotH)
-        //{
-        //    float suma1 = 0;
-        //    float suma2 = 0;
-        //    //float saldofinal = 0;
-        //    //float saldoanterior = 0; // Cambiar de saldoanterior a saldoanterior acumulado
-
-        //    // Para el total de debe
-        //    foreach (DataGridViewRow row in dgv_DebeCG.Rows)
-        //    {
-        //        if (row.Cells[4].Value != null)
-        //            suma1 += Convert.ToSingle(row.Cells[4].Value);
-        //    }
-        //    txt_boxtotD.Text = suma1.ToString("F2");
-
-        //    // Para el total de haber
-        //    foreach (DataGridViewRow row in dgv_HaberCG.Rows)
-        //    {
-        //        if (row.Cells[4].Value != null)
-        //            suma2 += Convert.ToSingle(row.Cells[4].Value);
-        //    }
-        //    txt_boxtotH.Text = suma2.ToString("F2");
-
-        //    //saldofinal = suma2 - suma1;
-        //    //txt_saldofinal.Text = saldofinal.ToString("F2");
-        //    //txt_saldoant.Text = saldoanterior.ToString("F2");
-        //}
-
 
 
         public void ConsultarCierreG(int periodo, string anio, string cuenta, DataGridView dgv_DebeCG, DataGridView dgv_HaberCG)

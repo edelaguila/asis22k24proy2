@@ -292,8 +292,7 @@ namespace Capa_Vista_CierreContable
                 }
                 else
                 {
-                    dgv_cierre.Rows.Clear();
-                    btn_nuevocierre.Enabled = true;
+                    ReiniciarFormulario();
                 }
             }
             else
