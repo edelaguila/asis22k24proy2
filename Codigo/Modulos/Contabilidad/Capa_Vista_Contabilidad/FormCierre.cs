@@ -25,9 +25,5 @@ namespace Capa_Vista_Contabilidad
 
         }
 
-        private void btn_Salir_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
     }
 }

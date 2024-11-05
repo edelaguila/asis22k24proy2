@@ -210,6 +210,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="TipoPoliza.resx">
       <DependentUpon>TipoPoliza.cs</DependentUpon>
@@ -232,9 +233,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\SalirMDI.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\SALIR_V4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
