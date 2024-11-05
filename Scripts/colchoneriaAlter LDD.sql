@@ -268,7 +268,15 @@ ALTER TABLE Tbl_caja_proveedor MODIFY COLUMN caja_fecha_registro VARCHAR(150) NO
 ALTER TABLE Tbl_caja_proveedor
 ADD COLUMN Fk_id_factura INT NOT NULL,
 ADD CONSTRAINT fk_factura_caja FOREIGN KEY (Fk_id_factura) REFERENCES Tbl_factura(Pk_id_factura);
-
+-- Alters del area de Nominas
 ALTER TABLE Tbl_caja_proveedor
 DROP COLUMN caja_deuda_monto, 
 DROP COLUMN caja_transaccion_monto;
+
+ALTER TABLE tbl_dedu_perp_emp
+ADD COLUMN dedu_perp_emp_mes VARCHAR(25) NOT NULL AFTER dedu_perp_emp_cantidad;
+
+ALTER TABLE tbl_horas_extra
+MODIFY COLUMN horas_cantidad_horas INT;
+
+
