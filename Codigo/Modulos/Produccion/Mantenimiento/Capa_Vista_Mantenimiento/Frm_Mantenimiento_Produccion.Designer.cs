@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Mantenimiento_Produccion));
+            this.Lbl_Estado = new System.Windows.Forms.Label();
+            this.Lbl_Desgaste = new System.Windows.Forms.Label();
+            this.Lbl_Area = new System.Windows.Forms.Label();
+            this.Lbl_Proximo_Mantenimiento = new System.Windows.Forms.Label();
+            this.Lbl_Ultimo_Mantenimiento = new System.Windows.Forms.Label();
+            this.Lbl_Mantenimiento_Periodico = new System.Windows.Forms.Label();
+            this.Lbl_Hora_Operacion = new System.Windows.Forms.Label();
+            this.Lbl_Tipo = new System.Windows.Forms.Label();
+            this.Lbl_Nombre = new System.Windows.Forms.Label();
             this.lbl_Mantenimiento = new System.Windows.Forms.Label();
             this.Cbo_Estado = new System.Windows.Forms.ComboBox();
             this.Nud_DesgastePorcentaje = new System.Windows.Forms.NumericUpDown();
@@ -60,103 +61,103 @@
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Mantenimientos)).BeginInit();
             this.SuspendLayout();
             // 
-            // label11
+            // Lbl_Estado
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label11.Location = new System.Drawing.Point(461, 197);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(45, 15);
-            this.label11.TabIndex = 50;
-            this.label11.Text = "Estado";
+            this.Lbl_Estado.AutoSize = true;
+            this.Lbl_Estado.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Estado.Location = new System.Drawing.Point(405, 263);
+            this.Lbl_Estado.Name = "Lbl_Estado";
+            this.Lbl_Estado.Size = new System.Drawing.Size(53, 17);
+            this.Lbl_Estado.TabIndex = 50;
+            this.Lbl_Estado.Text = "Estado";
             // 
-            // label10
+            // Lbl_Desgaste
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label10.Location = new System.Drawing.Point(461, 154);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(136, 15);
-            this.label10.TabIndex = 49;
-            this.label10.Text = "Porcentaje de desgaste";
+            this.Lbl_Desgaste.AutoSize = true;
+            this.Lbl_Desgaste.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Desgaste.Location = new System.Drawing.Point(405, 220);
+            this.Lbl_Desgaste.Name = "Lbl_Desgaste";
+            this.Lbl_Desgaste.Size = new System.Drawing.Size(160, 17);
+            this.Lbl_Desgaste.TabIndex = 49;
+            this.Lbl_Desgaste.Text = "Porcentaje de desgaste";
             // 
-            // label9
+            // Lbl_Area
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label9.Location = new System.Drawing.Point(463, 114);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(32, 15);
-            this.label9.TabIndex = 48;
-            this.label9.Text = "Área";
+            this.Lbl_Area.AutoSize = true;
+            this.Lbl_Area.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Area.Location = new System.Drawing.Point(407, 180);
+            this.Lbl_Area.Name = "Lbl_Area";
+            this.Lbl_Area.Size = new System.Drawing.Size(40, 17);
+            this.Lbl_Area.TabIndex = 48;
+            this.Lbl_Area.Text = "Área";
             // 
-            // label8
+            // Lbl_Proximo_Mantenimiento
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label8.Location = new System.Drawing.Point(463, 74);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(139, 15);
-            this.label8.TabIndex = 47;
-            this.label8.Text = "Próximo mantenimiento";
+            this.Lbl_Proximo_Mantenimiento.AutoSize = true;
+            this.Lbl_Proximo_Mantenimiento.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Proximo_Mantenimiento.Location = new System.Drawing.Point(407, 140);
+            this.Lbl_Proximo_Mantenimiento.Name = "Lbl_Proximo_Mantenimiento";
+            this.Lbl_Proximo_Mantenimiento.Size = new System.Drawing.Size(164, 17);
+            this.Lbl_Proximo_Mantenimiento.TabIndex = 47;
+            this.Lbl_Proximo_Mantenimiento.Text = "Próximo mantenimiento";
             // 
-            // label7
+            // Lbl_Ultimo_Mantenimiento
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label7.Location = new System.Drawing.Point(463, 35);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(129, 15);
-            this.label7.TabIndex = 46;
-            this.label7.Text = "Último mantenimiento";
+            this.Lbl_Ultimo_Mantenimiento.AutoSize = true;
+            this.Lbl_Ultimo_Mantenimiento.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Ultimo_Mantenimiento.Location = new System.Drawing.Point(407, 101);
+            this.Lbl_Ultimo_Mantenimiento.Name = "Lbl_Ultimo_Mantenimiento";
+            this.Lbl_Ultimo_Mantenimiento.Size = new System.Drawing.Size(153, 17);
+            this.Lbl_Ultimo_Mantenimiento.TabIndex = 46;
+            this.Lbl_Ultimo_Mantenimiento.Text = "Último mantenimiento";
             // 
-            // label6
+            // Lbl_Mantenimiento_Periodico
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label6.Location = new System.Drawing.Point(92, 195);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(144, 15);
-            this.label6.TabIndex = 45;
-            this.label6.Text = "Mantenimiento periódico";
+            this.Lbl_Mantenimiento_Periodico.AutoSize = true;
+            this.Lbl_Mantenimiento_Periodico.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Mantenimiento_Periodico.Location = new System.Drawing.Point(36, 264);
+            this.Lbl_Mantenimiento_Periodico.Name = "Lbl_Mantenimiento_Periodico";
+            this.Lbl_Mantenimiento_Periodico.Size = new System.Drawing.Size(173, 17);
+            this.Lbl_Mantenimiento_Periodico.TabIndex = 45;
+            this.Lbl_Mantenimiento_Periodico.Text = "Mantenimiento periódico";
             // 
-            // label5
+            // Lbl_Hora_Operacion
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label5.Location = new System.Drawing.Point(92, 150);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(111, 15);
-            this.label5.TabIndex = 44;
-            this.label5.Text = "Hora de Operación";
+            this.Lbl_Hora_Operacion.AutoSize = true;
+            this.Lbl_Hora_Operacion.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Hora_Operacion.Location = new System.Drawing.Point(36, 219);
+            this.Lbl_Hora_Operacion.Name = "Lbl_Hora_Operacion";
+            this.Lbl_Hora_Operacion.Size = new System.Drawing.Size(133, 17);
+            this.Lbl_Hora_Operacion.TabIndex = 44;
+            this.Lbl_Hora_Operacion.Text = "Hora de Operación";
             // 
-            // label4
+            // Lbl_Tipo
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label4.Location = new System.Drawing.Point(92, 112);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 15);
-            this.label4.TabIndex = 43;
-            this.label4.Text = "Tipo";
+            this.Lbl_Tipo.AutoSize = true;
+            this.Lbl_Tipo.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Tipo.Location = new System.Drawing.Point(36, 181);
+            this.Lbl_Tipo.Name = "Lbl_Tipo";
+            this.Lbl_Tipo.Size = new System.Drawing.Size(38, 17);
+            this.Lbl_Tipo.TabIndex = 43;
+            this.Lbl_Tipo.Text = "Tipo";
             // 
-            // label3
+            // Lbl_Nombre
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label3.Location = new System.Drawing.Point(92, 72);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 15);
-            this.label3.TabIndex = 42;
-            this.label3.Text = "Nombre";
+            this.Lbl_Nombre.AutoSize = true;
+            this.Lbl_Nombre.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Nombre.Location = new System.Drawing.Point(36, 141);
+            this.Lbl_Nombre.Name = "Lbl_Nombre";
+            this.Lbl_Nombre.Size = new System.Drawing.Size(61, 17);
+            this.Lbl_Nombre.TabIndex = 42;
+            this.Lbl_Nombre.Text = "Nombre";
             // 
             // lbl_Mantenimiento
             // 
             this.lbl_Mantenimiento.AutoSize = true;
-            this.lbl_Mantenimiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lbl_Mantenimiento.Location = new System.Drawing.Point(92, 33);
+            this.lbl_Mantenimiento.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Mantenimiento.Location = new System.Drawing.Point(36, 102);
             this.lbl_Mantenimiento.Name = "lbl_Mantenimiento";
-            this.lbl_Mantenimiento.Size = new System.Drawing.Size(105, 15);
+            this.lbl_Mantenimiento.Size = new System.Drawing.Size(129, 17);
             this.lbl_Mantenimiento.TabIndex = 41;
             this.lbl_Mantenimiento.Text = "ID Mantenimiento";
             // 
@@ -167,14 +168,14 @@
             this.Cbo_Estado.Items.AddRange(new object[] {
             "Activo",
             "Inactivo"});
-            this.Cbo_Estado.Location = new System.Drawing.Point(616, 194);
+            this.Cbo_Estado.Location = new System.Drawing.Point(579, 263);
             this.Cbo_Estado.Name = "Cbo_Estado";
             this.Cbo_Estado.Size = new System.Drawing.Size(200, 21);
             this.Cbo_Estado.TabIndex = 37;
             // 
             // Nud_DesgastePorcentaje
             // 
-            this.Nud_DesgastePorcentaje.Location = new System.Drawing.Point(768, 152);
+            this.Nud_DesgastePorcentaje.Location = new System.Drawing.Point(731, 221);
             this.Nud_DesgastePorcentaje.Name = "Nud_DesgastePorcentaje";
             this.Nud_DesgastePorcentaje.Size = new System.Drawing.Size(48, 20);
             this.Nud_DesgastePorcentaje.TabIndex = 36;
@@ -183,35 +184,35 @@
             // 
             this.Cbo_Area.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Cbo_Area.FormattingEnabled = true;
-            this.Cbo_Area.Location = new System.Drawing.Point(616, 111);
+            this.Cbo_Area.Location = new System.Drawing.Point(579, 180);
             this.Cbo_Area.Name = "Cbo_Area";
             this.Cbo_Area.Size = new System.Drawing.Size(200, 21);
             this.Cbo_Area.TabIndex = 35;
             // 
             // Dtp_ProximoMantenimiento
             // 
-            this.Dtp_ProximoMantenimiento.Location = new System.Drawing.Point(616, 71);
+            this.Dtp_ProximoMantenimiento.Location = new System.Drawing.Point(579, 140);
             this.Dtp_ProximoMantenimiento.Name = "Dtp_ProximoMantenimiento";
             this.Dtp_ProximoMantenimiento.Size = new System.Drawing.Size(200, 20);
             this.Dtp_ProximoMantenimiento.TabIndex = 34;
             // 
             // Dtp_UltimaMantenimiento
             // 
-            this.Dtp_UltimaMantenimiento.Location = new System.Drawing.Point(616, 32);
+            this.Dtp_UltimaMantenimiento.Location = new System.Drawing.Point(579, 101);
             this.Dtp_UltimaMantenimiento.Name = "Dtp_UltimaMantenimiento";
             this.Dtp_UltimaMantenimiento.Size = new System.Drawing.Size(200, 20);
             this.Dtp_UltimaMantenimiento.TabIndex = 33;
             // 
             // Txt_MantenimientoPeriodico
             // 
-            this.Txt_MantenimientoPeriodico.Location = new System.Drawing.Point(252, 194);
+            this.Txt_MantenimientoPeriodico.Location = new System.Drawing.Point(215, 263);
             this.Txt_MantenimientoPeriodico.Name = "Txt_MantenimientoPeriodico";
             this.Txt_MantenimientoPeriodico.Size = new System.Drawing.Size(148, 20);
             this.Txt_MantenimientoPeriodico.TabIndex = 32;
             // 
             // Nud_HoraOperacion
             // 
-            this.Nud_HoraOperacion.Location = new System.Drawing.Point(358, 152);
+            this.Nud_HoraOperacion.Location = new System.Drawing.Point(321, 221);
             this.Nud_HoraOperacion.Name = "Nud_HoraOperacion";
             this.Nud_HoraOperacion.Size = new System.Drawing.Size(42, 20);
             this.Nud_HoraOperacion.TabIndex = 31;
@@ -220,15 +221,14 @@
             // 
             this.Cbo_TipoMaquina.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Cbo_TipoMaquina.FormattingEnabled = true;
-            this.Cbo_TipoMaquina.Location = new System.Drawing.Point(252, 111);
+            this.Cbo_TipoMaquina.Location = new System.Drawing.Point(215, 180);
             this.Cbo_TipoMaquina.Name = "Cbo_TipoMaquina";
             this.Cbo_TipoMaquina.Size = new System.Drawing.Size(148, 21);
             this.Cbo_TipoMaquina.TabIndex = 30;
             // 
             // Txt_ID_Maquinaria
             // 
-            this.Txt_ID_Maquinaria.Enabled = false;
-            this.Txt_ID_Maquinaria.Location = new System.Drawing.Point(252, 32);
+            this.Txt_ID_Maquinaria.Location = new System.Drawing.Point(215, 101);
             this.Txt_ID_Maquinaria.Name = "Txt_ID_Maquinaria";
             this.Txt_ID_Maquinaria.ReadOnly = true;
             this.Txt_ID_Maquinaria.Size = new System.Drawing.Size(148, 20);
@@ -237,9 +237,9 @@
             // Dgv_Mantenimientos
             // 
             this.Dgv_Mantenimientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dgv_Mantenimientos.Location = new System.Drawing.Point(61, 335);
+            this.Dgv_Mantenimientos.Location = new System.Drawing.Point(39, 300);
             this.Dgv_Mantenimientos.Name = "Dgv_Mantenimientos";
-            this.Dgv_Mantenimientos.Size = new System.Drawing.Size(771, 283);
+            this.Dgv_Mantenimientos.Size = new System.Drawing.Size(740, 283);
             this.Dgv_Mantenimientos.TabIndex = 27;
             // 
             // btn_Reporte
@@ -250,7 +250,7 @@
             this.btn_Reporte.FlatAppearance.BorderSize = 0;
             this.btn_Reporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Reporte.ForeColor = System.Drawing.Color.Black;
-            this.btn_Reporte.Location = new System.Drawing.Point(597, 263);
+            this.btn_Reporte.Location = new System.Drawing.Point(532, 21);
             this.btn_Reporte.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Reporte.Name = "btn_Reporte";
             this.btn_Reporte.Size = new System.Drawing.Size(63, 55);
@@ -265,7 +265,7 @@
             this.btn_Ayuda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Ayuda.FlatAppearance.BorderSize = 0;
             this.btn_Ayuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Ayuda.Location = new System.Drawing.Point(841, 12);
+            this.btn_Ayuda.Location = new System.Drawing.Point(740, 12);
             this.btn_Ayuda.Name = "btn_Ayuda";
             this.btn_Ayuda.Size = new System.Drawing.Size(39, 38);
             this.btn_Ayuda.TabIndex = 52;
@@ -280,7 +280,7 @@
             this.btn_Nuevo.FlatAppearance.BorderSize = 0;
             this.btn_Nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Nuevo.ForeColor = System.Drawing.Color.Black;
-            this.btn_Nuevo.Location = new System.Drawing.Point(250, 263);
+            this.btn_Nuevo.Location = new System.Drawing.Point(185, 21);
             this.btn_Nuevo.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Nuevo.Name = "btn_Nuevo";
             this.btn_Nuevo.Size = new System.Drawing.Size(63, 55);
@@ -295,7 +295,7 @@
             this.Btn_Eliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Btn_Eliminar.FlatAppearance.BorderSize = 0;
             this.Btn_Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Eliminar.Location = new System.Drawing.Point(510, 263);
+            this.Btn_Eliminar.Location = new System.Drawing.Point(445, 21);
             this.Btn_Eliminar.Name = "Btn_Eliminar";
             this.Btn_Eliminar.Size = new System.Drawing.Size(63, 55);
             this.Btn_Eliminar.TabIndex = 40;
@@ -309,7 +309,7 @@
             this.Btn_Actualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Btn_Actualizar.FlatAppearance.BorderSize = 0;
             this.Btn_Actualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Actualizar.Location = new System.Drawing.Point(422, 263);
+            this.Btn_Actualizar.Location = new System.Drawing.Point(357, 21);
             this.Btn_Actualizar.Name = "Btn_Actualizar";
             this.Btn_Actualizar.Size = new System.Drawing.Size(63, 55);
             this.Btn_Actualizar.TabIndex = 39;
@@ -324,7 +324,7 @@
             this.Btn_Agregar.FlatAppearance.BorderSize = 0;
             this.Btn_Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Agregar.ForeColor = System.Drawing.Color.Black;
-            this.Btn_Agregar.Location = new System.Drawing.Point(334, 263);
+            this.Btn_Agregar.Location = new System.Drawing.Point(269, 21);
             this.Btn_Agregar.Margin = new System.Windows.Forms.Padding(0);
             this.Btn_Agregar.Name = "Btn_Agregar";
             this.Btn_Agregar.Size = new System.Drawing.Size(63, 55);
@@ -336,7 +336,7 @@
             // 
             this.cbo_nombre_maquina.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbo_nombre_maquina.FormattingEnabled = true;
-            this.cbo_nombre_maquina.Location = new System.Drawing.Point(252, 74);
+            this.cbo_nombre_maquina.Location = new System.Drawing.Point(215, 143);
             this.cbo_nombre_maquina.Name = "cbo_nombre_maquina";
             this.cbo_nombre_maquina.Size = new System.Drawing.Size(148, 21);
             this.cbo_nombre_maquina.TabIndex = 54;
@@ -346,20 +346,20 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(207)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(892, 651);
+            this.ClientSize = new System.Drawing.Size(812, 602);
             this.Controls.Add(this.cbo_nombre_maquina);
             this.Controls.Add(this.btn_Reporte);
             this.Controls.Add(this.btn_Ayuda);
             this.Controls.Add(this.btn_Nuevo);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.Lbl_Estado);
+            this.Controls.Add(this.Lbl_Desgaste);
+            this.Controls.Add(this.Lbl_Area);
+            this.Controls.Add(this.Lbl_Proximo_Mantenimiento);
+            this.Controls.Add(this.Lbl_Ultimo_Mantenimiento);
+            this.Controls.Add(this.Lbl_Mantenimiento_Periodico);
+            this.Controls.Add(this.Lbl_Hora_Operacion);
+            this.Controls.Add(this.Lbl_Tipo);
+            this.Controls.Add(this.Lbl_Nombre);
             this.Controls.Add(this.lbl_Mantenimiento);
             this.Controls.Add(this.Btn_Eliminar);
             this.Controls.Add(this.Btn_Actualizar);
@@ -374,8 +374,9 @@
             this.Controls.Add(this.Cbo_TipoMaquina);
             this.Controls.Add(this.Txt_ID_Maquinaria);
             this.Controls.Add(this.Dgv_Mantenimientos);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Frm_Mantenimiento_Produccion";
-            this.Text = "Frm_Mantenimiento_Produccion";
+            this.Text = "Mantenimiento Maquinaria";
             ((System.ComponentModel.ISupportInitialize)(this.Nud_DesgastePorcentaje)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Nud_HoraOperacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Mantenimientos)).EndInit();
@@ -387,15 +388,15 @@
         #endregion
 
         private System.Windows.Forms.Button btn_Nuevo;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label Lbl_Estado;
+        private System.Windows.Forms.Label Lbl_Desgaste;
+        private System.Windows.Forms.Label Lbl_Area;
+        private System.Windows.Forms.Label Lbl_Proximo_Mantenimiento;
+        private System.Windows.Forms.Label Lbl_Ultimo_Mantenimiento;
+        private System.Windows.Forms.Label Lbl_Mantenimiento_Periodico;
+        private System.Windows.Forms.Label Lbl_Hora_Operacion;
+        private System.Windows.Forms.Label Lbl_Tipo;
+        private System.Windows.Forms.Label Lbl_Nombre;
         private System.Windows.Forms.Label lbl_Mantenimiento;
         private System.Windows.Forms.Button Btn_Eliminar;
         private System.Windows.Forms.Button Btn_Actualizar;

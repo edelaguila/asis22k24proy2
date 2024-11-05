@@ -60,49 +60,26 @@
     <Compile Include="Frm_Mantenimiento_Produccion.Designer.cs">
       <DependentUpon>Frm_Mantenimiento_Produccion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Frm_Reporte.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Frm_Reporte.Designer.cs">
       <DependentUpon>Frm_Reporte.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Reporte_Mantenimientos_2.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reporte_Mantenimientos_2.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reporte_Mantenimiento_1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reporte_Mantenimiento_1.rpt</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Frm_Mantenimiento_Produccion.resx">
       <DependentUpon>Frm_Mantenimiento_Produccion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Frm_Reporte.resx">
-      <DependentUpon>Frm_Reporte.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reporte_Mantenimientos_2.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Reporte_Mantenimientos_2.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reporte_Mantenimiento_1.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Reporte_Mantenimiento_1.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

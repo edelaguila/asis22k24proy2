@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using Capa_Control_Mantenimiento;
 using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
+using System.IO;
 
 namespace Capa_Vista_Mantenimiento
 {
@@ -170,11 +171,25 @@ namespace Capa_Vista_Mantenimiento
 
         private void ConfigurarToolTips()
         {
-            toolTip.SetToolTip(Btn_Agregar, "Agregar un nuevo mantenimiento");
-            toolTip.SetToolTip(Btn_Actualizar, "Actualizar el mantenimiento seleccionado");
-            toolTip.SetToolTip(Btn_Eliminar, "Desactivar el mantenimiento seleccionado");
-            toolTip.SetToolTip(btn_Nuevo, "Limpiar los campos para un nuevo ingreso de mantenimiento");
+            toolTip.SetToolTip(Btn_Agregar, "Agregar un nuevo mantenimiento con los datos ingresados.");
+            toolTip.SetToolTip(Btn_Actualizar, "Actualizar el mantenimiento seleccionado en el sistema.");
+            toolTip.SetToolTip(Btn_Eliminar, "Desactivar el mantenimiento seleccionado para que no esté disponible.");
+            toolTip.SetToolTip(btn_Nuevo, "Limpiar los campos para preparar el ingreso de un nuevo mantenimiento.");
+            toolTip.SetToolTip(cbo_nombre_maquina, "Selecciona el nombre de la máquina para asociar el mantenimiento.");
+            toolTip.SetToolTip(Cbo_TipoMaquina, "Selecciona el tipo de máquina correspondiente.");
+            toolTip.SetToolTip(Nud_HoraOperacion, "Especifica las horas de operación acumuladas de la máquina.");
+            toolTip.SetToolTip(Txt_MantenimientoPeriodico, "Descripción del mantenimiento periódico requerido para la máquina.");
+            toolTip.SetToolTip(Dtp_UltimaMantenimiento, "Selecciona la fecha del último mantenimiento realizado.");
+            toolTip.SetToolTip(Dtp_ProximoMantenimiento, "Selecciona la fecha programada para el próximo mantenimiento.");
+            toolTip.SetToolTip(Cbo_Area, "Selecciona el área donde se encuentra la máquina.");
+            toolTip.SetToolTip(Nud_DesgastePorcentaje, "Porcentaje estimado de desgaste de la máquina.");
+            toolTip.SetToolTip(Cbo_Estado, "Indica si la máquina está activa o inactiva.");
+            toolTip.SetToolTip(Dgv_Mantenimientos, "Muestra la lista de mantenimientos registrados. Selecciona uno para ver o modificar sus detalles.");
+            toolTip.SetToolTip(btn_Ayuda, "Abre la ayuda para la gestión de mantenimiento de maquinaria.");
+            toolTip.SetToolTip(btn_Reporte, "Genera un reporte detallado de los mantenimientos registrados.");
+            toolTip.SetToolTip(Txt_ID_Maquinaria, "ID único generado automáticamente para la maquinaria seleccionada.");
         }
+
 
         private void CargarValoresPredeterminados()
         {
@@ -307,19 +322,30 @@ namespace Capa_Vista_Mantenimiento
 
             return true;
         }
+        public string sRutaProyectoAyuda { get; private set; } = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\..\..\"));
 
         private void btn_Ayuda_Click(object sender, EventArgs e)
         {
             try
             {
-                Help.ShowHelp(this, "Ayudas/ayuda1.chm", "index.html");
+                //Ruta para que se ejecute desde la ejecucion de Interfac3
+                string sAyudaPath = Path.Combine(sRutaProyectoAyuda, "Ayuda", "Modulos", "Produccion", "Ayuda_Mantenimiento", "Ayuda_Mantenimiento.chm");
+                //string sIndiceAyuda = Path.Combine(sRutaProyecto, "EstadosFinancieros", "ReportesEstados", "Htmlayuda.hmtl");
+                MessageBox.Show("Ruta del reporte: " + sAyudaPath, "Ruta Generada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                Help.ShowHelp(this, sAyudaPath, "Ayuda_Mantenimiento.html");
+
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudo abrir el archivo de ayuda: " + ex.Message);
+                // Mostrar un mensaje de error en caso de una excepción
+                MessageBox.Show("Ocurrió un error al abrir la ayuda: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine("Error al abrir la ayuda: " + ex.ToString());
             }
-        }
 
+        }
         private void btn_Reporte_Click(object sender, EventArgs e)
         {
             Frm_Reporte reporte = new Frm_Reporte();

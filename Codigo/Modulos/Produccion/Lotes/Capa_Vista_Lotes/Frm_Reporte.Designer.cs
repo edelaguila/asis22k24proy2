@@ -1,4 +1,5 @@
-﻿namespace Capa_Vista_Lotes
+﻿
+namespace Capa_Vista_Lotes
 {
     partial class Frm_Reporte
     {
@@ -28,6 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Reporte));
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.Reporte_Lotes1 = new Capa_Vista_Lotes.Reporte_Lotes();
             this.SuspendLayout();
@@ -50,8 +52,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.crystalReportViewer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Frm_Reporte";
-            this.Text = "Frm_Reporte";
+            this.Text = "Reporte";
             this.ResumeLayout(false);
 
         }

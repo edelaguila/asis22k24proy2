@@ -32,6 +32,10 @@ namespace Capa_Vista_Produccion
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MDI_Produccion));
             this.panelBarraTitulo = new System.Windows.Forms.Panel();
+            this.btn_Maximizar = new System.Windows.Forms.PictureBox();
+            this.btn_Restaurar = new System.Windows.Forms.PictureBox();
+            this.btn_Minimizar = new System.Windows.Forms.PictureBox();
+            this.btn_Cerrar = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnRestaurar = new System.Windows.Forms.PictureBox();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
@@ -55,12 +59,17 @@ namespace Capa_Vista_Produccion
             this.btnEmpleados = new System.Windows.Forms.Button();
             this.btnOrdenesProduccion = new System.Windows.Forms.Button();
             this.btnMenuProcesos = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl_usuario = new System.Windows.Forms.Label();
             this.lbl_user = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lbl_fecha_y_hora = new System.Windows.Forms.Label();
+            this.panelIdentificacion = new System.Windows.Forms.Panel();
+            this.pb_Fondo = new System.Windows.Forms.PictureBox();
             this.panelBarraTitulo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Maximizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Restaurar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Minimizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Cerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
@@ -69,12 +78,17 @@ namespace Capa_Vista_Produccion
             this.panelMenu.SuspendLayout();
             this.panelMenuMantenimiento.SuspendLayout();
             this.panelMenuProcesos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelIdentificacion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Fondo)).BeginInit();
             this.SuspendLayout();
             // 
             // panelBarraTitulo
             // 
             this.panelBarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(131)))), ((int)(((byte)(204)))));
+            this.panelBarraTitulo.Controls.Add(this.btn_Maximizar);
+            this.panelBarraTitulo.Controls.Add(this.btn_Restaurar);
+            this.panelBarraTitulo.Controls.Add(this.btn_Minimizar);
+            this.panelBarraTitulo.Controls.Add(this.btn_Cerrar);
             this.panelBarraTitulo.Controls.Add(this.pictureBox2);
             this.panelBarraTitulo.Controls.Add(this.btnRestaurar);
             this.panelBarraTitulo.Controls.Add(this.btnMinimizar);
@@ -82,16 +96,73 @@ namespace Capa_Vista_Produccion
             this.panelBarraTitulo.Controls.Add(this.btnCerrar);
             this.panelBarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelBarraTitulo.Location = new System.Drawing.Point(0, 0);
-            this.panelBarraTitulo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelBarraTitulo.Margin = new System.Windows.Forms.Padding(2);
             this.panelBarraTitulo.Name = "panelBarraTitulo";
-            this.panelBarraTitulo.Size = new System.Drawing.Size(892, 46);
+            this.panelBarraTitulo.Size = new System.Drawing.Size(1091, 36);
             this.panelBarraTitulo.TabIndex = 1;
+            // 
+            // btn_Maximizar
+            // 
+            this.btn_Maximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Maximizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Maximizar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Maximizar.Image")));
+            this.btn_Maximizar.Location = new System.Drawing.Point(1041, 11);
+            this.btn_Maximizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Maximizar.Name = "btn_Maximizar";
+            this.btn_Maximizar.Size = new System.Drawing.Size(16, 16);
+            this.btn_Maximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_Maximizar.TabIndex = 8;
+            this.btn_Maximizar.TabStop = false;
+            this.btn_Maximizar.Click += new System.EventHandler(this.btnMaximizar_Click);
+            // 
+            // btn_Restaurar
+            // 
+            this.btn_Restaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Restaurar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Restaurar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Restaurar.Image")));
+            this.btn_Restaurar.Location = new System.Drawing.Point(1041, 11);
+            this.btn_Restaurar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Restaurar.Name = "btn_Restaurar";
+            this.btn_Restaurar.Size = new System.Drawing.Size(16, 16);
+            this.btn_Restaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_Restaurar.TabIndex = 7;
+            this.btn_Restaurar.TabStop = false;
+            this.btn_Restaurar.Visible = false;
+            this.btn_Restaurar.Click += new System.EventHandler(this.btnRestaurar_Click_1);
+            // 
+            // btn_Minimizar
+            // 
+            this.btn_Minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Minimizar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Minimizar.Image")));
+            this.btn_Minimizar.Location = new System.Drawing.Point(1019, 11);
+            this.btn_Minimizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Minimizar.Name = "btn_Minimizar";
+            this.btn_Minimizar.Size = new System.Drawing.Size(16, 16);
+            this.btn_Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_Minimizar.TabIndex = 6;
+            this.btn_Minimizar.TabStop = false;
+            this.btn_Minimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            // 
+            // btn_Cerrar
+            // 
+            this.btn_Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Cerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Cerrar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Cerrar.Image")));
+            this.btn_Cerrar.Location = new System.Drawing.Point(1063, 11);
+            this.btn_Cerrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Cerrar.Name = "btn_Cerrar";
+            this.btn_Cerrar.Size = new System.Drawing.Size(16, 16);
+            this.btn_Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_Cerrar.TabIndex = 5;
+            this.btn_Cerrar.TabStop = false;
+            this.btn_Cerrar.Click += new System.EventHandler(this.btnCerrar_Click_1);
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(2, 9);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(29, 26);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -103,8 +174,8 @@ namespace Capa_Vista_Produccion
             this.btnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("btnRestaurar.Image")));
-            this.btnRestaurar.Location = new System.Drawing.Point(1210, 9);
-            this.btnRestaurar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRestaurar.Location = new System.Drawing.Point(1409, 9);
+            this.btnRestaurar.Margin = new System.Windows.Forms.Padding(2);
             this.btnRestaurar.Name = "btnRestaurar";
             this.btnRestaurar.Size = new System.Drawing.Size(12, 13);
             this.btnRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -118,8 +189,8 @@ namespace Capa_Vista_Produccion
             this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
-            this.btnMinimizar.Location = new System.Drawing.Point(1194, 9);
-            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMinimizar.Location = new System.Drawing.Point(1393, 9);
+            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(2);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(12, 13);
             this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -132,8 +203,8 @@ namespace Capa_Vista_Produccion
             this.btnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMaximizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMaximizar.Image")));
-            this.btnMaximizar.Location = new System.Drawing.Point(1211, 9);
-            this.btnMaximizar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaximizar.Location = new System.Drawing.Point(1410, 9);
+            this.btnMaximizar.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaximizar.Name = "btnMaximizar";
             this.btnMaximizar.Size = new System.Drawing.Size(12, 13);
             this.btnMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -146,8 +217,8 @@ namespace Capa_Vista_Produccion
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(1227, 9);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCerrar.Location = new System.Drawing.Point(1426, 9);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(12, 13);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -165,10 +236,10 @@ namespace Capa_Vista_Produccion
             this.panelMenu.Controls.Add(this.panelMenuProcesos);
             this.panelMenu.Controls.Add(this.btnMenuProcesos);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelMenu.Location = new System.Drawing.Point(0, 46);
-            this.panelMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelMenu.Location = new System.Drawing.Point(0, 36);
+            this.panelMenu.Margin = new System.Windows.Forms.Padding(2);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(163, 593);
+            this.panelMenu.Size = new System.Drawing.Size(163, 603);
             this.panelMenu.TabIndex = 2;
             // 
             // btnSalir
@@ -183,7 +254,7 @@ namespace Capa_Vista_Produccion
             this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
             this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalir.Location = new System.Drawing.Point(0, 505);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(2);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(163, 35);
             this.btnSalir.TabIndex = 21;
@@ -201,7 +272,7 @@ namespace Capa_Vista_Produccion
             this.panelMenuMantenimiento.Controls.Add(this.btnMaquinaria);
             this.panelMenuMantenimiento.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelMenuMantenimiento.Location = new System.Drawing.Point(0, 328);
-            this.panelMenuMantenimiento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelMenuMantenimiento.Margin = new System.Windows.Forms.Padding(2);
             this.panelMenuMantenimiento.Name = "panelMenuMantenimiento";
             this.panelMenuMantenimiento.Size = new System.Drawing.Size(163, 177);
             this.panelMenuMantenimiento.TabIndex = 15;
@@ -214,10 +285,10 @@ namespace Capa_Vista_Produccion
             this.Btn_Recetas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Recetas.ForeColor = System.Drawing.Color.Silver;
             this.Btn_Recetas.Location = new System.Drawing.Point(0, 135);
-            this.Btn_Recetas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Btn_Recetas.Margin = new System.Windows.Forms.Padding(2);
             this.Btn_Recetas.Name = "Btn_Recetas";
             this.Btn_Recetas.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
-            this.Btn_Recetas.Size = new System.Drawing.Size(163, 51);
+            this.Btn_Recetas.Size = new System.Drawing.Size(163, 31);
             this.Btn_Recetas.TabIndex = 24;
             this.Btn_Recetas.Text = "Recetas";
             this.Btn_Recetas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -231,7 +302,7 @@ namespace Capa_Vista_Produccion
             this.btnLotes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLotes.ForeColor = System.Drawing.Color.Silver;
             this.btnLotes.Location = new System.Drawing.Point(0, 94);
-            this.btnLotes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLotes.Margin = new System.Windows.Forms.Padding(2);
             this.btnLotes.Name = "btnLotes";
             this.btnLotes.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
             this.btnLotes.Size = new System.Drawing.Size(163, 41);
@@ -248,7 +319,7 @@ namespace Capa_Vista_Produccion
             this.btnSeries.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSeries.ForeColor = System.Drawing.Color.Silver;
             this.btnSeries.Location = new System.Drawing.Point(0, 68);
-            this.btnSeries.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSeries.Margin = new System.Windows.Forms.Padding(2);
             this.btnSeries.Name = "btnSeries";
             this.btnSeries.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
             this.btnSeries.Size = new System.Drawing.Size(163, 26);
@@ -265,7 +336,7 @@ namespace Capa_Vista_Produccion
             this.btnConversiones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConversiones.ForeColor = System.Drawing.Color.Silver;
             this.btnConversiones.Location = new System.Drawing.Point(0, 31);
-            this.btnConversiones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnConversiones.Margin = new System.Windows.Forms.Padding(2);
             this.btnConversiones.Name = "btnConversiones";
             this.btnConversiones.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
             this.btnConversiones.Size = new System.Drawing.Size(163, 37);
@@ -282,7 +353,7 @@ namespace Capa_Vista_Produccion
             this.btnMaquinaria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaquinaria.ForeColor = System.Drawing.Color.Silver;
             this.btnMaquinaria.Location = new System.Drawing.Point(0, 0);
-            this.btnMaquinaria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMaquinaria.Margin = new System.Windows.Forms.Padding(2);
             this.btnMaquinaria.Name = "btnMaquinaria";
             this.btnMaquinaria.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
             this.btnMaquinaria.Size = new System.Drawing.Size(163, 31);
@@ -304,7 +375,7 @@ namespace Capa_Vista_Produccion
             this.btnMenuMantenimiento.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuMantenimiento.Image")));
             this.btnMenuMantenimiento.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMenuMantenimiento.Location = new System.Drawing.Point(0, 291);
-            this.btnMenuMantenimiento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMenuMantenimiento.Margin = new System.Windows.Forms.Padding(2);
             this.btnMenuMantenimiento.Name = "btnMenuMantenimiento";
             this.btnMenuMantenimiento.Size = new System.Drawing.Size(163, 37);
             this.btnMenuMantenimiento.TabIndex = 14;
@@ -324,7 +395,7 @@ namespace Capa_Vista_Produccion
             this.panelMenuProcesos.Controls.Add(this.btnOrdenesProduccion);
             this.panelMenuProcesos.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelMenuProcesos.Location = new System.Drawing.Point(0, 37);
-            this.panelMenuProcesos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelMenuProcesos.Margin = new System.Windows.Forms.Padding(2);
             this.panelMenuProcesos.Name = "panelMenuProcesos";
             this.panelMenuProcesos.Size = new System.Drawing.Size(163, 254);
             this.panelMenuProcesos.TabIndex = 6;
@@ -337,7 +408,7 @@ namespace Capa_Vista_Produccion
             this.btnMantenimiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMantenimiento.ForeColor = System.Drawing.Color.Silver;
             this.btnMantenimiento.Location = new System.Drawing.Point(0, 211);
-            this.btnMantenimiento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMantenimiento.Margin = new System.Windows.Forms.Padding(2);
             this.btnMantenimiento.Name = "btnMantenimiento";
             this.btnMantenimiento.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
             this.btnMantenimiento.Size = new System.Drawing.Size(163, 46);
@@ -354,7 +425,7 @@ namespace Capa_Vista_Produccion
             this.btnPolizas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPolizas.ForeColor = System.Drawing.Color.Silver;
             this.btnPolizas.Location = new System.Drawing.Point(0, 185);
-            this.btnPolizas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPolizas.Margin = new System.Windows.Forms.Padding(2);
             this.btnPolizas.Name = "btnPolizas";
             this.btnPolizas.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
             this.btnPolizas.Size = new System.Drawing.Size(163, 26);
@@ -371,7 +442,7 @@ namespace Capa_Vista_Produccion
             this.btnProduccion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProduccion.ForeColor = System.Drawing.Color.Silver;
             this.btnProduccion.Location = new System.Drawing.Point(0, 160);
-            this.btnProduccion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnProduccion.Margin = new System.Windows.Forms.Padding(2);
             this.btnProduccion.Name = "btnProduccion";
             this.btnProduccion.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
             this.btnProduccion.Size = new System.Drawing.Size(163, 25);
@@ -388,7 +459,7 @@ namespace Capa_Vista_Produccion
             this.btnImplosionExplosion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImplosionExplosion.ForeColor = System.Drawing.Color.Silver;
             this.btnImplosionExplosion.Location = new System.Drawing.Point(0, 117);
-            this.btnImplosionExplosion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnImplosionExplosion.Margin = new System.Windows.Forms.Padding(2);
             this.btnImplosionExplosion.Name = "btnImplosionExplosion";
             this.btnImplosionExplosion.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
             this.btnImplosionExplosion.Size = new System.Drawing.Size(163, 43);
@@ -405,7 +476,7 @@ namespace Capa_Vista_Produccion
             this.btnCierre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCierre.ForeColor = System.Drawing.Color.Silver;
             this.btnCierre.Location = new System.Drawing.Point(0, 89);
-            this.btnCierre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCierre.Margin = new System.Windows.Forms.Padding(2);
             this.btnCierre.Name = "btnCierre";
             this.btnCierre.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
             this.btnCierre.Size = new System.Drawing.Size(163, 28);
@@ -422,7 +493,7 @@ namespace Capa_Vista_Produccion
             this.btnEmpleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEmpleados.ForeColor = System.Drawing.Color.Silver;
             this.btnEmpleados.Location = new System.Drawing.Point(0, 48);
-            this.btnEmpleados.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEmpleados.Margin = new System.Windows.Forms.Padding(2);
             this.btnEmpleados.Name = "btnEmpleados";
             this.btnEmpleados.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
             this.btnEmpleados.Size = new System.Drawing.Size(163, 41);
@@ -439,7 +510,7 @@ namespace Capa_Vista_Produccion
             this.btnOrdenesProduccion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOrdenesProduccion.ForeColor = System.Drawing.Color.Silver;
             this.btnOrdenesProduccion.Location = new System.Drawing.Point(0, 0);
-            this.btnOrdenesProduccion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnOrdenesProduccion.Margin = new System.Windows.Forms.Padding(2);
             this.btnOrdenesProduccion.Name = "btnOrdenesProduccion";
             this.btnOrdenesProduccion.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
             this.btnOrdenesProduccion.Size = new System.Drawing.Size(163, 48);
@@ -461,7 +532,7 @@ namespace Capa_Vista_Produccion
             this.btnMenuProcesos.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuProcesos.Image")));
             this.btnMenuProcesos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMenuProcesos.Location = new System.Drawing.Point(0, 0);
-            this.btnMenuProcesos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMenuProcesos.Margin = new System.Windows.Forms.Padding(2);
             this.btnMenuProcesos.Name = "btnMenuProcesos";
             this.btnMenuProcesos.Size = new System.Drawing.Size(163, 37);
             this.btnMenuProcesos.TabIndex = 5;
@@ -470,23 +541,10 @@ namespace Capa_Vista_Produccion
             this.btnMenuProcesos.UseVisualStyleBackColor = true;
             this.btnMenuProcesos.Click += new System.EventHandler(this.btnMenuProcesos_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(463, 287);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(225, 225);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
             // lbl_usuario
             // 
             this.lbl_usuario.AutoSize = true;
-            this.lbl_usuario.Location = new System.Drawing.Point(167, 67);
+            this.lbl_usuario.Location = new System.Drawing.Point(331, 8);
             this.lbl_usuario.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_usuario.Name = "lbl_usuario";
             this.lbl_usuario.Size = new System.Drawing.Size(110, 13);
@@ -496,7 +554,7 @@ namespace Capa_Vista_Produccion
             // lbl_user
             // 
             this.lbl_user.AutoSize = true;
-            this.lbl_user.Location = new System.Drawing.Point(274, 67);
+            this.lbl_user.Location = new System.Drawing.Point(445, 8);
             this.lbl_user.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_user.Name = "lbl_user";
             this.lbl_user.Size = new System.Drawing.Size(41, 13);
@@ -506,28 +564,58 @@ namespace Capa_Vista_Produccion
             // lbl_fecha_y_hora
             // 
             this.lbl_fecha_y_hora.AutoSize = true;
-            this.lbl_fecha_y_hora.Location = new System.Drawing.Point(167, 48);
+            this.lbl_fecha_y_hora.Location = new System.Drawing.Point(494, 8);
             this.lbl_fecha_y_hora.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_fecha_y_hora.Name = "lbl_fecha_y_hora";
             this.lbl_fecha_y_hora.Size = new System.Drawing.Size(72, 13);
             this.lbl_fecha_y_hora.TabIndex = 7;
             this.lbl_fecha_y_hora.Text = "Fecha y hora:";
             // 
+            // panelIdentificacion
+            // 
+            this.panelIdentificacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(207)))), ((int)(((byte)(230)))));
+            this.panelIdentificacion.Controls.Add(this.lbl_usuario);
+            this.panelIdentificacion.Controls.Add(this.lbl_fecha_y_hora);
+            this.panelIdentificacion.Controls.Add(this.lbl_user);
+            this.panelIdentificacion.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelIdentificacion.Location = new System.Drawing.Point(163, 609);
+            this.panelIdentificacion.Name = "panelIdentificacion";
+            this.panelIdentificacion.Size = new System.Drawing.Size(928, 30);
+            this.panelIdentificacion.TabIndex = 8;
+            // 
+            // pb_Fondo
+            // 
+            this.pb_Fondo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pb_Fondo.BackColor = System.Drawing.Color.Transparent;
+            this.pb_Fondo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pb_Fondo.BackgroundImage")));
+            this.pb_Fondo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pb_Fondo.Location = new System.Drawing.Point(504, 207);
+            this.pb_Fondo.Margin = new System.Windows.Forms.Padding(2);
+            this.pb_Fondo.Name = "pb_Fondo";
+            this.pb_Fondo.Size = new System.Drawing.Size(225, 225);
+            this.pb_Fondo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pb_Fondo.TabIndex = 3;
+            this.pb_Fondo.TabStop = false;
+            // 
             // MDI_Produccion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(892, 639);
-            this.Controls.Add(this.lbl_fecha_y_hora);
-            this.Controls.Add(this.lbl_user);
-            this.Controls.Add(this.lbl_usuario);
-            this.Controls.Add(this.pictureBox1);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(249)))), ((int)(((byte)(250)))));
+            this.ClientSize = new System.Drawing.Size(1091, 639);
+            this.Controls.Add(this.panelIdentificacion);
+            this.Controls.Add(this.pb_Fondo);
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panelBarraTitulo);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MDI_Produccion";
             this.Text = "MDI_Produccion";
             this.panelBarraTitulo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Maximizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Restaurar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Minimizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Cerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
@@ -536,7 +624,9 @@ namespace Capa_Vista_Produccion
             this.panelMenu.ResumeLayout(false);
             this.panelMenuMantenimiento.ResumeLayout(false);
             this.panelMenuProcesos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelIdentificacion.ResumeLayout(false);
+            this.panelIdentificacion.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Fondo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -551,7 +641,7 @@ namespace Capa_Vista_Produccion
         private System.Windows.Forms.PictureBox btnMaximizar;
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.Panel panelMenu;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pb_Fondo;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Panel panelMenuMantenimiento;
         private System.Windows.Forms.Button btnMenuMantenimiento;
@@ -573,5 +663,10 @@ namespace Capa_Vista_Produccion
         private System.Windows.Forms.Label lbl_user;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lbl_fecha_y_hora;
+        private System.Windows.Forms.PictureBox btn_Restaurar;
+        private System.Windows.Forms.PictureBox btn_Minimizar;
+        private System.Windows.Forms.PictureBox btn_Cerrar;
+        private System.Windows.Forms.PictureBox btn_Maximizar;
+        private System.Windows.Forms.Panel panelIdentificacion;
     }
 }

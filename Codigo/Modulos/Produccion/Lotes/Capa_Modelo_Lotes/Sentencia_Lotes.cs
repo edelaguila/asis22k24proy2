@@ -13,22 +13,23 @@ namespace Capa_Modelo_Lotes
             conexion = new Conexion_Lotes();
         }
 
+        // Verifica si la conexión es válida
+        private bool EsConexionValida(OdbcConnection conn)
+        {
+            if (conn.State != ConnectionState.Open)
+            {
+                Console.WriteLine("La conexión no está abierta.");
+                return false;
+            }
+            return true;
+        }
+
         // Método para insertar un nuevo registro de lote
-        public void InsertarLote(
-            int idLote,
-            string codigoLote,
-            DateTime fechaProduccionLote,
-            int cantidadLote,
-            int estado,
-            int idProducto)
+        public void InsertarLote(int idLote, string codigoLote, DateTime fechaProduccionLote, int cantidadLote, int estado, int idProducto)
         {
             using (OdbcConnection conn = conexion.Probar_Conexion())
             {
-                if (conn.State != ConnectionState.Open)
-                {
-                    Console.WriteLine("La conexión no está abierta.");
-                    return;
-                }
+                if (!EsConexionValida(conn)) return;
 
                 using (OdbcTransaction transaction = conn.BeginTransaction())
                 {
@@ -78,21 +79,11 @@ namespace Capa_Modelo_Lotes
         }
 
         // Método para actualizar un registro de lote
-        public void ActualizarLote(
-            int idLote,
-            string codigoLote,
-            DateTime fechaProduccionLote,
-            int cantidadLote,
-            int estado,
-            int idProducto)
+        public void ActualizarLote(int idLote, string codigoLote, DateTime fechaProduccionLote, int cantidadLote, int estado, int idProducto)
         {
             using (OdbcConnection conn = conexion.Probar_Conexion())
             {
-                if (conn.State != ConnectionState.Open)
-                {
-                    Console.WriteLine("La conexión no está abierta.");
-                    return;
-                }
+                if (!EsConexionValida(conn)) return;
 
                 using (OdbcTransaction transaction = conn.BeginTransaction())
                 {
@@ -145,51 +136,38 @@ namespace Capa_Modelo_Lotes
         }
 
         // Método para desactivar un registro de lote
+        // Método para desactivar un registro de lote
         public void DesactivarLote(int idLote)
         {
             using (OdbcConnection conn = conexion.Probar_Conexion())
             {
-                if (conn.State != ConnectionState.Open)
-                {
-                    Console.WriteLine("La conexión no está abierta.");
-                    return;
-                }
+                if (!EsConexionValida(conn)) return;
 
                 using (OdbcTransaction transaction = conn.BeginTransaction())
                 {
                     try
                     {
+                        // Actualizar estado en tbl_lotes_encabezado a 0 (inactivo)
                         string queryEncabezado = @"UPDATE tbl_lotes_encabezado SET estado = 0 WHERE Pk_id_lote = ?";
 
                         using (OdbcCommand cmdEncabezado = new OdbcCommand(queryEncabezado, conn, transaction))
                         {
                             cmdEncabezado.Parameters.AddWithValue("?", idLote);
-
-                            int rowsAffectedEncabezado = cmdEncabezado.ExecuteNonQuery();
-                            Console.WriteLine("Filas desactivadas en tbl_lotes_encabezado: " + rowsAffectedEncabezado);
-                        }
-
-                        string queryDetalle = @"UPDATE tbl_lotes_detalles SET estado = 0 WHERE Fk_id_lote = ?";
-
-                        using (OdbcCommand cmdDetalle = new OdbcCommand(queryDetalle, conn, transaction))
-                        {
-                            cmdDetalle.Parameters.AddWithValue("?", idLote);
-
-                            int rowsAffectedDetalle = cmdDetalle.ExecuteNonQuery();
-                            Console.WriteLine("Filas desactivadas en tbl_lotes_detalles: " + rowsAffectedDetalle);
+                            cmdEncabezado.ExecuteNonQuery();
                         }
 
                         transaction.Commit();
-                        Console.WriteLine("Transacción de desactivación completada correctamente.");
+                        Console.WriteLine("Lote desactivado correctamente.");
                     }
                     catch (Exception ex)
                     {
                         transaction.Rollback();
-                        Console.WriteLine("Error al desactivar el lote y los detalles: " + ex.Message);
+                        Console.WriteLine("Error al desactivar el lote: " + ex.Message);
                     }
                 }
             }
         }
+
 
         // Método para obtener los registros de la tabla de lotes con INNER JOIN
         public DataTable ObtenerLotes()
@@ -198,15 +176,11 @@ namespace Capa_Modelo_Lotes
 
             using (OdbcConnection conn = conexion.Probar_Conexion())
             {
-                if (conn.State != ConnectionState.Open)
-                {
-                    Console.WriteLine("La conexión no está abierta.");
-                    return tablaLotes;
-                }
+                if (!EsConexionValida(conn)) return tablaLotes;
 
                 try
                 {
-                    string query = @"SELECT le.Pk_id_lote, le.codigo_lote, le.Fecha_Producción, le.estado, 
+                    string query = @"SELECT le.Pk_id_lote, le.codigo_lote, le.Fecha_Producción AS FechaProduccion, le.estado, 
                                      ld.Fk_id_producto, ld.cantidad
                                      FROM tbl_lotes_encabezado AS le
                                      INNER JOIN tbl_lotes_detalles AS ld ON le.Pk_id_lote = ld.Fk_id_lote";
@@ -232,11 +206,7 @@ namespace Capa_Modelo_Lotes
 
             using (OdbcConnection conn = conexion.Probar_Conexion())
             {
-                if (conn.State != ConnectionState.Open)
-                {
-                    Console.WriteLine("La conexión no está abierta.");
-                    return ultimoId;
-                }
+                if (!EsConexionValida(conn)) return ultimoId;
 
                 try
                 {
@@ -267,15 +237,11 @@ namespace Capa_Modelo_Lotes
 
             using (OdbcConnection conn = conexion.Probar_Conexion())
             {
-                if (conn.State != ConnectionState.Open)
-                {
-                    Console.WriteLine("La conexión no está abierta.");
-                    return tablaProductos;
-                }
+                if (!EsConexionValida(conn)) return tablaProductos;
 
                 try
                 {
-                    string query = "SELECT Pk_id_Producto, nombreProducto FROM tbl_productos WHERE estado = 'Activo'";
+                    string query = "SELECT Pk_id_Producto, nombreProducto FROM Tbl_Productos WHERE estado = 1";
 
                     using (OdbcDataAdapter adapter = new OdbcDataAdapter(query, conn))
                     {
@@ -298,11 +264,7 @@ namespace Capa_Modelo_Lotes
 
             using (OdbcConnection conn = conexion.Probar_Conexion())
             {
-                if (conn.State != ConnectionState.Open)
-                {
-                    Console.WriteLine("La conexión no está abierta.");
-                    return tablaProcesos;
-                }
+                if (!EsConexionValida(conn)) return tablaProcesos;
 
                 try
                 {

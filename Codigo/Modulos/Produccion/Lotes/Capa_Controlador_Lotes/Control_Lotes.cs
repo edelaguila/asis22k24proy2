@@ -14,13 +14,7 @@ namespace Capa_Controlador_Lotes
         }
 
         // Método para agregar un nuevo lote
-        public void AgregarLotes(
-            int idLote,
-            string codigoLote,
-            DateTime fechaProduccionLote,
-            int cantidadLote,
-            int estado,
-            int idProducto)
+        public void AgregarLotes(int idLote, string codigoLote, DateTime fechaProduccionLote, int cantidadLote, int estado, int idProducto)
         {
             if (cantidadLote <= 0)
             {
@@ -30,7 +24,6 @@ namespace Capa_Controlador_Lotes
 
             try
             {
-                // Llama al método para insertar un nuevo lote en la base de datos
                 sentencias.InsertarLote(idLote, codigoLote, fechaProduccionLote, cantidadLote, estado, idProducto);
                 Console.WriteLine("Lote agregado correctamente.");
             }
@@ -41,13 +34,7 @@ namespace Capa_Controlador_Lotes
         }
 
         // Método para actualizar un lote existente
-        public void ActualizarLotes(
-            int idLote,
-            string codigoLote,
-            DateTime fechaProduccionLote,
-            int cantidadLote,
-            int estado,
-            int idProducto)
+        public void ActualizarLotes(int idLote, string codigoLote, DateTime fechaProduccionLote, int cantidadLote, int estado, int idProducto)
         {
             if (idLote <= 0)
             {
@@ -63,7 +50,6 @@ namespace Capa_Controlador_Lotes
 
             try
             {
-                // Llama al método para actualizar el lote en la base de datos
                 sentencias.ActualizarLote(idLote, codigoLote, fechaProduccionLote, cantidadLote, estado, idProducto);
                 Console.WriteLine("Lote actualizado correctamente.");
             }
@@ -88,12 +74,12 @@ namespace Capa_Controlador_Lotes
             }
         }
 
+
         // Método para cargar los lotes
         public DataTable CargarLotes()
         {
             try
             {
-                // Obtiene los datos de los lotes mediante un INNER JOIN en la base de datos
                 DataTable lotes = sentencias.ObtenerLotes();
                 Console.WriteLine("Datos de los lotes cargados correctamente. Total de registros: " + lotes.Rows.Count);
                 return lotes;
@@ -105,12 +91,24 @@ namespace Capa_Controlador_Lotes
             }
         }
 
+        // Método para obtener los datos de una fila seleccionada de DataGridView
+        public (int idLote, string codigoLote, DateTime fechaProduccion, int cantidad, int estado, int idProducto) ObtenerDatosLoteSeleccionado(DataRow fila)
+        {
+            int idLote = Convert.ToInt32(fila["Pk_id_lote"]);
+            string codigoLote = fila["codigo_lote"].ToString();
+            DateTime fechaProduccion = Convert.ToDateTime(fila["FechaProduccion"]); // Usando el alias sin espacios ni caracteres especiales
+            int cantidad = Convert.ToInt32(fila["cantidad"]);
+            int estado = Convert.ToInt32(fila["estado"]);
+            int idProducto = Convert.ToInt32(fila["Fk_id_producto"]);
+
+            return (idLote, codigoLote, fechaProduccion, cantidad, estado, idProducto);
+        }
+
         // Método para obtener el último ID de lote
         public int ObtenerUltimoIdLotes()
         {
             try
             {
-                // Obtiene el último ID de la tabla de lotes
                 int ultimoId = sentencias.ObtenerUltimoIdLote();
                 Console.WriteLine("Último ID del lote obtenido: " + ultimoId);
                 return ultimoId;
@@ -127,7 +125,6 @@ namespace Capa_Controlador_Lotes
         {
             try
             {
-                // Obtiene los productos activos de la base de datos
                 DataTable productos = sentencias.ObtenerProductos();
                 Console.WriteLine("Productos cargados correctamente. Total de registros: " + productos.Rows.Count);
                 return productos;
@@ -144,7 +141,6 @@ namespace Capa_Controlador_Lotes
         {
             try
             {
-                // Obtiene los procesos de la base de datos
                 DataTable procesos = sentencias.ObtenerProcesos();
                 Console.WriteLine("Procesos cargados correctamente. Total de registros: " + procesos.Rows.Count);
                 return procesos;

@@ -34,13 +34,16 @@
     <Reference Include="Capa_Controlador_Produccion">
       <HintPath>..\Capa_Controlador_Produccion\bin\Debug\Capa_Controlador_Produccion.dll</HintPath>
     </Reference>
-    <Reference Include="Capa_Vista_Lotes">
+    <Reference Include="Capa_Vista_Lotes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Lotes\Capa_Vista_Lotes\bin\Debug\Capa_Vista_Lotes.dll</HintPath>
     </Reference>
-    <Reference Include="Capa_Vista_Mantenimiento">
+    <Reference Include="Capa_Vista_Mantenimiento, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Mantenimiento\Capa_Vista_Mantenimiento\bin\Debug\Capa_Vista_Mantenimiento.dll</HintPath>
     </Reference>
-    <Reference Include="Capa_Vista_Maquinaria">
+    <Reference Include="Capa_Vista_Maquinaria, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Maquinaria\Capa_Vista_Maquinaria\bin\Debug\Capa_Vista_Maquinaria.dll</HintPath>
     </Reference>
     <Reference Include="Capa_Vista_Navegador, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -95,6 +98,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\SALIR_V4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fondo_Produccion.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
