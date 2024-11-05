@@ -30,8 +30,8 @@ namespace Capa_Vista_Presupuesto
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Presupuesto));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Txtbx_diciembre = new System.Windows.Forms.TextBox();
             this.Txt_diciembre = new System.Windows.Forms.Label();
             this.Txtbx_noviembre = new System.Windows.Forms.TextBox();
@@ -386,7 +386,7 @@ namespace Capa_Vista_Presupuesto
             this.Txt_totalAnual.AutoSize = true;
             this.Txt_totalAnual.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(152)))), ((int)(((byte)(151)))));
             this.Txt_totalAnual.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_totalAnual.Location = new System.Drawing.Point(1223, 739);
+            this.Txt_totalAnual.Location = new System.Drawing.Point(1217, 739);
             this.Txt_totalAnual.Name = "Txt_totalAnual";
             this.Txt_totalAnual.Size = new System.Drawing.Size(44, 19);
             this.Txt_totalAnual.TabIndex = 118;
@@ -397,29 +397,29 @@ namespace Capa_Vista_Presupuesto
             this.Txt_totalDiciembre.AutoSize = true;
             this.Txt_totalDiciembre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(152)))), ((int)(((byte)(151)))));
             this.Txt_totalDiciembre.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_totalDiciembre.Location = new System.Drawing.Point(1146, 739);
+            this.Txt_totalDiciembre.Location = new System.Drawing.Point(1134, 739);
             this.Txt_totalDiciembre.Name = "Txt_totalDiciembre";
-            this.Txt_totalDiciembre.Size = new System.Drawing.Size(71, 19);
+            this.Txt_totalDiciembre.Size = new System.Drawing.Size(30, 19);
             this.Txt_totalDiciembre.TabIndex = 117;
-            this.Txt_totalDiciembre.Text = "Diciembre";
+            this.Txt_totalDiciembre.Text = "Dic";
             // 
             // Txt_totalNoviembre
             // 
             this.Txt_totalNoviembre.AutoSize = true;
             this.Txt_totalNoviembre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(152)))), ((int)(((byte)(151)))));
             this.Txt_totalNoviembre.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_totalNoviembre.Location = new System.Drawing.Point(1074, 739);
+            this.Txt_totalNoviembre.Location = new System.Drawing.Point(1065, 739);
             this.Txt_totalNoviembre.Name = "Txt_totalNoviembre";
-            this.Txt_totalNoviembre.Size = new System.Drawing.Size(77, 19);
+            this.Txt_totalNoviembre.Size = new System.Drawing.Size(36, 19);
             this.Txt_totalNoviembre.TabIndex = 116;
-            this.Txt_totalNoviembre.Text = "Noviembre";
+            this.Txt_totalNoviembre.Text = "Nov";
             // 
             // Txt_totalOctubre
             // 
             this.Txt_totalOctubre.AutoSize = true;
             this.Txt_totalOctubre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(152)))), ((int)(((byte)(151)))));
             this.Txt_totalOctubre.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_totalOctubre.Location = new System.Drawing.Point(998, 739);
+            this.Txt_totalOctubre.Location = new System.Drawing.Point(989, 739);
             this.Txt_totalOctubre.Name = "Txt_totalOctubre";
             this.Txt_totalOctubre.Size = new System.Drawing.Size(59, 19);
             this.Txt_totalOctubre.TabIndex = 115;
@@ -430,7 +430,7 @@ namespace Capa_Vista_Presupuesto
             this.Txt_totalSeptiembre.AutoSize = true;
             this.Txt_totalSeptiembre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(152)))), ((int)(((byte)(151)))));
             this.Txt_totalSeptiembre.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_totalSeptiembre.Location = new System.Drawing.Point(923, 739);
+            this.Txt_totalSeptiembre.Location = new System.Drawing.Point(914, 739);
             this.Txt_totalSeptiembre.Name = "Txt_totalSeptiembre";
             this.Txt_totalSeptiembre.Size = new System.Drawing.Size(78, 19);
             this.Txt_totalSeptiembre.TabIndex = 114;
@@ -441,7 +441,7 @@ namespace Capa_Vista_Presupuesto
             this.Txt_totalAgosto.AutoSize = true;
             this.Txt_totalAgosto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(152)))), ((int)(((byte)(151)))));
             this.Txt_totalAgosto.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_totalAgosto.Location = new System.Drawing.Point(846, 739);
+            this.Txt_totalAgosto.Location = new System.Drawing.Point(843, 739);
             this.Txt_totalAgosto.Name = "Txt_totalAgosto";
             this.Txt_totalAgosto.Size = new System.Drawing.Size(53, 19);
             this.Txt_totalAgosto.TabIndex = 113;
@@ -452,7 +452,7 @@ namespace Capa_Vista_Presupuesto
             this.Txt_totalJulio.AutoSize = true;
             this.Txt_totalJulio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(152)))), ((int)(((byte)(151)))));
             this.Txt_totalJulio.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_totalJulio.Location = new System.Drawing.Point(779, 740);
+            this.Txt_totalJulio.Location = new System.Drawing.Point(775, 739);
             this.Txt_totalJulio.Name = "Txt_totalJulio";
             this.Txt_totalJulio.Size = new System.Drawing.Size(36, 19);
             this.Txt_totalJulio.TabIndex = 112;
@@ -463,7 +463,7 @@ namespace Capa_Vista_Presupuesto
             this.Txt_totalJunio.AutoSize = true;
             this.Txt_totalJunio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(152)))), ((int)(((byte)(151)))));
             this.Txt_totalJunio.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_totalJunio.Location = new System.Drawing.Point(701, 739);
+            this.Txt_totalJunio.Location = new System.Drawing.Point(697, 739);
             this.Txt_totalJunio.Name = "Txt_totalJunio";
             this.Txt_totalJunio.Size = new System.Drawing.Size(40, 19);
             this.Txt_totalJunio.TabIndex = 111;
@@ -474,7 +474,7 @@ namespace Capa_Vista_Presupuesto
             this.Txt_totalMayo.AutoSize = true;
             this.Txt_totalMayo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(152)))), ((int)(((byte)(151)))));
             this.Txt_totalMayo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_totalMayo.Location = new System.Drawing.Point(633, 739);
+            this.Txt_totalMayo.Location = new System.Drawing.Point(624, 739);
             this.Txt_totalMayo.Name = "Txt_totalMayo";
             this.Txt_totalMayo.Size = new System.Drawing.Size(45, 19);
             this.Txt_totalMayo.TabIndex = 110;
@@ -485,7 +485,7 @@ namespace Capa_Vista_Presupuesto
             this.Txt_totalAbril.AutoSize = true;
             this.Txt_totalAbril.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(152)))), ((int)(((byte)(151)))));
             this.Txt_totalAbril.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_totalAbril.Location = new System.Drawing.Point(555, 739);
+            this.Txt_totalAbril.Location = new System.Drawing.Point(559, 739);
             this.Txt_totalAbril.Name = "Txt_totalAbril";
             this.Txt_totalAbril.Size = new System.Drawing.Size(39, 19);
             this.Txt_totalAbril.TabIndex = 109;
@@ -496,7 +496,7 @@ namespace Capa_Vista_Presupuesto
             this.Txt_totalMarzo.AutoSize = true;
             this.Txt_totalMarzo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(152)))), ((int)(((byte)(151)))));
             this.Txt_totalMarzo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_totalMarzo.Location = new System.Drawing.Point(480, 739);
+            this.Txt_totalMarzo.Location = new System.Drawing.Point(475, 739);
             this.Txt_totalMarzo.Name = "Txt_totalMarzo";
             this.Txt_totalMarzo.Size = new System.Drawing.Size(49, 19);
             this.Txt_totalMarzo.TabIndex = 108;
@@ -681,32 +681,32 @@ namespace Capa_Vista_Presupuesto
             this.Btn_ajustar.UseVisualStyleBackColor = true;
             this.Btn_ajustar.Click += new System.EventHandler(this.button2_Click);
             // 
-            // Txt_NombrePresupuesto
+            // Txt_nombrePresupuesto
             // 
             this.Txt_nombrePresupuesto.AutoSize = true;
             this.Txt_nombrePresupuesto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(152)))), ((int)(((byte)(151)))));
             this.Txt_nombrePresupuesto.Font = new System.Drawing.Font("Haettenschweiler", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt_nombrePresupuesto.Location = new System.Drawing.Point(630, 0);
-            this.Txt_nombrePresupuesto.Name = "Txt_NombrePresupuesto";
+            this.Txt_nombrePresupuesto.Name = "Txt_nombrePresupuesto";
             this.Txt_nombrePresupuesto.Size = new System.Drawing.Size(23, 37);
             this.Txt_nombrePresupuesto.TabIndex = 128;
             this.Txt_nombrePresupuesto.Text = " ";
             // 
-            // Txt_EjercicioPres
+            // Txt_ejercicioPres
             // 
             this.Txt_ejercicioPres.AutoSize = true;
             this.Txt_ejercicioPres.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt_ejercicioPres.Location = new System.Drawing.Point(1134, 71);
-            this.Txt_ejercicioPres.Name = "Txt_EjercicioPres";
+            this.Txt_ejercicioPres.Name = "Txt_ejercicioPres";
             this.Txt_ejercicioPres.Size = new System.Drawing.Size(0, 19);
             this.Txt_ejercicioPres.TabIndex = 129;
             // 
-            // Txt_AnioPres
+            // Txt_anioPres
             // 
             this.Txt_anioPres.AutoSize = true;
             this.Txt_anioPres.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt_anioPres.Location = new System.Drawing.Point(1065, 71);
-            this.Txt_anioPres.Name = "Txt_AnioPres";
+            this.Txt_anioPres.Name = "Txt_anioPres";
             this.Txt_anioPres.Size = new System.Drawing.Size(72, 19);
             this.Txt_anioPres.TabIndex = 130;
             this.Txt_anioPres.Text = "Ejercicio:";
@@ -784,14 +784,14 @@ namespace Capa_Vista_Presupuesto
             this.Dgv_presupuesto.AllowUserToResizeColumns = false;
             this.Dgv_presupuesto.AllowUserToResizeRows = false;
             this.Dgv_presupuesto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Dgv_presupuesto.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Dgv_presupuesto.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.Dgv_presupuesto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dgv_presupuesto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -809,14 +809,14 @@ namespace Capa_Vista_Presupuesto
             this.Column13,
             this.Column14,
             this.Column15});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.LightBlue;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Dgv_presupuesto.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Dgv_presupuesto.DefaultCellStyle = dataGridViewCellStyle2;
             this.Dgv_presupuesto.Location = new System.Drawing.Point(146, 99);
             this.Dgv_presupuesto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Dgv_presupuesto.Name = "Dgv_presupuesto";

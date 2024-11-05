@@ -16,7 +16,7 @@ namespace Capa_Modelo_Presupuesto
 
         public OdbcDataAdapter ObtenerCuentas()
         {
-            string sSql = "SELECT Pk_id_cuenta , nombre_cuenta FROM tbl_cuentas WHERE estado=1";
+            string sSql = "SELECT Pk_id_cuenta , nombre_cuenta FROM tbl_cuentas WHERE estado=1 AND Pk_id_tipocuenta=2"; //Cambio de sentencia para cuentas hijo y no padres.
             OdbcCommand comando = new OdbcCommand(sSql, con.NuevaConexion());
             OdbcDataAdapter adaptador = new OdbcDataAdapter(comando);
             return adaptador;

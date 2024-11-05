@@ -52,17 +52,17 @@ namespace Capa_Vista_Presupuesto
             this.Btn_reporte1.Location = new System.Drawing.Point(177, 38);
             this.Btn_reporte1.Name = "Btn_reporte1";
             this.Btn_reporte1.Size = new System.Drawing.Size(80, 30);
-            this.Btn_reporte1.TabIndex = 0;
+            this.Btn_reporte1.TabIndex = 1;
             this.Btn_reporte1.Text = "Reporte";
             this.Btn_reporte1.UseVisualStyleBackColor = true;
             this.Btn_reporte1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Txt_Opcion1
+            // Txt_opcion1
             // 
             this.Txt_opcion1.AutoSize = true;
             this.Txt_opcion1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt_opcion1.Location = new System.Drawing.Point(100, 16);
-            this.Txt_opcion1.Name = "Txt_Opcion1";
+            this.Txt_opcion1.Name = "Txt_opcion1";
             this.Txt_opcion1.Size = new System.Drawing.Size(255, 19);
             this.Txt_opcion1.TabIndex = 1;
             this.Txt_opcion1.Text = "Revisión del Informe de Presupuesto";
@@ -78,22 +78,22 @@ namespace Capa_Vista_Presupuesto
             this.Btn_reporte2.UseVisualStyleBackColor = true;
             this.Btn_reporte2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // Txt_Opcion2
+            // Txt_opcion2
             // 
             this.Txt_opcion2.AutoSize = true;
             this.Txt_opcion2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt_opcion2.Location = new System.Drawing.Point(80, 22);
-            this.Txt_opcion2.Name = "Txt_Opcion2";
+            this.Txt_opcion2.Name = "Txt_opcion2";
             this.Txt_opcion2.Size = new System.Drawing.Size(279, 19);
             this.Txt_opcion2.TabIndex = 3;
             this.Txt_opcion2.Text = "Análisis de Gastos frente al Presupuesto";
             // 
-            // Txt_Opcion3
+            // Txt_opcion3
             // 
             this.Txt_opcion3.AutoSize = true;
             this.Txt_opcion3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt_opcion3.Location = new System.Drawing.Point(100, 22);
-            this.Txt_opcion3.Name = "Txt_Opcion3";
+            this.Txt_opcion3.Name = "Txt_opcion3";
             this.Txt_opcion3.Size = new System.Drawing.Size(249, 19);
             this.Txt_opcion3.TabIndex = 4;
             this.Txt_opcion3.Text = "Revisar otro reporte presupuestario\n";
@@ -106,7 +106,7 @@ namespace Capa_Vista_Presupuesto
             this.Cb_presupuestos.Location = new System.Drawing.Point(157, 51);
             this.Cb_presupuestos.Name = "Cb_presupuestos";
             this.Cb_presupuestos.Size = new System.Drawing.Size(121, 27);
-            this.Cb_presupuestos.TabIndex = 5;
+            this.Cb_presupuestos.TabIndex = 3;
             // 
             // Btn_reporte3
             // 
@@ -114,7 +114,7 @@ namespace Capa_Vista_Presupuesto
             this.Btn_reporte3.Location = new System.Drawing.Point(177, 84);
             this.Btn_reporte3.Name = "Btn_reporte3";
             this.Btn_reporte3.Size = new System.Drawing.Size(80, 30);
-            this.Btn_reporte3.TabIndex = 7;
+            this.Btn_reporte3.TabIndex = 4;
             this.Btn_reporte3.Text = "Reporte";
             this.Btn_reporte3.UseVisualStyleBackColor = true;
             this.Btn_reporte3.Click += new System.EventHandler(this.button3_Click);
@@ -163,7 +163,7 @@ namespace Capa_Vista_Presupuesto
             this.Btn_ayuda.Location = new System.Drawing.Point(383, 16);
             this.Btn_ayuda.Name = "Btn_ayuda";
             this.Btn_ayuda.Size = new System.Drawing.Size(40, 40);
-            this.Btn_ayuda.TabIndex = 2;
+            this.Btn_ayuda.TabIndex = 5;
             this.Btn_ayuda.UseVisualStyleBackColor = true;
             this.Btn_ayuda.Click += new System.EventHandler(this.Btn_ayuda_Click);
             // 

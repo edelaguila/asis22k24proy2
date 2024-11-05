@@ -31,6 +31,7 @@ namespace Capa_Vista_Presupuesto
             toolTip.SetToolTip(Btn_Aceptar, "Haz clic para aceptar");
             toolTip.SetToolTip(Btn_cancelar, "Haz clic para cancelar");
             toolTip.SetToolTip(Btn_ayuda, "Haz clic para ver ayuda");
+            toolTip.SetToolTip(Txtbx_incremento, "Campo para incrementar/decrementar. Si desea decrementar utilize '-' --> Ejemplo :'-50'");
         }
         private void Incremento_Load(object sender, EventArgs e)
         {
@@ -54,10 +55,32 @@ namespace Capa_Vista_Presupuesto
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            // Verifica si se presiona la tecla de control (para permitir borrar)
+            if (char.IsControl(e.KeyChar))
             {
-                e.Handled = true; // Cancelar la entrada del carácter
+                return; // Permitir la entrada de control (como Backspace)
             }
+
+            // Verifica si el carácter es un dígito
+            if (char.IsDigit(e.KeyChar))
+            {
+                return; // Permitir dígitos
+            }
+
+            // Verifica si se presiona el signo negativo
+            if (e.KeyChar == '-')
+            {
+                // Verifica si el texto ya tiene un signo negativo o si no es el primer carácter
+                if (Txtbx_incremento.Text.Length > 0 || Txtbx_incremento.Text == "-")
+                {
+                    e.Handled = true;
+                    // Cancelar la entrada del carácter
+                }
+                return; // Permitir el signo negativo solo si es el primer carácter
+            }
+
+            // Si no es un dígito, control o signo negativo, cancelar la entrada
+            e.Handled = true;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -74,6 +97,12 @@ namespace Capa_Vista_Presupuesto
             {
                 MessageBox.Show("Por favor, ingresa un valor.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return; // Detenemos la ejecución si el campo está vacío
+            }
+
+            if (Txtbx_incremento.Text == "-")
+            {
+                MessageBox.Show("Por favor, ingresa un valor valido.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
             iDato = Convert.ToInt32(Txtbx_incremento.Text);
@@ -133,26 +162,7 @@ namespace Capa_Vista_Presupuesto
 
         private void Btn_ayuda_Click(object sender, EventArgs e)
         {
-            //Viejo Ayuda
-            //try
-            //{
-            //    //Ruta para que se ejecute desde la ejecucion de Interfac3
-            //    string sAyudaPath = Path.Combine(sRutaProyectoAyuda, "Ayuda", "Modulos", "Contabilidad", "AyudaPresupuesto", "AyudaModPresupuesto.chm");
-            //    //string sIndiceAyuda = Path.Combine(sRutaProyecto, "EstadosFinancieros", "ReportesEstados", "Htmlayuda.hmtl");
-            //    //MessageBox.Show("Ruta del reporte: " + sAyudaPath, "Ruta Generada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            //    Help.ShowHelp(this, sAyudaPath, "AyudaIncremento.html");
-
-            //    //Bitacora--------------!!!
-            //    logicaSeg.funinsertarabitacora(sIdUsuario, $"Se presiono Ayuda", "Incremento", "8000");
-            //}
-            //catch (Exception ex)
-            //{
-            //    // Mostrar un mensaje de error en caso de una excepción
-            //    MessageBox.Show("Ocurrió un error al abrir la ayuda: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    Console.WriteLine("Error al abrir la ayuda: " + ex.ToString());
-            //}
-
+           
             try
             {
                 // Buscar la carpeta raíz del proyecto (donde está la carpeta "Codigo")
@@ -220,6 +230,11 @@ namespace Capa_Vista_Presupuesto
             }
             // Retorna null si no se encontró el archivo
             return null;
+        }
+
+        private void Txtbx_incremento_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

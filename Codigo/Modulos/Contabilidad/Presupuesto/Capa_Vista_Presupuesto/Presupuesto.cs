@@ -623,8 +623,14 @@ namespace Capa_Vista_Presupuesto
                 // Notificar al usuario que la eliminación fue exitosa
                 MessageBox.Show("Presupuesto eliminado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                //Cambios Lunes
+                LimpiarGrid();
+                BloquearBotones();
+                BloquearTextBox();
+                Txtbx_anual.Enabled = false;
+
                 //Cerramos
-                this.Close();
+                //this.Close();
             }
             else
             {

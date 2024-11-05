@@ -44,7 +44,7 @@ namespace Capa_Vista_Presupuesto
             // Btn_Aceptar
             // 
             this.Btn_Aceptar.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Aceptar.Location = new System.Drawing.Point(41, 253);
+            this.Btn_Aceptar.Location = new System.Drawing.Point(66, 272);
             this.Btn_Aceptar.Name = "Btn_Aceptar";
             this.Btn_Aceptar.Size = new System.Drawing.Size(82, 28);
             this.Btn_Aceptar.TabIndex = 6;
@@ -55,7 +55,7 @@ namespace Capa_Vista_Presupuesto
             // Btn_cancelar
             // 
             this.Btn_cancelar.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_cancelar.Location = new System.Drawing.Point(163, 253);
+            this.Btn_cancelar.Location = new System.Drawing.Point(188, 272);
             this.Btn_cancelar.Name = "Btn_cancelar";
             this.Btn_cancelar.Size = new System.Drawing.Size(82, 28);
             this.Btn_cancelar.TabIndex = 7;
@@ -66,28 +66,29 @@ namespace Capa_Vista_Presupuesto
             // Txtbx_incremento
             // 
             this.Txtbx_incremento.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txtbx_incremento.Location = new System.Drawing.Point(90, 58);
+            this.Txtbx_incremento.Location = new System.Drawing.Point(101, 98);
             this.Txtbx_incremento.MaxLength = 3;
             this.Txtbx_incremento.Name = "Txtbx_incremento";
             this.Txtbx_incremento.Size = new System.Drawing.Size(131, 26);
             this.Txtbx_incremento.TabIndex = 1;
+            this.Txtbx_incremento.TextChanged += new System.EventHandler(this.Txtbx_incremento_TextChanged);
             this.Txtbx_incremento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // Txt_texto
             // 
             this.Txt_texto.AutoSize = true;
             this.Txt_texto.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_texto.Location = new System.Drawing.Point(57, 27);
+            this.Txt_texto.Location = new System.Drawing.Point(12, 56);
             this.Txt_texto.Name = "Txt_texto";
-            this.Txt_texto.Size = new System.Drawing.Size(212, 19);
+            this.Txt_texto.Size = new System.Drawing.Size(300, 19);
             this.Txt_texto.TabIndex = 3;
-            this.Txt_texto.Text = "Cuanto % desea incrementar?";
+            this.Txt_texto.Text = "Cuanto % desea incrementar/decrementar?";
             // 
             // Chb_todos
             // 
             this.Chb_todos.AutoSize = true;
             this.Chb_todos.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Chb_todos.Location = new System.Drawing.Point(90, 132);
+            this.Chb_todos.Location = new System.Drawing.Point(101, 173);
             this.Chb_todos.Name = "Chb_todos";
             this.Chb_todos.Size = new System.Drawing.Size(131, 23);
             this.Chb_todos.TabIndex = 3;
@@ -113,7 +114,7 @@ namespace Capa_Vista_Presupuesto
             "Octubre",
             "Noviembre",
             "Diciembre"});
-            this.Cb_meses.Location = new System.Drawing.Point(90, 185);
+            this.Cb_meses.Location = new System.Drawing.Point(101, 226);
             this.Cb_meses.Name = "Cb_meses";
             this.Cb_meses.Size = new System.Drawing.Size(131, 27);
             this.Cb_meses.TabIndex = 5;
@@ -122,7 +123,7 @@ namespace Capa_Vista_Presupuesto
             // 
             this.Chb_anual.AutoSize = true;
             this.Chb_anual.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Chb_anual.Location = new System.Drawing.Point(90, 109);
+            this.Chb_anual.Location = new System.Drawing.Point(101, 150);
             this.Chb_anual.Name = "Chb_anual";
             this.Chb_anual.Size = new System.Drawing.Size(63, 23);
             this.Chb_anual.TabIndex = 2;
@@ -134,7 +135,7 @@ namespace Capa_Vista_Presupuesto
             // 
             this.Chb_mes.AutoSize = true;
             this.Chb_mes.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Chb_mes.Location = new System.Drawing.Point(90, 156);
+            this.Chb_mes.Location = new System.Drawing.Point(101, 197);
             this.Chb_mes.Name = "Chb_mes";
             this.Chb_mes.Size = new System.Drawing.Size(55, 23);
             this.Chb_mes.TabIndex = 4;
@@ -146,7 +147,7 @@ namespace Capa_Vista_Presupuesto
             // 
             this.Btn_ayuda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(152)))), ((int)(((byte)(151)))));
             this.Btn_ayuda.Image = ((System.Drawing.Image)(resources.GetObject("Btn_ayuda.Image")));
-            this.Btn_ayuda.Location = new System.Drawing.Point(287, 12);
+            this.Btn_ayuda.Location = new System.Drawing.Point(277, 12);
             this.Btn_ayuda.Name = "Btn_ayuda";
             this.Btn_ayuda.Size = new System.Drawing.Size(39, 36);
             this.Btn_ayuda.TabIndex = 8;
@@ -159,7 +160,7 @@ namespace Capa_Vista_Presupuesto
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(152)))), ((int)(((byte)(151)))));
-            this.ClientSize = new System.Drawing.Size(335, 318);
+            this.ClientSize = new System.Drawing.Size(328, 326);
             this.Controls.Add(this.Btn_ayuda);
             this.Controls.Add(this.Chb_mes);
             this.Controls.Add(this.Chb_anual);
