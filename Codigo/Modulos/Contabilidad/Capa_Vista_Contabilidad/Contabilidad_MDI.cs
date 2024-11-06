@@ -13,6 +13,7 @@ using System.Windows.Forms;
 //using Capa_Vista_CierreContable;
 using Capa_Vista_Presupuesto;
 using Capa_Vista_Polizas;
+using CapaVistaActivofijo;
 using System.IO;
 
 namespace Capa_Vista_Contabilidad   
@@ -37,13 +38,13 @@ namespace Capa_Vista_Contabilidad
             DateTime fechaHoraActual = DateTime.Now;
             lbl_fecha2.Text = fechaHoraActual.ToString();
 
-            lx = this.Location.X;
             ly = this.Location.Y;
             sw = this.Size.Width;
             sh = this.Size.Height;
             /*Btn_maximizar.Visible = false;
              Btn_restaurar.Visible = true;*/
             this.Size = Screen.PrimaryScreen.WorkingArea.Size;
+            lx = this.Location.X;
             this.Location = Screen.PrimaryScreen.WorkingArea.Location;
 
 
