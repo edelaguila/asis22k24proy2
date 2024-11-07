@@ -35,10 +35,15 @@
     <Reference Include="Capa_Controlador_Logistica">
       <HintPath>..\Capa_Controlador_Logistica\bin\Debug\Capa_Controlador_Logistica.dll</HintPath>
     </Reference>
+    <Reference Include="Capa_Controlador_Seguridad, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Backup\asis22k24proy2\Codigo\Componentes\Seguridad\Capa_Controlador_Seguridad\bin\Debug\Capa_Controlador_Seguridad.dll</HintPath>
+    </Reference>
     <Reference Include="Capa_Vista_AmmyCatun">
       <HintPath>..\MVC_AmmyCatun\Capa_Vista_AmmyCatun\bin\Debug\Capa_Vista_AmmyCatun.dll</HintPath>
     </Reference>
-    <Reference Include="Capa_Vista_JDSC">
+    <Reference Include="Capa_Vista_JDSC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\MVC_JoseDanielSierra\Capa_Vista_JDSC\bin\Debug\Capa_Vista_JDSC.dll</HintPath>
     </Reference>
     <Reference Include="Capa_Vista_MiguelCrisostomo">
@@ -200,6 +205,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Quitar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ahorrar %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancelar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preguntas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\photo_2024-11-04_21-54-12.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\verificado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reporte.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preguntas_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cerrar-sesion_1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

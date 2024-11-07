@@ -26,7 +26,7 @@ namespace Capa_Vista_Nominas
         public frm_empleados()
         {
             InitializeComponent();
-            string idUsuario = Interfac_V3.UsuarioSesion.GetIdUsuario();
+          //  string idUsuario = Interfac_V3.UsuarioSesion.GetIdUsuario();
             /***************Fernando Jose Garcia <3*********************/
             ///*****Con tabla que tenga comboboxs foraneas *****/
             string[] alias = { "Clave", "nombre", "apellido", "fecha nacimiento", "no_identificacion",
@@ -41,7 +41,7 @@ namespace Capa_Vista_Nominas
             navegador1.AsignarColorFuente(Color.Black);
             navegador1.ObtenerIdAplicacion("1000");
             navegador1.AsignarAyuda("1");
-            navegador1.ObtenerIdUsuario(idUsuario);
+         //   navegador1.ObtenerIdUsuario(idUsuario);
             navegador1.AsignarTabla("tbl_empleados");
 
             ///***Valores foraneos en Combobox*********/

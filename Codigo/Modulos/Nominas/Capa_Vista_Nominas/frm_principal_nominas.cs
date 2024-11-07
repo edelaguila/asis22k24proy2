@@ -236,15 +236,15 @@ namespace Capa_Vista_Nominas
 
         private void Btn_planilla_Click(object sender, EventArgs e)
         {
-            /*AbrirFormulario<frm_genplanilla>(); // Pasa el idUsuario
-            Btn_puesto.BackColor = Color.FromArgb(12, 61, 92);*/
+            AbrirFormulario<Capa_Vista_Planilla.Frm_GenPlanilla>(); // Pasa el idUsuario
+            Btn_puesto.BackColor = Color.FromArgb(12, 61, 92);
             ocultaSubMenu();
         }
 
         private void Btn_anticipo_Click(object sender, EventArgs e)
         {
             AbrirFormulario<frm_genanticipo>(); // Pasa el idUsuario
-            Btn_puesto.BackColor = Color.FromArgb(12, 61, 92);
+            Btn_planilla.BackColor = Color.FromArgb(12, 61, 92);
             ocultaSubMenu();
         }
 
@@ -257,15 +257,15 @@ namespace Capa_Vista_Nominas
 
         private void Btn_generacionpercep_Click(object sender, EventArgs e)
         {
-            /*AbrirFormulario<frm_genpercepciones>(); // Pasa el idUsuario
-            Btn_puesto.BackColor = Color.FromArgb(12, 61, 92);*/
+            AbrirFormulario<Capa_Vista_PercepcionesDeducciones.frm_generacionpercepciones>(); // Pasa el idUsuario
+            Btn_puesto.BackColor = Color.FromArgb(12, 61, 92);
             ocultaSubMenu();
         }
 
         private void Btn_generaciondeduc_Click(object sender, EventArgs e)
         {
-            /*AbrirFormulario<frm_gendeducciones>(); // Pasa el idUsuario
-            Btn_puesto.BackColor = Color.FromArgb(12, 61, 92);*/
+            AbrirFormulario<Capa_Vista_PercepcionesDeducciones.frm_generaciondeducciones>(); // Pasa el idUsuario
+            Btn_puesto.BackColor = Color.FromArgb(12, 61, 92);
             ocultaSubMenu();
         }
 
@@ -312,7 +312,9 @@ namespace Capa_Vista_Nominas
 
         private void Btn_procanticipos_Click(object sender, EventArgs e)
         {
-            ocultaSubMenu();
+            AbrirFormulario<Capa_Vista_Anticipos.frm_anticipos>();
+            Btn_puesto.BackColor = Color.FromArgb(12, 61, 92);
+            ocultaSubMenu(); ;
         }
 
         private void Btn_procliquidaciones_Click(object sender, EventArgs e)
@@ -322,6 +324,9 @@ namespace Capa_Vista_Nominas
 
         private void Btn_prochorasextra_Click(object sender, EventArgs e)
         {
+            
+            AbrirFormulario<Capa_Vista_HorasExtras.frm_horasextra>(); // Pasa el idUsuario
+            Btn_puesto.BackColor = Color.FromArgb(12, 61, 92);
             ocultaSubMenu();
         }
 

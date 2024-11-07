@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capa_Vista_Logistica", "Cap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capa_Modelo_Logistica", "Capa_Modelo_Logistica\Capa_Modelo_Logistica.csproj", "{2B28B976-F743-4305-B1D9-7E16844B14C8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestEnlace", "TestEnlace\TestEnlace.csproj", "{AD675B26-A872-4D69-BDB5-190B35024025}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{2B28B976-F743-4305-B1D9-7E16844B14C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B28B976-F743-4305-B1D9-7E16844B14C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B28B976-F743-4305-B1D9-7E16844B14C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD675B26-A872-4D69-BDB5-190B35024025}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD675B26-A872-4D69-BDB5-190B35024025}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD675B26-A872-4D69-BDB5-190B35024025}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD675B26-A872-4D69-BDB5-190B35024025}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -19,7 +19,7 @@ namespace Capa_Vista_Nominas
         public frm_horasextra()
         {
             InitializeComponent();
-            string idUsuario = Interfac_V3.UsuarioSesion.GetIdUsuario();
+         //   string idUsuario = Interfac_V3.UsuarioSesion.GetIdUsuario();
 
             // Prueba con la tabla inicial/
             string[] alias = { "pk_registro_horas", "horas_mes ", "horas_cantidad_horas", " fk_clave_empleado", "estado" };
