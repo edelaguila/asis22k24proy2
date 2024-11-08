@@ -567,3 +567,8 @@ PRIMARY KEY (pk_id_explosion),
 FOREIGN KEY (fk_id_producto) REFERENCES tbl_productos(pk_id_producto),
 FOREIGN KEY (fk_id_proceso) REFERENCES tbl_proceso_produccion_encabezado(pk_id_proceso)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- alter modulo de produccion
+ALTER TABLE tbl_recetas
+ADD COLUMN `dias` INT(11) NULL,
+ADD COLUMN `horas` INT(11) NULL;
