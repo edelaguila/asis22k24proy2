@@ -12,194 +12,96 @@ namespace Capa_Controlador_Logistica
 {
     public class Controlador
     {
-        //Metodo de ingreso de datos de chofer realizado por Ammy Catun 0901-21-4857
-        private Capa_Modelo_Logistica.Sentencias sentencias = new Capa_Modelo_Logistica.Sentencias();
-        public int guardarChofer(TextBox idChofer, string sNombreEmp, string sNumeroIdent, string sNombre, string sLicencia, string sTelefono, string sDireccion)
+        Sentencias sn = new Sentencias();
+
+        // ---------------------------------- COMBO BOX CUENTAS ----------------------------------
+        public string[] itemsCuenta(string stabla, string scampo1, string scampo2)
         {
-            //se valida que el textbox no este vacío o con espacios en blanco
-            if (string.IsNullOrEmpty(idChofer.Text) || string.IsNullOrEmpty(sNombreEmp) || string.IsNullOrEmpty(sNumeroIdent) ||
-                string.IsNullOrEmpty(sNombre) || string.IsNullOrEmpty(sLicencia) || string.IsNullOrEmpty(sTelefono) || string.IsNullOrEmpty(sDireccion))
-            {
-                MessageBox.Show("Existen campos vacios, revise y vuelva a intentarlo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return 0;
-            }
-            else
-            {
-                sentencias.registrarChofer(idChofer.Text, sNombreEmp, sNumeroIdent, sNombre, sLicencia, sTelefono, sDireccion);
-                return 1;
-            }
-        }
-        public DataTable cargarChoferes()
-        {
-            return sentencias.cargarChoferes();
+            string[] Items = sn.llenarCmbCuentas(stabla, scampo1, scampo2);
+            return Items;
         }
 
-        public string getNextId()
+        public DataTable enviarCuentas(string stabla, string scampo1, string scampo2)
         {
-            int nextId = sentencias.getMaxIdChofer();
-            nextId = nextId + 1;
-            return nextId.ToString();
-        }
-        //metodo de eliminar chofer Ammy Patricia Catun Lopez 0901-21-4857
-        public void eliminarChofer(string idChofer)
-        {
-            //se valida que el textbox no este vacío o con espacios en blanco
-            if (string.IsNullOrEmpty(idChofer))
-            {
-                MessageBox.Show("Existen campos vacios, revise y vuelva a intentarlo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-            else
-            {
-                sentencias.eliminarChofer(idChofer);
-            }
+            var dt1 = sn.obtenerCuentas(stabla, scampo1, scampo2);
+            return dt1;
         }
 
-        //metodo de modificar chofer Ammy Patricia Catun Lopez 0901-21-4857
-        public void modificarChofer(string idChofer, string nombreEmp, string numeroIdent, string nombre, string licencia, string telefono, string direccion)
+        // ---------------------------------- COMBO BOX TIPO POLIZA ----------------------------------
+
+        public string[] itemsTP(string stabla, string scampo1, string scampo2)
         {
-            sentencias.modificarChofer(idChofer, nombreEmp, numeroIdent, nombre, licencia, telefono, direccion);
-        }
-        //metodo de buscar chofer Ammy Patricia Catun Lopez 0901-21-4857
-        public DataTable buscarChofer(string idChofer)
-        {
-            return sentencias.buscarChofer(idChofer);
-        }
-        public void RealizarSolicitudMantenimiento(int idMantenimiento, string nombreSolicitante, string tipoMantenimiento, string componenteAfectado, string fecha, string responsableAsignado, string codigo_error_Problema, string estadoMantenimiento, string tiempoEstimado, int id_Movimiento)
-        {
-            sentencias.InsertarSolicitudMantenimiento(idMantenimiento, nombreSolicitante, tipoMantenimiento, componenteAfectado, fecha, responsableAsignado, codigo_error_Problema, estadoMantenimiento, tiempoEstimado, id_Movimiento);
+            string[] Items = sn.llenarCmbTP(stabla, scampo1, scampo2);
+            return Items;
         }
 
-        // Método para obtener existencias de una bodega (Realizado por Daniel Sierra 0901-21-12740)
-        public OdbcDataReader ObtenerExistenciasBodega(string idBodega)
+        public DataTable enviarTP(string stabla, string scampo1, string scampo2)
         {
-            return sentencias.ObtenerExistenciasBodega(idBodega);
+            var dt1 = sn.obtenerTP(stabla, scampo1, scampo2);
+            return dt1;
         }
 
-        // Método para cargar existencias (puede agregar más lógica si es necesario) (Realizado por Daniel Sierra 0901-21-12740)
-        public void CargarExistencias(string idBodega)
+        // ---------------------------------- COMBO BOX OPERACION ----------------------------------
+
+        public string[] itemsOP(string stabla, string scampo1, string scampo2)
         {
-            OdbcDataReader dr = ObtenerExistenciasBodega(idBodega);
-            // Aquí puedes agregar lógica para manejar los datos obtenidos, como llenarlos en un DataGridView
+            string[] Items = sn.llenarCmbTP(stabla, scampo1, scampo2);
+            return Items;
         }
 
-        public void CargarExistencias(string idBodega, DataTable dtExistencias)
+        public DataTable enviarOP(string stabla, string scampo1, string scampo2)
         {
-            using (OdbcDataReader dr = ObtenerExistenciasBodega(idBodega))
-            {
-                if (dr != null)
-                {
-                    try
-                    {
-                        dtExistencias.Load(dr); // Carga los datos en el DataTable
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception("Error al cargar las existencias: " + ex.Message);
-                    }
-                    finally
-                    {
-                        dr.Close(); // Asegúrate de cerrar el DataReader
-                    }
-                }
-                else
-                {
-                    throw new Exception("No se pudieron obtener existencias para la bodega seleccionada.");
-                }
-            }
+            var dt1 = sn.obtenerTP(stabla, scampo1, scampo2);
+            return dt1;
         }
 
-        // Método para realizar auditoría (Realizado por Daniel Sierra 0901-21-12740)
-        public void RealizarAuditoria(string idBodega, string idProducto, int cantidadFisica, int cantidadRegistrada, bool discrepancia)
+        // ---------------------------------- Funcion para actualizar la tabla cuentas ----------------------------------
+
+        public void ActualizarTblCuentas(int iidCuenta, string stipoOperacion, decimal devalor)
         {
-            sentencias.InsertarAuditoria(idBodega, idProducto, cantidadFisica, cantidadRegistrada, discrepancia);
+            Sentencias sn = new Sentencias();
+
+            sn.ActulizarCuentas(iidCuenta, stipoOperacion, devalor);
+            return;
         }
 
-        // Método para obtener las bodegas
-
-        public List<KeyValuePair<int, string>> listadoBodegas()
+        // ---------------------------------- Insertar en polizas ----------------------------------
+        public void LlenarEncabezado(string sfechaSeleccionada, string sconcepto, int itipoPoli)
         {
-            return sentencias.GetBodegas(); // Llama al método actualizado
+            Sentencias sn = new Sentencias();
+            sn.LlenarEncabezado(sfechaSeleccionada, sconcepto, itipoPoli);
+            return;
         }
 
-
-
-
-        // Método para obtener productos
-        public List<KeyValuePair<int, string>> listadoProductos()
+        public void LlenarDetalle(string sfechaSeleccionada, string sconcepto, List<object[]> ldetalles)
         {
-            return sentencias.GetProductos(); // Llama al método actualizado
+            Sentencias sn = new Sentencias();
+            sn.LlenarDetalle(sfechaSeleccionada, sconcepto, ldetalles);
+            return;
         }
 
-        // Método para registrar una auditoría
-        public void RealizarAuditoria(int idBodega, int idProducto, DateTime fechaAuditoria, string observaciones, int cantidadRegistrada, int cantidadFisica, bool discrepancia)
+        //----------------------------------- Ayuda ------------------------------------------------
+        public string ModRuta(string sRuta1)
         {
-            sentencias.InsertarAuditoria(idBodega, idProducto, fechaAuditoria, observaciones, cantidadRegistrada, cantidadFisica, discrepancia);
+            string sRuta = sn.ModRuta(sRuta1);
+            return sRuta;
         }
 
-        // Método para cargar las auditorías en el DataGridView
-        public DataTable CargarAuditorias()
+        public string ModIndice(string sIndice1)
+
         {
-            return sentencias.ObtenerAuditorias();
+            string sIndice = sn.ModIndice(sIndice1);
+            return sIndice;
         }
 
-        public void RealizarAuditoria(
-     int idBodega,
-     int idProducto,
-     DateTime fechaAuditoria,
-     string observaciones,
-     int cantidadRegistrada,
-     int cantidadFisica,
-     bool discrepancia,
-     DataGridView dgvAuditorias)
+        public string TestTabla(string sTabla)
         {
-            try
-            {
-                // Llamar al método para insertar auditoría
-                string resultado = sentencias.InsertarAuditoria(idBodega, idProducto, fechaAuditoria, observaciones, cantidadRegistrada, cantidadFisica, discrepancia);
-
-                // Comprobar el resultado de la inserción
-                if (resultado == "Auditoría realizada con éxito")
-                {
-                    MessageBox.Show(resultado, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    CargarAuditorias(dgvAuditorias); // Actualizar DataGridView
-                }
-                else
-                {
-                    MessageBox.Show("Error al realizar auditoría: " + resultado, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error inesperado: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            return sn.ProbarTabla(sTabla);
         }
 
-
-        public void CargarAuditorias(DataGridView dgvAuditorias)
+        public int ContarRegAyuda(string sTabla)
         {
-            try
-            {
-                DataTable dtAuditorias = sentencias.ObtenerAuditorias();
-                dgvAuditorias.DataSource = dtAuditorias;
-
-                // Configura las columnas según sea necesario
-                if (dtAuditorias.Columns.Count > 0)
-                {
-                    dgvAuditorias.Columns[0].HeaderText = "ID Auditoría"; // Pk_ID_AUDITORIA
-                    dgvAuditorias.Columns[1].HeaderText = "Bodega"; // Fk_ID_BODEGA
-                    dgvAuditorias.Columns[2].HeaderText = "Producto"; // Fk_ID_PRODUCTO
-                    dgvAuditorias.Columns[3].HeaderText = "Fecha Auditoría"; // FECHA_AUDITORIA
-                    dgvAuditorias.Columns[4].HeaderText = "Observaciones"; // OBSERVACIONES
-                    dgvAuditorias.Columns[5].HeaderText = "Cantidad Registrada"; // CANTIDAD_REGISTRADA
-                    dgvAuditorias.Columns[6].HeaderText = "Cantidad Física"; // CANTIDAD_FISICA
-                    dgvAuditorias.Columns[7].HeaderText = "Discrepancia"; // DISCREPANCIA_DETECTADA
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar auditorías: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            return sn.ContarReg(sTabla);
         }
 
     }

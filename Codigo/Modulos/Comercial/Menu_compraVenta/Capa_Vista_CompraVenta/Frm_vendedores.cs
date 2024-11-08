@@ -15,16 +15,17 @@ namespace Capa_Vista_CompraVenta
         public Frm_vendedores(String idUsuario)
         {
             InitializeComponent();
-            string[] alias = { "Codigo", "Nombre", "apellido", "sueldo", "direccion", "telefono", "id trabajador", "estado" };
+            string[] alias = { "Codigo", "Nombre", "apellido", "sueldo", "direccion", "telefono", "id trabajador", "id Cliente", "estado" };
             navegador1.AsignarAlias(alias);
             navegador1.AsignarSalida(this);
-            navegador1.AsignarColorFondo(Color.LemonChiffon);
-            navegador1.AsignarColorFuente(Color.Black);
-            navegador1.AsignarTabla("vendedores");
+            navegador1.AsignarColorFondo(Color.FromArgb(255, 255, 192));
+            navegador1.AsignarColorFuente(Color.FromArgb(247, 233, 11));
+            navegador1.AsignarTabla("Tbl_vendedores");
             navegador1.ObtenerIdAplicacion("1000");
             navegador1.ObtenerIdUsuario(idUsuario);
             navegador1.AsignarAyuda("1");
             navegador1.AsignarNombreForm("Mantenimiento vendedores");
         }
+     
     }
 }

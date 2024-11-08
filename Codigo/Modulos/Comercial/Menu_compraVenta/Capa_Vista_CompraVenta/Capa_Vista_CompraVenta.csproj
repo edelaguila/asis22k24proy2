@@ -55,71 +55,11 @@
     <Compile Include="Frm_clientes.Designer.cs">
       <DependentUpon>Frm_clientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm_comisiones.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frm_comisiones.Designer.cs">
-      <DependentUpon>Frm_comisiones.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_Cotizacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_Cotizacion.Designer.cs">
-      <DependentUpon>frm_Cotizacion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_Factura.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_Factura.Designer.cs">
-      <DependentUpon>frm_Factura.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_generarOrdenParaCompra.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_generarOrdenParaCompra.Designer.cs">
-      <DependentUpon>frm_generarOrdenParaCompra.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_ListadoDetalle.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_ListadoDetalle.Designer.cs">
-      <DependentUpon>frm_ListadoDetalle.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_ListadoEncabezado.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_ListadoEncabezado.Designer.cs">
-      <DependentUpon>frm_ListadoEncabezado.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_Mantenimientopoliza.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_Mantenimientopoliza.Designer.cs">
-      <DependentUpon>frm_Mantenimientopoliza.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_ordenCompras.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_ordenCompras.Designer.cs">
-      <DependentUpon>frm_ordenCompras.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_Pedido.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_Pedido.Designer.cs">
-      <DependentUpon>frm_Pedido.cs</DependentUpon>
-    </Compile>
     <Compile Include="Frm_proveedores.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Frm_proveedores.Designer.cs">
       <DependentUpon>Frm_proveedores.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Frm_traspasopoliza.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frm_traspasopoliza.Designer.cs">
-      <DependentUpon>Frm_traspasopoliza.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_MDI_general_CompraVenta.cs">
       <SubType>Form</SubType>
@@ -144,41 +84,11 @@
     <EmbeddedResource Include="Frm_clientes.resx">
       <DependentUpon>Frm_clientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Frm_comisiones.resx">
-      <DependentUpon>Frm_comisiones.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_Cotizacion.resx">
-      <DependentUpon>frm_Cotizacion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_Factura.resx">
-      <DependentUpon>frm_Factura.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_generarOrdenParaCompra.resx">
-      <DependentUpon>frm_generarOrdenParaCompra.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_ListadoDetalle.resx">
-      <DependentUpon>frm_ListadoDetalle.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_ListadoEncabezado.resx">
-      <DependentUpon>frm_ListadoEncabezado.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_Mantenimientopoliza.resx">
-      <DependentUpon>frm_Mantenimientopoliza.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Frm_MDI_general_CompraVenta.resx">
       <DependentUpon>Frm_MDI_general_CompraVenta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_ordenCompras.resx">
-      <DependentUpon>frm_ordenCompras.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_Pedido.resx">
-      <DependentUpon>frm_Pedido.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Frm_proveedores.resx">
       <DependentUpon>Frm_proveedores.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frm_traspasopoliza.resx">
-      <DependentUpon>Frm_traspasopoliza.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_vendedores.resx">
       <DependentUpon>Frm_vendedores.cs</DependentUpon>
@@ -186,19 +96,11 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\agregar11.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\borrar11.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\editar11.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\buscar11.png" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

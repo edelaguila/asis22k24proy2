@@ -17,13 +17,13 @@ namespace Capa_Vista_Logistica
         {
             InitializeComponent();
             string idUsuario = Interfac_V3.UsuarioSesion.GetIdUsuario();
-            string[] alias = { "id_vehiculo", "numeroPlaca", "marca", "color", "descripcion", "horaLlegada", "horaSalida", "totalBultos", "pesoTotal", "id_chofer", "Estado" };
+            string[] alias = { "ID Vehiculo", "numeroPlaca", "marca", "color", "descripcion", "horaLlegada", "horaSalida", "totalBultos", "pesoTotal", "id_chofer", "Estado" };
             navegador1.AsignarAlias(alias);
             navegador1.AsignarSalida(this);
-            navegador1.AsignarColorFondo(Color.CadetBlue);
-            navegador1.AsignarColorFuente(Color.Black);
+            navegador1.AsignarColorFondo(Color.LightBlue);
+            navegador1.AsignarColorFuente(Color.BlueViolet);
             navegador1.AsignarTabla("tbl_vehiculos");
-            navegador1.ObtenerIdAplicacion("9007");
+            navegador1.ObtenerIdAplicacion("2000");
             navegador1.ObtenerIdUsuario(idUsuario);
             navegador1.AsignarAyuda("1");
             navegador1.AsignarNombreForm("Mantenimiento de Vehiculos");

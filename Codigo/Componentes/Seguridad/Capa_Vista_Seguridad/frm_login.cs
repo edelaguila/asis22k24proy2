@@ -79,7 +79,7 @@ namespace Capa_Vista_Seguridad
 
                             FormModulos formulario = new FormModulos(Txt_usuario.Text); // Asegúrate de que este es el nombre correcto de la clase                         
                             formulario.Show();
-                            
+
 
                             //Pasa el nombre de usuario al constructor de MDI_Seguridad
                             //MDI_Seguridad formMDI = new MDI_Seguridad(Txt_usuario.Text);

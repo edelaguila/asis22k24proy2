@@ -28,7 +28,7 @@ DELIMITER $$
 --
 -- Procedimientos
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `cambiarContraModulo` (IN `p_usuario` INT, IN `p_nueva_contrasenia` VARCHAR(100))   BEGIN
+CREATE   PROCEDURE `cambiarContraModulo` (IN `p_usuario` INT, IN `p_nueva_contrasenia` VARCHAR(100))   BEGIN
     -- Actualizar la contraseña del usuario
     UPDATE tbl_usuarios
     SET password_usuario = p_nueva_contrasenia
@@ -43,7 +43,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `cambiarContraModulo` (IN `p_usuario
 END$$
 
 -- Cambio de contraseña procedimiento ----------------------------------------------------------------------
-CREATE DEFINER=`root`@`localhost` PROCEDURE `cambioContrasenia` (IN `p_usuario` VARCHAR(20))   BEGIN
+CREATE   PROCEDURE `cambioContrasenia` (IN `p_usuario` VARCHAR(20))   BEGIN
     DECLARE usuario_existe INT;
 
     SELECT COUNT(*) INTO usuario_existe
@@ -58,7 +58,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `cambioContrasenia` (IN `p_usuario` 
     END IF;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `cambiarContrasenia` (IN `usuario` VARCHAR(255), IN `nuevaContrasenia` VARCHAR(255), IN `respuestaSeguridad` VARCHAR(255))   BEGIN
+CREATE   PROCEDURE `cambiarContrasenia` (IN `usuario` VARCHAR(255), IN `nuevaContrasenia` VARCHAR(255), IN `respuestaSeguridad` VARCHAR(255))   BEGIN
     DECLARE respuestaGuardada VARCHAR(255);
     DECLARE usuarioExiste INT;
 
@@ -92,7 +92,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `cambiarContrasenia` (IN `usuario` V
     END IF;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `procedimientoLogin` (IN `p_usuario` VARCHAR(20), IN `p_clave` VARCHAR(100))   BEGIN
+CREATE   PROCEDURE `procedimientoLogin` (IN `p_usuario` VARCHAR(20), IN `p_clave` VARCHAR(100))   BEGIN
     DECLARE usuario_existe INT;
 
     SELECT COUNT(*) INTO usuario_existe
@@ -127,84 +127,6 @@ CREATE TABLE `ayuda` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
-
-
---
--- Estructura de tabla para la tabla `detallefactura`
---
-
-CREATE TABLE `detallefactura` (
-  `Pk_id_detalle_factura` int(11) NOT NULL,
-  `fk_id_factura` int(11) DEFAULT NULL,
-  `descripcion_factura` varchar(255) DEFAULT NULL,
-  `cantidad` int(11) DEFAULT NULL,
-  `monto_factura` decimal(10,2) DEFAULT NULL,
-  `estado` tinyint(1) DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `empleados`
---
-
-CREATE TABLE `empleados` (
-  `codigo_empleado` int(11) NOT NULL,
-  `nombre_completo` varchar(75) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `puesto` varchar(75) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `departamento` varchar(75) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `estado` tinyint(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `factura`
---
-
-CREATE TABLE `factura` (
-  `Pk_id_factura` int(11) NOT NULL,
-  `fecha_factura` date DEFAULT NULL,
-  `monto_factura` decimal(10,2) DEFAULT NULL,
-  `estado` tinyint(1) DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pagos`
---
-
-CREATE TABLE `pagos` (
-  `Pk_id_pago` int(11) NOT NULL,
-  `fk_id_factura` int(11) DEFAULT NULL,
-  `fecha_pago` date DEFAULT NULL,
-  `monto_factura` decimal(10,2) DEFAULT NULL,
-  `estado` tinyint(1) DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `registro_empleados`
---
-
-CREATE TABLE `registro_empleados` (
-  `codigo_registro` int(11) NOT NULL,
-  `codigo_empleado` int(11) NOT NULL,
-  `fecha_registro` date NOT NULL,
-  `hora_entrada` time NOT NULL,
-  `hora_salida` time DEFAULT NULL,
-  `total_de_horas` time DEFAULT NULL,
-  `estado` tinyint(4) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
--- --------------------------------------------------------
-
 --
 -- Estructura de tabla para la tabla `tbl_aplicaciones`
 --
@@ -464,7 +386,7 @@ CREATE TABLE `vwperfilusuario` (
 --
 DROP TABLE IF EXISTS `vwaplicacionperfil`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vwaplicacionperfil`  AS SELECT `b`.`Fk_id_perfil` AS `ID`, `a`.`nombre_perfil` AS `Perfil`, `b`.`Fk_id_aplicacion` AS `Aplicacion`, `b`.`guardar_permiso` AS `Insertar`, `b`.`modificar_permiso` AS `Modificar`, `b`.`eliminar_permiso` AS `Eliminar`, `b`.`buscar_permiso` AS `Buscar`, `b`.`imprimir_permiso` AS `Reporte` FROM (`tbl_permisos_aplicacion_perfil` `b` join `tbl_perfiles` `a` on(`a`.`Pk_id_perfil` = `b`.`Fk_id_perfil`)) ;
+CREATE ALGORITHM=UNDEFINED   SQL SECURITY DEFINER VIEW `vwaplicacionperfil`  AS SELECT `b`.`Fk_id_perfil` AS `ID`, `a`.`nombre_perfil` AS `Perfil`, `b`.`Fk_id_aplicacion` AS `Aplicacion`, `b`.`guardar_permiso` AS `Insertar`, `b`.`modificar_permiso` AS `Modificar`, `b`.`eliminar_permiso` AS `Eliminar`, `b`.`buscar_permiso` AS `Buscar`, `b`.`imprimir_permiso` AS `Reporte` FROM (`tbl_permisos_aplicacion_perfil` `b` join `tbl_perfiles` `a` on(`a`.`Pk_id_perfil` = `b`.`Fk_id_perfil`)) ;
 
 -- --------------------------------------------------------
 
@@ -473,7 +395,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `vwaplicacionusuario`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vwaplicacionusuario`  AS SELECT `b`.`Fk_id_aplicacion` AS `Aplicacion`, `b`.`Fk_id_usuario` AS `ID`, `a`.`nombre_usuario` AS `Usuario`, `b`.`guardar_permiso` AS `Insertar`, `b`.`modificar_permiso` AS `Editar`, `b`.`eliminar_permiso` AS `Eliminar`, `b`.`buscar_permiso` AS `Buscar`, `b`.`imprimir_permiso` AS `Reporte` FROM (`tbl_permisos_aplicaciones_usuario` `b` join `tbl_usuarios` `a` on(`a`.`Pk_id_usuario` = `b`.`Fk_id_usuario`)) ;
+CREATE ALGORITHM=UNDEFINED   SQL SECURITY DEFINER VIEW `vwaplicacionusuario`  AS SELECT `b`.`Fk_id_aplicacion` AS `Aplicacion`, `b`.`Fk_id_usuario` AS `ID`, `a`.`nombre_usuario` AS `Usuario`, `b`.`guardar_permiso` AS `Insertar`, `b`.`modificar_permiso` AS `Editar`, `b`.`eliminar_permiso` AS `Eliminar`, `b`.`buscar_permiso` AS `Buscar`, `b`.`imprimir_permiso` AS `Reporte` FROM (`tbl_permisos_aplicaciones_usuario` `b` join `tbl_usuarios` `a` on(`a`.`Pk_id_usuario` = `b`.`Fk_id_usuario`)) ;
 
 -- --------------------------------------------------------
 
@@ -482,7 +404,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `vwmoduloaplicacion`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vwmoduloaplicacion`  AS SELECT `b`.`Fk_id_modulos` AS `ID`, `a`.`nombre_modulo` AS `Modulo`, `b`.`Fk_id_aplicacion` AS `Aplicacion`, `c`.`nombre_aplicacion` AS `Nombre`, `c`.`descripcion_aplicacion` AS `Descripcion` FROM ((`tbl_asignacion_modulo_aplicacion` `b` join `tbl_modulos` `a` on(`a`.`Pk_id_modulos` = `b`.`Fk_id_modulos`)) join `tbl_aplicaciones` `c` on(`c`.`Pk_id_aplicacion` = `b`.`Fk_id_aplicacion`)) ;
+CREATE ALGORITHM=UNDEFINED   SQL SECURITY DEFINER VIEW `vwmoduloaplicacion`  AS SELECT `b`.`Fk_id_modulos` AS `ID`, `a`.`nombre_modulo` AS `Modulo`, `b`.`Fk_id_aplicacion` AS `Aplicacion`, `c`.`nombre_aplicacion` AS `Nombre`, `c`.`descripcion_aplicacion` AS `Descripcion` FROM ((`tbl_asignacion_modulo_aplicacion` `b` join `tbl_modulos` `a` on(`a`.`Pk_id_modulos` = `b`.`Fk_id_modulos`)) join `tbl_aplicaciones` `c` on(`c`.`Pk_id_aplicacion` = `b`.`Fk_id_aplicacion`)) ;
 
 -- --------------------------------------------------------
 
@@ -491,7 +413,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `vwperfilusuario`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vwperfilusuario`  AS SELECT `b`.`Fk_id_usuario` AS `ID`, `a`.`nombre_usuario` AS `Usuario`, `a`.`username_usuario` AS `nickName`, `b`.`Fk_id_perfil` AS `perfil`, `c`.`nombre_perfil` AS `Nombre` FROM ((`tbl_asignaciones_perfils_usuario` `b` join `tbl_usuarios` `a` on(`a`.`Pk_id_usuario` = `b`.`Fk_id_usuario`)) join `tbl_perfiles` `c` on(`c`.`Pk_id_perfil` = `b`.`Fk_id_perfil`)) ;
+CREATE ALGORITHM=UNDEFINED   SQL SECURITY DEFINER VIEW `vwperfilusuario`  AS SELECT `b`.`Fk_id_usuario` AS `ID`, `a`.`nombre_usuario` AS `Usuario`, `a`.`username_usuario` AS `nickName`, `b`.`Fk_id_perfil` AS `perfil`, `c`.`nombre_perfil` AS `Nombre` FROM ((`tbl_asignaciones_perfils_usuario` `b` join `tbl_usuarios` `a` on(`a`.`Pk_id_usuario` = `b`.`Fk_id_usuario`)) join `tbl_perfiles` `c` on(`c`.`Pk_id_perfil` = `b`.`Fk_id_perfil`)) ;
 
 --
 -- Índices para tablas volcadas
@@ -502,42 +424,6 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 ALTER TABLE `ayuda`
   ADD PRIMARY KEY (`Id_ayuda`);
-
---
--- Indices de la tabla `detallefactura`
---
-ALTER TABLE `detallefactura`
-  ADD PRIMARY KEY (`Pk_id_detalle_factura`),
-  ADD KEY `fk_id_factura` (`fk_id_factura`);
-
---
--- Indices de la tabla `empleados`
---
-ALTER TABLE `empleados`
-  ADD PRIMARY KEY (`codigo_empleado`);
-
---
--- Indices de la tabla `factura`
---
-ALTER TABLE `factura`
-  ADD PRIMARY KEY (`Pk_id_factura`);
-
---
--- Indices de la tabla `pagos`
---
-ALTER TABLE `pagos`
-  ADD PRIMARY KEY (`Pk_id_pago`),
-  ADD KEY `fk_id_factura` (`fk_id_factura`);
-
-
--- Indices de la tabla `registro_empleados`
---
-ALTER TABLE `registro_empleados`
-  ADD PRIMARY KEY (`codigo_registro`),
-  ADD KEY `fk_codigo_empleado` (`codigo_empleado`);
-
-
---
 
 --
 -- Indices de la tabla `tbl_asignaciones_perfils_usuario`
@@ -618,37 +504,6 @@ ALTER TABLE `venta`
 --
 ALTER TABLE `ayuda`
   MODIFY `Id_ayuda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de la tabla `detallefactura`
---
-ALTER TABLE `detallefactura`
-  MODIFY `Pk_id_detalle_factura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
---
--- AUTO_INCREMENT de la tabla `empleados`
---
-ALTER TABLE `empleados`
-  MODIFY `codigo_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
-
---
--- AUTO_INCREMENT de la tabla `factura`
---
-ALTER TABLE `factura`
-  MODIFY `Pk_id_factura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT de la tabla `pagos`
---
-ALTER TABLE `pagos`
-  MODIFY `Pk_id_pago` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT de la tabla `registro_empleados`
---
-ALTER TABLE `registro_empleados`
-  MODIFY `codigo_registro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
-
 --
 -- AUTO_INCREMENT de la tabla `tbl_asignaciones_perfils_usuario`
 --
@@ -706,26 +561,6 @@ ALTER TABLE `venta`
 --
 -- Restricciones para tablas volcadas
 --
-
---
--- Filtros para la tabla `detallefactura`
---
-ALTER TABLE `detallefactura`
-  ADD CONSTRAINT `detallefactura_ibfk_1` FOREIGN KEY (`fk_id_factura`) REFERENCES `factura` (`Pk_id_factura`);
-
---
--- Filtros para la tabla `pagos`
---
-ALTER TABLE `pagos`
-  ADD CONSTRAINT `pagos_ibfk_1` FOREIGN KEY (`fk_id_factura`) REFERENCES `factura` (`Pk_id_factura`);
-
---
--- Filtros para la tabla `registro_empleados`
---
-ALTER TABLE `registro_empleados`
-  ADD CONSTRAINT `fk_codigo_empleado` FOREIGN KEY (`codigo_empleado`) REFERENCES `empleados` (`codigo_empleado`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Filtros para la tabla `tbl_asignaciones_perfils_usuario`
 --
 ALTER TABLE `tbl_asignaciones_perfils_usuario`
@@ -777,9 +612,8 @@ ADD COLUMN `tabla` VARCHAR(50) NOT NULL;
 
 -- Implementación de Nominas con la base de datos general ya que fue aprobado por Brandon Boch
 -- solo se espera las dos revisiones para que sea subido al repositorio principal
-use colchoneria;
-DROP TABLE IF EXISTS tbl_planilla_detalle;
-DROP TABLE IF EXISTS tbl_planilla_encabezado;
+DROP TABLE IF EXISTS tbl_planilla_Detalle;
+DROP TABLE IF EXISTS tbl_planilla_Encabezado;
 DROP TABLE IF EXISTS tbl_contratos;
 DROP TABLE IF EXISTS tbl_horas_extra;
 DROP TABLE IF EXISTS tbl_control_anticipos;
@@ -792,33 +626,34 @@ DROP TABLE IF EXISTS tbl_puestos_trabajo;
 DROP TABLE IF EXISTS tbl_departamentos;
 DROP TABLE IF EXISTS tbl_dedu_perp;
 DROP TABLE IF EXISTS tbl_empresas;
+DROP TABLE IF EXISTS tbl_polizas;
 
 CREATE TABLE tbl_puestos_trabajo (
 	pk_id_puestos INT NOT NULL AUTO_INCREMENT,
-    nombre_puesto VARCHAR(50),
-    descripcion  VARCHAR(50),
+    puestos_nombre_puesto VARCHAR(50),
+    puestos_descripcion  VARCHAR(50),
     primary key (`pk_id_puestos`),
     estado TINYINT(1) NOT NULL DEFAULT 1
 );
 
 CREATE TABLE  tbl_departamentos (
 	pk_id_departamento  INT NOT NULL AUTO_INCREMENT,
-    nombre_departamento VARCHAR(50),
-    descripcion  VARCHAR(50) NOT NULL,
+    departamentos_nombre_departamento VARCHAR(50),
+    departamentos_descripcion  VARCHAR(50) NOT NULL,
     primary key (`pk_id_departamento`),
     estado TINYINT(1) NOT NULL DEFAULT 1
 );
 
 CREATE TABLE IF NOT EXISTS tbl_empleados (
 	pk_clave INT NOT NULL AUTO_INCREMENT,
-    nombre VARCHAR(50) NOT NULL,
-    apellido  VARCHAR(50),
-    fecha_nacimiento  date,
-    no_identificacion  VARCHAR(50) NOT NULL,
-    codigo_postal  VARCHAR(50),
-    fecha_alta  date,
-    fecha_baja date,
-    causa_baja  VARCHAR(50),
+    empleados_nombre VARCHAR(50) NOT NULL,
+    empleados_apellido  VARCHAR(50),
+    empleados_fecha_nacimiento  date,
+    empleados_no_identificacion  VARCHAR(50) NOT NULL,
+    empleados_codigo_postal  VARCHAR(50),
+    empleados_fecha_alta  date,
+    empleados_fecha_baja date,
+    empleados_causa_baja  VARCHAR(50),
     fk_id_departamento INT NOT NULL, 
     fk_id_puestos INT NOT NULL, 
 	FOREIGN KEY (`fk_id_departamento`) REFERENCES `tbl_departamentos` (`pk_id_departamento`),
@@ -826,12 +661,12 @@ CREATE TABLE IF NOT EXISTS tbl_empleados (
 	primary key (`pk_clave`),
     estado TINYINT(1) NOT NULL DEFAULT 1
 );
-
+select* from tbl_empleados;
 CREATE TABLE  tbl_asignacion_vacaciones (
 	pk_registro_vaciones int auto_increment not null,
-    descripcion varchar(25),
-    fecha_inicio date,
-    fecha_fin date,
+    asignacion_vacaciones_descripcion varchar(25),
+    asignacion_vacaciones_fecha_inicio date,
+    asignacion_vacaciones_fecha_fin date,
     fk_clave_empleado INT NOT NULL, 
     estado TINYINT(1) NOT NULL DEFAULT 1,
     FOREIGN KEY (`fk_clave_empleado`) REFERENCES `tbl_empleados` (`pk_clave`),
@@ -840,9 +675,9 @@ CREATE TABLE  tbl_asignacion_vacaciones (
 
 CREATE TABLE  tbl_contratos (
 	pk_id_contrato INT NOT NULL AUTO_INCREMENT,
-    fecha_creacion date NOT NULL,
-    salario  decimal(10,2) NOT NULL,
-    tipo_contrato varchar(35), 
+    contratos_fecha_creacion date NOT NULL,
+    contratos_salario  decimal(10,2) NOT NULL,
+    contratos_tipo_contrato varchar(35), 
     fk_clave_empleado INT NOT NULL, 
     FOREIGN KEY (`fk_clave_empleado`) REFERENCES `tbl_empleados` (`pk_clave`),
     primary key (`pk_id_contrato`),
@@ -851,8 +686,8 @@ CREATE TABLE  tbl_contratos (
 
 CREATE TABLE  tbl_horas_extra (
 	pk_registro_horas INT NOT NULL AUTO_INCREMENT,
-    mes varchar(25),
-    cantidad_horas decimal(10,2),
+    horas_mes varchar(25),
+    horas_cantidad_horas decimal(10,2),
     fk_clave_empleado INT NOT NULL, 
     FOREIGN KEY (`fk_clave_empleado`) REFERENCES `tbl_empleados` (`pk_clave`),
     primary key (`pk_registro_horas`),
@@ -861,9 +696,9 @@ CREATE TABLE  tbl_horas_extra (
 
 CREATE TABLE  tbl_control_anticipos (
 	pk_registro_anticipos INT NOT NULL AUTO_INCREMENT,
-    cantidad decimal(10,2),
-    descripcion varchar(50),
-    mes varchar(25),
+    anticipos_cantidad decimal(10,2),
+    anticipos_descripcion varchar(50),
+    anticipos_mes varchar(25),
     fk_clave_empleado INT NOT NULL, 
     FOREIGN KEY (`fk_clave_empleado`) REFERENCES `tbl_empleados` (`pk_clave`),
     primary key (`pk_registro_anticipos`),
@@ -872,9 +707,9 @@ CREATE TABLE  tbl_control_anticipos (
 
 CREATE TABLE  tbl_control_faltas (
 	pk_registro_faltas INT NOT NULL AUTO_INCREMENT,
-    fecha_falta date,
-    mes varchar(25),
-    justificacion varchar(25),
+    faltas_fecha_falta date,
+    faltas_mes varchar(25),
+    faltas_justificacion varchar(25),
     fk_clave_empleado INT NOT NULL, 
     FOREIGN KEY (`fk_clave_empleado`) REFERENCES `tbl_empleados` (`pk_clave`),
     primary key (`pk_registro_faltas`),
@@ -883,10 +718,10 @@ CREATE TABLE  tbl_control_faltas (
 
 CREATE TABLE tbl_Liquidacion_Trabajadores (
 	pk_registro_liquidacion INT NOT NULL AUTO_INCREMENT,
-    aguinaldo decimal (10,2) not null,
-    bono_14 decimal (10,2) not null,
-    vacaciones decimal (10,2) not null,
-    tipo_operacion varchar(25), 
+    liquidacion_aguinaldo decimal (10,2) not null,
+    liquidacion_bono_14 decimal (10,2) not null,
+    liquidacion_vacaciones decimal (10,2) not null,
+    liquidacion_tipo_operacion varchar(25), 
     fk_clave_empleado INT NOT NULL, 
     FOREIGN KEY (`fk_clave_empleado`) REFERENCES `tbl_empleados` (`pk_clave`),
     primary key (`pk_registro_liquidacion`),
@@ -895,19 +730,19 @@ CREATE TABLE tbl_Liquidacion_Trabajadores (
 
 CREATE TABLE  tbl_planilla_Encabezado (
 	pk_registro_planilla_Encabezado INT NOT NULL AUTO_INCREMENT,
-    correlativo_planilla int not null, 
-    fecha_inicio date,
-    fecha_final date,
-    total_mes decimal(10,2),
+    encabezado_correlativo_planilla int not null, 
+    encabezado_fecha_inicio date,
+    encabezado_fecha_final date,
+    encabezado_total_mes decimal(10,2),
     primary key (`pk_registro_planilla_Encabezado`),
     estado TINYINT(1) NOT NULL DEFAULT 1
 );
 
 CREATE TABLE  tbl_planilla_Detalle (
 	pk_registro_planilla_Detalle INT NOT NULL AUTO_INCREMENT,
-    total_Percepciones decimal (10,2),
-    total_Deducciones decimal(10,2),
-    total_liquido decimal(10,2),
+    detalle_total_Percepciones decimal (10,2),
+    detalle_total_Deducciones decimal(10,2),
+    detalle_total_liquido decimal(10,2),
     fk_clave_empleado int not null, 
     fk_id_contrato int not null,
     fk_id_registro_planilla_Encabezado int not null,
@@ -921,11 +756,12 @@ CREATE TABLE  tbl_planilla_Detalle (
 
 CREATE TABLE tbl_dedu_perp (
     pk_dedu_perp INT NOT NULL AUTO_INCREMENT,
-    concepto VARCHAR(25), -- IGSS, Vacaciones, Bonificacion Incentivo
-    tipo VARCHAR(25), -- Porcentaje o monton
-    aplicacion varchar(25), -- Todos, ninguno, etc
-    excepcion TINYINT(1), 
-    monto FLOAT,
+    dedu_perp_clase varchar(25),
+    dedu_perp_concepto VARCHAR(25), -- IGSS, Vacaciones, Bonificacion Incentivo
+    dedu_perp_tipo VARCHAR(25), -- Porcentaje o monton
+    dedu_perp_aplicacion varchar(25), -- Todos, ninguno, etc
+    dedu_perp_excepcion TINYINT(1), 
+    dedu_perp_monto FLOAT,
     estado TINYINT(1),
     PRIMARY KEY ( pk_dedu_perp)
 );
@@ -934,7 +770,7 @@ CREATE TABLE tbl_dedu_perp_emp (
     pk_dedu_perp_emp INT NOT NULL AUTO_INCREMENT,
     Fk_clave_empleado INT NOT NULL,
     Fk_dedu_perp INT NOT NULL,
-    cantidad_deduccion FLOAT, -- Este campo basicamente calculara la deduccion a la que se asocie el empleado
+    dedu_perp_emp_cantidad FLOAT, -- Este campo basicamente calculara la deduccion a la que se asocie el empleado
     -- Si es un % (como el IGSS) se multiplica el sueldo base (que lo tenemos en el contrato) por ese porcentaje(%)
     -- Si es un monto (que seria fijo cada mes, como Descuentos judiciales por ejemplo Q400, ese valor solo se copiara
     -- a "cantidad_deduccion"
@@ -946,17 +782,15 @@ CREATE TABLE tbl_dedu_perp_emp (
 
 CREATE TABLE tbl_empresas (
     empresa_id INT AUTO_INCREMENT PRIMARY KEY,  -- Llave primaria autoincremental
-    nombre_empresa VARCHAR(255) NOT NULL,       -- Nombre de la empresa
-    logo LONGBLOB,                              -- Campo para almacenar la foto (logo) en formato binario
-    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  -- Campo para la fecha de creación
-    estado TINYINT(1),                          -- Estado de la empresa (activa/inactiva)
-    direccion VARCHAR(255),                     -- Dirección de la empresa
-    telefono VARCHAR(20),                       -- Número de teléfono de la empresa
-    email VARCHAR(100),                         -- Correo electrónico de la empresa
-    pagina_web VARCHAR(100)                     -- Página web de la empresa
+    empresas_nombre VARCHAR(255) NOT NULL,       -- Nombre de la empresa
+    empresas_logo LONGBLOB,                              -- Campo para almacenar la foto (logo) en formato binario
+    empresas_fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  -- Campo para la fecha de creación
+    empresas_direccion VARCHAR(255),                     -- Dirección de la empresa
+    empresas_telefono VARCHAR(20),                       -- Número de teléfono de la empresa
+    empresas_email VARCHAR(100),                         -- Correo electrónico de la empresa
+    empresas_pagina_web VARCHAR(100),                     -- Página web de la empresa
+    estado TINYINT(1)                          -- Estado de la empresa (activa/inactiva)
 );
-
-SELECT tbl_dedu_perp.pk_dedu_perp, tbl_dedu_perp.concepto, tbl_dedu_perp.tipo, tbl_dedu_perp.aplicacion, tbl_dedu_perp.excepcion, tbl_dedu_perp.monto, tbl_dedu_perp.estado FROM tbl_dedu_perp WHERE tbl_dedu_perp.estado = 0 OR tbl_dedu_perp.estado = 1 ORDER BY pk_dedu_perp DESC;
 -- Aqui termina nóminas
 
 -- Modulo de Contabilidad
@@ -1085,8 +919,42 @@ CREATE TABLE IF NOT EXISTS tbl_historico_cuentas (
     FOREIGN KEY (Pk_id_cuenta) REFERENCES tbl_cuentas(Pk_id_cuenta)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- MODULO DE LOGISTICA
+-- Tabla presupuesto
+CREATE TABLE tbl_presupuesto (
+Pk_id_presupuesto INT PRIMARY KEY AUTO_INCREMENT,
+nombre_presupuesto VARCHAR(100),
+ejercicio_presupuesto INT,
+fecha_creacion DATE,
+total_presupuesto DECIMAL(18, 2),
+estado TINYINT(1) NOT NULL DEFAULT 1
+);
 
+-- Tabla detalle presupuesto
+CREATE TABLE tbl_detalle_presupuesto (
+Pk_id_detalle INT PRIMARY KEY AUTO_INCREMENT,
+Fk_id_presupuesto INT,
+Fk_id_cuenta INT,
+mes_enero DECIMAL(18, 2),
+mes_febrero DECIMAL(18, 2),
+mes_marzo DECIMAL(18, 2),
+mes_abril DECIMAL(18, 2),
+mes_mayo DECIMAL(18, 2),
+mes_junio DECIMAL(18, 2),
+mes_julio DECIMAL(18, 2),
+mes_agosto DECIMAL(18, 2),
+mes_septiembre DECIMAL(18, 2),
+mes_octubre DECIMAL(18, 2),
+mes_noviembre DECIMAL(18, 2),
+mes_diciembre DECIMAL(18, 2),
+total_cuenta DECIMAL(18, 2),
+
+FOREIGN KEY (Fk_id_presupuesto) REFERENCES tbl_presupuesto(Pk_id_presupuesto),
+FOREIGN KEY (Fk_id_cuenta) REFERENCES tbl_cuentas(Pk_id_cuenta)
+);
+-- FIN MODULO CONTABILIDAD
+
+
+-- MODULO DE LOGISTICA
 CREATE TABLE Tbl_chofer (
     Pk_id_chofer INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     nombreEmpresa VARCHAR(100) NOT NULL,
@@ -1191,10 +1059,12 @@ CREATE TABLE TBL_LOCALES (
     ESTADO VARCHAR(50) NOT NULL DEFAULT 'Activo',
     FECHA_REGISTRO DATETIME DEFAULT NOW()
 );
+ALTER TABLE TBL_LOCALES
+MODIFY ESTADO TINYINT NOT NULL DEFAULT 1;
 
 CREATE TABLE Tbl_movimiento_de_inventario (
 	Pk_id_movimiento INT PRIMARY KEY AUTO_INCREMENT,
-    estado varchar(15),
+    estado TINYINT NOT NULL DEFAULT 1,
     Fk_id_producto INT NOT NULL,
     Fk_id_stock INT NOT NULL,
     Fk_ID_LOCALES INT NOT NULL,
@@ -1202,7 +1072,8 @@ CREATE TABLE Tbl_movimiento_de_inventario (
     FOREIGN KEY (Fk_id_stock) REFERENCES Tbl_TrasladoProductos(Pk_id_TrasladoProductos),
     CONSTRAINT FK_EXISTENCIA_LOCAL FOREIGN KEY (Fk_ID_LOCALES) REFERENCES TBL_LOCALES(Pk_ID_LOCAL)
 );
-
+ALTER TABLE Tbl_movimiento_de_inventario
+MODIFY estado TINYINT NOT NULL DEFAULT 1;
 
 CREATE TABLE Tbl_mantenimiento (
 	Pk_id_Mantenimiento INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -1214,8 +1085,8 @@ CREATE TABLE Tbl_mantenimiento (
     codigo_Error_Problema varchar (50) NOT NULL,
     estado_del_Mantenimiento varchar (20) NOT NULL,
     tiempo_Estimado varchar (30) NOT NULL,
-	Fk_id_movimiento INT NOT NULL,
-    FOREIGN KEY (Fk_id_movimiento) REFERENCES Tbl_movimiento_de_inventario(Pk_id_movimiento)
+	Fk_id_vehiculo INT NOT NULL,
+    FOREIGN KEY (Fk_id_vehiculo) REFERENCES Tbl_vehiculos(Pk_id_vehiculo)
 );
 
 CREATE TABLE TBL_BODEGAS (
@@ -1271,6 +1142,9 @@ CREATE TABLE Tbl_Linea(
 );
 ALTER TABLE Tbl_Linea
 MODIFY estado TINYINT NOT NULL DEFAULT 1;
+
+-- FIN MODULO DE LIGISTICA
+
 
 -- modulo comercial inicio
  -- Tabla Clientes
@@ -1697,5 +1571,228 @@ CREATE TABLE IF NOT EXISTS Tbl_caja_proveedor (
     FOREIGN KEY (Fk_id_deuda) REFERENCES Tbl_Deudas_Proveedores (Pk_id_deuda)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- Tabla nueva Transacciones_cuentas
+CREATE TABLE IF NOT EXISTS Tbl_transaccion_cuentas (
+	Pk_id_tran_cue INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    tran_nombre VARCHAR(150) NOT NULL,
+    tran_efecto VARCHAR(15) NOT NULL,
+    estado TINYINT DEFAULT 1 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci; 
+
 -- FIN TABLAS MAESTRAS CUENTAS CORRIENTES
- 
+
+-- INICIA CREACIÓN DE TABLAS PRODUCCIÓN
+CREATE TABLE IF NOT EXISTS `tbl_cierre_produccion` (
+  `pk_id_cierre` int(11) NOT NULL,
+  `fecha` date NOT NULL,
+  `saldo_anterior` decimal(10,2) NOT NULL,
+  `cargos_mes` decimal(10,2) NOT NULL,
+  `abonos_mes` decimal(10,2) NOT NULL,
+  `saldo_actual` decimal(10,2) NOT NULL,
+  `cargos_acumulados` decimal(10,2) NOT NULL,
+  `abonos_acumulados` decimal(10,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS `tbl_conversiones` (
+  `id_conversion` int(11) NOT NULL,
+  `unidad_origen` varchar(50) NOT NULL,
+  `unidad_destino` varchar(50) NOT NULL,
+  `factor_conversion` decimal(10,6) NOT NULL,
+  `tipo_conversion` varchar(50) NOT NULL,
+  `descripcion` varchar(255) DEFAULT NULL,
+  `estado` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS `tbl_lotes_detalles` (
+  `Pk_id_lotes_detalle` int(11) NOT NULL,
+  `Fk_id_producto` int(11) DEFAULT NULL,
+  `Fk_id_lote` int(11) DEFAULT NULL,
+  `cantidad` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS `tbl_lotes_encabezado` (
+  `Pk_id_lote` int(11) NOT NULL,
+  `codigo_lote` varchar(100) DEFAULT NULL,
+  `Fecha_Producción` date DEFAULT NULL,
+  `estado` tinyint(1) DEFAULT NULL,
+  `Fk_id_proceso` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS `tbl_mantenimientos` (
+  `Pk_id_maquinaria` int(11) NOT NULL,
+  `nombre_maquinaria` varchar(255) DEFAULT NULL,
+  `tipo_maquina` varchar(255) DEFAULT NULL,
+  `hora_operacion` decimal(10,2) DEFAULT NULL,
+  `mantenimiento_periodico` varchar(100) DEFAULT NULL,
+  `ultima_mantenimiento` date DEFAULT NULL,
+  `proximo_mantenimiento` date DEFAULT NULL,
+  `area` varchar(100) DEFAULT NULL,
+  `desgaste_porcentaje` decimal(10,2) DEFAULT NULL,
+  `estado` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS `tbl_ordenes_produccion` (
+  `Pk_id_orden` int(11) NOT NULL,
+  `fecha_inicio` date DEFAULT NULL,
+  `fecha_fin` date DEFAULT NULL,
+  `cantidad` int(11) DEFAULT NULL,
+  `estado` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS `tbl_ordenes_produccion_detalle` (
+  `Pk_id_detalle` int(11) NOT NULL,
+  `Fk_id_orden` int(11) NOT NULL,
+  `Fk_id_producto` int(11) NOT NULL,
+  `cantidad` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS `tbl_proceso_produccion_detalle` (
+  `Pk_id_proceso_detalle` int(11) NOT NULL,
+  `Fk_id_productos` int(11) DEFAULT NULL,
+  `Fk_id_receta` int(11) DEFAULT NULL,
+  `Fk_id_empleado` int(11) DEFAULT NULL,
+  `Fk_id_proceso` int(11) DEFAULT NULL,
+  `cantidad` int(11) DEFAULT NULL,
+  `costo_u` decimal(10,2) DEFAULT NULL,
+  `costo_t` decimal(10,2) DEFAULT NULL,
+  `duracion_horas` decimal(10,2) DEFAULT NULL,
+  `mano_de_obra` decimal(10,2) DEFAULT NULL,
+  `costo_luz` decimal(10,2) DEFAULT NULL,
+  `costo_agua` decimal(10,2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS `tbl_proceso_produccion_encabezado` (
+  `Pk_id_proceso` int(11) NOT NULL,
+  `Fk_id_orden` int(11) DEFAULT NULL,
+  `Fk_id_maquinaria` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS `tbl_recetas` (
+  `Pk_id_receta` int(11) NOT NULL,
+  `Fk_id_producto` int(11) DEFAULT NULL,
+  `descripcion` varchar(255) DEFAULT NULL,
+  `cantidad` int(11) DEFAULT NULL,
+  `area` varchar(100) DEFAULT NULL,
+  `cama` varchar(100) DEFAULT NULL,
+  `estado` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS `tbl_receta_detalle` (
+  `Pk_id_detalle` int(11) NOT NULL,
+  `Fk_id_receta` int(11) NOT NULL,
+  `Fk_id_producto` int(11) NOT NULL,
+  `cantidad` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS `tbl_rrhh_produccion` (
+  `id_RRHH` int(10) UNSIGNED NOT NULL,
+  `id_empleado` int(11) NOT NULL,
+  `id_contrato` int(11) NOT NULL,
+  `dias` int(11) NOT NULL,
+  `total_dias` decimal(10,2) NOT NULL,
+  `horas` decimal(10,2) NOT NULL,
+  `total_horas` decimal(10,2) NOT NULL,
+  `id_hora_extra` int(11) DEFAULT NULL,
+  `total_horas_extras` decimal(10,2) DEFAULT NULL,
+  `total_mano_obra` decimal(10,2) NOT NULL,
+  `estado` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+-- FIN DE CREACIÓN DE TABLA DE PRODUCCIÓN
+
+
+-- Nueva tabla creada por parte de producción 03-11-2024 aprobado por Brandon Boch
+-- 1. Creación de tabla maquinaria, hablada con el ingeniero.
+CREATE TABLE IF NOT EXISTS `tbl_maquinaria` (
+  `pk_id_maquina` int(11) AUTO_INCREMENT PRIMARY KEY,
+  `nombre_maquina` varchar(100) NOT NULL,
+  `tipo_maquina` varchar(50) NOT NULL,
+  `capacidad_produccion` decimal(10,2) NOT NULL,
+  `estado` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Fin
+
+--  CREACIÓN DE NUEVAS TABLAS PARA EL MODULO DE CONTABILIDAD - ACTIVOS FIJOS APROBADO POR BRANDON BOCH 03-11-2024
+
+DROP TABLE IF EXISTS `tbl_ActivoFijo`;
+
+-- Creación de la tabla `tbl_TipoActivoFijo`
+CREATE TABLE IF NOT EXISTS `tbl_TipoActivoFijo` (
+  `Pk_Id_TipoActivoFijo` INT(11) NOT NULL AUTO_INCREMENT,
+  `Nombre_Tipo` VARCHAR(50) NOT NULL,
+  `Estado` TINYINT(4) NOT NULL,
+  PRIMARY KEY (`Pk_Id_TipoActivoFijo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS `tbl_IdentidadActivo` (
+  `Pk_Id_Identidad` INT(11) NOT NULL AUTO_INCREMENT,
+  `Nombre_Identidad` VARCHAR(50) NOT NULL,
+  `Estado` TINYINT(4) NOT NULL,
+  PRIMARY KEY (`Pk_Id_Identidad`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS `tbl_ActivoFijo` (
+  `Pk_Id_ActivoFijo` INT(11) NOT NULL AUTO_INCREMENT,
+  `Codigo_Activo` VARCHAR(50) NOT NULL UNIQUE,
+  `Pk_Id_TipoActivoFijo` INT(11) DEFAULT NULL,
+  `Descripcion` VARCHAR(255) NOT NULL,
+  `Pk_Id_Identidad` INT(11) DEFAULT NULL,
+  `Modelo` VARCHAR(100) DEFAULT NULL,
+  `Fecha_Adquisicion` DATE DEFAULT NULL,
+  `Costo_Adquisicion` DECIMAL(10,2) DEFAULT NULL,
+  `Vida_Util` DECIMAL(5,2) DEFAULT NULL,
+  `Valor_Residual` DECIMAL(10,2) DEFAULT NULL,
+  `Estado` TINYINT(4) DEFAULT NULL,
+  `Pk_Id_Cuenta` INT(11) NOT NULL,
+  PRIMARY KEY (`Pk_Id_ActivoFijo`),
+  KEY `Fk_TipoActivoFijo` (`Pk_Id_TipoActivoFijo`),
+  KEY `Fk_Identidad` (`Pk_Id_Identidad`),
+  KEY `Fk_Cuenta` (`Pk_Id_Cuenta`),
+  CONSTRAINT `Fk_TipoActivoFijo_New` FOREIGN KEY (`Pk_Id_TipoActivoFijo`) REFERENCES `tbl_TipoActivoFijo` (`Pk_Id_TipoActivoFijo`) ON DELETE SET NULL,
+  CONSTRAINT `Fk_Identidad_New` FOREIGN KEY (`Pk_Id_Identidad`) REFERENCES `tbl_IdentidadActivo` (`Pk_Id_Identidad`) ON DELETE SET NULL,
+  CONSTRAINT `Fk_Cuenta_New` FOREIGN KEY (`Pk_Id_Cuenta`) REFERENCES `tbl_Cuentas` (`Pk_Id_Cuenta`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Creación de la tabla `tbl_Depreciacion_ActivoFijo`
+CREATE TABLE IF NOT EXISTS `tbl_Depreciacion_ActivoFijo` (
+  `Pk_Id_Depreciacion` INT(11) NOT NULL AUTO_INCREMENT,
+  `Pk_Id_ActivoFijo` INT(11) NOT NULL,
+  `Nombre_Activo` VARCHAR(100) NOT NULL,
+  `Tipo_Activo` VARCHAR(50) NOT NULL,
+  `Encargado` VARCHAR(100) DEFAULT NULL,
+  `Departamento` VARCHAR(100) DEFAULT NULL,
+  `Fecha_Depreciacion` DATE DEFAULT NULL,
+  `Depreciacion` DECIMAL(10,2) DEFAULT NULL,
+  `Depreciacion_Fiscal` DECIMAL(10,2) DEFAULT NULL,
+  `Descripcion` VARCHAR(255) DEFAULT NULL,
+  `Estado` TINYINT(4) DEFAULT NULL,
+  `Pk_Id_Cuenta` INT(11) NOT NULL,
+  PRIMARY KEY (`Pk_Id_Depreciacion`),
+  CONSTRAINT `Fk_IdActivoFijo_Depreciacion` FOREIGN KEY (`Pk_Id_ActivoFijo`) REFERENCES `tbl_ActivoFijo` (`Pk_Id_ActivoFijo`) ON DELETE CASCADE,
+  CONSTRAINT `Fk_Cuenta_Depreciacion_New` FOREIGN KEY (`Pk_Id_Cuenta`) REFERENCES `tbl_Cuentas` (`Pk_Id_Cuenta`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- FIN
+
+-- INICIO DE CREACIÓN DE TABLA POR PARTE DEL MODULO DE CONTABILIDAD EL DIA 05-11-2024
+CREATE TABLE IF NOT EXISTS `tbl_historial_servicio` (
+  `Pk_Id_HistorialServicio` INT(11) NOT NULL AUTO_INCREMENT,
+  `Pk_Id_ActivoFijo` INT(11) NOT NULL,
+  `Compania_Asegurada` VARCHAR(100) NOT NULL,
+  `Agente_Seguro` VARCHAR(100) NOT NULL,
+  `Tel_Siniestro` VARCHAR(20) NOT NULL,
+  `Tipo_Cobertura` VARCHAR(50) NOT NULL,
+  `Monto_Asegurado` DECIMAL(10,2) NOT NULL,
+  `Prima_Total` DECIMAL(10,2) NOT NULL,
+  `Deducible` DECIMAL(10,2) NOT NULL,
+  `Vigencia` DATE NOT NULL,
+  `Fecha_Util` DATE NOT NULL,
+  `Costo_Servicio` DECIMAL(10,2) NOT NULL,
+  `Periodo_Servicio` INT(11) NOT NULL, -- Periodo en meses
+  `Prox_Servicio` DATE NOT NULL,
+  `Estado` TINYINT(4) NOT NULL, -- Campo para el estado del servicio
+  PRIMARY KEY (`Pk_Id_HistorialServicio`),
+  KEY `Fk_ActivoFijo` (`Pk_Id_ActivoFijo`),
+  CONSTRAINT `Fk_ActivoFijo_HistorialServicio` FOREIGN KEY (`Pk_Id_ActivoFijo`) REFERENCES `tbl_ActivoFijo` (`Pk_Id_ActivoFijo`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+-- FIN APROBADO POR BRANDON BOCH

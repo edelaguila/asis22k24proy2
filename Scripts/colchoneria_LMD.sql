@@ -1,270 +1,11 @@
 --
 -- Volcado de datos para la tabla `ayuda`
 --
-
+SET SQL_SAFE_UPDATES = 0; -- desactivar el modo seguro
 INSERT INTO `ayuda` (`Id_ayuda`, `Ruta`, `indice`, `estado`) VALUES
 (1, 'AyudaNavegador.chm', 'AyudaNav.html', 1),
-(2, 'AyudaReportes.chm', 'AyudaRep.html', 1);
---
--- Volcado de datos para la tabla `factura`
---
-
-INSERT INTO `factura` (`Pk_id_factura`, `fecha_factura`, `monto_factura`, `estado`) VALUES
-(2, '2024-09-20', 100.00, NULL),
-(3, '2024-09-20', 200.00, NULL),
-(4, '2024-09-20', 1000.00, NULL),
-(5, '2024-09-20', 233.00, 1),
-(6, '2024-09-20', 1515.00, 1),
-(7, '2025-03-20', 999.00, 1),
-(8, '2024-09-20', 1313.00, 1),
-(9, '2021-07-15', 555.00, 1),
-(10, '2024-09-21', 900.00, 1);
-
---
--- Volcado de datos para la tabla `detallefactura`
---
-
-INSERT INTO `detallefactura` (`Pk_id_detalle_factura`, `fk_id_factura`, `descripcion_factura`, `cantidad`, `monto_factura`, `estado`) VALUES
-(1, 2, '2024-09-20', 100, 0.00, 1),
-(2, 3, '2024-09-20', 200, 0.00, 1),
-(3, 4, '2024-09-20', 1000, 0.00, 1),
-(4, 5, '2024-09-20', 233, 0.00, 1),
-(5, 6, '2024-09-20', 222, 1515.00, 1),
-(6, 7, '2024-09-20', 999, 0.00, 1),
-(7, 8, '2024-09-20', 300, 1313.00, 1),
-(8, 9, '2024-09-20', 500, 0.00, 1),
-(9, 9, '2024-09-20', 500, 0.00, 1),
-(10, 10, '2024-09-21', 900, 0.00, 1),
-(11, 10, '2024-09-21', 900, 0.00, 1);
-
-
---
--- Volcado de datos para la tabla `empleados`
---
-
-INSERT INTO `empleados` (`codigo_empleado`, `nombre_completo`, `puesto`, `departamento`, `estado`) VALUES
-(1, 'JUAN GONZALEZ', 'GERENTE FINANCIERO', 'PRUEBA DEPARTAMENTO', 0),
-(2, 'JOSE LUIS RODRIGUEZ', 'GERENTE COMERCIAL', 'PRUEBA DEPARTAMENTO', 1),
-(3, 'JOSE FERNANDEZ', 'GERENTE DE MARKETING', 'PRUEBA DEPARTAMENTO', 0),
-(4, 'MARIA GUADALUPE LOPEZ', 'DIRECTOR DE RECURSOS HUMANOS', 'PRUEBA DEPARTAMENTO', 1),
-(5, 'FRANCISCO MARTINEZ', 'DIRECTOR GENERAL ', 'PRUEBA DEPARTAMENTO', 1),
-(6, 'GUADALUPE SANCHEZ', 'DIRECTOR DE TECNOLOGIA', 'PRUEBA DEPARTAMENTO', 1),
-(7, 'MARIA PEREZ', 'DIRECTOR EJECUTIVO', 'PRUEBA DEPARTAMENTO', 1),
-(8, 'JUANA GOMEZ', 'ASISTENTE PERSONAL', 'PRUEBA DEPARTAMENTO', 1),
-(9, 'ANTONIO MARTIN', 'AUXILIAR SE SERVICIOS', 'PRUEBA DEPARTAMENTO', 1),
-(10, 'JESUS JIMENEZ', 'RECEPCIONISTA', 'PRUEBA DEPARTAMENTO', 1),
-(11, 'MIGUEL ANGEL RUIZ', 'SECRETARIA ', 'PRUEBA DEPARTAMENTO', 1),
-(12, 'PEDRO HERNANDEZ', 'VENDEDOR', 'PRUEBA DEPARTAMENTO', 1),
-(13, 'ALEJANDRO DIAZ', 'VENDEDOR', 'PRUEBA DEPARTAMENTO', 1),
-(14, 'MANUEL MORENO', 'VENDEDOR', 'PRUEBA DEPARTAMENTO', 1),
-(15, 'MARGARITA MU?OZ', 'VENDEDOR', 'PRUEBA DEPARTAMENTO', 1),
-(16, 'MARIA DEL CARMEN ALVAREZ', 'VENDEDOR', 'PRUEBA DEPARTAMENTO', 1),
-(17, 'JUAN CARLOS ROMERO', 'VENDEDOR', 'PRUEBA DEPARTAMENTO', 1),
-(18, 'ROBERTO ALONSO', 'RECEPCIONISTA', 'PRUEBA DEPARTAMENTO', 1),
-(19, 'FERNANDO GUTIERREZ', 'RECEPCIONISTA', 'PRUEBA DEPARTAMENTO', 1),
-(20, 'DANIEL NAVARRO', 'VENDEDOR', 'PRUEBA DEPARTAMENTO', 1),
-(21, 'CARLOS TORRES', 'VENDEDOR', 'PRUEBA DEPARTAMENTO', 1),
-(22, 'JORGE DOMINGUEZ', 'TECNICO', 'PRUEBA DEPARTAMENTO', 1),
-(23, 'RICARDO VAZQUEZ', 'TECNICO', 'PRUEBA DEPARTAMENTO', 1),
-(24, 'MIGUEL RAMOS', 'TECNICO', 'PRUEBA DEPARTAMENTO', 1),
-(25, 'EDUARDO GIL', 'PROMOTOR', 'PRUEBA DEPARTAMENTO', 1),
-(26, 'JAVIER RAMIREZ', 'ANALISTA DE VENTAS', 'PRUEBA DEPARTAMENTO', 1),
-(27, 'RAFAEL SERRANO', 'DESARROLLADOR DE NEGOCIOS', 'PRUEBA DEPARTAMENTO', 1),
-(28, 'MARTIN BLANCO', 'ANALISTA DE MARKETING', 'PRUEBA DEPARTAMENTO', 1),
-(29, 'RAUL MOLINA', 'SUPERVISOR DE VENTAS', 'PRUEBA DEPARTAMENTO', 1),
-(30, 'DAVID MORALES', 'GERENTE ADMINISTRATIVO Y FINANCIERO ', 'PRUEBA DEPARTAMENTO', 1),
-(31, 'JOSEFINA SUAREZ', 'GERENTE ADMINISTRATIVO/ OPERACIONAL', 'PRUEBA DEPARTAMENTO', 1),
-(32, 'JOSE ANTONIO ORTEGA', 'SUPERVISOR ADMINISTRATIVO/ OPERACIONES', 'PRUEBA DEPARTAMENTO', 1),
-(33, 'ARTURO DELGADO', 'AUXILIAR ADMINISTRATIVO', 'PRUEBA DEPARTAMENTO', 1),
-(34, 'MARCO ANTONIO CASTRO', 'GERENTE DEPARTAMENTAL/ SUCURSAL ', 'PRUEBA DEPARTAMENTO', 1),
-(35, 'JOSE MANUEL ORTIZ', 'ANALISTA DE CONTROL DE GESTION', 'PRUEBA DEPARTAMENTO', 1),
-(36, 'FRANCISCO JAVIER RUBIO', 'OPERADOR DE GARANTIAS POST VENTA', 'PRUEBA DEPARTAMENTO', 1),
-(37, 'ENRIQUE MARIN', 'CONTADOR GENERAL', 'PRUEBA DEPARTAMENTO', 1),
-(38, 'VERONICA SANZ', 'SUPERVISOR DE CONTABILIDAD', 'PRUEBA DEPARTAMENTO', 1),
-(39, 'GERARDO NU?EZ', 'AUXILIAR CONTABLE ', 'PRUEBA DEPARTAMENTO', 1),
-(40, 'MARIA ELENA IGLESIAS', 'ANALISTA DE IMPUESTOS ', 'PRUEBA DEPARTAMENTO', 1),
-(41, 'LETICIA MEDINA', 'ASISTENTE DE IMPUESTOS', 'PRUEBA DEPARTAMENTO', 1),
-(42, 'ROSA GARRIDO', 'ANALISTA DE COSTOS', 'PRUEBA DEPARTAMENTO', 1),
-(43, 'MARIO CORTES', 'ENCARGADO DE CUENTAS A PAGAR', 'PRUEBA DEPARTAMENTO', 1),
-(44, 'FRANCISCA CASTILLO', 'ENCARGADO/ AUXILIAR DE PATRIMONIO ', 'PRUEBA DEPARTAMENTO', 1),
-(45, 'ALFREDO SANTOS', 'GERENTE FINANCIERO Y ADMINISTRATIVO ', 'PRUEBA DEPARTAMENTO', 1),
-(46, 'TERESA LOZANO', 'GERENTE FINANCIERO', 'PRUEBA DEPARTAMENTO', 1),
-(47, 'ALICIA GUERRERO', 'SUPERVISOR DE FINANZAS', 'PRUEBA DEPARTAMENTO', 1),
-(48, 'MARIA FERNANDA CANO', 'ANALISTA DE FINANZAS', 'PRUEBA DEPARTAMENTO', 1),
-(49, 'SERGIO PRIETO', 'ANALISTA DE FINANZAS JUNIOR ', 'PRUEBA DEPARTAMENTO', 1),
-(50, 'ALBERTO MENDEZ', 'ENCARGADO DE FACTURACION Y/O CUENTAS CORRIENTES ', 'PRUEBA DEPARTAMENTO', 0),
-(51, 'LUIS CRUZ', 'AUXILIAR DE FACTURACION Y/O CUENTAS CORRIENTES', 'PRUEBA DEPARTAMENTO', 1),
-(52, 'ARMANDO CALVO', 'ENCARGADO DE CREDITOS', 'PRUEBA DEPARTAMENTO', 1),
-(53, 'ALEJANDRA GALLEGO', 'AUXILIAR DE CREDITOS', 'PRUEBA DEPARTAMENTO', 1),
-(54, 'MARTHA VIDAL', 'SUPERVISOR DE COBRANZAS', 'PRUEBA DEPARTAMENTO', 1),
-(55, 'SANTIAGO LEON', 'SUPERVISOR DE TELECOBRANZAS', 'PRUEBA DEPARTAMENTO', 1),
-(56, 'YOLANDA MARQUEZ', 'ENCARGADO/ AGENTE DE COBRANZAS', 'PRUEBA DEPARTAMENTO', 1),
-(57, 'PATRICIA HERRERA', 'PROGRAMADOR', 'PRUEBA DEPARTAMENTO', 1),
-(58, 'MARIA DE LOS ANGELES PE?A', 'AUXILIAR DE COBRANZAS', 'PRUEBA DEPARTAMENTO', 1),
-(59, 'JUAN MANUEL FLORES', 'TELECOBRADOR/A JUNIOR', 'PRUEBA DEPARTAMENTO', 1),
-(60, 'ROSA MARIA CABRERA', 'ANALISTA DE CREDITOS Y RIESGOS', 'PRUEBA DEPARTAMENTO', 1),
-(61, 'ELIZABETH CAMPOS', 'ANALISTA DE CREDITOS Y RIESGOS JUNIOR ', 'PRUEBA DEPARTAMENTO', 1),
-(62, 'GLORIA VEGA', 'TESORERO', 'PRUEBA DEPARTAMENTO', 1),
-(63, 'ANGEL FUENTES', 'AUXILIAR DE TESORERIA ', 'PRUEBA DEPARTAMENTO', 1),
-(64, 'GABRIELA CARRASCO', 'SUPERVISOR DE CAJAS ', 'PRUEBA DEPARTAMENTO', 1),
-(65, 'SALVADOR DIEZ', 'CAJERO', 'PRUEBA DEPARTAMENTO', 1),
-(66, 'VICTOR MANUEL CABALLERO', 'RECONTADOR DE BILLETES', 'PRUEBA DEPARTAMENTO', 1),
-(67, 'SILVIA REYES', 'ASISTENTE PERSONAL', 'PRUEBA DEPARTAMENTO', 1),
-(68, 'MARIA DE GUADALUPE NIETO', 'AUXILIAR SE SERVICIOS', 'PRUEBA DEPARTAMENTO', 1),
-(69, 'MARIA DE JESUS AGUILAR', 'RECEPCIONISTA', 'PRUEBA DEPARTAMENTO', 1),
-(70, 'GABRIEL PASCUAL', 'SECRETARIA ', 'PRUEBA DEPARTAMENTO', 1),
-(71, 'ANDRES SANTANA', 'VENDEDOR', 'PRUEBA DEPARTAMENTO', 1),
-(72, 'OSCAR HERRERO', 'VENDEDOR', 'PRUEBA DEPARTAMENTO', 1),
-(73, 'GUILLERMO LORENZO', 'VENDEDOR', 'PRUEBA DEPARTAMENTO', 1),
-(74, 'ANA MARIA MONTERO', 'VENDEDOR', 'PRUEBA DEPARTAMENTO', 1),
-(75, 'RAMON HIDALGO', 'VENDEDOR', 'PRUEBA DEPARTAMENTO', 1),
-(76, 'MARIA ISABEL GIMENEZ', 'VENDEDOR', 'PRUEBA DEPARTAMENTO', 1),
-(77, 'PABLO IBALEZ', 'PROGRAMADOR', 'PRUEBA DEPARTAMENTO', 1),
-(78, 'RUBEN FERRER', 'PROGRAMADOR', 'PRUEBA DEPARTAMENTO', 1),
-(79, 'ANTONIA DURAN', 'VENDEDOR', 'PRUEBA DEPARTAMENTO', 1),
-(80, 'MARIA LUISA SANTIAGO', 'VENDEDOR', 'PRUEBA DEPARTAMENTO', 1),
-(81, 'LUIS ANGEL BENITEZ', 'TECNICO', 'PRUEBA DEPARTAMENTO', 1),
-(82, 'MARIA DEL ROSARIO MORA', 'TECNICO', 'PRUEBA DEPARTAMENTO', 1),
-(83, 'FELIPE VICENTE', 'TECNICO', 'PRUEBA DEPARTAMENTO', 1),
-(84, 'JORGE JESUS VARGAS', 'PROMOTOR', 'PRUEBA DEPARTAMENTO', 1),
-(85, 'JAIME ARIAS', 'CONSULTOR EN ADMINISTRACION DE EMPRESAS', 'PRUEBA DEPARTAMENTO', 1),
-(86, 'JOSE GUADALUPE CARMONA', 'CONSULTOR AREA TECNICA ', 'PRUEBA DEPARTAMENTO', 1),
-(87, 'JULIO CESAR CRESPO', 'PROGRAMADOR', 'PRUEBA DEPARTAMENTO', 1),
-(88, 'JOSE DE JESUS ROMAN', 'COORDINADOR DE SISTEMAS', 'PRUEBA DEPARTAMENTO', 1),
-(89, 'DIEGO PASTOR', 'ENCARGADO DE LA BASE DE DATOS', 'PRUEBA DEPARTAMENTO', 1),
-(90, 'ARACELI SOTO', 'CAPACITADORES', 'PRUEBA DEPARTAMENTO', 1),
-(91, 'ANDREA SAEZ', 'CIENTIFICO DE DATOS', 'PRUEBA DEPARTAMENTO', 1),
-(92, 'ISABEL VELASCO', 'ANALISTA DE SEGURIDAD DE LA INFORMACION ', 'PRUEBA DEPARTAMENTO', 1),
-(93, 'MARIA TERESA MOYA', 'INGENIERO DE SOFTWARE', 'PRUEBA DEPARTAMENTO', 1),
-(94, 'IRMA SOLER', 'INGENIERO DE SOFTWARE', 'PRUEBA DEPARTAMENTO', 1),
-(95, 'CARMEN PARRA', 'ANALISTA DE SISTMEAS COMPUTACIONALES', 'PRUEBA DEPARTAMENTO', 1),
-(96, 'LUCIA ESTEBAN', 'DESARROLLADOR WEB ', 'PRUEBA DEPARTAMENTO', 1),
-(97, 'ADRIANA BRAVO', 'DESARROLLADOR WEB ', 'PRUEBA DEPARTAMENTO', 1),
-(98, 'AGUSTIN GALLARDO', 'DESARROLLADOR WEB ', 'PRUEBA DEPARTAMENTO', 1),
-(99, 'MARIA DE LA LUZ ROJAS', 'ADMINISTRADOR DE REDES Y SISTEMAS INFORMATICOS', 'PRUEBA DEPARTAMENTO', 1),
-(100, 'GUSTAVO GARCIA', 'ANALISTA DE CALIDAD', 'PRUEBA DEPARTAMENTO', 1),
-(101, 'RANDY CHOC', 'ING SISTEMAS', 'IT', 1),
-(102, 'GABRIEL', 'ANALISTA', 'IT', 1),
-(103, 'GABRIEL', 'ING SIS', 'IT', 1),
-(104, 'IRMA MONTES', 'BODEGA', 'VENTAS', 1),
-(105, 'RANDALL CHOC', 'ANALISTA DE SISTEMAS', 'IT', 0),
-(109, 'Edgar Casasola', 'Administrador', 'TI', 1),
-(110, 'Brayan Hernandez', 'administrador', 'IT', 1),
-(111, 'Josue David', 'adminsitrador', 'IT', 1),
-(112, 'piki', 'Gerente', 'Ventas', 1),
-(113, 'david', 'Gerente', 'Ventas', 1),
-(114, 'Brayan', 'Administrador', 'IT', 1),
-(115, 'qwe', 'qweq', 'qwe', 1),
-(116, 'sadfa', 'asdf', 'sadf', 1),
-(117, 'asdf', 'asdf', 'adf', 1),
-(118, 'www', 'qwe', 'qwe', 1),
-(119, 'opp', 'oppo', 'opop', 1),
-(120, 'qwe', 'qweq', 'qwe', 1),
-(121, 'asda', 'asd', 'asd', 1),
-(122, 'asda', 'asda', 'asd', 1);
-
-
---
--- Volcado de datos para la tabla `pagos`
---
-
-INSERT INTO `pagos` (`Pk_id_pago`, `fk_id_factura`, `fecha_pago`, `monto_factura`, `estado`) VALUES
-(1, 2, '2024-09-20', 100.00, 1),
-(2, 3, '2024-09-20', 200.00, 1),
-(3, 4, '2024-09-20', 1000.00, 1),
-(4, 5, '2024-09-20', 233.00, 1),
-(5, 6, '2024-09-20', 1515.00, 1),
-(6, 7, '2024-09-20', 999.00, 1),
-(7, 8, '2024-09-20', 1313.00, 1),
-(8, 9, '2024-09-20', 500.00, 1),
-(9, 10, '2024-09-21', 900.00, 1);
-
---
--- Volcado de datos para la tabla `registro_empleados`
---
-
-INSERT INTO `registro_empleados` (`codigo_registro`, `codigo_empleado`, `fecha_registro`, `hora_entrada`, `hora_salida`, `total_de_horas`, `estado`) VALUES
-(1, 27, '2020-06-04', '18:19:00', '18:20:00', '00:01:00', 1),
-(2, 10, '2020-06-01', '17:02:00', '18:46:00', '01:44:00', 1),
-(3, 11, '2020-07-04', '18:45:00', '18:46:00', '00:01:00', 1),
-(4, 12, '2020-07-04', '18:45:00', '18:46:00', '00:01:00', 1),
-(5, 15, '2020-07-04', '18:45:00', '18:46:00', '00:01:00', 1),
-(6, 20, '2020-06-04', '18:45:00', '18:46:00', '00:01:00', 1),
-(7, 22, '2020-06-04', '18:46:00', '18:46:00', '192:00:00', 1),
-(8, 40, '2020-07-04', '18:46:00', '18:46:00', '00:00:00', 1),
-(9, 41, '2020-06-04', '18:46:00', '18:46:00', '00:00:00', 1),
-(10, 10, '2020-06-04', '18:56:00', '19:40:00', '00:44:00', 1),
-(11, 29, '2020-06-04', '20:59:00', '21:01:00', '00:02:00', 1),
-(12, 12, '2020-06-04', '21:00:00', '21:01:00', '00:01:00', 1),
-(13, 26, '2020-06-04', '21:19:00', '21:25:00', '00:06:00', 1),
-(14, 77, '2020-05-01', '07:15:00', '10:15:00', '03:00:00', 1),
-(15, 77, '2020-05-02', '07:15:00', '16:15:00', '09:00:00', 1),
-(16, 77, '2020-05-03', '07:15:00', '16:15:00', '09:00:00', 1),
-(17, 77, '2020-05-04', '07:15:00', '16:15:00', '09:00:00', 1),
-(18, 77, '2020-05-05', '07:15:00', '16:15:00', '09:00:00', 1),
-(19, 77, '2020-05-06', '07:15:00', '16:15:00', '09:00:00', 1),
-(20, 77, '2020-05-07', '07:15:00', '16:15:00', '09:00:00', 1),
-(21, 77, '2020-05-08', '07:15:00', '16:15:00', '09:00:00', 1),
-(22, 77, '2020-05-09', '07:15:00', '16:15:00', '09:00:00', 1),
-(23, 77, '2020-05-10', '07:15:00', '16:35:00', '09:20:00', 1),
-(24, 77, '2020-05-11', '07:15:00', '16:15:00', '09:00:00', 1),
-(25, 77, '2020-05-12', '07:15:00', '16:15:00', '09:00:00', 1),
-(26, 77, '2020-05-13', '07:15:00', '16:15:00', '09:00:00', 1),
-(27, 77, '2020-05-14', '07:15:00', '16:15:00', '09:00:00', 1),
-(28, 77, '2020-05-15', '07:15:00', '16:15:00', '09:00:00', 1),
-(29, 77, '2020-05-16', '07:15:00', '16:15:00', '09:00:00', 1),
-(30, 77, '2020-05-17', '07:15:00', '16:15:00', '09:00:00', 1),
-(31, 77, '2020-05-18', '07:15:00', '16:15:00', '09:00:00', 1),
-(32, 77, '2020-05-19', '07:15:00', '16:15:00', '09:00:00', 1),
-(33, 77, '2020-05-20', '07:15:00', '16:15:00', '09:00:00', 1),
-(34, 77, '2020-05-21', '07:15:00', '16:15:00', '09:00:00', 1),
-(35, 77, '2020-05-22', '07:15:00', '16:15:00', '09:00:00', 1),
-(36, 77, '2020-05-23', '07:15:00', '16:15:00', '09:00:00', 1),
-(37, 77, '2020-05-24', '07:15:00', '16:15:00', '09:00:00', 1),
-(38, 77, '2020-05-25', '07:15:00', '16:15:00', '09:00:00', 1),
-(39, 77, '2020-05-26', '07:15:00', '16:15:00', '09:00:00', 1),
-(40, 77, '2020-05-27', '07:15:00', '16:15:00', '09:00:00', 1),
-(41, 77, '2020-05-28', '07:15:00', '16:15:00', '09:00:00', 1),
-(42, 77, '2020-05-29', '07:15:00', '16:15:00', '09:00:00', 1),
-(43, 77, '2020-05-30', '07:15:00', '16:15:00', '09:00:00', 1),
-(44, 77, '2020-05-31', '07:15:00', '16:15:00', '09:00:00', 1),
-(45, 77, '2020-06-01', '07:15:00', '16:15:00', '09:00:00', 1),
-(46, 77, '2020-06-02', '07:15:00', '16:15:00', '09:00:00', 1),
-(47, 77, '2020-06-03', '07:15:00', '16:15:00', '09:00:00', 1),
-(48, 77, '2020-06-04', '07:15:00', '16:15:00', '09:00:00', 1),
-(49, 77, '2020-06-06', '07:15:00', '16:15:00', '09:00:00', 1),
-(50, 77, '2020-06-07', '07:15:00', '16:15:00', '09:00:00', 1),
-(51, 77, '2020-06-08', '07:15:00', '16:15:00', '09:00:00', 1),
-(52, 77, '2020-06-09', '07:15:00', '16:15:00', '09:00:00', 1),
-(53, 77, '2020-06-10', '07:15:00', '16:15:00', '09:00:00', 1),
-(54, 77, '2020-06-11', '07:15:00', '16:15:00', '09:00:00', 1),
-(55, 77, '2020-06-12', '07:15:00', '16:15:00', '09:00:00', 1),
-(56, 77, '2020-06-13', '07:15:00', '16:15:00', '09:00:00', 1),
-(57, 77, '2020-06-14', '07:15:00', '16:15:00', '09:00:00', 1),
-(58, 77, '2020-06-15', '07:15:00', '16:15:00', '09:00:00', 1),
-(59, 77, '2020-06-16', '07:15:00', '16:15:00', '09:00:00', 1),
-(60, 77, '2020-06-17', '07:15:00', '16:15:00', '09:00:00', 1),
-(61, 77, '2020-06-18', '07:15:00', '16:15:00', '09:00:00', 1),
-(62, 77, '2020-06-19', '07:15:00', '16:15:00', '09:00:00', 1),
-(63, 77, '2020-06-20', '07:15:00', '16:15:00', '09:00:00', 1),
-(64, 77, '2020-06-21', '07:15:00', '16:15:00', '09:00:00', 1),
-(65, 77, '2020-06-22', '07:15:00', '16:15:00', '09:00:00', 1),
-(66, 77, '2020-06-23', '07:15:00', '16:15:00', '09:00:00', 1),
-(67, 77, '2020-06-24', '07:15:00', '16:15:00', '09:00:00', 1),
-(68, 77, '2020-06-25', '07:15:00', '16:15:00', '09:00:00', 1),
-(69, 77, '2020-06-26', '07:15:00', '16:15:00', '09:00:00', 1),
-(70, 77, '2020-06-27', '07:15:00', '16:15:00', '09:00:00', 1),
-(71, 77, '2020-06-28', '07:05:00', '16:15:00', '09:10:00', 1),
-(72, 77, '2020-06-29', '07:15:00', '16:15:00', '09:00:00', 1),
-(73, 77, '2020-06-30', '07:15:00', '16:15:00', '09:00:00', 1),
-(74, 99, '2020-06-05', '03:29:00', '18:46:00', '15:17:00', 1),
-(75, 68, '2020-06-05', '19:55:00', NULL, NULL, 1),
-(76, 66, '2020-06-06', '16:11:00', '16:12:00', '00:01:00', 1),
-(77, 67, '2020-06-06', '16:11:00', '22:47:00', '06:36:00', 1),
-(78, 104, '2020-06-06', '22:50:00', '22:54:00', '00:04:00', 1),
-(79, 68, '2020-06-06', '22:54:00', '22:54:00', '00:00:00', 1),
-(80, 105, '2020-06-06', '23:28:00', '23:29:00', '00:01:00', 1);
-
+(2, 'AyudaReportes.chm', 'AyudaRep.html', 1),
+(8, 'AyudaMonitoreoAlmacen.chm', 'AyudaMonAlmacen.html', 1);
 
 --
 -- Volcado de datos para la tabla `tbl_aplicaciones`
@@ -707,13 +448,13 @@ INSERT INTO `venta` (`id_venta`, `monto`, `nombre_cliente`, `nombre_empleado`, `
 
 
 -- LMD DE LOGISTICA INICIO
-INSERT INTO Tbl_Productos (codigoProducto, nombreProducto, pesoProducto, precioUnitario, clasificacion, stock, empaque, estado)
+INSERT INTO Tbl_Productos (codigoProducto, nombreProducto, pesoProducto, precioUnitario, clasificacion, stock, empaque, comisionInventario, comisionCosto, estado)
 VALUES
-(1001, 'Colchón Queen', '20 kg', 250.00, 'Dormitorio', 100, 'Caja', 1),
-(1002, 'Colchón King', '25 kg', 350.00, 'Dormitorio', 50, 'Caja', 1),
-(1003, 'Sofá 3 Plazas', '80 kg', 500.00, 'Sala', 30, 'Desarmado', 1),
-(1004, 'Almohada Visc.', '1 kg', 30.00, 'Accesorios', 200, 'Bolsa', 1),
-(1005, 'Mesa de Centro', '25 kg', 120.00, 'Sala', 60, 'Desarmado', 1);
+(1001, 'Colchón Queen', '20 kg', 250.00, 'Dormitorio', 100, 'Caja', 0.10, 0.20, 1),
+(1002, 'Colchón King', '25 kg', 350.00, 'Dormitorio', 50, 'Caja', 0.15, 0.20, 1),
+(1003, 'Sofá 3 Plazas', '80 kg', 500.00, 'Sala', 30, 'Desarmado', 0.10, 0.20, 1),
+(1004, 'Almohada Visc.', '1 kg', 30.00, 'Accesorios', 200, 'Bolsa', 0.15, 0.30, 1),
+(1005, 'Mesa de Centro', '25 kg', 120.00, 'Sala', 60, 'Desarmado', 0.10, 0.25, 1);
 
 INSERT INTO TBL_BODEGAS (NOMBRE_BODEGA, UBICACION, CAPACIDAD, FECHA_REGISTRO, estado) 
 VALUES 
@@ -734,3 +475,289 @@ VALUES
 (2, 3, CURDATE(), TRUE, 8, 10, 'Discrepancia detectada en el Sofá 3 Plazas.');
 
 -- LMD DE LOGISTICA FINAL
+
+
+-- LMD DE CONTABILIDAD
+
+-- INSERT DE ENCABEZADOS DE CUENTA
+INSERT INTO `tbl_encabezadoclasecuenta` (`Pk_id_encabezadocuenta`, `nombre_tipocuenta`, `estado`) VALUES 
+('1', 'Activos', '1'),
+('2', 'Pasivos', '1'),
+('3', 'Patrimonio', '1'),
+('4', 'Ingresos', '1'),
+('5', 'Gastos', '1');
+
+-- INSERT EN LA TIPO CUENTA
+INSERT INTO `tbl_tipocuenta` (`PK_id_tipocuenta`, `nombre_tipocuenta`, `serie_tipocuenta`, `estado`) 
+VALUES 
+('1', 'Padre', 'P', '1'),
+('2', 'Hija', 'H', '1');
+
+-- Insertar tipos principales de pólizas
+INSERT INTO `tbl_tipopoliza` (`Pk_id_tipopoliza`, `tipo`, `estado`) VALUES
+(2, 'Diario', 1),
+(3, 'Ingreso', 1),
+(4, 'Egreso', 1),
+(5, 'Ajuste', 1),
+(6, 'Provisión', 1),
+(7, 'Transferencia', 1),
+(8, 'Cancelación', 1),
+(9, 'Anticipo', 1),
+(10, 'Reclasificación', 1),
+(11, 'Cierre de Mes', 1),
+(12, 'Apertura de Ejercicio', 1);
+
+-- INSERT EN LA TABLA TIPO DE OPERACION
+INSERT INTO `tbl_tipooperacion` (`Pk_id_tipooperacion`, `nombre`, `estado`) 
+VALUES 
+('1', 'Cargo', '1'),
+('2', 'Abono', '1');
+
+-- INSERT EN LA TABLA DE CUENTAS
+INSERT INTO tbl_cuentas (Pk_id_cuenta, Pk_id_tipocuenta, Pk_id_encabezadocuenta, nombre_cuenta, cargo_mes, abono_mes, saldo_ant, saldo_act, cargo_acumulado, abono_acumulado, Pk_id_cuenta_enlace, es_efectivo, estado)
+VALUES
+-- Activos
+(1, 1, 1, 'Activo', 0, 0, 0, 0, 0, 0, NULL, 1, 1),
+(2, 1, 1, 'Activo Corriente', 0, 0, 0, 0, 0, 0, 1, 1, 1),
+(3, 2, 1, 'Caja', 0, 0, 0, 0, 0, 0, 2, 1, 1),
+(4, 1, 1, 'Bancos', 0, 0, 0, 0, 0, 0, 2, 1, 1),
+(5, 2, 1, 'Banco Industrial', 0, 0, 0, 0, 0, 0, 4, 1, 1),
+(6, 2, 1, 'Banco G&T Continental', 0, 0, 0, 0, 0, 0, 4, 1, 1),
+(7, 2, 1, 'Banco Agromercantil', 0, 0, 0, 0, 0, 0, 4, 1, 1),
+(8, 2, 1, 'Cuentas por Cobrar', 0, 0, 0, 0, 0, 0, 2, 0, 1),
+(9, 2, 1, 'Clientes', 0, 0, 0, 0, 0, 0, 8, 0, 1),
+(10, 2, 1, 'Deudores Diversos', 0, 0, 0, 0, 0, 0, 8, 0, 1),
+(11, 2, 1, 'Documentos por Cobrar', 0, 0, 0, 0, 0, 0, 8, 0, 1),
+(12, 2, 1, 'Activos Fijos', 0, 0, 0, 0, 0, 0, 1, 0, 1),
+(13, 2, 1, 'Propiedades', 0, 0, 0, 0, 0, 0, 12, 0, 1),
+(14, 2, 1, 'Maquinaria', 0, 0, 0, 0, 0, 0, 12, 0, 1),
+(15, 2, 1, 'Equipo de Oficina', 0, 0, 0, 0, 0, 0, 12, 0, 1),
+(16, 2, 1, 'Vehículos', 0, 0, 0, 0, 0, 0, 12, 0, 1),
+(17, 2, 1, 'Terrenos', 0, 0, 0, 0, 0, 0, 12, 0, 1),
+(18, 2, 1, 'Construcciones en Proceso', 0, 0, 0, 0, 0, 0, 12, 0, 1),
+(19, 2, 1, 'Inversiones a Largo Plazo', 0, 0, 0, 0, 0, 0, 2, 0, 1),
+(20, 2, 1, 'Instrumentos Financieros a Largo Plazo', 0, 0, 0, 0, 0, 0, 19, 0, 1),
+(21, 1, 1, 'Inventarios', 0, 0, 0, 0, 0, 0, 2, 0, 1),
+(22, 2, 1, 'Inventario de Productos Terminados', 0, 0, 0, 0, 0, 0, 21, 0, 1),
+(23, 2, 1, 'Inventario de Materia Prima', 0, 0, 0, 0, 0, 0, 21, 0, 1),
+(24, 1, 1, 'Inversiones a Corto Plazo', 0, 0, 0, 0, 0, 0, 2, 0, 1),
+(25, 2, 1, 'Instrumentos Financieros', 0, 0, 0, 0, 0, 0, 24, 0, 1),
+(26, 2, 1, 'Fondos Mutuos', 0, 0, 0, 0, 0, 0, 24, 0, 1),
+(27, 2, 1, 'Acciones y Participaciones', 0, 0, 0, 0, 0, 0, 19, 0, 1),
+(28, 1, 1, 'Intangibles', 0, 0, 0, 0, 0, 0, 2, 0, 1),
+(29, 2, 1, 'Patentes', 0, 0, 0, 0, 0, 0, 28, 0, 1),
+(30, 2, 1, 'Marcas Registradas', 0, 0, 0, 0, 0, 0, 28, 0, 1),
+(31, 2, 1, 'Créditos Comerciales', 0, 0, 0, 0, 0, 0, 8, 0, 1),
+(32, 2, 1, 'Anticipos a Proveedores', 0, 0, 0, 0, 0, 0, 8, 0, 1),
+(33, 2, 1, 'Propiedades en Leasing', 0, 0, 0, 0, 0, 0, 12, 0, 1),
+(34, 2, 1, 'Inversiones Financieras', 0, 0, 0, 0, 0, 0, 19, 0, 1),
+(35, 2, 1, 'Depósitos a Plazo Fijo', 0, 0, 0, 0, 0, 0, 19, 0, 1),
+(36, 2, 1, 'Cuentas por Cobrar a Largo Plazo', 0, 0, 0, 0, 0, 0, 19, 0, 1),
+(37, 2, 1, 'Préstamos a Empleados', 0, 0, 0, 0, 0, 0, 19, 0, 1),
+(38, 1, 1, 'Valores y Bonos', 0, 0, 0, 0, 0, 0, 24, 0, 1),
+(39, 2, 1, 'Acciones en Subsidiarias', 0, 0, 0, 0, 0, 0, 24, 0, 1),
+(40, 2, 1, 'Fideicomisos', 0, 0, 0, 0, 0, 0, 24, 0, 1),
+(41, 1, 1, 'Activos No Corrientes', 0, 0, 0, 0, 0, 0, 1, 0, 1),
+(42, 2, 1, 'Terrenos', 0, 0, 0, 0, 0, 0, 41, 0, 1),
+(43, 2, 1, 'Edificios', 0, 0, 0, 0, 0, 0, 41, 0, 1),
+(44, 2, 1, 'Maquinaria', 0, 0, 0, 0, 0, 0, 41, 0, 1),
+(45, 2, 1, 'Equipo de Transporte', 0, 0, 0, 0, 0, 0, 41, 0, 1),
+(46, 2, 1, 'Mobiliario y Equipo', 0, 0, 0, 0, 0, 0, 41, 0, 1),
+(47, 2, 1, 'Equipos de Cómputo', 0, 0, 0, 0, 0, 0, 41, 0, 1),
+(48, 1, 1, 'Intangibles', 0, 0, 0, 0, 0, 0, 41, 0, 1),
+(49, 2, 1, 'Patentes y Marcas', 0, 0, 0, 0, 0, 0, 48, 0, 1),
+(50, 2, 1, 'Depreciación Acumulada', 0, 0, 0, 0, 0, 0, 41, 0, 1),
+-- Pasivos Corrientes
+(51, 1, 2, 'Pasivo', 0, 0, 0, 0, 0, 0, NULL, 1, 1),
+(52, 1, 2, 'Pasivo Corriente', 0, 0, 0, 0, 0, 0, 51, 1, 1),
+(53, 1, 2, 'Cuentas por Pagar', 0, 0, 0, 0, 0, 0, 52, 1, 1),
+(54, 2, 2, 'Proveedores', 0, 0, 0, 0, 0, 0, 53, 1, 1),
+(55, 2, 2, 'Acreedores Diversos', 0, 0, 0, 0, 0, 0, 53, 0, 1),
+(56, 2, 2, 'Documentos por Pagar', 0, 0, 0, 0, 0, 0, 53, 0, 1),
+(57, 2, 2, 'Préstamos Bancarios a Corto Plazo', 0, 0, 0, 0, 0, 0, 52, 1, 1),
+(58, 2, 2, 'Obligaciones por Pagar', 0, 0, 0, 0, 0, 0, 52, 0, 1),
+(59, 2, 2, 'Anticipos de Clientes', 0, 0, 0, 0, 0, 0, 52, 0, 1),
+(60, 1, 2, 'Impuestos por Pagar', 0, 0, 0, 0, 0, 0, 52, 1, 1),
+(61, 2, 2, 'IVA por Pagar', 0, 0, 0, 0, 0, 0, 60, 0, 1),
+(62, 2, 2, 'ISR por Pagar', 0, 0, 0, 0, 0, 0, 60, 0, 1),
+(63, 2, 2, 'Sueldos por Pagar', 0, 0, 0, 0, 0, 0, 52, 0, 1),
+(64, 2, 2, 'Retenciones por Pagar', 0, 0, 0, 0, 0, 0, 52, 0, 1),
+(65, 2, 2, 'Provisiones de Bonos', 0, 0, 0, 0, 0, 0, 52, 0, 1),
+(66, 1, 2, 'Pasivo No Corriente', 0, 0, 0, 0, 0, 0, 51, 0, 1),
+(67, 2, 2, 'Préstamos Bancarios a Largo Plazo', 0, 0, 0, 0, 0, 0, 66, 1, 1),
+(68, 2, 2, 'Obligaciones Financieras', 0, 0, 0, 0, 0, 0, 66, 0, 1),
+(69, 2, 2, 'Cuentas por Pagar a Largo Plazo', 0, 0, 0, 0, 0, 0, 66, 0, 1),
+(70, 2, 2, 'Bonos por Pagar', 0, 0, 0, 0, 0, 0, 66, 1, 1),
+(71, 2, 2, 'Obligaciones Laborales', 0, 0, 0, 0, 0, 0, 66, 0, 1),
+(72, 2, 2, 'Pasivos Diferidos', 0, 0, 0, 0, 0, 0, 66, 0, 1),
+(73, 2, 2, 'Provisiones para Contingencias', 0, 0, 0, 0, 0, 0, 66, 0, 1),
+(74, 2, 2, 'Arrendamientos por Pagar', 0, 0, 0, 0, 0, 0, 66, 0, 1),
+(75, 2, 2, 'Créditos Hipotecarios', 0, 0, 0, 0, 0, 0, 66, 1, 1),
+-- Capital
+(78, 1, 3, 'Capital', 0, 0, 0, 0, 0, 0, NULL, 0, 1),
+(79, 2, 3, 'Capital Social', 0, 0, 0, 0, 0, 0, 78, 0, 1),
+(80, 2, 3, 'Reservas', 0, 0, 0, 0, 0, 0, 78, 0, 1),
+(81, 2, 3, 'Ganancias Retenidas', 0, 0, 0, 0, 0, 0, 78, 0, 1),
+(82, 2, 3, 'Resultados del Ejercicio', 0, 0, 0, 0, 0, 0, 78, 0, 1),
+(83, 2, 3, 'Capital Adicional', 0, 0, 0, 0, 0, 0, 78, 0, 1),
+(84, 2, 3, 'Ajustes de Capital', 0, 0, 0, 0, 0, 0, 78, 0, 1),
+-- Ingresos
+(85, 1, 4, 'Ingresos', 0, 0, 0, 0, 0, 0, NULL, 0, 1),
+(86, 2, 4, 'Ventas de Productos', 0, 0, 0, 0, 0, 0, 85, 1, 1),
+(87, 2, 4, 'Servicios de Consultoría', 0, 0, 0, 0, 0, 0, 85, 1, 1),
+(88, 2, 4, 'Comisiones de Venta', 0, 0, 0, 0, 0, 0, 85, 1, 1),
+(89, 2, 4, 'Renta de Equipos', 0, 0, 0, 0, 0, 0, 85, 1, 1),
+(90, 2, 4, 'Honorarios Profesionales', 0, 0, 0, 0, 0, 0, 85, 1, 1),
+(91, 2, 4, 'Ingresos por Licencias y Regalías', 0, 0, 0, 0, 0, 0, 85, 1, 1),
+(92, 2, 4, 'Intereses Ganados', 0, 0, 0, 0, 0, 0, 85, 1, 1),
+(93, 2, 4, 'Ventas de Mercadería', 0, 0, 0, 0, 0, 0, 85, 1, 1),
+(94, 2, 4, 'Ventas Internacionales', 0, 0, 0, 0, 0, 0, 85, 1, 1),
+(95, 2, 4, 'Ingresos por Publicidad', 0, 0, 0, 0, 0, 0, 85, 1, 1),
+(96, 2, 4, 'Servicios de Capacitación', 0, 0, 0, 0, 0, 0, 85, 1, 1),
+(97, 2, 4, 'Consultoría de TI', 0, 0, 0, 0, 0, 0, 85, 1, 1),
+(98, 2, 4, 'Suscripciones', 0, 0, 0, 0, 0, 0, 85, 1, 1),
+(99, 2, 4, 'Renta de Propiedades', 0, 0, 0, 0, 0, 0, 85, 1, 1),
+(100, 2, 4, 'Donaciones', 0, 0, 0, 0, 0, 0, 85, 1, 1),
+-- Egresos
+(101, 1, 5, 'Egresos', 0, 0, 0, 0, 0, 0, NULL, 1, 1),
+(102, 2, 5, 'Sueldos y Salarios', 0, 0, 0, 0, 0, 0, 101, 1, 1),
+(103, 2, 5, 'IGSS', 0, 0, 0, 0, 0, 0, 101, 1, 1),
+(104, 2, 5, 'Horas Extras', 0, 0, 0, 0, 0, 0, 101, 1, 1),
+(105, 2, 5, 'Anticipos', 0, 0, 0, 0, 0, 0, 101, 1, 1),
+(106, 2, 5, 'Faltas', 0, 0, 0, 0, 0, 0, 101, 1, 1),
+(107, 2, 5, 'Bono 14', 0, 0, 0, 0, 0, 0, 101, 1, 1),
+(108, 2, 5, 'Aguinaldo', 0, 0, 0, 0, 0, 0, 101, 1, 1),
+(109, 2, 5, 'Vacaciones', 0, 0, 0, 0, 0, 0, 101, 1, 1),
+(110, 2, 5, 'Alquileres', 0, 0, 0, 0, 0, 0, 101, 1, 1),
+(111, 2, 5, 'Servicios Públicos', 0, 0, 0, 0, 0, 0, 101, 1, 1),
+(112, 2, 5, 'Mantenimiento y Reparaciones', 0, 0, 0, 0, 0, 0, 101, 1, 1),
+(113, 2, 5, 'Gastos de Viaje', 0, 0, 0, 0, 0, 0, 101, 1, 1),
+(114, 2, 5, 'Seguros', 0, 0, 0, 0, 0, 0, 101, 1, 1),
+(115, 2, 5, 'Depreciación de Activos', 0, 0, 0, 0, 0, 0, 101, 1, 1),
+(116, 2, 5, 'Otros Gastos', 0, 0, 0, 0, 0, 0, 101, 1, 1);
+
+-- Inserciones para tbl_historico_cuentas
+INSERT INTO tbl_historico_cuentas (Pk_id_cuenta, mes, anio, cargo_mes, abono_mes, saldo_ant, saldo_act, cargo_acumulado, abono_acumulado, saldoanual) VALUES
+(1, 1, 2024, 100.00, 100.00, 500.00, 1500.00, 800.00, 1000.00, 10000.00),
+(2, 1, 2024, 150.00, 150.00, 1000.00, 3000.00, 800.00, 1000.00, 20000.00),
+(3, 1, 2024, 75.00, 75.00, 700.00, 2200.00, 800.00, 1000.00, 15000.00),
+(4, 1, 2024, 0.00, 100.00, 3000.00, 2500.00, 800.00, 1000.00, 10000.00),
+(5, 1, 2024, 50.00, 50.00, 1200.00, 500.00, 800.00, 1000.00, 5000.00),
+(6, 1, 2024, 25.00, 25.00, 0.00, 5000.00, 800.00, 1000.00, 20000.00),
+(1, 2, 2024, 100.00, 100.00, 500.00, 1500.00, 800.00, 1000.00, 10000.00),
+(2, 2, 2024, 150.00, 150.00, 1000.00, 3000.00, 800.00, 1000.00, 20000.00),
+(3, 2, 2024, 75.00, 75.00, 700.00, 2200.00, 800.00, 1000.00, 15000.00),
+(4, 2, 2024, 0.00, 100.00, 3000.00, 2500.00, 800.00, 1000.00, 10000.00),
+(5, 2, 2024, 50.00, 50.00, 1200.00, 500.00, 800.00, 1000.00, 5000.00),
+(6, 2, 2024, 25.00, 25.00, 0.00, 5000.00, 800.00, 1000.00, 20000.00),
+(1, 3, 2024, 100.00, 100.00, 500.00, 1500.00, 800.00, 1000.00, 10000.00),
+(2, 3, 2024, 150.00, 150.00, 1000.00, 3000.00, 800.00, 1000.00, 20000.00),
+(3, 3, 2024, 75.00, 75.00, 700.00, 2200.00, 800.00, 1000.00, 15000.00),
+(4, 3, 2024, 0.00, 100.00, 3000.00, 2500.00, 800.00, 1000.00, 10000.00),
+(5, 3, 2024, 50.00, 50.00, 1200.00, 500.00, 800.00, 1000.00, 5000.00),
+(6, 3, 2024, 25.00, 25.00, 0.00, 5000.00, 800.00, 1000.00, 20000.00),
+(1, 4, 2024, 100.00, 100.00, 500.00, 1500.00, 800.00, 1000.00, 10000.00),
+(2, 4, 2024, 150.00, 150.00, 1000.00, 3000.00, 800.00, 1000.00, 20000.00),
+(3, 4, 2024, 75.00, 75.00, 700.00, 2200.00, 800.00, 1000.00, 15000.00),
+(4, 4, 2024, 0.00, 100.00, 3000.00, 2500.00, 800.00, 1000.00, 10000.00),
+(5, 4, 2024, 50.00, 50.00, 1200.00, 500.00, 800.00, 1000.00, 5000.00),
+(6, 4, 2024, 25.00, 25.00, 0.00, 5000.00, 800.00, 1000.00, 20000.00),
+(1, 5, 2024, 100.00, 100.00, 500.00, 1500.00, 800.00, 1000.00, 10000.00),
+(2, 5, 2024, 150.00, 150.00, 1000.00, 3000.00, 800.00, 1000.00, 20000.00),
+(3, 5, 2024, 75.00, 75.00, 700.00, 2200.00, 800.00, 1000.00, 15000.00),
+(4, 5, 2024, 0.00, 100.00, 3000.00, 2500.00, 800.00, 1000.00, 10000.00),
+(5, 5, 2024, 50.00, 50.00, 1200.00, 500.00, 800.00, 1000.00, 5000.00),
+(6, 5, 2024, 25.00, 25.00, 0.00, 5000.00, 800.00, 1000.00, 20000.00),
+(1, 6, 2024, 100.00, 100.00, 500.00, 1500.00, 800.00, 1000.00, 10000.00),
+(2, 6, 2024, 150.00, 150.00, 1000.00, 3000.00, 800.00, 1000.00, 20000.00),
+(3, 6, 2024, 75.00, 75.00, 700.00, 2200.00, 800.00, 1000.00, 15000.00),
+(4, 6, 2024, 0.00, 100.00, 3000.00, 2500.00, 800.00, 1000.00, 10000.00),
+(5, 6, 2024, 50.00, 50.00, 1200.00, 500.00, 800.00, 1000.00, 5000.00),
+(6, 6, 2024, 25.00, 25.00, 0.00, 5000.00, 800.00, 1000.00, 20000.00),
+(1, 7, 2024, 100.00, 100.00, 500.00, 1500.00, 800.00, 1000.00, 10000.00),
+(2, 7, 2024, 150.00, 150.00, 1000.00, 3000.00, 800.00, 1000.00, 20000.00),
+(3, 7, 2024, 75.00, 75.00, 700.00, 2200.00, 800.00, 1000.00, 15000.00),
+(4, 7, 2024, 0.00, 100.00, 3000.00, 2500.00, 800.00, 1000.00, 10000.00),
+(5, 7, 2024, 50.00, 50.00, 1200.00, 500.00, 800.00, 1000.00, 5000.00),
+(6, 7, 2024, 25.00, 25.00, 0.00, 5000.00, 800.00, 1000.00, 20000.00),
+(1, 8, 2024, 100.00, 100.00, 500.00, 1500.00, 800.00, 1000.00, 10000.00),
+(2, 8, 2024, 150.00, 150.00, 1000.00, 3000.00, 800.00, 1000.00, 20000.00),
+(3, 8, 2024, 75.00, 75.00, 700.00, 2200.00, 800.00, 1000.00, 15000.00),
+(4, 8, 2024, 0.00, 100.00, 3000.00, 2500.00, 800.00, 1000.00, 10000.00),
+(5, 8, 2024, 50.00, 50.00, 1200.00, 500.00, 800.00, 1000.00, 5000.00),
+(6, 8, 2024, 25.00, 25.00, 0.00, 5000.00, 800.00, 1000.00, 20000.00),
+(1, 9, 2024, 100.00, 100.00, 500.00, 1500.00, 800.00, 1000.00, 10000.00),
+(2, 9, 2024, 150.00, 150.00, 1000.00, 3000.00, 800.00, 1000.00, 20000.00),
+(3, 9, 2024, 75.00, 75.00, 700.00, 2200.00, 800.00, 1000.00, 15000.00),
+(4, 9, 2024, 0.00, 100.00, 3000.00, 2500.00, 800.00, 1000.00, 10000.00),
+(5, 9, 2024, 50.00, 50.00, 1200.00, 500.00, 800.00, 1000.00, 5000.00),
+(6, 9, 2024, 25.00, 25.00, 0.00, 5000.00, 800.00, 1000.00, 20000.00),
+(1, 10, 2024, 100.00, 100.00, 500.00, 1500.00, 800.00, 1000.00, 10000.00),
+(2, 10, 2024, 150.00, 150.00, 1000.00, 3000.00, 800.00, 1000.00, 20000.00),
+(3, 10, 2024, 75.00, 75.00, 700.00, 2200.00, 800.00, 1000.00, 15000.00),
+(4, 10, 2024, 0.00, 100.00, 3000.00, 2500.00, 800.00, 1000.00, 10000.00),
+(5, 10, 2024, 50.00, 50.00, 1200.00, 500.00, 800.00, 1000.00, 5000.00),
+(6, 10, 2024, 25.00, 25.00, 0.00, 5000.00, 800.00, 1000.00, 20000.00);
+
+-- LMD DE CONTABILIDAD FINAL
+
+-- LMD de Nominas
+-- Ingresos obligatorios Nominas
+INSERT INTO tbl_dedu_perp (dedu_perp_clase, dedu_perp_concepto, dedu_perp_tipo, dedu_perp_aplicacion, dedu_perp_excepcion, dedu_perp_monto, estado) 
+VALUES ('Deduccion','Faltas', 'Porcentaje', 'Todos', 0, 20.00, 1);
+
+INSERT INTO tbl_dedu_perp (dedu_perp_clase, dedu_perp_concepto, dedu_perp_tipo, dedu_perp_aplicacion, dedu_perp_excepcion, dedu_perp_monto, estado) 
+VALUES ('Percepcion','Anticipo', 'Monto', 'Todos', 0, 1, 1);
+
+INSERT INTO tbl_dedu_perp (dedu_perp_clase, dedu_perp_concepto, dedu_perp_tipo, dedu_perp_aplicacion, dedu_perp_excepcion, dedu_perp_monto, estado) 
+VALUES ('Percepcion','Horas Extras', 'Monto', 'Todos', 0, 1, 1);
+
+INSERT INTO tbl_dedu_perp (dedu_perp_clase, dedu_perp_concepto, dedu_perp_tipo, dedu_perp_aplicacion, dedu_perp_excepcion, dedu_perp_monto,estado) 
+VALUES ('Bono 14','Bono 14','Porcentaje','Todos',0,0.0833,1);
+
+INSERT INTO tbl_dedu_perp (dedu_perp_clase, dedu_perp_concepto,dedu_perp_tipo,dedu_perp_aplicacion,dedu_perp_excepcion,dedu_perp_monto,estado) 
+VALUES ('Aguinaldo','Aguinaldo','Porcentaje','Todos',0,0.0833,1);
+
+INSERT INTO tbl_dedu_perp (dedu_perp_clase,dedu_perp_concepto,dedu_perp_tipo,dedu_perp_aplicacion,dedu_perp_excepcion,dedu_perp_monto,estado) 
+VALUES ('Vacaciones','Vacaciones','Porcentaje','Todos',0, 0.0575 ,1);
+
+-- Para seguridad
+
+insert into tbl_aplicaciones (pk_id_aplicacion, nombre_aplicacion, descripcion_aplicacion, estado_aplicacion) values
+(6008, "Mant. Anticipos", "PARA NOMINAS", 1);
+
+INSERT INTO Tbl_aplicaciones (Pk_id_aplicacion,nombre_aplicacion,descripcion_aplicacion,estado_aplicacion) 
+VALUES (6107,'Cálculo liquidaciones','PARA NÓMINAS',1);
+
+SET SQL_SAFE_UPDATES = 1; -- activar el modo seguro
+
+-- CONTABILIDAD 07/11/2024
+UPDATE tbl_cuentas
+SET Pk_id_tipocuenta = 1
+WHERE Pk_id_cuenta = 8;
+
+-- cuentas corrientes 07/11/2024
+
+-- Insertar registros en Tbl_factura
+INSERT INTO Tbl_factura (Pk_id_factura, Fk_id_cliente, Fk_id_pedidoEnc, factura_fecha, factura_formPago, factura_subtotal, factura_iva, factura_total)
+VALUES 
+(1, 1, 1001, '2024-10-01', 'Tarjeta de Crédito', 500.00, 75.00, 575.00),
+(2, 2, 1002, '2024-10-05', 'Efectivo', 300.00, 45.00, 345.00),
+(3, 3, 1003, '2024-10-10', 'Transferencia', 150.00, 22.50, 172.50);
+
+-- Insertar registros en Tbl_cobrador
+INSERT INTO Tbl_cobrador (Fk_id_empleado, cobrador_nombre, cobrador_direccion, cobrador_telefono, cobrador_depto, estado)
+VALUES 
+(1, 'Pedro López', 'Av. Central, Ciudad', 5551234, 'Departamento 1', 1),
+(2, 'Sofía Martínez', 'Calle Principal, Ciudad', 5555678, 'Departamento 2', 1),
+(3, 'Carlos Ramírez', 'Zona Sur, Ciudad', 5559876, 'Departamento 3', 0);
+
+
+-- Insertar registros en Tbl_transaccion_cuentas
+INSERT INTO Tbl_transaccion_cuentas (tran_nombre, tran_efecto, estado)
+VALUES 
+('Depósito', 'Crédito', 1),
+('Pago con Tarjeta de Credito', 'Débito', 1),
+('Transferencia Bancaria', 'Débito', 1),
+('Pago con Tarjeta de Débito', 'Débito', 1);
+
