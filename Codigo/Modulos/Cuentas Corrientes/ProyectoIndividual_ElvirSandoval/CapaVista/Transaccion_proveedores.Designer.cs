@@ -30,47 +30,42 @@ namespace CapaVista
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Transaccion_proveedores));
             this.Lbl_id = new System.Windows.Forms.Label();
             this.Lbl_proveedor = new System.Windows.Forms.Label();
-            this.Lbl_pais = new System.Windows.Forms.Label();
             this.Lbl_fecha = new System.Windows.Forms.Label();
-            this.Lbl_cuenta = new System.Windows.Forms.Label();
-            this.Lbl_cuota = new System.Windows.Forms.Label();
+            this.Lbl_tipotransacci = new System.Windows.Forms.Label();
             this.Lbl_monto = new System.Windows.Forms.Label();
-            this.Lbl_pago = new System.Windows.Forms.Label();
             this.Lbl_tipo_moneda = new System.Windows.Forms.Label();
-            this.Lbl_serie = new System.Windows.Forms.Label();
             this.Lbl_estado = new System.Windows.Forms.Label();
             this.Dgv_transacciones_provee = new System.Windows.Forms.DataGridView();
             this.Txt_transaccion = new System.Windows.Forms.TextBox();
             this.Txt_proveedor = new System.Windows.Forms.TextBox();
-            this.Txt_pais = new System.Windows.Forms.TextBox();
             this.Txt_monto = new System.Windows.Forms.TextBox();
-            this.Txt_pago = new System.Windows.Forms.TextBox();
-            this.Txt_serie = new System.Windows.Forms.TextBox();
             this.Cbo_estado = new System.Windows.Forms.ComboBox();
             this.Btn_guardar = new System.Windows.Forms.Button();
             this.Btn_editar = new System.Windows.Forms.Button();
-            this.Btn_actualizar = new System.Windows.Forms.Button();
             this.Btn_eliminar = new System.Windows.Forms.Button();
             this.Btn_buscar = new System.Windows.Forms.Button();
             this.Txt_fecha = new System.Windows.Forms.TextBox();
-            this.dataSet1 = new CapaVista.DataSet1();
             this.tbltransaccionproveedorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tbl_transaccion_proveedorTableAdapter = new CapaVista.DataSet1TableAdapters.tbl_transaccion_proveedorTableAdapter();
-            this.Btn_limpiar = new System.Windows.Forms.Button();
             this.Cbo_moneda = new System.Windows.Forms.ComboBox();
-            this.Cbo_cuenta = new System.Windows.Forms.ComboBox();
-            this.Cbo_cuota = new System.Windows.Forms.ComboBox();
+            this.Cbo_tipotransacci = new System.Windows.Forms.ComboBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.Btn_reporte = new System.Windows.Forms.Button();
+            this.Btn_Salir = new System.Windows.Forms.Button();
+            this.Btn_ayuda = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Lbl_cuenta = new System.Windows.Forms.Label();
+            this.Txt_cuenta = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_transacciones_provee)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbltransaccionproveedorBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // Lbl_id
             // 
             this.Lbl_id.AutoSize = true;
-            this.Lbl_id.Location = new System.Drawing.Point(48, 39);
+            this.Lbl_id.Location = new System.Drawing.Point(48, 105);
             this.Lbl_id.Name = "Lbl_id";
             this.Lbl_id.Size = new System.Drawing.Size(103, 17);
             this.Lbl_id.TabIndex = 0;
@@ -79,88 +74,52 @@ namespace CapaVista
             // Lbl_proveedor
             // 
             this.Lbl_proveedor.AutoSize = true;
-            this.Lbl_proveedor.Location = new System.Drawing.Point(48, 83);
+            this.Lbl_proveedor.Location = new System.Drawing.Point(48, 148);
             this.Lbl_proveedor.Name = "Lbl_proveedor";
             this.Lbl_proveedor.Size = new System.Drawing.Size(91, 17);
             this.Lbl_proveedor.TabIndex = 1;
             this.Lbl_proveedor.Text = "ID Proveedor";
             // 
-            // Lbl_pais
-            // 
-            this.Lbl_pais.AutoSize = true;
-            this.Lbl_pais.Location = new System.Drawing.Point(48, 124);
-            this.Lbl_pais.Name = "Lbl_pais";
-            this.Lbl_pais.Size = new System.Drawing.Size(52, 17);
-            this.Lbl_pais.TabIndex = 2;
-            this.Lbl_pais.Text = "ID Pais";
-            // 
             // Lbl_fecha
             // 
             this.Lbl_fecha.AutoSize = true;
-            this.Lbl_fecha.Location = new System.Drawing.Point(48, 161);
+            this.Lbl_fecha.Location = new System.Drawing.Point(48, 229);
             this.Lbl_fecha.Name = "Lbl_fecha";
             this.Lbl_fecha.Size = new System.Drawing.Size(144, 17);
             this.Lbl_fecha.TabIndex = 3;
             this.Lbl_fecha.Text = "Fecha de transacción";
             // 
-            // Lbl_cuenta
+            // Lbl_tipotransacci
             // 
-            this.Lbl_cuenta.AutoSize = true;
-            this.Lbl_cuenta.Location = new System.Drawing.Point(48, 192);
-            this.Lbl_cuenta.Name = "Lbl_cuenta";
-            this.Lbl_cuenta.Size = new System.Drawing.Size(53, 17);
-            this.Lbl_cuenta.TabIndex = 4;
-            this.Lbl_cuenta.Text = "Cuenta";
-            // 
-            // Lbl_cuota
-            // 
-            this.Lbl_cuota.AutoSize = true;
-            this.Lbl_cuota.Location = new System.Drawing.Point(48, 229);
-            this.Lbl_cuota.Name = "Lbl_cuota";
-            this.Lbl_cuota.Size = new System.Drawing.Size(45, 17);
-            this.Lbl_cuota.TabIndex = 5;
-            this.Lbl_cuota.Text = "Cuota";
+            this.Lbl_tipotransacci.AutoSize = true;
+            this.Lbl_tipotransacci.Location = new System.Drawing.Point(613, 148);
+            this.Lbl_tipotransacci.Name = "Lbl_tipotransacci";
+            this.Lbl_tipotransacci.Size = new System.Drawing.Size(133, 17);
+            this.Lbl_tipotransacci.TabIndex = 4;
+            this.Lbl_tipotransacci.Text = "Tipo de transacción";
             // 
             // Lbl_monto
             // 
             this.Lbl_monto.AutoSize = true;
-            this.Lbl_monto.Location = new System.Drawing.Point(591, 39);
+            this.Lbl_monto.Location = new System.Drawing.Point(613, 105);
             this.Lbl_monto.Name = "Lbl_monto";
             this.Lbl_monto.Size = new System.Drawing.Size(129, 17);
             this.Lbl_monto.TabIndex = 6;
             this.Lbl_monto.Text = "Transacción monto";
             // 
-            // Lbl_pago
-            // 
-            this.Lbl_pago.AutoSize = true;
-            this.Lbl_pago.Location = new System.Drawing.Point(591, 83);
-            this.Lbl_pago.Name = "Lbl_pago";
-            this.Lbl_pago.Size = new System.Drawing.Size(58, 17);
-            this.Lbl_pago.TabIndex = 7;
-            this.Lbl_pago.Text = "ID Pago";
-            // 
             // Lbl_tipo_moneda
             // 
             this.Lbl_tipo_moneda.AutoSize = true;
-            this.Lbl_tipo_moneda.Location = new System.Drawing.Point(591, 118);
+            this.Lbl_tipo_moneda.Location = new System.Drawing.Point(614, 184);
             this.Lbl_tipo_moneda.Name = "Lbl_tipo_moneda";
             this.Lbl_tipo_moneda.Size = new System.Drawing.Size(111, 17);
             this.Lbl_tipo_moneda.TabIndex = 8;
             this.Lbl_tipo_moneda.Text = "Tipo de moneda";
             // 
-            // Lbl_serie
-            // 
-            this.Lbl_serie.AutoSize = true;
-            this.Lbl_serie.Location = new System.Drawing.Point(591, 155);
-            this.Lbl_serie.Name = "Lbl_serie";
-            this.Lbl_serie.Size = new System.Drawing.Size(41, 17);
-            this.Lbl_serie.TabIndex = 9;
-            this.Lbl_serie.Text = "Serie";
-            // 
             // Lbl_estado
             // 
             this.Lbl_estado.AutoSize = true;
-            this.Lbl_estado.Location = new System.Drawing.Point(591, 192);
+            this.Lbl_estado.Location = new System.Drawing.Point(625, 225);
             this.Lbl_estado.Name = "Lbl_estado";
             this.Lbl_estado.Size = new System.Drawing.Size(52, 17);
             this.Lbl_estado.TabIndex = 10;
@@ -179,45 +138,24 @@ namespace CapaVista
             // 
             // Txt_transaccion
             // 
-            this.Txt_transaccion.Location = new System.Drawing.Point(157, 39);
+            this.Txt_transaccion.Location = new System.Drawing.Point(157, 105);
             this.Txt_transaccion.Name = "Txt_transaccion";
             this.Txt_transaccion.Size = new System.Drawing.Size(156, 22);
             this.Txt_transaccion.TabIndex = 12;
             // 
             // Txt_proveedor
             // 
-            this.Txt_proveedor.Location = new System.Drawing.Point(157, 83);
+            this.Txt_proveedor.Location = new System.Drawing.Point(145, 145);
             this.Txt_proveedor.Name = "Txt_proveedor";
             this.Txt_proveedor.Size = new System.Drawing.Size(156, 22);
             this.Txt_proveedor.TabIndex = 13;
             // 
-            // Txt_pais
-            // 
-            this.Txt_pais.Location = new System.Drawing.Point(157, 118);
-            this.Txt_pais.Name = "Txt_pais";
-            this.Txt_pais.Size = new System.Drawing.Size(156, 22);
-            this.Txt_pais.TabIndex = 14;
-            // 
             // Txt_monto
             // 
-            this.Txt_monto.Location = new System.Drawing.Point(727, 38);
+            this.Txt_monto.Location = new System.Drawing.Point(748, 105);
             this.Txt_monto.Name = "Txt_monto";
             this.Txt_monto.Size = new System.Drawing.Size(198, 22);
             this.Txt_monto.TabIndex = 18;
-            // 
-            // Txt_pago
-            // 
-            this.Txt_pago.Location = new System.Drawing.Point(727, 82);
-            this.Txt_pago.Name = "Txt_pago";
-            this.Txt_pago.Size = new System.Drawing.Size(198, 22);
-            this.Txt_pago.TabIndex = 19;
-            // 
-            // Txt_serie
-            // 
-            this.Txt_serie.Location = new System.Drawing.Point(727, 155);
-            this.Txt_serie.Name = "Txt_serie";
-            this.Txt_serie.Size = new System.Drawing.Size(198, 22);
-            this.Txt_serie.TabIndex = 21;
             // 
             // Cbo_estado
             // 
@@ -225,91 +163,66 @@ namespace CapaVista
             this.Cbo_estado.Items.AddRange(new object[] {
             "1",
             "0"});
-            this.Cbo_estado.Location = new System.Drawing.Point(727, 188);
+            this.Cbo_estado.Location = new System.Drawing.Point(683, 222);
             this.Cbo_estado.Name = "Cbo_estado";
             this.Cbo_estado.Size = new System.Drawing.Size(202, 24);
             this.Cbo_estado.TabIndex = 22;
             // 
             // Btn_guardar
             // 
-            this.Btn_guardar.Location = new System.Drawing.Point(446, 21);
+            this.Btn_guardar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_guardar.Image")));
+            this.Btn_guardar.Location = new System.Drawing.Point(422, 73);
             this.Btn_guardar.Name = "Btn_guardar";
-            this.Btn_guardar.Size = new System.Drawing.Size(102, 39);
+            this.Btn_guardar.Size = new System.Drawing.Size(62, 62);
             this.Btn_guardar.TabIndex = 23;
-            this.Btn_guardar.Text = "Guardar";
+            this.toolTip1.SetToolTip(this.Btn_guardar, "Guardar");
             this.Btn_guardar.UseVisualStyleBackColor = true;
             this.Btn_guardar.Click += new System.EventHandler(this.Btn_guardar_Click);
             // 
             // Btn_editar
             // 
-            this.Btn_editar.Location = new System.Drawing.Point(446, 73);
+            this.Btn_editar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_editar.Image")));
+            this.Btn_editar.Location = new System.Drawing.Point(490, 73);
             this.Btn_editar.Name = "Btn_editar";
-            this.Btn_editar.Size = new System.Drawing.Size(102, 36);
+            this.Btn_editar.Size = new System.Drawing.Size(64, 61);
             this.Btn_editar.TabIndex = 24;
-            this.Btn_editar.Text = "Editar";
+            this.toolTip1.SetToolTip(this.Btn_editar, "Editar");
             this.Btn_editar.UseVisualStyleBackColor = true;
             this.Btn_editar.Click += new System.EventHandler(this.Btn_editar_Click);
             // 
-            // Btn_actualizar
-            // 
-            this.Btn_actualizar.Location = new System.Drawing.Point(446, 118);
-            this.Btn_actualizar.Name = "Btn_actualizar";
-            this.Btn_actualizar.Size = new System.Drawing.Size(102, 38);
-            this.Btn_actualizar.TabIndex = 25;
-            this.Btn_actualizar.Text = "Actualizar";
-            this.Btn_actualizar.UseVisualStyleBackColor = true;
-            this.Btn_actualizar.Click += new System.EventHandler(this.Btn_actualizar_Click);
-            // 
             // Btn_eliminar
             // 
-            this.Btn_eliminar.Location = new System.Drawing.Point(446, 161);
+            this.Btn_eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_eliminar.Image")));
+            this.Btn_eliminar.Location = new System.Drawing.Point(487, 149);
+            this.Btn_eliminar.Margin = new System.Windows.Forms.Padding(0);
             this.Btn_eliminar.Name = "Btn_eliminar";
-            this.Btn_eliminar.Size = new System.Drawing.Size(102, 37);
+            this.Btn_eliminar.Size = new System.Drawing.Size(64, 58);
             this.Btn_eliminar.TabIndex = 26;
-            this.Btn_eliminar.Text = "Eliminar";
+            this.toolTip1.SetToolTip(this.Btn_eliminar, "Eliminar");
             this.Btn_eliminar.UseVisualStyleBackColor = true;
             this.Btn_eliminar.Click += new System.EventHandler(this.Btn_eliminar_Click);
             // 
             // Btn_buscar
             // 
-            this.Btn_buscar.Location = new System.Drawing.Point(446, 204);
+            this.Btn_buscar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_buscar.Image")));
+            this.Btn_buscar.Location = new System.Drawing.Point(422, 148);
             this.Btn_buscar.Name = "Btn_buscar";
-            this.Btn_buscar.Size = new System.Drawing.Size(102, 34);
+            this.Btn_buscar.Size = new System.Drawing.Size(62, 60);
             this.Btn_buscar.TabIndex = 27;
-            this.Btn_buscar.Text = "Buscar";
+            this.toolTip1.SetToolTip(this.Btn_buscar, "Buscar");
             this.Btn_buscar.UseVisualStyleBackColor = true;
             this.Btn_buscar.Click += new System.EventHandler(this.Btn_buscar_Click);
             // 
             // Txt_fecha
             // 
-            this.Txt_fecha.Location = new System.Drawing.Point(199, 156);
+            this.Txt_fecha.Location = new System.Drawing.Point(198, 229);
             this.Txt_fecha.Name = "Txt_fecha";
             this.Txt_fecha.Size = new System.Drawing.Size(200, 22);
             this.Txt_fecha.TabIndex = 28;
             // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "DataSet1";
-            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // tbltransaccionproveedorBindingSource
             // 
             this.tbltransaccionproveedorBindingSource.DataMember = "tbl_transaccion_proveedor";
-            this.tbltransaccionproveedorBindingSource.DataSource = this.dataSet1;
-            // 
-            // tbl_transaccion_proveedorTableAdapter
-            // 
-            this.tbl_transaccion_proveedorTableAdapter.ClearBeforeFill = true;
-            // 
-            // Btn_limpiar
-            // 
-            this.Btn_limpiar.Location = new System.Drawing.Point(446, 245);
-            this.Btn_limpiar.Name = "Btn_limpiar";
-            this.Btn_limpiar.Size = new System.Drawing.Size(102, 33);
-            this.Btn_limpiar.TabIndex = 29;
-            this.Btn_limpiar.Text = "Limpiar";
-            this.Btn_limpiar.UseVisualStyleBackColor = true;
-            this.Btn_limpiar.Click += new System.EventHandler(this.Btn_limpiar_Click);
             // 
             // Cbo_moneda
             // 
@@ -319,33 +232,80 @@ namespace CapaVista
             "MXN",
             "GTQ",
             "EUR"});
-            this.Cbo_moneda.Location = new System.Drawing.Point(727, 121);
+            this.Cbo_moneda.Location = new System.Drawing.Point(731, 181);
             this.Cbo_moneda.Name = "Cbo_moneda";
             this.Cbo_moneda.Size = new System.Drawing.Size(198, 24);
             this.Cbo_moneda.TabIndex = 30;
             // 
-            // Cbo_cuenta
+            // Cbo_tipotransacci
             // 
-            this.Cbo_cuenta.FormattingEnabled = true;
-            this.Cbo_cuenta.Items.AddRange(new object[] {
-            "Activo",
-            "Pasivo"});
-            this.Cbo_cuenta.Location = new System.Drawing.Point(157, 192);
-            this.Cbo_cuenta.Name = "Cbo_cuenta";
-            this.Cbo_cuenta.Size = new System.Drawing.Size(200, 24);
-            this.Cbo_cuenta.TabIndex = 31;
+            this.Cbo_tipotransacci.FormattingEnabled = true;
+            this.Cbo_tipotransacci.Items.AddRange(new object[] {
+            "Credito",
+            "Debito"});
+            this.Cbo_tipotransacci.Location = new System.Drawing.Point(746, 145);
+            this.Cbo_tipotransacci.Name = "Cbo_tipotransacci";
+            this.Cbo_tipotransacci.Size = new System.Drawing.Size(200, 24);
+            this.Cbo_tipotransacci.TabIndex = 31;
             // 
-            // Cbo_cuota
+            // Btn_reporte
             // 
-            this.Cbo_cuota.FormattingEnabled = true;
-            this.Cbo_cuota.Items.AddRange(new object[] {
-            "S",
-            "M",
-            "A"});
-            this.Cbo_cuota.Location = new System.Drawing.Point(157, 229);
-            this.Cbo_cuota.Name = "Cbo_cuota";
-            this.Cbo_cuota.Size = new System.Drawing.Size(200, 24);
-            this.Cbo_cuota.TabIndex = 32;
+            this.Btn_reporte.Image = ((System.Drawing.Image)(resources.GetObject("Btn_reporte.Image")));
+            this.Btn_reporte.Location = new System.Drawing.Point(980, 229);
+            this.Btn_reporte.Name = "Btn_reporte";
+            this.Btn_reporte.Size = new System.Drawing.Size(62, 58);
+            this.Btn_reporte.TabIndex = 33;
+            this.toolTip1.SetToolTip(this.Btn_reporte, "Ver reporte");
+            this.Btn_reporte.UseVisualStyleBackColor = true;
+            this.Btn_reporte.Click += new System.EventHandler(this.Btn_reporte_Click);
+            // 
+            // Btn_Salir
+            // 
+            this.Btn_Salir.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Salir.Image")));
+            this.Btn_Salir.Location = new System.Drawing.Point(980, 21);
+            this.Btn_Salir.Name = "Btn_Salir";
+            this.Btn_Salir.Size = new System.Drawing.Size(62, 58);
+            this.Btn_Salir.TabIndex = 37;
+            this.toolTip1.SetToolTip(this.Btn_Salir, "Salir");
+            this.Btn_Salir.UseVisualStyleBackColor = true;
+            this.Btn_Salir.Click += new System.EventHandler(this.Btn_Salir_Click);
+            // 
+            // Btn_ayuda
+            // 
+            this.Btn_ayuda.Image = ((System.Drawing.Image)(resources.GetObject("Btn_ayuda.Image")));
+            this.Btn_ayuda.Location = new System.Drawing.Point(12, 12);
+            this.Btn_ayuda.Name = "Btn_ayuda";
+            this.Btn_ayuda.Size = new System.Drawing.Size(62, 62);
+            this.Btn_ayuda.TabIndex = 38;
+            this.toolTip1.SetToolTip(this.Btn_ayuda, "Ayuda");
+            this.Btn_ayuda.UseVisualStyleBackColor = true;
+            this.Btn_ayuda.Click += new System.EventHandler(this.Btn_ayuda_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(327, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(397, 33);
+            this.label1.TabIndex = 34;
+            this.label1.Text = "Transacción de proveedores";
+            // 
+            // Lbl_cuenta
+            // 
+            this.Lbl_cuenta.AutoSize = true;
+            this.Lbl_cuenta.Location = new System.Drawing.Point(48, 190);
+            this.Lbl_cuenta.Name = "Lbl_cuenta";
+            this.Lbl_cuenta.Size = new System.Drawing.Size(53, 17);
+            this.Lbl_cuenta.TabIndex = 35;
+            this.Lbl_cuenta.Text = "Cuenta";
+            // 
+            // Txt_cuenta
+            // 
+            this.Txt_cuenta.Location = new System.Drawing.Point(107, 187);
+            this.Txt_cuenta.Name = "Txt_cuenta";
+            this.Txt_cuenta.Size = new System.Drawing.Size(167, 22);
+            this.Txt_cuenta.TabIndex = 36;
             // 
             // Transaccion_proveedores
             // 
@@ -353,40 +313,35 @@ namespace CapaVista
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.ClientSize = new System.Drawing.Size(1065, 603);
-            this.Controls.Add(this.Cbo_cuota);
-            this.Controls.Add(this.Cbo_cuenta);
+            this.Controls.Add(this.Btn_ayuda);
+            this.Controls.Add(this.Btn_Salir);
+            this.Controls.Add(this.Txt_cuenta);
+            this.Controls.Add(this.Lbl_cuenta);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Btn_reporte);
+            this.Controls.Add(this.Cbo_tipotransacci);
             this.Controls.Add(this.Cbo_moneda);
-            this.Controls.Add(this.Btn_limpiar);
             this.Controls.Add(this.Txt_fecha);
             this.Controls.Add(this.Btn_buscar);
             this.Controls.Add(this.Btn_eliminar);
-            this.Controls.Add(this.Btn_actualizar);
             this.Controls.Add(this.Btn_editar);
             this.Controls.Add(this.Btn_guardar);
             this.Controls.Add(this.Cbo_estado);
-            this.Controls.Add(this.Txt_serie);
-            this.Controls.Add(this.Txt_pago);
             this.Controls.Add(this.Txt_monto);
-            this.Controls.Add(this.Txt_pais);
             this.Controls.Add(this.Txt_proveedor);
             this.Controls.Add(this.Txt_transaccion);
             this.Controls.Add(this.Dgv_transacciones_provee);
             this.Controls.Add(this.Lbl_estado);
-            this.Controls.Add(this.Lbl_serie);
             this.Controls.Add(this.Lbl_tipo_moneda);
-            this.Controls.Add(this.Lbl_pago);
             this.Controls.Add(this.Lbl_monto);
-            this.Controls.Add(this.Lbl_cuota);
-            this.Controls.Add(this.Lbl_cuenta);
+            this.Controls.Add(this.Lbl_tipotransacci);
             this.Controls.Add(this.Lbl_fecha);
-            this.Controls.Add(this.Lbl_pais);
             this.Controls.Add(this.Lbl_proveedor);
             this.Controls.Add(this.Lbl_id);
             this.Name = "Transaccion_proveedores";
             this.Text = "Transaccion_proveedores";
             this.Load += new System.EventHandler(this.Transaccion_proveedores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_transacciones_provee)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbltransaccionproveedorBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -397,35 +352,32 @@ namespace CapaVista
 
         private System.Windows.Forms.Label Lbl_id;
         private System.Windows.Forms.Label Lbl_proveedor;
-        private System.Windows.Forms.Label Lbl_pais;
         private System.Windows.Forms.Label Lbl_fecha;
-        private System.Windows.Forms.Label Lbl_cuenta;
-        private System.Windows.Forms.Label Lbl_cuota;
+        private System.Windows.Forms.Label Lbl_tipotransacci;
         private System.Windows.Forms.Label Lbl_monto;
-        private System.Windows.Forms.Label Lbl_pago;
         private System.Windows.Forms.Label Lbl_tipo_moneda;
-        private System.Windows.Forms.Label Lbl_serie;
         private System.Windows.Forms.Label Lbl_estado;
         private System.Windows.Forms.DataGridView Dgv_transacciones_provee;
         private System.Windows.Forms.TextBox Txt_transaccion;
         private System.Windows.Forms.TextBox Txt_proveedor;
-        private System.Windows.Forms.TextBox Txt_pais;
         private System.Windows.Forms.TextBox Txt_monto;
-        private System.Windows.Forms.TextBox Txt_pago;
-        private System.Windows.Forms.TextBox Txt_serie;
         private System.Windows.Forms.ComboBox Cbo_estado;
         private System.Windows.Forms.Button Btn_guardar;
         private System.Windows.Forms.Button Btn_editar;
-        private System.Windows.Forms.Button Btn_actualizar;
         private System.Windows.Forms.Button Btn_eliminar;
         private System.Windows.Forms.Button Btn_buscar;
         private System.Windows.Forms.TextBox Txt_fecha;
-        private DataSet1 dataSet1;
         private System.Windows.Forms.BindingSource tbltransaccionproveedorBindingSource;
-        private DataSet1TableAdapters.tbl_transaccion_proveedorTableAdapter tbl_transaccion_proveedorTableAdapter;
-        private System.Windows.Forms.Button Btn_limpiar;
         private System.Windows.Forms.ComboBox Cbo_moneda;
-        private System.Windows.Forms.ComboBox Cbo_cuenta;
-        private System.Windows.Forms.ComboBox Cbo_cuota;
+        private System.Windows.Forms.ComboBox Cbo_tipotransacci;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button Btn_reporte;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Lbl_cuenta;
+        private System.Windows.Forms.TextBox Txt_cuenta;
+        private System.Windows.Forms.Button Btn_Salir;
+        private System.Windows.Forms.Button Btn_ayuda;
+        // private CapaVista.DataSet1 dataSet1;
+        // private CapaVista.DataSet1TableAdapters.tbl_transaccion_proveedorTableAdapter tbl_transaccion_proveedorTableAdapter;
     }
 }

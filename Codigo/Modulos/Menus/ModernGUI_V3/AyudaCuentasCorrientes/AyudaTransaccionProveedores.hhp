@@ -1,0 +1,17 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=AyudaTransaccionProveedores.chm
+Contents file=AyudaTransaccionProveedores.hhc
+Default Window=AyudaTransaccionProveedores
+Display compile progress=No
+Language=0x100a Español (Guatemala)
+
+[WINDOWS]
+AyudaTransaccionProveedores="Ayuda para el formulario de transaccion de proveedores","AyudaTransaccionProveedores.hhc",,"AyudaTransaccionProveedores.html","AyudaTransaccionProveedores.html","AyudaTransaccionProveedores.html","AyudaTransaccionProveedores","AyudaTransaccionProveedores.html","AyudaTransaccionProveedores",0x23520,,0xc387e,,,,,,,,0
+
+
+[FILES]
+AyudaTransaccionProveedores.html
+
+[INFOTYPES]
+

@@ -245,6 +245,7 @@
             this.Proceso_TransaccionP.Text = "Transacciones_Proveedores";
             this.Proceso_TransaccionP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Proceso_TransaccionP.UseVisualStyleBackColor = true;
+            this.Proceso_TransaccionP.Click += new System.EventHandler(this.Proceso_TransaccionP_Click);
             // 
             // Proceso_TransaccionC
             // 
