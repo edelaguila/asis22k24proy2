@@ -17,13 +17,13 @@ namespace Capa_Vista_Logistica
         {
             InitializeComponent();
             string idUsuario = Interfac_V3.UsuarioSesion.GetIdUsuario();
-            string[] alias = { "ID Producto", "CódProducto", "NomProducto", "MedProducto", "PrecUnitario", "Clasificación", "Estado" };
+            string[] alias = { "ID Producto", "CódProducto", "NomProducto", "PesoProducto", "PrecUnitario", "Clasificación", "Estado", "Stock", "Empaque", "ID Receta", "Comisión Inv", "Comisión Costo" };
             navegador1.AsignarAlias(alias);
             navegador1.AsignarSalida(this);
-            navegador1.AsignarColorFondo(Color.CadetBlue);
-            navegador1.AsignarColorFuente(Color.Black);
+            navegador1.AsignarColorFondo(Color.LightBlue);
+            navegador1.AsignarColorFuente(Color.BlueViolet);
             navegador1.AsignarTabla("Tbl_Productos");
-            navegador1.ObtenerIdAplicacion("9006");
+            navegador1.ObtenerIdAplicacion("2000");
             navegador1.ObtenerIdUsuario(idUsuario);
             navegador1.AsignarAyuda("1");
             navegador1.AsignarNombreForm("Productos");

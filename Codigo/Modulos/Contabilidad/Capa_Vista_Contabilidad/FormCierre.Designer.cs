@@ -35,26 +35,25 @@ namespace Capa_Vista_Contabilidad
             // cierre1
             // 
             this.cierre1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cierre1.idUsuario = null;
             this.cierre1.Location = new System.Drawing.Point(0, 0);
             this.cierre1.Name = "cierre1";
-            this.cierre1.Size = new System.Drawing.Size(1079, 610);
+            this.cierre1.Size = new System.Drawing.Size(1074, 667);
             this.cierre1.TabIndex = 0;
-            this.cierre1.Load += new System.EventHandler(this.cierre1_Load);
             // 
             // FormCierre
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1079, 610);
+            this.ClientSize = new System.Drawing.Size(1074, 667);
             this.Controls.Add(this.cierre1);
             this.Name = "FormCierre";
-            this.Text = "FormCierre";
             this.ResumeLayout(false);
 
         }
 
+        private Capa_Vista_CierreContable.Cierre cierre1;
+
         #endregion
 
-        private Capa_Vista_CierreContable.Cierre cierre1;
+        private Capa_Vista_CierreContable.Cierre cierre;
     }
 }

@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# CS0006: No se encontró el archivo de metadatos '..\..\Listas Precios\Capa_Vista_ListaPrecios\bin\Debug\Capa_Vista_ListaPrecios.dll'
+dotnet_diagnostic.CS0006.severity = error

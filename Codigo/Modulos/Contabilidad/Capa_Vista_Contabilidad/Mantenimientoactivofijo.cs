@@ -14,30 +14,30 @@ namespace Capa_Vista_Contabilidad
     {
         public Mantenimientoactivofijo()
         {
-            //InitializeComponent();
+            InitializeComponent();
 
-            //string idusuario = Interfac_V3.UsuarioSesion.GetIdUsuario();
+            string idusuario = Interfac_V3.UsuarioSesion.GetIdUsuario();
 
-            //string[] alias = {"pkid", "CódigoActi", "Tipo Activo", "Descripción", "Marca", "Modelo", "FechaAdqui", "CostoAdqui", "Vida Útil", "ValorResidual", "Estado", "pkcuenta"};
-            //navegador1.AsignarAlias(alias);
-            //navegador1.AsignarSalida(this);
-            //navegador1.AsignarColorFondo(Color.LightBlue);
-            //navegador1.AsignarColorFuente(Color.BlueViolet);
-            //navegador1.ObtenerIdAplicacion("1000"); // Ajusta el ID de la aplicación
-            //navegador1.AsignarAyuda("1");
-            //navegador1.ObtenerIdUsuario(idusuario);
-            //navegador1.AsignarTabla("tbl_activofijo");
-            //navegador1.AsignarNombreForm("Activos Fijos");
+            string[] alias = { "pkid", "CódigoActi", "Tipo Activo", "Descripción", "Marca", "Modelo", "FechaAdqui", "CostoAdqui", "Vida Útil", "ValorResidual", "Estado", "pkcuenta" };
+            navegador1.AsignarAlias(alias);
+            navegador1.AsignarSalida(this);
+            navegador1.AsignarColorFondo(Color.FromArgb(242, 133, 122));
+            navegador1.AsignarColorFuente(Color.Black);
+            navegador1.ObtenerIdAplicacion("8000"); // Ajusta el ID de la aplicación
+            navegador1.AsignarAyuda("1");
+            navegador1.ObtenerIdUsuario(idusuario);
+            navegador1.AsignarTabla("tbl_activofijo");
+            navegador1.AsignarNombreForm("Activos Fijos");
 
-            //// Asignar combos para las relaciones foráneas (tipo activo, marca y cuenta contable)
-            //navegador1.AsignarComboConTabla("tbl_tipoactivofijo", "Pk_id_tipoactivofijo", "nombre_tipoactivo", 1);
-            //navegador1.AsignarComboConTabla("tbl_marca", "Pk_id_marca", "nombre_marca", 1);
-            //navegador1.AsignarComboConTabla("tbl_cuentas", "Pk_id_cuenta", "nombre_cuenta", 1); // Agregamos el combo de cuentas contables
+            /*//// Asignar combos para las relaciones foráneas (tipo activo, marca y cuenta contable)
+            navegador1.AsignarComboConTabla("tbl_tipoactivofijo", "Pk_id_tipoactivofijo", "nombre_tipoactivo", 1);
+            navegador1.AsignarComboConTabla("tbl_marca", "Pk_id_marca", "nombre_marca", 1);
+            navegador1.AsignarComboConTabla("tbl_cuentas", "Pk_id_cuenta", "nombre_cuenta", 1); // Agregamos el combo de cuentas contables
 
             //// Asignar las relaciones foráneas para tipo de activo, marca y cuenta contable
-            //navegador1.AsignarForaneas("tbl_tipoactivofijo", "nombre_tipo", "Pk_id_tipoactivofijo", "Pk_id_tipoactivofijo");
-            //navegador1.AsignarForaneas("tbl_marca", "nombre_marca", "Pk_id_marca", "Pk_id_marca");
-            //navegador1.AsignarForaneas("tbl_cuentas", "nombre_cuenta", "Pk_id_cuenta", "Pk_id_cuenta"); // Relación foránea con cuentas contables
+            navegador1.AsignarForaneas("tbl_tipoactivofijo", "nombre_tipo", "Pk_id_tipoactivofijo", "Pk_id_tipoactivofijo");
+            navegador1.AsignarForaneas("tbl_marca", "nombre_marca", "Pk_id_marca", "Pk_id_marca");
+            navegador1.AsignarForaneas("tbl_cuentas", "nombre_cuenta", "Pk_id_cuenta", "Pk_id_cuenta"); // Relación foránea con cuentas contables*/
 
 
 

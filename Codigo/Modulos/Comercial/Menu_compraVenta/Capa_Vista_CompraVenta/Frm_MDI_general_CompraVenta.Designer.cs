@@ -30,7 +30,6 @@ namespace Capa_Vista_CompraVenta
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_MDI_general_CompraVenta));
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelIdentificacion = new System.Windows.Forms.Panel();
             this.Lbl_hora = new System.Windows.Forms.Label();
             this.Lbl_usuario = new System.Windows.Forms.Label();
@@ -38,51 +37,41 @@ namespace Capa_Vista_CompraVenta
             this.Lbl_usuario2 = new System.Windows.Forms.Label();
             this.panelBarraTitulo = new System.Windows.Forms.Panel();
             this.btnRestaurar = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
             this.btnMaximizar = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.Pnl_panelGeneral = new System.Windows.Forms.Panel();
-            this.Pnl_Ventas = new System.Windows.Forms.Panel();
-            this.Btn_compra = new System.Windows.Forms.Button();
-            this.Btn_ventas = new System.Windows.Forms.Button();
-            this.Pnl_Compras = new System.Windows.Forms.Panel();
-            this.Btn_vendedores = new System.Windows.Forms.Button();
-            this.Btn_clientes = new System.Windows.Forms.Button();
-            this.Btn_proveedores = new System.Windows.Forms.Button();
-            this.Btn_compras = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.Pnl_Venta = new System.Windows.Forms.Panel();
             this.button7 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.Pnl_Compra = new System.Windows.Forms.Panel();
             this.Btn_poliza = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.Btn_compra = new System.Windows.Forms.Button();
+            this.Btn_ventas = new System.Windows.Forms.Button();
+            this.Pnl_Mantenimiento = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.Btn_vendedores = new System.Windows.Forms.Button();
+            this.Btn_clientes = new System.Windows.Forms.Button();
+            this.Btn_proveedores = new System.Windows.Forms.Button();
+            this.Btn_compras = new System.Windows.Forms.Button();
             this.panelIdentificacion.SuspendLayout();
             this.panelBarraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.Pnl_panelGeneral.SuspendLayout();
-            this.Pnl_Ventas.SuspendLayout();
-            this.Pnl_Compras.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.Pnl_Venta.SuspendLayout();
+            this.Pnl_Compra.SuspendLayout();
+            this.Pnl_Mantenimiento.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(4, 4);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(29, 26);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 4;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // panelIdentificacion
             // 
@@ -170,8 +159,19 @@ namespace Capa_Vista_CompraVenta
             this.btnRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnRestaurar.TabIndex = 3;
             this.btnRestaurar.TabStop = false;
-            this.btnRestaurar.Visible = false;
             this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(11, 9);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(29, 26);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 4;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // btnMinimizar
             // 
@@ -212,17 +212,17 @@ namespace Capa_Vista_CompraVenta
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnCerrar.TabIndex = 0;
             this.btnCerrar.TabStop = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // Pnl_panelGeneral
             // 
             this.Pnl_panelGeneral.AutoScroll = true;
             this.Pnl_panelGeneral.BackColor = System.Drawing.Color.Khaki;
-            this.Pnl_panelGeneral.Controls.Add(this.panel1);
+            this.Pnl_panelGeneral.Controls.Add(this.button1);
+            this.Pnl_panelGeneral.Controls.Add(this.Pnl_Venta);
             this.Pnl_panelGeneral.Controls.Add(this.button13);
-            this.Pnl_panelGeneral.Controls.Add(this.Pnl_Ventas);
+            this.Pnl_panelGeneral.Controls.Add(this.Pnl_Compra);
             this.Pnl_panelGeneral.Controls.Add(this.Btn_ventas);
-            this.Pnl_panelGeneral.Controls.Add(this.Pnl_Compras);
+            this.Pnl_panelGeneral.Controls.Add(this.Pnl_Mantenimiento);
             this.Pnl_panelGeneral.Controls.Add(this.Btn_compras);
             this.Pnl_panelGeneral.Dock = System.Windows.Forms.DockStyle.Left;
             this.Pnl_panelGeneral.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -234,165 +234,43 @@ namespace Capa_Vista_CompraVenta
             this.Pnl_panelGeneral.TabIndex = 9;
             this.Pnl_panelGeneral.Paint += new System.Windows.Forms.PaintEventHandler(this.Pnl_panelGeneral_Paint);
             // 
-            // Pnl_Ventas
+            // button1
             // 
-            this.Pnl_Ventas.BackColor = System.Drawing.Color.Khaki;
-            this.Pnl_Ventas.Controls.Add(this.Btn_poliza);
-            this.Pnl_Ventas.Controls.Add(this.Btn_compra);
-            this.Pnl_Ventas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Pnl_Ventas.Location = new System.Drawing.Point(0, 157);
-            this.Pnl_Ventas.Margin = new System.Windows.Forms.Padding(2);
-            this.Pnl_Ventas.Name = "Pnl_Ventas";
-            this.Pnl_Ventas.Size = new System.Drawing.Size(139, 78);
-            this.Pnl_Ventas.TabIndex = 7;
-            this.Pnl_Ventas.Visible = false;
+            this.button1.BackColor = System.Drawing.Color.LemonChiffon;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(0, 421);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(139, 32);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Salir";
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
             // 
-            // Btn_compra
+            // Pnl_Venta
             // 
-            this.Btn_compra.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Btn_compra.FlatAppearance.BorderSize = 0;
-            this.Btn_compra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_compra.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_compra.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Btn_compra.Location = new System.Drawing.Point(0, 0);
-            this.Btn_compra.Margin = new System.Windows.Forms.Padding(2);
-            this.Btn_compra.Name = "Btn_compra";
-            this.Btn_compra.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
-            this.Btn_compra.Size = new System.Drawing.Size(139, 27);
-            this.Btn_compra.TabIndex = 7;
-            this.Btn_compra.Text = "Orden Compra";
-            this.Btn_compra.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn_compra.UseVisualStyleBackColor = true;
-            this.Btn_compra.Click += new System.EventHandler(this.Btn_compra_Click_1);
-            // 
-            // Btn_ventas
-            // 
-            this.Btn_ventas.BackColor = System.Drawing.Color.LemonChiffon;
-            this.Btn_ventas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Btn_ventas.FlatAppearance.BorderSize = 0;
-            this.Btn_ventas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.Btn_ventas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.Btn_ventas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_ventas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_ventas.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Btn_ventas.Image = ((System.Drawing.Image)(resources.GetObject("Btn_ventas.Image")));
-            this.Btn_ventas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn_ventas.Location = new System.Drawing.Point(0, 120);
-            this.Btn_ventas.Margin = new System.Windows.Forms.Padding(2);
-            this.Btn_ventas.Name = "Btn_ventas";
-            this.Btn_ventas.Size = new System.Drawing.Size(139, 37);
-            this.Btn_ventas.TabIndex = 6;
-            this.Btn_ventas.Text = "Compra";
-            this.Btn_ventas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.Btn_ventas.UseVisualStyleBackColor = false;
-            this.Btn_ventas.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // Pnl_Compras
-            // 
-            this.Pnl_Compras.Controls.Add(this.Btn_vendedores);
-            this.Pnl_Compras.Controls.Add(this.Btn_clientes);
-            this.Pnl_Compras.Controls.Add(this.Btn_proveedores);
-            this.Pnl_Compras.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Pnl_Compras.Location = new System.Drawing.Point(0, 41);
-            this.Pnl_Compras.Margin = new System.Windows.Forms.Padding(2);
-            this.Pnl_Compras.Name = "Pnl_Compras";
-            this.Pnl_Compras.Size = new System.Drawing.Size(139, 79);
-            this.Pnl_Compras.TabIndex = 4;
-            this.Pnl_Compras.Visible = false;
-            // 
-            // Btn_vendedores
-            // 
-            this.Btn_vendedores.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Btn_vendedores.FlatAppearance.BorderSize = 0;
-            this.Btn_vendedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_vendedores.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_vendedores.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Btn_vendedores.Location = new System.Drawing.Point(0, 53);
-            this.Btn_vendedores.Margin = new System.Windows.Forms.Padding(2);
-            this.Btn_vendedores.Name = "Btn_vendedores";
-            this.Btn_vendedores.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
-            this.Btn_vendedores.Size = new System.Drawing.Size(139, 23);
-            this.Btn_vendedores.TabIndex = 5;
-            this.Btn_vendedores.Text = "Vendedores";
-            this.Btn_vendedores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn_vendedores.UseVisualStyleBackColor = true;
-            this.Btn_vendedores.Click += new System.EventHandler(this.Btn_vendedores_Click);
-            // 
-            // Btn_clientes
-            // 
-            this.Btn_clientes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Btn_clientes.FlatAppearance.BorderSize = 0;
-            this.Btn_clientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_clientes.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_clientes.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Btn_clientes.Location = new System.Drawing.Point(0, 27);
-            this.Btn_clientes.Margin = new System.Windows.Forms.Padding(2);
-            this.Btn_clientes.Name = "Btn_clientes";
-            this.Btn_clientes.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
-            this.Btn_clientes.Size = new System.Drawing.Size(139, 26);
-            this.Btn_clientes.TabIndex = 4;
-            this.Btn_clientes.Text = "Clientes";
-            this.Btn_clientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn_clientes.UseVisualStyleBackColor = true;
-            this.Btn_clientes.Click += new System.EventHandler(this.Btn_clientes_Click);
-            // 
-            // Btn_proveedores
-            // 
-            this.Btn_proveedores.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Btn_proveedores.FlatAppearance.BorderSize = 0;
-            this.Btn_proveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_proveedores.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_proveedores.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Btn_proveedores.Location = new System.Drawing.Point(0, 0);
-            this.Btn_proveedores.Margin = new System.Windows.Forms.Padding(2);
-            this.Btn_proveedores.Name = "Btn_proveedores";
-            this.Btn_proveedores.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
-            this.Btn_proveedores.Size = new System.Drawing.Size(139, 27);
-            this.Btn_proveedores.TabIndex = 0;
-            this.Btn_proveedores.Text = "Proveedores";
-            this.Btn_proveedores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn_proveedores.UseVisualStyleBackColor = true;
-            this.Btn_proveedores.Click += new System.EventHandler(this.button9_Click);
-            // 
-            // Btn_compras
-            // 
-            this.Btn_compras.BackColor = System.Drawing.Color.LemonChiffon;
-            this.Btn_compras.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Btn_compras.FlatAppearance.BorderSize = 0;
-            this.Btn_compras.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.Btn_compras.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.Btn_compras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_compras.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_compras.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Btn_compras.Image = ((System.Drawing.Image)(resources.GetObject("Btn_compras.Image")));
-            this.Btn_compras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn_compras.Location = new System.Drawing.Point(0, 0);
-            this.Btn_compras.Margin = new System.Windows.Forms.Padding(2);
-            this.Btn_compras.Name = "Btn_compras";
-            this.Btn_compras.Size = new System.Drawing.Size(139, 41);
-            this.Btn_compras.TabIndex = 2;
-            this.Btn_compras.Text = "Mantenimientos";
-            this.Btn_compras.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn_compras.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.Btn_compras.UseVisualStyleBackColor = false;
-            this.Btn_compras.Click += new System.EventHandler(this.button10_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Khaki;
-            this.panel1.Controls.Add(this.button8);
-            this.panel1.Controls.Add(this.button7);
-            this.panel1.Controls.Add(this.button9);
-            this.panel1.Controls.Add(this.button10);
-            this.panel1.Controls.Add(this.button11);
-            this.panel1.Controls.Add(this.button12);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 272);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(139, 190);
-            this.panel1.TabIndex = 10;
-            this.panel1.Visible = false;
+            this.Pnl_Venta.BackColor = System.Drawing.Color.Khaki;
+            this.Pnl_Venta.Controls.Add(this.button7);
+            this.Pnl_Venta.Controls.Add(this.button9);
+            this.Pnl_Venta.Controls.Add(this.button10);
+            this.Pnl_Venta.Controls.Add(this.button11);
+            this.Pnl_Venta.Controls.Add(this.button12);
+            this.Pnl_Venta.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Pnl_Venta.Location = new System.Drawing.Point(0, 291);
+            this.Pnl_Venta.Margin = new System.Windows.Forms.Padding(2);
+            this.Pnl_Venta.Name = "Pnl_Venta";
+            this.Pnl_Venta.Size = new System.Drawing.Size(139, 130);
+            this.Pnl_Venta.TabIndex = 10;
+            this.Pnl_Venta.Visible = false;
             // 
             // button7
             // 
@@ -401,11 +279,11 @@ namespace Capa_Vista_CompraVenta
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button7.Location = new System.Drawing.Point(0, 107);
+            this.button7.Location = new System.Drawing.Point(0, 103);
             this.button7.Margin = new System.Windows.Forms.Padding(2);
             this.button7.Name = "button7";
             this.button7.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
-            this.button7.Size = new System.Drawing.Size(139, 33);
+            this.button7.Size = new System.Drawing.Size(139, 27);
             this.button7.TabIndex = 6;
             this.button7.Text = "Comisiones";
             this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -419,7 +297,7 @@ namespace Capa_Vista_CompraVenta
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button9.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button9.Location = new System.Drawing.Point(0, 84);
+            this.button9.Location = new System.Drawing.Point(0, 80);
             this.button9.Margin = new System.Windows.Forms.Padding(2);
             this.button9.Name = "button9";
             this.button9.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
@@ -441,7 +319,7 @@ namespace Capa_Vista_CompraVenta
             this.button10.Margin = new System.Windows.Forms.Padding(2);
             this.button10.Name = "button10";
             this.button10.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
-            this.button10.Size = new System.Drawing.Size(139, 28);
+            this.button10.Size = new System.Drawing.Size(139, 24);
             this.button10.TabIndex = 4;
             this.button10.Text = "Factura";
             this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -497,7 +375,7 @@ namespace Capa_Vista_CompraVenta
             this.button13.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button13.Image = ((System.Drawing.Image)(resources.GetObject("button13.Image")));
             this.button13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button13.Location = new System.Drawing.Point(0, 235);
+            this.button13.Location = new System.Drawing.Point(0, 254);
             this.button13.Margin = new System.Windows.Forms.Padding(2);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(139, 37);
@@ -505,27 +383,20 @@ namespace Capa_Vista_CompraVenta
             this.button13.Text = "Venta";
             this.button13.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button13.UseVisualStyleBackColor = false;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
-            // button8
+            // Pnl_Compra
             // 
-            this.button8.BackColor = System.Drawing.Color.LemonChiffon;
-            this.button8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.Black;
-            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
-            this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.Location = new System.Drawing.Point(0, 140);
-            this.button8.Margin = new System.Windows.Forms.Padding(2);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(139, 36);
-            this.button8.TabIndex = 9;
-            this.button8.Text = "Salir";
-            this.button8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button8.UseVisualStyleBackColor = false;
+            this.Pnl_Compra.BackColor = System.Drawing.Color.Khaki;
+            this.Pnl_Compra.Controls.Add(this.Btn_poliza);
+            this.Pnl_Compra.Controls.Add(this.Btn_compra);
+            this.Pnl_Compra.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Pnl_Compra.Location = new System.Drawing.Point(0, 196);
+            this.Pnl_Compra.Margin = new System.Windows.Forms.Padding(2);
+            this.Pnl_Compra.Name = "Pnl_Compra";
+            this.Pnl_Compra.Size = new System.Drawing.Size(139, 58);
+            this.Pnl_Compra.TabIndex = 7;
+            this.Pnl_Compra.Visible = false;
             // 
             // Btn_poliza
             // 
@@ -545,6 +416,155 @@ namespace Capa_Vista_CompraVenta
             this.Btn_poliza.UseVisualStyleBackColor = true;
             this.Btn_poliza.Click += new System.EventHandler(this.Btn_poliza_Click_1);
             // 
+            // Btn_compra
+            // 
+            this.Btn_compra.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Btn_compra.FlatAppearance.BorderSize = 0;
+            this.Btn_compra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_compra.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_compra.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Btn_compra.Location = new System.Drawing.Point(0, 0);
+            this.Btn_compra.Margin = new System.Windows.Forms.Padding(2);
+            this.Btn_compra.Name = "Btn_compra";
+            this.Btn_compra.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
+            this.Btn_compra.Size = new System.Drawing.Size(139, 27);
+            this.Btn_compra.TabIndex = 7;
+            this.Btn_compra.Text = "Compra";
+            this.Btn_compra.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_compra.UseVisualStyleBackColor = true;
+            this.Btn_compra.Click += new System.EventHandler(this.Btn_compra_Click_1);
+            // 
+            // Btn_ventas
+            // 
+            this.Btn_ventas.BackColor = System.Drawing.Color.LemonChiffon;
+            this.Btn_ventas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Btn_ventas.FlatAppearance.BorderSize = 0;
+            this.Btn_ventas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.Btn_ventas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.Btn_ventas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_ventas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_ventas.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Btn_ventas.Image = ((System.Drawing.Image)(resources.GetObject("Btn_ventas.Image")));
+            this.Btn_ventas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_ventas.Location = new System.Drawing.Point(0, 159);
+            this.Btn_ventas.Margin = new System.Windows.Forms.Padding(2);
+            this.Btn_ventas.Name = "Btn_ventas";
+            this.Btn_ventas.Size = new System.Drawing.Size(139, 37);
+            this.Btn_ventas.TabIndex = 6;
+            this.Btn_ventas.Text = "Compra";
+            this.Btn_ventas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Btn_ventas.UseVisualStyleBackColor = false;
+            this.Btn_ventas.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // Pnl_Mantenimiento
+            // 
+            this.Pnl_Mantenimiento.Controls.Add(this.button2);
+            this.Pnl_Mantenimiento.Controls.Add(this.Btn_vendedores);
+            this.Pnl_Mantenimiento.Controls.Add(this.Btn_clientes);
+            this.Pnl_Mantenimiento.Controls.Add(this.Btn_proveedores);
+            this.Pnl_Mantenimiento.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Pnl_Mantenimiento.Location = new System.Drawing.Point(0, 41);
+            this.Pnl_Mantenimiento.Margin = new System.Windows.Forms.Padding(2);
+            this.Pnl_Mantenimiento.Name = "Pnl_Mantenimiento";
+            this.Pnl_Mantenimiento.Size = new System.Drawing.Size(139, 118);
+            this.Pnl_Mantenimiento.TabIndex = 4;
+            this.Pnl_Mantenimiento.Visible = false;
+            // 
+            // button2
+            // 
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button2.Location = new System.Drawing.Point(0, 87);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
+            this.button2.Size = new System.Drawing.Size(139, 27);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Clasificaciones";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // Btn_vendedores
+            // 
+            this.Btn_vendedores.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Btn_vendedores.FlatAppearance.BorderSize = 0;
+            this.Btn_vendedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_vendedores.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_vendedores.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Btn_vendedores.Location = new System.Drawing.Point(0, 60);
+            this.Btn_vendedores.Margin = new System.Windows.Forms.Padding(2);
+            this.Btn_vendedores.Name = "Btn_vendedores";
+            this.Btn_vendedores.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
+            this.Btn_vendedores.Size = new System.Drawing.Size(139, 27);
+            this.Btn_vendedores.TabIndex = 5;
+            this.Btn_vendedores.Text = "Vendedores";
+            this.Btn_vendedores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_vendedores.UseVisualStyleBackColor = true;
+            this.Btn_vendedores.Click += new System.EventHandler(this.Btn_vendedores_Click);
+            // 
+            // Btn_clientes
+            // 
+            this.Btn_clientes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Btn_clientes.FlatAppearance.BorderSize = 0;
+            this.Btn_clientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_clientes.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_clientes.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Btn_clientes.Location = new System.Drawing.Point(0, 27);
+            this.Btn_clientes.Margin = new System.Windows.Forms.Padding(2);
+            this.Btn_clientes.Name = "Btn_clientes";
+            this.Btn_clientes.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
+            this.Btn_clientes.Size = new System.Drawing.Size(139, 33);
+            this.Btn_clientes.TabIndex = 4;
+            this.Btn_clientes.Text = "Clientes";
+            this.Btn_clientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_clientes.UseVisualStyleBackColor = true;
+            this.Btn_clientes.Click += new System.EventHandler(this.Btn_clientes_Click);
+            // 
+            // Btn_proveedores
+            // 
+            this.Btn_proveedores.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Btn_proveedores.FlatAppearance.BorderSize = 0;
+            this.Btn_proveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_proveedores.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_proveedores.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Btn_proveedores.Location = new System.Drawing.Point(0, 0);
+            this.Btn_proveedores.Margin = new System.Windows.Forms.Padding(2);
+            this.Btn_proveedores.Name = "Btn_proveedores";
+            this.Btn_proveedores.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
+            this.Btn_proveedores.Size = new System.Drawing.Size(139, 27);
+            this.Btn_proveedores.TabIndex = 0;
+            this.Btn_proveedores.Text = "Proveedores";
+            this.Btn_proveedores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_proveedores.UseVisualStyleBackColor = true;
+            this.Btn_proveedores.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // Btn_compras
+            // 
+            this.Btn_compras.BackColor = System.Drawing.Color.LemonChiffon;
+            this.Btn_compras.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Btn_compras.FlatAppearance.BorderSize = 0;
+            this.Btn_compras.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.Btn_compras.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.Btn_compras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_compras.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_compras.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Btn_compras.Image = ((System.Drawing.Image)(resources.GetObject("Btn_compras.Image")));
+            this.Btn_compras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_compras.Location = new System.Drawing.Point(0, 0);
+            this.Btn_compras.Margin = new System.Windows.Forms.Padding(2);
+            this.Btn_compras.Name = "Btn_compras";
+            this.Btn_compras.Size = new System.Drawing.Size(139, 41);
+            this.Btn_compras.TabIndex = 2;
+            this.Btn_compras.Text = "Mantenimientos";
+            this.Btn_compras.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_compras.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Btn_compras.UseVisualStyleBackColor = false;
+            this.Btn_compras.Click += new System.EventHandler(this.button10_Click);
+            // 
             // Frm_MDI_general_CompraVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -554,18 +574,18 @@ namespace Capa_Vista_CompraVenta
             this.Controls.Add(this.panelBarraTitulo);
             this.Controls.Add(this.panelIdentificacion);
             this.Name = "Frm_MDI_general_CompraVenta";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panelIdentificacion.ResumeLayout(false);
             this.panelIdentificacion.PerformLayout();
             this.panelBarraTitulo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.Pnl_panelGeneral.ResumeLayout(false);
-            this.Pnl_Ventas.ResumeLayout(false);
-            this.Pnl_Compras.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            this.Pnl_Venta.ResumeLayout(false);
+            this.Pnl_Compra.ResumeLayout(false);
+            this.Pnl_Mantenimiento.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -579,9 +599,9 @@ namespace Capa_Vista_CompraVenta
         private System.Windows.Forms.PictureBox btnMaximizar;
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.Panel Pnl_panelGeneral;
-        private System.Windows.Forms.Panel Pnl_Ventas;
+        private System.Windows.Forms.Panel Pnl_Compra;
         private System.Windows.Forms.Button Btn_ventas;
-        private System.Windows.Forms.Panel Pnl_Compras;
+        private System.Windows.Forms.Panel Pnl_Mantenimiento;
         private System.Windows.Forms.Button Btn_proveedores;
         private System.Windows.Forms.Button Btn_compras;
         private System.Windows.Forms.Button Btn_compra;
@@ -591,8 +611,7 @@ namespace Capa_Vista_CompraVenta
         private System.Windows.Forms.Label Lbl_usuario;
         private System.Windows.Forms.Label Lbl_fechaHora;
         private System.Windows.Forms.Label Lbl_usuario2;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Panel Pnl_Venta;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
@@ -600,5 +619,7 @@ namespace Capa_Vista_CompraVenta
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button Btn_poliza;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

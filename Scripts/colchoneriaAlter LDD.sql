@@ -2,6 +2,7 @@
 
 -- ALTERS DEL MODULO DE CONTABILIDAD 28-10-2024
 ALTER TABLE tbl_cuentas
+
 ADD COLUMN es_efectivo TINYINT DEFAULT 0 AFTER Pk_id_cuenta_enlace;
 -- FIN DE ALTER 28-10-2024
     
@@ -200,15 +201,19 @@ CHANGE COLUMN pado_estado estado TINYINT DEFAULT 1 NOT NULL;
 
 -- TBL_Deudas_Clientes
 ALTER TABLE Tbl_Deudas_Clientes
-ADD COLUMN transaccion_tipo INT NOT NULL;
+ADD COLUMN transaccion_tipo VARCHAR(150) NOT NULL;
 
 ALTER TABLE Tbl_Deudas_Clientes
-ADD COLUMN Fk_id_tranC INT NOT NULL,
-ADD CONSTRAINT fk_id_tranC FOREIGN KEY (Fk_id_tranC) REFERENCES Tbl_transaccion_cuentas(Pk_id_tran_cue);
+ADD COLUMN Efecto_trans VARCHAR(150) NOT NULL;
 
 ALTER TABLE Tbl_Deudas_Clientes
 ADD COLUMN Fk_id_factura INT NOT NULL,
 ADD CONSTRAINT fk_id_factura FOREIGN KEY (Fk_id_factura) REFERENCES Tbl_factura(Pk_id_factura);
+
+ALTER TABLE Tbl_Deudas_Clientes 
+DROP FOREIGN KEY tbl_deudas_clientes_ibfk_3;
+ALTER TABLE Tbl_Deudas_Clientes 
+DROP COLUMN Fk_id_pago;
 
 -- TBL_Transaccion_clientes
 ALTER TABLE Tbl_Transaccion_cliente
@@ -218,10 +223,18 @@ ADD COLUMN Fk_id_transC INT NOT NULL,
 ADD CONSTRAINT fk_transC_trans_cliente FOREIGN KEY (Fk_id_transC) REFERENCES Tbl_transaccion_cuentas(Pk_id_tran_cue),
 ADD COLUMN transaccion_tipo VARCHAR(150) NOT NULL;
 
+-- Eliminar llaves foráneas 
+ALTER TABLE Tbl_Transaccion_cliente 
+DROP FOREIGN KEY tbl_transaccion_cliente_ibfk_3, 
+DROP FOREIGN KEY tbl_transaccion_cliente_ibfk_2;
+
+-- Eliminar columnas innecesarias
 ALTER TABLE Tbl_Transaccion_cliente
 DROP COLUMN transaccion_cuotas, 
-DROP COLUMN tansaccion_cuenta;
-ALTER TABLE Tbl_Transaccion_cliente DROP FOREIGN KEY tbl_transaccion_cliente_ibfk_3;
+DROP COLUMN tansaccion_cuenta,
+DROP COLUMN Fk_id_pais,
+DROP COLUMN Fk_id_pago,
+DROP COLUMN transaccionserie;
 
 -- TBL_mora_clientes
 ALTER TABLE Tbl_mora_clientes MODIFY COLUMN morafecha VARCHAR(15) NOT NULL;
@@ -238,29 +251,41 @@ DROP COLUMN caja_mora_monto,
 DROP COLUMN caja_transaccion_monto;
 
 -- TBL_Deuda_Proveedores
-ALTER TABLE Tbl_Deudas_Proveedores MODIFY COLUMN deuda_fecha_inicio VARCHAR(15) NOT NULL;
-ALTER TABLE Tbl_Deudas_Proveedores MODIFY COLUMN deuda_fecha_vencimiento VARCHAR(15) NOT NULL;
-
-ALTER TABLE Tbl_Deudas_Proveedores 
-ADD COLUMN Fk_id_tranC INT NOT NULL,  
-ADD CONSTRAINT fk_transaccion_cuentas FOREIGN KEY (Fk_id_tranC) REFERENCES Tbl_transaccion_cuentas(Pk_id_tran_cue), 
-ADD COLUMN transaccion_tipo INT NOT NULL, 
-ADD COLUMN Fk_id_factura INT NOT NULL,  
-ADD CONSTRAINT fk_factura FOREIGN KEY (Fk_id_factura) REFERENCES Tbl_factura(Pk_id_factura);
-
--- TBL_Transaccion_proveedor
-ALTER TABLE Tbl_Transaccion_proveedor 
-ADD COLUMN Fk_id_factura INT NOT NULL,  
-ADD CONSTRAINT fk_factura_trans_prov FOREIGN KEY (Fk_id_factura) REFERENCES Tbl_factura(Pk_id_factura), 
-ADD COLUMN Fk_id_transC INT NOT NULL,  
-ADD CONSTRAINT fk_transC_trans_prov FOREIGN KEY (Fk_id_transC) REFERENCES Tbl_transaccion_cuentas(Pk_id_tran_cue), 
+ALTER TABLE Tbl_Deudas_Proveedores MODIFY COLUMN deuda_fecha_inicio VARCHAR(150) NOT NULL;
+ALTER TABLE Tbl_Deudas_Proveedores MODIFY COLUMN deuda_fecha_vencimiento VARCHAR(150) NOT NULL;
+ALTER TABLE Tbl_Deudas_Proveedores
 ADD COLUMN transaccion_tipo VARCHAR(150) NOT NULL;
 
-ALTER TABLE Tbl_Transaccion_proveedor
-DROP COLUMN tansaccion_cuenta, 
-DROP COLUMN tansaccion_cuotas;
+ALTER TABLE Tbl_Deudas_Proveedores
+ADD COLUMN Efecto_trans VARCHAR(150) NOT NULL;
 
-ALTER TABLE Tbl_Transaccion_proveedor DROP FOREIGN KEY tbl_transaccion_proveedor_ibfk_3;
+ALTER TABLE Tbl_Deudas_Proveedores
+ADD COLUMN Fk_id_factura INT NOT NULL,
+ADD CONSTRAINT fk_id_factura2 FOREIGN KEY (Fk_id_factura) REFERENCES Tbl_factura(Pk_id_factura);
+
+ALTER TABLE Tbl_Deudas_Proveedores 
+DROP FOREIGN KEY tbl_deudas_proveedores_ibfk_2;
+ALTER TABLE Tbl_Deudas_Proveedores
+DROP COLUMN Fk_id_pago;
+
+-- TBL_Transaccion_proveedor
+ALTER TABLE Tbl_Transaccion_proveedor
+ADD COLUMN Fk_id_transC INT NOT NULL,
+ADD CONSTRAINT fk_transC_trans_proveedor FOREIGN KEY (Fk_id_transC) REFERENCES Tbl_transaccion_cuentas(Pk_id_tran_cue),
+ADD COLUMN transaccion_tipo VARCHAR(150) NOT NULL;
+
+-- Eliminar llaves foráneas 
+ALTER TABLE Tbl_Transaccion_proveedor 
+DROP FOREIGN KEY tbl_transaccion_proveedor_ibfk_3, 
+DROP FOREIGN KEY tbl_transaccion_proveedor_ibfk_2;
+
+-- Eliminar columnas innecesarias
+ALTER TABLE Tbl_Transaccion_proveedor
+DROP COLUMN tansaccion_cuotas, 
+DROP COLUMN tansaccion_cuenta,
+DROP COLUMN Fk_id_pais,
+DROP COLUMN Fk_id_pago,
+DROP COLUMN transaccion_serie;
 
 -- TBL_caja_proveedor
 
@@ -272,3 +297,311 @@ ADD CONSTRAINT fk_factura_caja FOREIGN KEY (Fk_id_factura) REFERENCES Tbl_factur
 ALTER TABLE Tbl_caja_proveedor
 DROP COLUMN caja_deuda_monto, 
 DROP COLUMN caja_transaccion_monto;
+
+
+-- ALTER MODULO LOGISTICA 04/11/2024
+ALTER TABLE tbl_productos ADD CONSTRAINT UQ_codigoProducto UNIQUE
+(codigoProducto);
+
+-- Alter del modulo de nominas 4/11/2024
+ALTER TABLE tbl_dedu_perp_emp
+ADD COLUMN dedu_perp_emp_mes VARCHAR(25) NOT NULL AFTER dedu_perp_emp_cantidad;
+
+ALTER TABLE tbl_horas_extra
+MODIFY COLUMN horas_cantidad_horas INT;
+
+
+-- ALTER MODULO DE LOGISTICA 05/11/2024
+ALTER TABLE Tbl_Productos
+ADD COLUMN precio_venta DECIMAL(10, 2) AFTER precioUnitario,
+ADD COLUMN costo_compra DECIMAL(10, 2) AFTER precio_venta;
+ALTER TABLE TBL_LOCALES
+MODIFY FECHA_REGISTRO DATE NOT NULL;
+
+-- ALTER MODULO COMERCIAL 06/11/2024
+
+CREATE TABLE Tbl_clasificacionLista (
+    pk_id_clasificacion INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nombre_clasificacion VARCHAR(50) NOT NULL,  
+    descripcion_clasificacion VARCHAR(100),                   
+    estado TINYINT NOT NULL DEFAULT 1           
+);
+
+  
+ALTER TABLE tbl_lista_encabezado
+  ADD COLUMN Fk_id_clasificacion INT AFTER Pk_id_lista_Encabezado;
+  
+ALTER TABLE tbl_lista_encabezado
+  ADD CONSTRAINT fk_clasificacion
+  FOREIGN KEY (Fk_id_clasificacion) REFERENCES Tbl_clasificacionLista(Pk_id_clasificacion);
+
+
+ALTER TABLE tbl_lista_encabezado
+  CHANGE COLUMN ListEncabezado_fecha ListEncabezado_fecha DATE;
+
+
+ALTER TABLE tbl_lista_encabezado
+  CHANGE COLUMN ListEncabezado_estado estado TINYINT(1) DEFAULT 1;
+  
+
+ALTER TABLE tbl_lista_encabezado
+  DROP COLUMN ListEncabezado_nombre;
+
+ ALTER TABLE tbl_cotizacion_detalle
+DROP FOREIGN KEY tbl_cotizacion_detalle_ibfk_2;
+ 
+ SHOW CREATE TABLE tbl_cotizacion_detalle;
+
+  
+ALTER TABLE Tbl_lista_detalle
+DROP COLUMN Pk_id_lista_detalle;
+
+
+
+ALTER TABLE Tbl_lista_detalle
+  CHANGE COLUMN ListDetalle_preVenta ListDetalle_precio DECIMAL(10,2) NULL;
+
+
+ALTER TABLE Tbl_lista_detalle
+  ADD PRIMARY KEY (Fk_id_lista_Encabezado, Fk_id_Producto);  
+
+
+ALTER TABLE Tbl_lista_detalle
+  ADD CONSTRAINT fk_lista_encabezado FOREIGN KEY (Fk_id_lista_Encabezado) REFERENCES Tbl_lista_encabezado(Pk_id_lista_Encabezado),
+  ADD CONSTRAINT fk_producto FOREIGN KEY (Fk_id_Producto) REFERENCES Tbl_Productos(Pk_id_Producto);
+
+
+ALTER TABLE Tbl_lista_detalle
+  DROP COLUMN ListDetalle_descuento,
+  DROP COLUMN ListDetalle_impuesto;
+
+
+DROP TABLE IF EXISTS Tbl_detalle_comisiones;
+DROP TABLE IF EXISTS Tbl_comisiones_encabezado;
+DROP TABLE IF EXISTS Tbl_pedido_detalle;
+DROP TABLE IF EXISTS Tbl_pedido_encabezado;
+DROP TABLE IF EXISTS Tbl_cotizacion_detalle;
+DROP TABLE IF EXISTS Tbl_cotizacion_encabezado;
+DROP TABLE IF EXISTS Tbl_vendedores;
+DROP TABLE IF EXISTS Tbl_detalle_ordenes_compra;
+DROP TABLE IF EXISTS Tbl_ordenes_compra;
+
+CREATE TABLE IF NOT EXISTS Tbl_vendedores (
+    Pk_id_vendedor int (11) NOT NULL,
+    vendedores_nombre VARCHAR(100)NOT NULL ,
+    vendedores_apellido VARCHAR(100)NOT NULL ,
+    vendedores_sueldo DECIMAL(10,2)NOT NULL ,
+    vendedores_direccion VARCHAR(255)NOT NULL ,
+    vendedores_telefono VARCHAR(20)NOT NULL ,
+	Fk_id_empleado INT NOT NULL,
+    estado tinyint(1) DEFAULT 1,
+    FOREIGN KEY (Fk_id_empleado) REFERENCES tbl_empleados(pk_clave),
+    PRIMARY KEY (Pk_id_vendedor)
+);
+
+ 
+ ALTER TABLE Tbl_clientes 
+ADD COLUMN Cliente_Tipo VARCHAR(20) NOT NULL;
+
+ALTER TABLE Tbl_clientes
+ADD COLUMN Clientes_deuda DECIMAL(10, 2) DEFAULT 0.00;
+
+ALTER TABLE Tbl_clientes 
+ADD Fk_id_vendedor INT NOT NULL,
+ADD CONSTRAINT FK_vendedor_cliente
+FOREIGN KEY (Fk_id_vendedor) REFERENCES Tbl_vendedores(Pk_id_vendedor); 
+
+ALTER TABLE Tbl_clientes 
+CHANGE Clientes_estado estado TINYINT(1) DEFAULT 1;
+
+ALTER TABLE Tbl_clientes 
+ADD COLUMN Fk_id_lista_Encabezado INT NOT NULL;
+
+ALTER TABLE Tbl_clientes 
+ADD CONSTRAINT FK_id_lista_Encabezado
+FOREIGN KEY (Fk_id_lista_Encabezado) 
+REFERENCES Tbl_lista_encabezado(Pk_id_lista_Encabezado);
+
+ALTER TABLE Tbl_proveedores
+ADD COLUMN Proveedor_deuda DECIMAL(10, 2) DEFAULT 0.00;
+
+ALTER TABLE Tbl_proveedores 
+CHANGE Prov_estado estado TINYINT(1) DEFAULT 1;
+
+
+CREATE TABLE IF NOT EXISTS Tbl_cotizacion_encabezado (
+    Pk_id_cotizacionEnc VARCHAR(20) NOT NULL UNIQUE,
+    Fk_id_vendedor INT,
+    Fk_id_cliente INT,
+    CotizacionEnc_fechaVenc DATE,
+    CotizacionEnc_total DECIMAL(10,2),
+    FOREIGN KEY (Fk_id_vendedor) REFERENCES Tbl_vendedores(Pk_id_vendedor),
+    FOREIGN KEY (Fk_id_cliente) REFERENCES Tbl_clientes(Pk_id_cliente),
+    PRIMARY KEY (Pk_id_cotizacionEnc)
+);
+
+CREATE TABLE IF NOT EXISTS Tbl_cotizacion_detalle (
+    Fk_id_cotizacionEnc VARCHAR(20) NOT NULL,  
+    Fk_id_producto INT,        
+    CotizacionDet_cantidad INT,
+    CotizacionDet_precio DECIMAL(10,2),
+    CotizacionDet_subtotal decimal(10,2),
+    FOREIGN KEY (Fk_id_cotizacionEnc) REFERENCES Tbl_cotizacion_encabezado(Pk_id_cotizacionEnc),
+    FOREIGN KEY (Fk_id_producto) REFERENCES Tbl_Productos(Pk_id_Producto)
+);
+
+CREATE TABLE IF NOT EXISTS Tbl_pedido_encabezado (
+    Pk_id_pedidoEnc VARCHAR(20) NOT NULL UNIQUE,
+    Fk_id_cliente INT  NOT NULL,
+    Fk_id_vendedor INT  NOT NULL,
+    PedidoEncfecha DATE  NOT NULL,
+    PedidoEnc_total DECIMAL(10,2),
+    FOREIGN KEY (Fk_id_cliente) REFERENCES Tbl_clientes(Pk_id_cliente),
+    FOREIGN KEY (Fk_id_vendedor) REFERENCES Tbl_vendedores(Pk_id_vendedor),
+    PRIMARY KEY (Pk_id_PedidoEnc)
+);
+
+
+CREATE TABLE IF NOT EXISTS Tbl_pedido_detalle (
+    Fk_id_pedidoEnc VARCHAR(20) NOT NULL,
+    Fk_id_producto INT,
+    Fk_id_cotizacionEnc VARCHAR(20) NOT NULL,
+    PedidoDet_cantidad int,
+    PedidoEnc_precio decimal(10,2),
+    PedidoEnc_total DECIMAL(10,2),
+    FOREIGN KEY (Fk_id_pedidoEnc) REFERENCES Tbl_pedido_encabezado(Pk_id_pedidoEnc),
+    FOREIGN KEY (Fk_id_producto) REFERENCES Tbl_Productos(Pk_id_Producto),
+    FOREIGN KEY (Fk_id_cotizacionEnc) REFERENCES Tbl_cotizacion_encabezado(Pk_id_cotizacionEnc),
+    PRIMARY KEY (Fk_id_pedidoEnc, Fk_id_producto,Fk_id_cotizacionEnc)
+);
+
+SET foreign_key_checks = 0;
+ALTER TABLE Tbl_pedido_encabezado 
+    MODIFY Pk_id_PedidoEnc VARCHAR(20) NOT NULL UNIQUE;
+SET foreign_key_checks = 1;
+
+
+SET foreign_key_checks = 0;
+ALTER TABLE Tbl_pedido_detalle 
+    MODIFY Fk_id_pedidoEnc VARCHAR(20) NOT NULL,
+    MODIFY Fk_id_cotizacionEnc VARCHAR(20),
+    DROP PRIMARY KEY,
+    ADD PRIMARY KEY (Fk_id_pedidoEnc, Fk_id_producto, Fk_id_cotizacionEnc);
+
+
+
+
+DROP TABLE IF EXISTS Tbl_factura_detalle;
+DROP TABLE IF EXISTS Tbl_factura_encabezado;
+
+CREATE TABLE IF NOT EXISTS Tbl_factura_encabezado (
+    Pk_id_facturaEnc VARCHAR(20) NOT NULL UNIQUE,
+    Fk_id_vendedor INT,
+    Fk_id_cliente INT,
+    Fk_id_PeidoEnc INT,
+    CotizacionEnc_fechaCrea DATE,
+    CotizacionEnc_fechaVenc DATE,
+    factura_formPago ENUM('al contado', 'al crédito') NOT NULL,
+    factura_subtotal DECIMAL(10,2)  NOT NULL,
+    factura_iva DECIMAL(4, 2) NOT NULL DEFAULT 0.12,
+	facturaEnc_total DECIMAL(10,2),
+    FOREIGN KEY (Fk_id_vendedor) REFERENCES Tbl_vendedores(Pk_id_vendedor),
+    FOREIGN KEY (Fk_id_cliente) REFERENCES Tbl_clientes(Pk_id_cliente),
+    PRIMARY KEY (Pk_id_facturaEnc)
+);
+
+-- Tabla factura Detalle
+CREATE TABLE IF NOT EXISTS Tbl_factura_detalle (
+    fk_id_facturaEnc VARCHAR(20) NOT NULL,  
+    Fk_id_producto INT,        
+    facturaDet_cantidad INT,
+    facturaDet_precio DECIMAL(10,2),
+    facturaDet_subtotal decimal(10,2),
+    FOREIGN KEY (fk_id_facturaEnc) REFERENCES Tbl_factura_encabezado(Pk_id_facturaEnc),
+    FOREIGN KEY (Fk_id_producto) REFERENCES Tbl_Productos(Pk_id_Producto)
+);
+
+
+CREATE TABLE IF NOT EXISTS Tbl_comisiones_encabezado (
+    Pk_id_comisionEnc INT(11) NOT NULL,
+    Fk_id_vendedor INT NOT NULL,
+    Comisiones_fecha_ DATE NOT NULL,
+    Comisiones_total_venta DECIMAL(10,2) NOT NULL,
+    Comisiones_total_comision DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (Fk_id_vendedor) REFERENCES Tbl_vendedores(Pk_id_vendedor),
+    PRIMARY KEY (Pk_id_comisionEnc)
+);
+
+CREATE TABLE IF NOT EXISTS Tbl_detalle_comisiones (
+    Pk_id_detalle_comision INT(11) NOT NULL,
+    Fk_id_comisionEnc INT NOT NULL,
+    Fk_id_facturaEnc VARCHAR(20) NOT NULL,
+    Comisiones_porcentaje DECIMAL(5,2) NOT NULL,
+    Comisiones_monto_venta DECIMAL(10,2) NOT NULL,
+    Comisiones_monto_comision DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (Fk_id_comisionEnc) REFERENCES Tbl_comisiones_encabezado(Pk_id_comisionEnc),
+    FOREIGN KEY (Fk_id_facturaEnc) REFERENCES Tbl_factura_encabezado(Pk_id_facturaEnc),
+    PRIMARY KEY (Pk_id_detalle_comision)
+);
+
+CREATE TABLE IF NOT EXISTS Tbl_EncabezadoOrdenCompra(
+    PK_encOrCom_numeroOC VARCHAR(20) NOT NULL UNIQUE,
+    Fk_prov_id INT,
+	EncOrCom_fechaEntrega DATE,
+	total DECIMAL(10, 2),
+    FOREIGN KEY (Fk_prov_id) REFERENCES Tbl_proveedores(Pk_prov_id),
+    PRIMARY KEY (PK_encOrCom_numeroOC)
+);
+CREATE TABLE IF NOT EXISTS Tbl_DetalleOrdenesCompra (
+    FK_encOrCom_numeroOC VARCHAR(20) NOT NULL,
+    FK_codigoProducto INT,
+    DetOrCom_precioU DECIMAL(10,2),
+    DetOrCom_cantidad INT NOT NULL,
+    DetOrCom_total DECIMAL(10,2),
+    FOREIGN KEY (FK_encOrCom_numeroOC) REFERENCES Tbl_EncabezadoOrdenCompra(PK_encOrCom_numeroOC),
+    FOREIGN KEY (FK_codigoProducto) REFERENCES Tbl_Productos(codigoProducto),
+    PRIMARY KEY ( FK_encOrCom_numeroOC, FK_codigoProducto)
+);
+
+
+-- CREACION DE TABLAS DEL MODULO DE PRODUCCION  06/11/2024
+CREATE TABLE IF NOT EXISTS tbl_implosion ( 
+    pk_id_implosion INT(11) NOT NULL AUTO_INCREMENT,
+    fk_id_orden INT(11) DEFAULT NULL, -- Relacionado con la orden de producción
+    fk_id_producto_final INT(11) DEFAULT NULL, -- Producto final que se construye
+    id_componente VARCHAR(50) DEFAULT NULL, -- Componente utilizado en la consolidación, ahora como string
+    cantidad_componente INT(11) DEFAULT NULL, -- Cantidad de cada componente
+    costo_componente INT(11) DEFAULT NULL, -- Costo de cada componente
+    duracion_horas INT(11) DEFAULT NULL, -- Duración en horas para consolidar el componente
+    fk_id_proceso INT(11) DEFAULT NULL, -- Relación con el proceso de producción
+    fecha_implosion DATETIME DEFAULT NULL, -- Fecha de la implosión
+    PRIMARY KEY (pk_id_implosion)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS tbl_explosion (
+pk_id_explosion INT(11) NOT NULL AUTO_INCREMENT,
+fk_id_orden INT(11) DEFAULT NULL, -- Relacionado con la orden de producción
+fk_id_producto INT(11) DEFAULT NULL, -- Producto que se descompone
+cantidad INT(11) DEFAULT NULL, -- Cantidad de producto a descomponer
+costo_total DECIMAL(10,2) DEFAULT NULL, -- Costo total de la descomposición
+duracion_horas INT(11) DEFAULT NULL, -- Duración en horas
+fk_id_proceso INT(11) DEFAULT NULL, -- Relación con el proceso
+fecha_explosion DATE DEFAULT NULL, -- Fecha de la explosión
+PRIMARY KEY (pk_id_explosion),
+FOREIGN KEY (fk_id_producto) REFERENCES tbl_productos(pk_id_producto),
+FOREIGN KEY (fk_id_proceso) REFERENCES tbl_proceso_produccion_encabezado(pk_id_proceso)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+-- CUENTAS CORRIENTES 07/11/2024
+
+DROP TABLE Tbl_paises;
+Drop table Tbl_Formadepago;
+
+-- PRODUCCION 08/11/024
+ALTER TABLE tbl_recetas
+ADD COLUMN `dias` INT(11) NULL,
+ADD COLUMN `horas` DECIMAL(10,2) NULL;
+
+
+

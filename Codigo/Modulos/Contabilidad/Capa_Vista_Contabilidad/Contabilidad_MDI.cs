@@ -9,10 +9,11 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using Capa_Vista_EstadosFinancieros;
-//using Capa_Vista_CierreContable;
-//using Capa_Vista_Presupuesto;
-//using Capa_Vista_Polizas;
+using Capa_Vista_EstadosFinancieros;
+using Capa_Vista_CierreContable;
+using Capa_Vista_Presupuesto;
+using Capa_Vista_Polizas;
+using System.IO;
 
 namespace Capa_Vista_Contabilidad   
 {
@@ -28,6 +29,9 @@ namespace Capa_Vista_Contabilidad
 
             //Primera label
             lbl_usuario2.Text = idUsuario;
+
+            Capa_Vista_Polizas.frmPolizas formulario = new Capa_Vista_Polizas.frmPolizas();
+            formulario.SetParametro(idUsuario);
 
             //Segunda label
             DateTime fechaHoraActual = DateTime.Now;
@@ -205,9 +209,83 @@ namespace Capa_Vista_Contabilidad
             this.Close();
         }*/
 
+        public string FindFileInDirectory(string directory, string fileName)
+        {
+            try
+            {
+                // Verificamos si la carpeta existe
+                if (Directory.Exists(directory))
+                {
+                    // Buscamos el archivo .chm en la carpeta
+                    string[] files = Directory.GetFiles(directory, "*.chm", SearchOption.TopDirectoryOnly);
+
+                    // Si encontramos el archivo, verificamos si coincide con el archivo que se busca y retornamos su ruta
+                    foreach (var file in files)
+                    {
+                        if (Path.GetFileName(file).Equals(fileName, StringComparison.OrdinalIgnoreCase))
+                        {
+                            //MessageBox.Show("Archivo encontrado: " + file);
+                            return file;
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró la carpeta: " + directory);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al buscar ayuda: " + ex.Message);
+            }
+
+            // Retorna null si no se encontró el archivo
+            return null;
+        }
+
         private void btnSalir_Click_1(object sender, EventArgs e)
         {
-            this.Close();
+            try
+            {
+                // Obtener la ruta del directorio del ejecutable
+                string executablePath = AppDomain.CurrentDomain.BaseDirectory;
+
+                // Retroceder a la carpeta del proyecto
+                string projectPath = Path.GetFullPath(Path.Combine(executablePath, @"..\..\"));
+                //MessageBox.Show("1" + projectPath);
+
+                // Combinar con la ruta fija de "asis22k24proy2\Codigo\Componentes\Seguridad"
+                //string basePath = Path.Combine(projectPath, @"asis22k24proy2\Codigo\Componentes\Seguridad");
+                //MessageBox.Show("2" + basePath);
+
+
+                string ayudaFolderPath = Path.Combine(projectPath, "AyudaConta");
+
+                // Imprimir la ruta de ayuda para verificar
+                //MessageBox.Show("3: " + ayudaFolderPath);
+
+                // Busca el archivo .chm en la carpeta "Ayuda_Seguridad"
+                string pathAyuda = FindFileInDirectory(ayudaFolderPath, "AyudaConta.chm");
+
+                // Verifica si el archivo existe antes de intentar abrirlo
+                if (!string.IsNullOrEmpty(pathAyuda))
+                {
+                    //MessageBox.Show("El archivo sí está.");
+                    // Abre el archivo de ayuda .chm en la sección especificada
+                    Help.ShowHelp(null, pathAyuda, "AyudaConta.html");
+                }
+                else
+                {
+                    // Si el archivo no existe, muestra un mensaje de error
+                    MessageBox.Show("El archivo de ayuda no se encontró.");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Mostrar un mensaje de error en caso de una excepción
+                MessageBox.Show("Ocurrió un error al abrir la ayuda: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine("Error al abrir la ayuda: " + ex.ToString());
+            }
         }
 
         private void btnmTipoPoliza_Click(object sender, EventArgs e)
@@ -333,16 +411,16 @@ namespace Capa_Vista_Contabilidad
 
         private void btnPresupuestos_Click(object sender, EventArgs e)
         {
-            //AbrirFormulario<Capa_Vista_Presupuesto.Presupuesto>();
-            //btnPresupuestos.BackColor = Color.FromArgb(255, 51, 51);
-            //ocultaSubMenu();
+            AbrirFormulario<Capa_Vista_Presupuesto.Presupuesto>();
+            btnPresupuestos.BackColor = Color.FromArgb(255, 51, 51);
+            ocultaSubMenu();
         }
 
         private void BtnCierreCuentas_Click(object sender, EventArgs e)
         {
-           // AbrirFormulario<FormCierre>();
-           //BtnCierreCuentas.BackColor = Color.FromArgb(255, 51, 51);
-           //ocultaSubMenu();
+            AbrirFormulario<FormCierre>();
+           BtnCierreCuentas.BackColor = Color.FromArgb(255, 51, 51);
+           ocultaSubMenu();
         }
 
         private void btnActivosFijos_Click(object sender, EventArgs e)
@@ -354,16 +432,21 @@ namespace Capa_Vista_Contabilidad
 
         private void btnEstadosFin_Click_1(object sender, EventArgs e)
         {
-           //AbrirFormulario<Capa_Vista_EstadosFinancieros.EstadosFinancieros>();
-           //btnEstadosFin.BackColor = Color.FromArgb(255, 51, 51);
-           //ocultaSubMenu();
+           AbrirFormulario<Capa_Vista_EstadosFinancieros.EstadosFinancieros>();
+           btnEstadosFin.BackColor = Color.FromArgb(255, 51, 51);
+           ocultaSubMenu();
         }
 
         private void btnPolizas_Click(object sender, EventArgs e)
         {
-           /*AbrirFormulario<Capa_Vista_Polizas.frmPolizas>();
+           AbrirFormulario<Capa_Vista_Polizas.frmPolizas>();
            btnPolizas.BackColor = Color.FromArgb(255, 51, 51);
-           ocultaSubMenu();*/
+           ocultaSubMenu();
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         #endregion

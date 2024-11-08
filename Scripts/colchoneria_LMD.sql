@@ -1,7 +1,7 @@
 --
 -- Volcado de datos para la tabla `ayuda`
 --
-
+SET SQL_SAFE_UPDATES = 0; -- desactivar el modo seguro
 INSERT INTO `ayuda` (`Id_ayuda`, `Ruta`, `indice`, `estado`) VALUES
 (1, 'AyudaNavegador.chm', 'AyudaNav.html', 1),
 (2, 'AyudaReportes.chm', 'AyudaRep.html', 1),
@@ -636,4 +636,128 @@ VALUES
 (115, 2, 5, 'Depreciación de Activos', 0, 0, 0, 0, 0, 0, 101, 1, 1),
 (116, 2, 5, 'Otros Gastos', 0, 0, 0, 0, 0, 0, 101, 1, 1);
 
+-- Inserciones para tbl_historico_cuentas
+INSERT INTO tbl_historico_cuentas (Pk_id_cuenta, mes, anio, cargo_mes, abono_mes, saldo_ant, saldo_act, cargo_acumulado, abono_acumulado, saldoanual) VALUES
+(1, 1, 2024, 100.00, 100.00, 500.00, 1500.00, 800.00, 1000.00, 10000.00),
+(2, 1, 2024, 150.00, 150.00, 1000.00, 3000.00, 800.00, 1000.00, 20000.00),
+(3, 1, 2024, 75.00, 75.00, 700.00, 2200.00, 800.00, 1000.00, 15000.00),
+(4, 1, 2024, 0.00, 100.00, 3000.00, 2500.00, 800.00, 1000.00, 10000.00),
+(5, 1, 2024, 50.00, 50.00, 1200.00, 500.00, 800.00, 1000.00, 5000.00),
+(6, 1, 2024, 25.00, 25.00, 0.00, 5000.00, 800.00, 1000.00, 20000.00),
+(1, 2, 2024, 100.00, 100.00, 500.00, 1500.00, 800.00, 1000.00, 10000.00),
+(2, 2, 2024, 150.00, 150.00, 1000.00, 3000.00, 800.00, 1000.00, 20000.00),
+(3, 2, 2024, 75.00, 75.00, 700.00, 2200.00, 800.00, 1000.00, 15000.00),
+(4, 2, 2024, 0.00, 100.00, 3000.00, 2500.00, 800.00, 1000.00, 10000.00),
+(5, 2, 2024, 50.00, 50.00, 1200.00, 500.00, 800.00, 1000.00, 5000.00),
+(6, 2, 2024, 25.00, 25.00, 0.00, 5000.00, 800.00, 1000.00, 20000.00),
+(1, 3, 2024, 100.00, 100.00, 500.00, 1500.00, 800.00, 1000.00, 10000.00),
+(2, 3, 2024, 150.00, 150.00, 1000.00, 3000.00, 800.00, 1000.00, 20000.00),
+(3, 3, 2024, 75.00, 75.00, 700.00, 2200.00, 800.00, 1000.00, 15000.00),
+(4, 3, 2024, 0.00, 100.00, 3000.00, 2500.00, 800.00, 1000.00, 10000.00),
+(5, 3, 2024, 50.00, 50.00, 1200.00, 500.00, 800.00, 1000.00, 5000.00),
+(6, 3, 2024, 25.00, 25.00, 0.00, 5000.00, 800.00, 1000.00, 20000.00),
+(1, 4, 2024, 100.00, 100.00, 500.00, 1500.00, 800.00, 1000.00, 10000.00),
+(2, 4, 2024, 150.00, 150.00, 1000.00, 3000.00, 800.00, 1000.00, 20000.00),
+(3, 4, 2024, 75.00, 75.00, 700.00, 2200.00, 800.00, 1000.00, 15000.00),
+(4, 4, 2024, 0.00, 100.00, 3000.00, 2500.00, 800.00, 1000.00, 10000.00),
+(5, 4, 2024, 50.00, 50.00, 1200.00, 500.00, 800.00, 1000.00, 5000.00),
+(6, 4, 2024, 25.00, 25.00, 0.00, 5000.00, 800.00, 1000.00, 20000.00),
+(1, 5, 2024, 100.00, 100.00, 500.00, 1500.00, 800.00, 1000.00, 10000.00),
+(2, 5, 2024, 150.00, 150.00, 1000.00, 3000.00, 800.00, 1000.00, 20000.00),
+(3, 5, 2024, 75.00, 75.00, 700.00, 2200.00, 800.00, 1000.00, 15000.00),
+(4, 5, 2024, 0.00, 100.00, 3000.00, 2500.00, 800.00, 1000.00, 10000.00),
+(5, 5, 2024, 50.00, 50.00, 1200.00, 500.00, 800.00, 1000.00, 5000.00),
+(6, 5, 2024, 25.00, 25.00, 0.00, 5000.00, 800.00, 1000.00, 20000.00),
+(1, 6, 2024, 100.00, 100.00, 500.00, 1500.00, 800.00, 1000.00, 10000.00),
+(2, 6, 2024, 150.00, 150.00, 1000.00, 3000.00, 800.00, 1000.00, 20000.00),
+(3, 6, 2024, 75.00, 75.00, 700.00, 2200.00, 800.00, 1000.00, 15000.00),
+(4, 6, 2024, 0.00, 100.00, 3000.00, 2500.00, 800.00, 1000.00, 10000.00),
+(5, 6, 2024, 50.00, 50.00, 1200.00, 500.00, 800.00, 1000.00, 5000.00),
+(6, 6, 2024, 25.00, 25.00, 0.00, 5000.00, 800.00, 1000.00, 20000.00),
+(1, 7, 2024, 100.00, 100.00, 500.00, 1500.00, 800.00, 1000.00, 10000.00),
+(2, 7, 2024, 150.00, 150.00, 1000.00, 3000.00, 800.00, 1000.00, 20000.00),
+(3, 7, 2024, 75.00, 75.00, 700.00, 2200.00, 800.00, 1000.00, 15000.00),
+(4, 7, 2024, 0.00, 100.00, 3000.00, 2500.00, 800.00, 1000.00, 10000.00),
+(5, 7, 2024, 50.00, 50.00, 1200.00, 500.00, 800.00, 1000.00, 5000.00),
+(6, 7, 2024, 25.00, 25.00, 0.00, 5000.00, 800.00, 1000.00, 20000.00),
+(1, 8, 2024, 100.00, 100.00, 500.00, 1500.00, 800.00, 1000.00, 10000.00),
+(2, 8, 2024, 150.00, 150.00, 1000.00, 3000.00, 800.00, 1000.00, 20000.00),
+(3, 8, 2024, 75.00, 75.00, 700.00, 2200.00, 800.00, 1000.00, 15000.00),
+(4, 8, 2024, 0.00, 100.00, 3000.00, 2500.00, 800.00, 1000.00, 10000.00),
+(5, 8, 2024, 50.00, 50.00, 1200.00, 500.00, 800.00, 1000.00, 5000.00),
+(6, 8, 2024, 25.00, 25.00, 0.00, 5000.00, 800.00, 1000.00, 20000.00),
+(1, 9, 2024, 100.00, 100.00, 500.00, 1500.00, 800.00, 1000.00, 10000.00),
+(2, 9, 2024, 150.00, 150.00, 1000.00, 3000.00, 800.00, 1000.00, 20000.00),
+(3, 9, 2024, 75.00, 75.00, 700.00, 2200.00, 800.00, 1000.00, 15000.00),
+(4, 9, 2024, 0.00, 100.00, 3000.00, 2500.00, 800.00, 1000.00, 10000.00),
+(5, 9, 2024, 50.00, 50.00, 1200.00, 500.00, 800.00, 1000.00, 5000.00),
+(6, 9, 2024, 25.00, 25.00, 0.00, 5000.00, 800.00, 1000.00, 20000.00),
+(1, 10, 2024, 100.00, 100.00, 500.00, 1500.00, 800.00, 1000.00, 10000.00),
+(2, 10, 2024, 150.00, 150.00, 1000.00, 3000.00, 800.00, 1000.00, 20000.00),
+(3, 10, 2024, 75.00, 75.00, 700.00, 2200.00, 800.00, 1000.00, 15000.00),
+(4, 10, 2024, 0.00, 100.00, 3000.00, 2500.00, 800.00, 1000.00, 10000.00),
+(5, 10, 2024, 50.00, 50.00, 1200.00, 500.00, 800.00, 1000.00, 5000.00),
+(6, 10, 2024, 25.00, 25.00, 0.00, 5000.00, 800.00, 1000.00, 20000.00);
+
 -- LMD DE CONTABILIDAD FINAL
+
+-- LMD de Nominas
+-- Ingresos obligatorios Nominas
+INSERT INTO tbl_dedu_perp (dedu_perp_clase, dedu_perp_concepto, dedu_perp_tipo, dedu_perp_aplicacion, dedu_perp_excepcion, dedu_perp_monto, estado) 
+VALUES ('Deduccion','Faltas', 'Porcentaje', 'Todos', 0, 20.00, 1);
+
+INSERT INTO tbl_dedu_perp (dedu_perp_clase, dedu_perp_concepto, dedu_perp_tipo, dedu_perp_aplicacion, dedu_perp_excepcion, dedu_perp_monto, estado) 
+VALUES ('Percepcion','Anticipo', 'Monto', 'Todos', 0, 1, 1);
+
+INSERT INTO tbl_dedu_perp (dedu_perp_clase, dedu_perp_concepto, dedu_perp_tipo, dedu_perp_aplicacion, dedu_perp_excepcion, dedu_perp_monto, estado) 
+VALUES ('Percepcion','Horas Extras', 'Monto', 'Todos', 0, 1, 1);
+
+INSERT INTO tbl_dedu_perp (dedu_perp_clase, dedu_perp_concepto, dedu_perp_tipo, dedu_perp_aplicacion, dedu_perp_excepcion, dedu_perp_monto,estado) 
+VALUES ('Bono 14','Bono 14','Porcentaje','Todos',0,0.0833,1);
+
+INSERT INTO tbl_dedu_perp (dedu_perp_clase, dedu_perp_concepto,dedu_perp_tipo,dedu_perp_aplicacion,dedu_perp_excepcion,dedu_perp_monto,estado) 
+VALUES ('Aguinaldo','Aguinaldo','Porcentaje','Todos',0,0.0833,1);
+
+INSERT INTO tbl_dedu_perp (dedu_perp_clase,dedu_perp_concepto,dedu_perp_tipo,dedu_perp_aplicacion,dedu_perp_excepcion,dedu_perp_monto,estado) 
+VALUES ('Vacaciones','Vacaciones','Porcentaje','Todos',0, 0.0575 ,1);
+
+-- Para seguridad
+
+insert into tbl_aplicaciones (pk_id_aplicacion, nombre_aplicacion, descripcion_aplicacion, estado_aplicacion) values
+(6008, "Mant. Anticipos", "PARA NOMINAS", 1);
+
+INSERT INTO Tbl_aplicaciones (Pk_id_aplicacion,nombre_aplicacion,descripcion_aplicacion,estado_aplicacion) 
+VALUES (6107,'Cálculo liquidaciones','PARA NÓMINAS',1);
+
+SET SQL_SAFE_UPDATES = 1; -- activar el modo seguro
+
+-- CONTABILIDAD 07/11/2024
+UPDATE tbl_cuentas
+SET Pk_id_tipocuenta = 1
+WHERE Pk_id_cuenta = 8;
+
+-- cuentas corrientes 07/11/2024
+
+-- Insertar registros en Tbl_factura
+INSERT INTO Tbl_factura (Pk_id_factura, Fk_id_cliente, Fk_id_pedidoEnc, factura_fecha, factura_formPago, factura_subtotal, factura_iva, factura_total)
+VALUES 
+(1, 1, 1001, '2024-10-01', 'Tarjeta de Crédito', 500.00, 75.00, 575.00),
+(2, 2, 1002, '2024-10-05', 'Efectivo', 300.00, 45.00, 345.00),
+(3, 3, 1003, '2024-10-10', 'Transferencia', 150.00, 22.50, 172.50);
+
+-- Insertar registros en Tbl_cobrador
+INSERT INTO Tbl_cobrador (Fk_id_empleado, cobrador_nombre, cobrador_direccion, cobrador_telefono, cobrador_depto, estado)
+VALUES 
+(1, 'Pedro López', 'Av. Central, Ciudad', 5551234, 'Departamento 1', 1),
+(2, 'Sofía Martínez', 'Calle Principal, Ciudad', 5555678, 'Departamento 2', 1),
+(3, 'Carlos Ramírez', 'Zona Sur, Ciudad', 5559876, 'Departamento 3', 0);
+
+
+-- Insertar registros en Tbl_transaccion_cuentas
+INSERT INTO Tbl_transaccion_cuentas (tran_nombre, tran_efecto, estado)
+VALUES 
+('Depósito', 'Crédito', 1),
+('Pago con Tarjeta de Credito', 'Débito', 1),
+('Transferencia Bancaria', 'Débito', 1),
+('Pago con Tarjeta de Débito', 'Débito', 1);
+
