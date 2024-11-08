@@ -1,7 +1,7 @@
 ﻿
 namespace Capa_Vista_Logistica
 {
-    partial class Frm_Polizas
+    partial class frmPolizas
     {
         /// <summary>
         /// Required designer variable.
@@ -31,42 +31,41 @@ namespace Capa_Vista_Logistica
         {
             this.components = new System.ComponentModel.Container();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.gp_encabezado = new System.Windows.Forms.GroupBox();
-            this.Txt_concepto = new System.Windows.Forms.TextBox();
-            this.Txt_concept = new System.Windows.Forms.Label();
-            this.Txt_tipo_poliza = new System.Windows.Forms.Label();
-            this.Dpt_fecha = new System.Windows.Forms.DateTimePicker();
-            this.Txt_fecha = new System.Windows.Forms.Label();
-            this.Cbo_tipopoliza = new System.Windows.Forms.ComboBox();
-            this.gb_detalle = new System.Windows.Forms.GroupBox();
-            this.Txt_val = new System.Windows.Forms.Label();
-            this.Txt_cargoabono = new System.Windows.Forms.Label();
-            this.Btn_aceptar = new System.Windows.Forms.Button();
-            this.Txt_valor = new System.Windows.Forms.TextBox();
-            this.Cbo_operacion = new System.Windows.Forms.ComboBox();
-            this.Cbo_Cuenta = new System.Windows.Forms.ComboBox();
-            this.Txt_Cuenta = new System.Windows.Forms.Label();
-            this.gb_detallemov = new System.Windows.Forms.GroupBox();
-            this.Btn_quitar = new System.Windows.Forms.Button();
-            this.Dgv_Polizas = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtConcepto = new System.Windows.Forms.TextBox();
+            this.lbl_concepto = new System.Windows.Forms.Label();
+            this.lbl_tipo_poliza = new System.Windows.Forms.Label();
+            this.dtpfecha = new System.Windows.Forms.DateTimePicker();
+            this.lbl_fecha = new System.Windows.Forms.Label();
+            this.cbtipopoliza = new System.Windows.Forms.ComboBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btn_aceptar = new System.Windows.Forms.Button();
+            this.txtValor = new System.Windows.Forms.TextBox();
+            this.cboperacion = new System.Windows.Forms.ComboBox();
+            this.cbCuenta = new System.Windows.Forms.ComboBox();
+            this.lbl_Cuenta = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnQuitar = new System.Windows.Forms.Button();
+            this.dgvPolizas = new System.Windows.Forms.DataGridView();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Abono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Txt_cargoB = new System.Windows.Forms.Label();
-            this.Txt_abonoB = new System.Windows.Forms.Label();
-            this.Txt_CargoTot = new System.Windows.Forms.Label();
-            this.Txt_AbonoTot = new System.Windows.Forms.Label();
+            this.lbl_cargo = new System.Windows.Forms.Label();
+            this.lbl_abono = new System.Windows.Forms.Label();
+            this.lblCargo = new System.Windows.Forms.Label();
+            this.lblAbono = new System.Windows.Forms.Label();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btn_registar_poliza = new System.Windows.Forms.Button();
+            this.btn_nueva_poliza = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.Btn_ayuda = new System.Windows.Forms.Button();
-            this.Btn_salir = new System.Windows.Forms.Button();
-            this.Btn_Cancelar = new System.Windows.Forms.Button();
-            this.Btn_registrar_poliza = new System.Windows.Forms.Button();
-            this.Btn_nueva_poliza = new System.Windows.Forms.Button();
-            this.gp_encabezado.SuspendLayout();
-            this.gb_detalle.SuspendLayout();
-            this.gb_detallemov.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Dgv_Polizas)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPolizas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,223 +73,202 @@ namespace Capa_Vista_Logistica
             // 
             this.colorDialog1.Color = System.Drawing.Color.Maroon;
             // 
-            // gp_encabezado
+            // groupBox1
             // 
-            this.gp_encabezado.Controls.Add(this.Txt_concepto);
-            this.gp_encabezado.Controls.Add(this.Txt_concept);
-            this.gp_encabezado.Controls.Add(this.Txt_tipo_poliza);
-            this.gp_encabezado.Controls.Add(this.Dpt_fecha);
-            this.gp_encabezado.Controls.Add(this.Txt_fecha);
-            this.gp_encabezado.Controls.Add(this.Cbo_tipopoliza);
-            this.gp_encabezado.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gp_encabezado.Location = new System.Drawing.Point(9, 79);
-            this.gp_encabezado.Margin = new System.Windows.Forms.Padding(2);
-            this.gp_encabezado.Name = "gp_encabezado";
-            this.gp_encabezado.Padding = new System.Windows.Forms.Padding(2);
-            this.gp_encabezado.Size = new System.Drawing.Size(788, 118);
-            this.gp_encabezado.TabIndex = 0;
-            this.gp_encabezado.TabStop = false;
-            this.gp_encabezado.Text = "Encabezado poliza";
+            this.groupBox1.Controls.Add(this.txtConcepto);
+            this.groupBox1.Controls.Add(this.lbl_concepto);
+            this.groupBox1.Controls.Add(this.lbl_tipo_poliza);
+            this.groupBox1.Controls.Add(this.dtpfecha);
+            this.groupBox1.Controls.Add(this.lbl_fecha);
+            this.groupBox1.Controls.Add(this.cbtipopoliza);
+            this.groupBox1.Location = new System.Drawing.Point(12, 97);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1051, 145);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Encabezado poliza";
             // 
-            // Txt_concepto
+            // txtConcepto
             // 
-            this.Txt_concepto.Location = new System.Drawing.Point(92, 79);
-            this.Txt_concepto.Margin = new System.Windows.Forms.Padding(2);
-            this.Txt_concepto.Name = "Txt_concepto";
-            this.Txt_concepto.Size = new System.Drawing.Size(672, 26);
-            this.Txt_concepto.TabIndex = 5;
+            this.txtConcepto.Location = new System.Drawing.Point(123, 97);
+            this.txtConcepto.Name = "txtConcepto";
+            this.txtConcepto.Size = new System.Drawing.Size(894, 22);
+            this.txtConcepto.TabIndex = 5;
             // 
-            // Txt_concept
+            // lbl_concepto
             // 
-            this.Txt_concept.AutoSize = true;
-            this.Txt_concept.Location = new System.Drawing.Point(14, 82);
-            this.Txt_concept.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.Txt_concept.Name = "Txt_concept";
-            this.Txt_concept.Size = new System.Drawing.Size(69, 19);
-            this.Txt_concept.TabIndex = 4;
-            this.Txt_concept.Text = "Concepto";
+            this.lbl_concepto.AutoSize = true;
+            this.lbl_concepto.Location = new System.Drawing.Point(49, 97);
+            this.lbl_concepto.Name = "lbl_concepto";
+            this.lbl_concepto.Size = new System.Drawing.Size(68, 17);
+            this.lbl_concepto.TabIndex = 4;
+            this.lbl_concepto.Text = "Concepto";
             // 
-            // Txt_tipo_poliza
+            // lbl_tipo_poliza
             // 
-            this.Txt_tipo_poliza.AutoSize = true;
-            this.Txt_tipo_poliza.Location = new System.Drawing.Point(340, 40);
-            this.Txt_tipo_poliza.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.Txt_tipo_poliza.Name = "Txt_tipo_poliza";
-            this.Txt_tipo_poliza.Size = new System.Drawing.Size(94, 19);
-            this.Txt_tipo_poliza.TabIndex = 3;
-            this.Txt_tipo_poliza.Text = "Tipo de poliza";
+            this.lbl_tipo_poliza.AutoSize = true;
+            this.lbl_tipo_poliza.Location = new System.Drawing.Point(454, 49);
+            this.lbl_tipo_poliza.Name = "lbl_tipo_poliza";
+            this.lbl_tipo_poliza.Size = new System.Drawing.Size(97, 17);
+            this.lbl_tipo_poliza.TabIndex = 3;
+            this.lbl_tipo_poliza.Text = "Tipo de poliza";
             // 
-            // Dpt_fecha
+            // dtpfecha
             // 
-            this.Dpt_fecha.Location = new System.Drawing.Point(92, 36);
-            this.Dpt_fecha.Margin = new System.Windows.Forms.Padding(2);
-            this.Dpt_fecha.Name = "Dpt_fecha";
-            this.Dpt_fecha.Size = new System.Drawing.Size(205, 26);
-            this.Dpt_fecha.TabIndex = 2;
-            this.Dpt_fecha.ValueChanged += new System.EventHandler(this.dtpfecha_ValueChanged);
+            this.dtpfecha.Location = new System.Drawing.Point(123, 44);
+            this.dtpfecha.Name = "dtpfecha";
+            this.dtpfecha.Size = new System.Drawing.Size(272, 22);
+            this.dtpfecha.TabIndex = 2;
+            this.dtpfecha.ValueChanged += new System.EventHandler(this.dtpfecha_ValueChanged);
             // 
-            // Txt_fecha
+            // lbl_fecha
             // 
-            this.Txt_fecha.AutoSize = true;
-            this.Txt_fecha.Location = new System.Drawing.Point(37, 40);
-            this.Txt_fecha.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.Txt_fecha.Name = "Txt_fecha";
-            this.Txt_fecha.Size = new System.Drawing.Size(46, 19);
-            this.Txt_fecha.TabIndex = 1;
-            this.Txt_fecha.Text = "Fecha";
+            this.lbl_fecha.AutoSize = true;
+            this.lbl_fecha.Location = new System.Drawing.Point(49, 44);
+            this.lbl_fecha.Name = "lbl_fecha";
+            this.lbl_fecha.Size = new System.Drawing.Size(47, 17);
+            this.lbl_fecha.TabIndex = 1;
+            this.lbl_fecha.Text = "Fecha";
             // 
-            // Cbo_tipopoliza
+            // cbtipopoliza
             // 
-            this.Cbo_tipopoliza.FormattingEnabled = true;
-            this.Cbo_tipopoliza.Location = new System.Drawing.Point(438, 37);
-            this.Cbo_tipopoliza.Margin = new System.Windows.Forms.Padding(2);
-            this.Cbo_tipopoliza.Name = "Cbo_tipopoliza";
-            this.Cbo_tipopoliza.Size = new System.Drawing.Size(189, 27);
-            this.Cbo_tipopoliza.TabIndex = 0;
-            this.Cbo_tipopoliza.SelectedIndexChanged += new System.EventHandler(this.cbtipopoliza_SelectedIndexChanged);
+            this.cbtipopoliza.FormattingEnabled = true;
+            this.cbtipopoliza.Location = new System.Drawing.Point(557, 46);
+            this.cbtipopoliza.Name = "cbtipopoliza";
+            this.cbtipopoliza.Size = new System.Drawing.Size(251, 24);
+            this.cbtipopoliza.TabIndex = 0;
+            this.cbtipopoliza.SelectedIndexChanged += new System.EventHandler(this.cbtipopoliza_SelectedIndexChanged);
             // 
-            // gb_detalle
+            // groupBox2
             // 
-            this.gb_detalle.Controls.Add(this.Txt_val);
-            this.gb_detalle.Controls.Add(this.Txt_cargoabono);
-            this.gb_detalle.Controls.Add(this.Btn_aceptar);
-            this.gb_detalle.Controls.Add(this.Txt_valor);
-            this.gb_detalle.Controls.Add(this.Cbo_operacion);
-            this.gb_detalle.Controls.Add(this.Cbo_Cuenta);
-            this.gb_detalle.Controls.Add(this.Txt_Cuenta);
-            this.gb_detalle.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gb_detalle.Location = new System.Drawing.Point(10, 202);
-            this.gb_detalle.Margin = new System.Windows.Forms.Padding(2);
-            this.gb_detalle.Name = "gb_detalle";
-            this.gb_detalle.Padding = new System.Windows.Forms.Padding(2);
-            this.gb_detalle.Size = new System.Drawing.Size(788, 93);
-            this.gb_detalle.TabIndex = 1;
-            this.gb_detalle.TabStop = false;
-            this.gb_detalle.Text = "Detalle";
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.btn_aceptar);
+            this.groupBox2.Controls.Add(this.txtValor);
+            this.groupBox2.Controls.Add(this.cboperacion);
+            this.groupBox2.Controls.Add(this.cbCuenta);
+            this.groupBox2.Controls.Add(this.lbl_Cuenta);
+            this.groupBox2.Location = new System.Drawing.Point(13, 248);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1050, 114);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Detalle";
             // 
-            // Txt_val
+            // label2
             // 
-            this.Txt_val.AutoSize = true;
-            this.Txt_val.BackColor = System.Drawing.Color.Beige;
-            this.Txt_val.Location = new System.Drawing.Point(492, 23);
-            this.Txt_val.Margin = new System.Windows.Forms.Padding(8);
-            this.Txt_val.Name = "Txt_val";
-            this.Txt_val.Padding = new System.Windows.Forms.Padding(0, 0, 41, 0);
-            this.Txt_val.Size = new System.Drawing.Size(134, 19);
-            this.Txt_val.TabIndex = 8;
-            this.Txt_val.Text = "             Valor";
-            this.Txt_val.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Beige;
+            this.label2.Location = new System.Drawing.Point(685, 28);
+            this.label2.Margin = new System.Windows.Forms.Padding(10);
+            this.label2.Name = "label2";
+            this.label2.Padding = new System.Windows.Forms.Padding(0, 0, 55, 0);
+            this.label2.Size = new System.Drawing.Size(148, 17);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "             Valor";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // Txt_cargoabono
+            // label1
             // 
-            this.Txt_cargoabono.AutoSize = true;
-            this.Txt_cargoabono.BackColor = System.Drawing.Color.Beige;
-            this.Txt_cargoabono.Location = new System.Drawing.Point(322, 23);
-            this.Txt_cargoabono.Margin = new System.Windows.Forms.Padding(8);
-            this.Txt_cargoabono.Name = "Txt_cargoabono";
-            this.Txt_cargoabono.Padding = new System.Windows.Forms.Padding(0, 0, 34, 0);
-            this.Txt_cargoabono.Size = new System.Drawing.Size(167, 19);
-            this.Txt_cargoabono.TabIndex = 7;
-            this.Txt_cargoabono.Text = "          Cargo/Abono";
-            this.Txt_cargoabono.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Beige;
+            this.label1.Location = new System.Drawing.Point(455, 28);
+            this.label1.Margin = new System.Windows.Forms.Padding(10);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(0, 0, 45, 0);
+            this.label1.Size = new System.Drawing.Size(176, 17);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "          Cargo/Abono";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // Btn_aceptar
+            // btn_aceptar
             // 
-            this.Btn_aceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(237)))), ((int)(((byte)(235)))));
-            this.Btn_aceptar.Image = global::Capa_Vista_Logistica.Properties.Resources.lista_de_verificacion;
-            this.Btn_aceptar.Location = new System.Drawing.Point(649, 12);
-            this.Btn_aceptar.Margin = new System.Windows.Forms.Padding(2);
-            this.Btn_aceptar.Name = "Btn_aceptar";
-            this.Btn_aceptar.Size = new System.Drawing.Size(82, 76);
-            this.Btn_aceptar.TabIndex = 6;
-            this.Btn_aceptar.UseVisualStyleBackColor = false;
-            this.Btn_aceptar.Click += new System.EventHandler(this.btn_aceptar_Click);
+            this.btn_aceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(237)))), ((int)(((byte)(235)))));
+            this.btn_aceptar.Image = global::Capa_Vista_Logistica.Properties.Resources.lista_de_verificacion;
+            this.btn_aceptar.Location = new System.Drawing.Point(865, 15);
+            this.btn_aceptar.Name = "btn_aceptar";
+            this.btn_aceptar.Size = new System.Drawing.Size(109, 93);
+            this.btn_aceptar.TabIndex = 6;
+            this.btn_aceptar.UseVisualStyleBackColor = false;
+            this.btn_aceptar.Click += new System.EventHandler(this.btn_aceptar_Click);
             // 
-            // Txt_valor
+            // txtValor
             // 
-            this.Txt_valor.Location = new System.Drawing.Point(516, 47);
-            this.Txt_valor.Margin = new System.Windows.Forms.Padding(2);
-            this.Txt_valor.Name = "Txt_valor";
-            this.Txt_valor.Size = new System.Drawing.Size(109, 26);
-            this.Txt_valor.TabIndex = 5;
-            this.Txt_valor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValor_KeyPress);
+            this.txtValor.Location = new System.Drawing.Point(688, 58);
+            this.txtValor.Name = "txtValor";
+            this.txtValor.Size = new System.Drawing.Size(144, 22);
+            this.txtValor.TabIndex = 5;
+            this.txtValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValor_KeyPress);
             // 
-            // Cbo_operacion
+            // cboperacion
             // 
-            this.Cbo_operacion.FormattingEnabled = true;
-            this.Cbo_operacion.Location = new System.Drawing.Point(341, 46);
-            this.Cbo_operacion.Margin = new System.Windows.Forms.Padding(2);
-            this.Cbo_operacion.Name = "Cbo_operacion";
-            this.Cbo_operacion.Size = new System.Drawing.Size(133, 27);
-            this.Cbo_operacion.TabIndex = 4;
-            this.Cbo_operacion.SelectedIndexChanged += new System.EventHandler(this.cboperacion_SelectedIndexChanged);
+            this.cboperacion.FormattingEnabled = true;
+            this.cboperacion.Location = new System.Drawing.Point(455, 56);
+            this.cboperacion.Name = "cboperacion";
+            this.cboperacion.Size = new System.Drawing.Size(176, 24);
+            this.cboperacion.TabIndex = 4;
+            this.cboperacion.SelectedIndexChanged += new System.EventHandler(this.cboperacion_SelectedIndexChanged);
             // 
-            // Cbo_Cuenta
+            // cbCuenta
             // 
-            this.Cbo_Cuenta.FormattingEnabled = true;
-            this.Cbo_Cuenta.Location = new System.Drawing.Point(91, 47);
-            this.Cbo_Cuenta.Margin = new System.Windows.Forms.Padding(2);
-            this.Cbo_Cuenta.Name = "Cbo_Cuenta";
-            this.Cbo_Cuenta.Size = new System.Drawing.Size(217, 27);
-            this.Cbo_Cuenta.TabIndex = 3;
-            this.Cbo_Cuenta.SelectedIndexChanged += new System.EventHandler(this.cbCuenta_SelectedIndexChanged);
+            this.cbCuenta.FormattingEnabled = true;
+            this.cbCuenta.Location = new System.Drawing.Point(122, 58);
+            this.cbCuenta.Name = "cbCuenta";
+            this.cbCuenta.Size = new System.Drawing.Size(288, 24);
+            this.cbCuenta.TabIndex = 3;
+            this.cbCuenta.SelectedIndexChanged += new System.EventHandler(this.cbCuenta_SelectedIndexChanged);
             // 
-            // Txt_Cuenta
+            // lbl_Cuenta
             // 
-            this.Txt_Cuenta.AutoSize = true;
-            this.Txt_Cuenta.BackColor = System.Drawing.Color.Beige;
-            this.Txt_Cuenta.Location = new System.Drawing.Point(36, 23);
-            this.Txt_Cuenta.Margin = new System.Windows.Forms.Padding(8);
-            this.Txt_Cuenta.Name = "Txt_Cuenta";
-            this.Txt_Cuenta.Padding = new System.Windows.Forms.Padding(0, 0, 90, 0);
-            this.Txt_Cuenta.Size = new System.Drawing.Size(258, 19);
-            this.Txt_Cuenta.TabIndex = 0;
-            this.Txt_Cuenta.Text = "                             Cuenta\r\n";
-            this.Txt_Cuenta.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lbl_Cuenta.AutoSize = true;
+            this.lbl_Cuenta.BackColor = System.Drawing.Color.Beige;
+            this.lbl_Cuenta.Location = new System.Drawing.Point(120, 28);
+            this.lbl_Cuenta.Margin = new System.Windows.Forms.Padding(10);
+            this.lbl_Cuenta.Name = "lbl_Cuenta";
+            this.lbl_Cuenta.Padding = new System.Windows.Forms.Padding(0, 0, 120, 0);
+            this.lbl_Cuenta.Size = new System.Drawing.Size(289, 17);
+            this.lbl_Cuenta.TabIndex = 0;
+            this.lbl_Cuenta.Text = "                             Cuenta\r\n";
+            this.lbl_Cuenta.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // gb_detallemov
+            // groupBox3
             // 
-            this.gb_detallemov.Controls.Add(this.Btn_quitar);
-            this.gb_detallemov.Controls.Add(this.Dgv_Polizas);
-            this.gb_detallemov.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gb_detallemov.Location = new System.Drawing.Point(10, 306);
-            this.gb_detallemov.Margin = new System.Windows.Forms.Padding(2);
-            this.gb_detallemov.Name = "gb_detallemov";
-            this.gb_detallemov.Padding = new System.Windows.Forms.Padding(2);
-            this.gb_detallemov.Size = new System.Drawing.Size(788, 304);
-            this.gb_detallemov.TabIndex = 2;
-            this.gb_detallemov.TabStop = false;
-            this.gb_detallemov.Text = "Detalle de movimiento";
+            this.groupBox3.Controls.Add(this.btnQuitar);
+            this.groupBox3.Controls.Add(this.dgvPolizas);
+            this.groupBox3.Location = new System.Drawing.Point(13, 377);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(1050, 374);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Detalle de movimiento";
             // 
-            // Btn_quitar
+            // btnQuitar
             // 
-            this.Btn_quitar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(237)))), ((int)(((byte)(235)))));
-            this.Btn_quitar.Image = global::Capa_Vista_Logistica.Properties.Resources.boton_menos3;
-            this.Btn_quitar.Location = new System.Drawing.Point(694, 25);
-            this.Btn_quitar.Margin = new System.Windows.Forms.Padding(2);
-            this.Btn_quitar.Name = "Btn_quitar";
-            this.Btn_quitar.Size = new System.Drawing.Size(80, 79);
-            this.Btn_quitar.TabIndex = 1;
-            this.Btn_quitar.UseVisualStyleBackColor = false;
-            this.Btn_quitar.Click += new System.EventHandler(this.btnQuitar_Click);
+            this.btnQuitar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(237)))), ((int)(((byte)(235)))));
+            this.btnQuitar.Image = global::Capa_Vista_Logistica.Properties.Resources.boton_menos3;
+            this.btnQuitar.Location = new System.Drawing.Point(926, 31);
+            this.btnQuitar.Name = "btnQuitar";
+            this.btnQuitar.Size = new System.Drawing.Size(107, 97);
+            this.btnQuitar.TabIndex = 1;
+            this.btnQuitar.UseVisualStyleBackColor = false;
+            this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
             // 
-            // Dgv_Polizas
+            // dgvPolizas
             // 
-            this.Dgv_Polizas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dgv_Polizas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvPolizas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPolizas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Codigo,
             this.Cuenta,
             this.Cargo,
             this.Abono});
-            this.Dgv_Polizas.Location = new System.Drawing.Point(5, 25);
-            this.Dgv_Polizas.Margin = new System.Windows.Forms.Padding(2);
-            this.Dgv_Polizas.Name = "Dgv_Polizas";
-            this.Dgv_Polizas.RowHeadersWidth = 51;
-            this.Dgv_Polizas.RowTemplate.Height = 24;
-            this.Dgv_Polizas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Dgv_Polizas.Size = new System.Drawing.Size(671, 266);
-            this.Dgv_Polizas.TabIndex = 0;
-            this.Dgv_Polizas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPolizas_CellContentClick);
+            this.dgvPolizas.Location = new System.Drawing.Point(7, 31);
+            this.dgvPolizas.Name = "dgvPolizas";
+            this.dgvPolizas.RowHeadersWidth = 51;
+            this.dgvPolizas.RowTemplate.Height = 24;
+            this.dgvPolizas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPolizas.Size = new System.Drawing.Size(895, 327);
+            this.dgvPolizas.TabIndex = 0;
+            this.dgvPolizas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPolizas_CellContentClick);
             // 
             // Codigo
             // 
@@ -320,137 +298,112 @@ namespace Capa_Vista_Logistica
             this.Abono.Name = "Abono";
             this.Abono.Width = 150;
             // 
-            // Txt_cargoB
+            // lbl_cargo
             // 
-            this.Txt_cargoB.AutoSize = true;
-            this.Txt_cargoB.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_cargoB.Location = new System.Drawing.Point(332, 636);
-            this.Txt_cargoB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.Txt_cargoB.Name = "Txt_cargoB";
-            this.Txt_cargoB.Size = new System.Drawing.Size(116, 19);
-            this.Txt_cargoB.TabIndex = 7;
-            this.Txt_cargoB.Text = "TOTAL CARGO";
+            this.lbl_cargo.AutoSize = true;
+            this.lbl_cargo.Location = new System.Drawing.Point(536, 783);
+            this.lbl_cargo.Name = "lbl_cargo";
+            this.lbl_cargo.Size = new System.Drawing.Size(108, 17);
+            this.lbl_cargo.TabIndex = 7;
+            this.lbl_cargo.Text = "TOTAL CARGO";
             // 
-            // Txt_abonoB
+            // lbl_abono
             // 
-            this.Txt_abonoB.AutoSize = true;
-            this.Txt_abonoB.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_abonoB.Location = new System.Drawing.Point(543, 636);
-            this.Txt_abonoB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.Txt_abonoB.Name = "Txt_abonoB";
-            this.Txt_abonoB.Size = new System.Drawing.Size(117, 19);
-            this.Txt_abonoB.TabIndex = 8;
-            this.Txt_abonoB.Text = "TOTAL ABONO";
+            this.lbl_abono.AutoSize = true;
+            this.lbl_abono.Location = new System.Drawing.Point(737, 783);
+            this.lbl_abono.Name = "lbl_abono";
+            this.lbl_abono.Size = new System.Drawing.Size(108, 17);
+            this.lbl_abono.TabIndex = 8;
+            this.lbl_abono.Text = "TOTAL ABONO";
             // 
-            // Txt_CargoTot
+            // lblCargo
             // 
-            this.Txt_CargoTot.AutoSize = true;
-            this.Txt_CargoTot.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_CargoTot.Location = new System.Drawing.Point(458, 636);
-            this.Txt_CargoTot.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.Txt_CargoTot.Name = "Txt_CargoTot";
-            this.Txt_CargoTot.Size = new System.Drawing.Size(45, 19);
-            this.Txt_CargoTot.TabIndex = 10;
-            this.Txt_CargoTot.Text = "00.00";
+            this.lblCargo.AutoSize = true;
+            this.lblCargo.Location = new System.Drawing.Point(653, 783);
+            this.lblCargo.Name = "lblCargo";
+            this.lblCargo.Size = new System.Drawing.Size(44, 17);
+            this.lblCargo.TabIndex = 10;
+            this.lblCargo.Text = "00.00";
             // 
-            // Txt_AbonoTot
+            // lblAbono
             // 
-            this.Txt_AbonoTot.AutoSize = true;
-            this.Txt_AbonoTot.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_AbonoTot.Location = new System.Drawing.Point(667, 636);
-            this.Txt_AbonoTot.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.Txt_AbonoTot.Name = "Txt_AbonoTot";
-            this.Txt_AbonoTot.Size = new System.Drawing.Size(45, 19);
-            this.Txt_AbonoTot.TabIndex = 11;
-            this.Txt_AbonoTot.Text = "00.00";
+            this.lblAbono.AutoSize = true;
+            this.lblAbono.Location = new System.Drawing.Point(855, 783);
+            this.lblAbono.Name = "lblAbono";
+            this.lblAbono.Size = new System.Drawing.Size(44, 17);
+            this.lblAbono.TabIndex = 11;
+            this.lblAbono.Text = "00.00";
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Image = global::Capa_Vista_Logistica.Properties.Resources.cerrar_sesion;
+            this.btnSalir.Location = new System.Drawing.Point(993, 12);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(70, 62);
+            this.btnSalir.TabIndex = 12;
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Image = global::Capa_Vista_Logistica.Properties.Resources.error;
+            this.btnCancelar.Location = new System.Drawing.Point(215, 14);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(70, 62);
+            this.btnCancelar.TabIndex = 9;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btn_registar_poliza
+            // 
+            this.btn_registar_poliza.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(237)))), ((int)(((byte)(235)))));
+            this.btn_registar_poliza.Image = global::Capa_Vista_Logistica.Properties.Resources.disco_flexible__1_;
+            this.btn_registar_poliza.Location = new System.Drawing.Point(125, 12);
+            this.btn_registar_poliza.Name = "btn_registar_poliza";
+            this.btn_registar_poliza.Size = new System.Drawing.Size(70, 64);
+            this.btn_registar_poliza.TabIndex = 4;
+            this.btn_registar_poliza.UseVisualStyleBackColor = false;
+            this.btn_registar_poliza.Click += new System.EventHandler(this.btn_registar_poliza_Click);
+            // 
+            // btn_nueva_poliza
+            // 
+            this.btn_nueva_poliza.Image = global::Capa_Vista_Logistica.Properties.Resources.agregar_archivo;
+            this.btn_nueva_poliza.Location = new System.Drawing.Point(38, 12);
+            this.btn_nueva_poliza.Name = "btn_nueva_poliza";
+            this.btn_nueva_poliza.Size = new System.Drawing.Size(70, 64);
+            this.btn_nueva_poliza.TabIndex = 3;
+            this.btn_nueva_poliza.UseVisualStyleBackColor = true;
+            this.btn_nueva_poliza.Click += new System.EventHandler(this.btn_nueva_poliza_Click);
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // Btn_ayuda
+            // frmPolizas
             // 
-            this.Btn_ayuda.Image = global::Capa_Vista_Logistica.Properties.Resources.preguntas;
-            this.Btn_ayuda.Location = new System.Drawing.Point(689, 10);
-            this.Btn_ayuda.Margin = new System.Windows.Forms.Padding(2);
-            this.Btn_ayuda.Name = "Btn_ayuda";
-            this.Btn_ayuda.Size = new System.Drawing.Size(52, 50);
-            this.Btn_ayuda.TabIndex = 13;
-            this.Btn_ayuda.UseVisualStyleBackColor = true;
-            this.Btn_ayuda.Click += new System.EventHandler(this.Btn_ayuda_Click);
-            // 
-            // Btn_salir
-            // 
-            this.Btn_salir.Image = global::Capa_Vista_Logistica.Properties.Resources.cerrar_sesion;
-            this.Btn_salir.Location = new System.Drawing.Point(745, 10);
-            this.Btn_salir.Margin = new System.Windows.Forms.Padding(2);
-            this.Btn_salir.Name = "Btn_salir";
-            this.Btn_salir.Size = new System.Drawing.Size(52, 50);
-            this.Btn_salir.TabIndex = 12;
-            this.Btn_salir.UseVisualStyleBackColor = true;
-            this.Btn_salir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // Btn_Cancelar
-            // 
-            this.Btn_Cancelar.Image = global::Capa_Vista_Logistica.Properties.Resources.cancelar;
-            this.Btn_Cancelar.Location = new System.Drawing.Point(161, 11);
-            this.Btn_Cancelar.Margin = new System.Windows.Forms.Padding(2);
-            this.Btn_Cancelar.Name = "Btn_Cancelar";
-            this.Btn_Cancelar.Size = new System.Drawing.Size(52, 50);
-            this.Btn_Cancelar.TabIndex = 9;
-            this.Btn_Cancelar.UseVisualStyleBackColor = true;
-            this.Btn_Cancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // Btn_registrar_poliza
-            // 
-            this.Btn_registrar_poliza.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(237)))), ((int)(((byte)(235)))));
-            this.Btn_registrar_poliza.Image = global::Capa_Vista_Logistica.Properties.Resources.ahorrar__1_;
-            this.Btn_registrar_poliza.Location = new System.Drawing.Point(94, 10);
-            this.Btn_registrar_poliza.Margin = new System.Windows.Forms.Padding(2);
-            this.Btn_registrar_poliza.Name = "Btn_registrar_poliza";
-            this.Btn_registrar_poliza.Size = new System.Drawing.Size(52, 52);
-            this.Btn_registrar_poliza.TabIndex = 4;
-            this.Btn_registrar_poliza.UseVisualStyleBackColor = false;
-            this.Btn_registrar_poliza.Click += new System.EventHandler(this.btn_registar_poliza_Click);
-            // 
-            // Btn_nueva_poliza
-            // 
-            this.Btn_nueva_poliza.Image = global::Capa_Vista_Logistica.Properties.Resources.agregar_archivo;
-            this.Btn_nueva_poliza.Location = new System.Drawing.Point(28, 10);
-            this.Btn_nueva_poliza.Margin = new System.Windows.Forms.Padding(2);
-            this.Btn_nueva_poliza.Name = "Btn_nueva_poliza";
-            this.Btn_nueva_poliza.Size = new System.Drawing.Size(52, 52);
-            this.Btn_nueva_poliza.TabIndex = 3;
-            this.Btn_nueva_poliza.UseVisualStyleBackColor = true;
-            this.Btn_nueva_poliza.Click += new System.EventHandler(this.btn_nueva_poliza_Click);
-            // 
-            // Frm_Polizas
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(816, 678);
-            this.Controls.Add(this.Btn_ayuda);
-            this.Controls.Add(this.Btn_salir);
-            this.Controls.Add(this.Txt_AbonoTot);
-            this.Controls.Add(this.Txt_CargoTot);
-            this.Controls.Add(this.Btn_Cancelar);
-            this.Controls.Add(this.Txt_abonoB);
-            this.Controls.Add(this.Txt_cargoB);
-            this.Controls.Add(this.Btn_registrar_poliza);
-            this.Controls.Add(this.Btn_nueva_poliza);
-            this.Controls.Add(this.gb_detallemov);
-            this.Controls.Add(this.gb_detalle);
-            this.Controls.Add(this.gp_encabezado);
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Frm_Polizas";
+            this.ClientSize = new System.Drawing.Size(1088, 834);
+            this.Controls.Add(this.btnSalir);
+            this.Controls.Add(this.lblAbono);
+            this.Controls.Add(this.lblCargo);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.lbl_abono);
+            this.Controls.Add(this.lbl_cargo);
+            this.Controls.Add(this.btn_registar_poliza);
+            this.Controls.Add(this.btn_nueva_poliza);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
+            this.Name = "frmPolizas";
             this.Text = "Polizas";
             this.Load += new System.EventHandler(this.Polizas_Load);
-            this.gp_encabezado.ResumeLayout(false);
-            this.gp_encabezado.PerformLayout();
-            this.gb_detalle.ResumeLayout(false);
-            this.gb_detalle.PerformLayout();
-            this.gb_detallemov.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Dgv_Polizas)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPolizas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -460,37 +413,36 @@ namespace Capa_Vista_Logistica
         #endregion
 
         private System.Windows.Forms.ColorDialog colorDialog1;
-        private System.Windows.Forms.GroupBox gp_encabezado;
-        internal System.Windows.Forms.TextBox Txt_concepto;
-        private System.Windows.Forms.Label Txt_concept;
-        private System.Windows.Forms.Label Txt_tipo_poliza;
-        private System.Windows.Forms.DateTimePicker Dpt_fecha;
-        private System.Windows.Forms.Label Txt_fecha;
-        internal System.Windows.Forms.ComboBox Cbo_tipopoliza;
-        private System.Windows.Forms.GroupBox gb_detalle;
-        private System.Windows.Forms.Button Btn_aceptar;
-        internal System.Windows.Forms.TextBox Txt_valor;
-        internal System.Windows.Forms.ComboBox Cbo_operacion;
-        internal System.Windows.Forms.ComboBox Cbo_Cuenta;
-        private System.Windows.Forms.Label Txt_Cuenta;
-        private System.Windows.Forms.GroupBox gb_detallemov;
-        private System.Windows.Forms.Button Btn_quitar;
-        internal System.Windows.Forms.DataGridView Dgv_Polizas;
-        private System.Windows.Forms.Button Btn_nueva_poliza;
-        private System.Windows.Forms.Button Btn_registrar_poliza;
-        private System.Windows.Forms.Label Txt_cargoB;
-        private System.Windows.Forms.Label Txt_abonoB;
-        private System.Windows.Forms.Button Btn_Cancelar;
-        internal System.Windows.Forms.Label Txt_CargoTot;
-        internal System.Windows.Forms.Label Txt_AbonoTot;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txtConcepto;
+        private System.Windows.Forms.Label lbl_concepto;
+        private System.Windows.Forms.Label lbl_tipo_poliza;
+        private System.Windows.Forms.DateTimePicker dtpfecha;
+        private System.Windows.Forms.Label lbl_fecha;
+        private System.Windows.Forms.ComboBox cbtipopoliza;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btn_aceptar;
+        private System.Windows.Forms.TextBox txtValor;
+        private System.Windows.Forms.ComboBox cboperacion;
+        private System.Windows.Forms.ComboBox cbCuenta;
+        private System.Windows.Forms.Label lbl_Cuenta;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btnQuitar;
+        private System.Windows.Forms.DataGridView dgvPolizas;
+        private System.Windows.Forms.Button btn_nueva_poliza;
+        private System.Windows.Forms.Button btn_registar_poliza;
+        private System.Windows.Forms.Label lbl_cargo;
+        private System.Windows.Forms.Label lbl_abono;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Label lblCargo;
+        private System.Windows.Forms.Label lblAbono;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cuenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cargo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Abono;
-        private System.Windows.Forms.Label Txt_val;
-        private System.Windows.Forms.Label Txt_cargoabono;
-        private System.Windows.Forms.Button Btn_salir;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.Button Btn_ayuda;
     }
 }

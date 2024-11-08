@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -187,7 +186,7 @@ namespace Capa_Vista_Logistica
 
         private void btnMenuProcesosOpcion1_Click(object sender, EventArgs e)
         {
-            /*AbrirFormulario<Capa_Vista_AmmyCatun.Transporte>();
+            /*AbrirFormulario<Capa_Vista_AmmyCatun.Chofer>();
             ocultaSubMenu();*/
         }
 
@@ -222,8 +221,8 @@ namespace Capa_Vista_Logistica
 
         private void Btn_MenuCatalogosOpcion7_Click(object sender, EventArgs e)
         {
-            /*AbrirFormulario<Capa_Vista_AmmyCatun.frm_Chofer>();
-            ocultaSubMenu();*/
+            AbrirFormulario<MantenimientoNav>();
+            ocultaSubMenu();
         }
 
         private void Btn_MenuProcesosOpcion2_Click(object sender, EventArgs e)
@@ -258,80 +257,8 @@ namespace Capa_Vista_Logistica
 
         private void Btn_MenuProcesosOpcion7_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<Frm_Polizas>();
+            AbrirFormulario<frmPolizas>();
             ocultaSubMenu();
-        }
-
-        private void Btn_ayuda_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // Obtener la ruta del directorio del ejecutable
-                string sexecutablePath = AppDomain.CurrentDomain.BaseDirectory;
-
-                // Retroceder a la carpeta del proyecto
-                string sprojectPath = Path.GetFullPath(Path.Combine(sexecutablePath, @"..\..\"));
-                //MessageBox.Show("1" + projectPath);
-
-
-                string sayudaFolderPath = Path.Combine(sprojectPath, "AyudaLogistica");
-
-
-                // Busca el archivo .chm en la carpeta "Ayuda_Seguridad"
-                string spathAyuda = FindFileInDirectory(sayudaFolderPath, "AyudaLogistica.chm");
-
-                // Verifica si el archivo existe antes de intentar abrirlo
-                if (!string.IsNullOrEmpty(spathAyuda))
-                {
-                    // Abre el archivo de ayuda .chm en la sección especificada
-                    Help.ShowHelp(null, spathAyuda, "AyudaLogistica.html");
-                }
-                else
-                {
-                    // Si el archivo no existe, muestra un mensaje de error
-                    MessageBox.Show("El archivo de ayuda no se encontró.");
-                }
-            }
-            catch (Exception ex)
-            {
-                // Mostrar un mensaje de error en caso de una excepción
-                MessageBox.Show("Ocurrió un error al abrir la ayuda: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Console.WriteLine("Error al abrir la ayuda: " + ex.ToString());
-            }
-        }
-
-        public string FindFileInDirectory(string sdirectory, string sfileName)
-        {
-            try
-            {
-                // Verificamos si la carpeta existe
-                if (Directory.Exists(sdirectory))
-                {
-                    // Buscamos el archivo .chm en la carpeta
-                    string[] files = Directory.GetFiles(sdirectory, "*.chm", SearchOption.TopDirectoryOnly);
-
-                    // Si encontramos el archivo, verificamos si coincide con el archivo que se busca y retornamos su ruta
-                    foreach (var file in files)
-                    {
-                        if (Path.GetFileName(file).Equals(sfileName, StringComparison.OrdinalIgnoreCase))
-                        {
-                            //MessageBox.Show("Archivo encontrado: " + file);
-                            return file;
-                        }
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("No se encontró la carpeta: " + sdirectory);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al buscar ayuda: " + ex.Message);
-            }
-
-            // Retorna null si no se encontró el archivo
-            return null;
         }
 
         #endregion

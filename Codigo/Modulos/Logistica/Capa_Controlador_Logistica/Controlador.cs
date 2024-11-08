@@ -12,96 +12,73 @@ namespace Capa_Controlador_Logistica
 {
     public class Controlador
     {
+        //Metodo de controlador realizado por Pedro Citalán 0901-20-16151
         Sentencias sn = new Sentencias();
 
         // ---------------------------------- COMBO BOX CUENTAS ----------------------------------
-        public string[] itemsCuenta(string stabla, string scampo1, string scampo2)
+        public string[] itemsCuenta(string tabla, string campo1, string campo2)
         {
-            string[] Items = sn.llenarCmbCuentas(stabla, scampo1, scampo2);
+            string[] Items = sn.llenarCmbCuentas(tabla, campo1, campo2);
             return Items;
         }
 
-        public DataTable enviarCuentas(string stabla, string scampo1, string scampo2)
+        public DataTable enviarCuentas(string tabla, string campo1, string campo2)
         {
-            var dt1 = sn.obtenerCuentas(stabla, scampo1, scampo2);
+            var dt1 = sn.obtenerCuentas(tabla, campo1, campo2);
             return dt1;
         }
 
         // ---------------------------------- COMBO BOX TIPO POLIZA ----------------------------------
 
-        public string[] itemsTP(string stabla, string scampo1, string scampo2)
+        public string[] itemsTP(string tabla, string campo1, string campo2)
         {
-            string[] Items = sn.llenarCmbTP(stabla, scampo1, scampo2);
+            string[] Items = sn.llenarCmbTP(tabla, campo1, campo2);
             return Items;
         }
 
-        public DataTable enviarTP(string stabla, string scampo1, string scampo2)
+        public DataTable enviarTP(string tabla, string campo1, string campo2)
         {
-            var dt1 = sn.obtenerTP(stabla, scampo1, scampo2);
+            var dt1 = sn.obtenerTP(tabla, campo1, campo2);
             return dt1;
         }
 
         // ---------------------------------- COMBO BOX OPERACION ----------------------------------
 
-        public string[] itemsOP(string stabla, string scampo1, string scampo2)
+        public string[] itemsOP(string tabla, string campo1, string campo2)
         {
-            string[] Items = sn.llenarCmbTP(stabla, scampo1, scampo2);
+            string[] Items = sn.llenarCmbTP(tabla, campo1, campo2);
             return Items;
         }
 
-        public DataTable enviarOP(string stabla, string scampo1, string scampo2)
+        public DataTable enviarOP(string tabla, string campo1, string campo2)
         {
-            var dt1 = sn.obtenerTP(stabla, scampo1, scampo2);
+            var dt1 = sn.obtenerTP(tabla, campo1, campo2);
             return dt1;
         }
 
         // ---------------------------------- Funcion para actualizar la tabla cuentas ----------------------------------
 
-        public void ActualizarTblCuentas(int iidCuenta, string stipoOperacion, decimal devalor)
+        public void ActualizarTblCuentas(int idCuenta, string tipoOperacion, decimal valor)
         {
             Sentencias sn = new Sentencias();
 
-            sn.ActulizarCuentas(iidCuenta, stipoOperacion, devalor);
+            sn.ActulizarCuentas(idCuenta, tipoOperacion, valor);
             return;
         }
 
         // ---------------------------------- Insertar en polizas ----------------------------------
-        public void LlenarEncabezado(string sfechaSeleccionada, string sconcepto, int itipoPoli)
+        public void LlenarEncabezado(string fechaSeleccionada, string concepto, int tipoPoli)
         {
             Sentencias sn = new Sentencias();
-            sn.LlenarEncabezado(sfechaSeleccionada, sconcepto, itipoPoli);
+            sn.LlenarEncabezado(fechaSeleccionada, concepto, tipoPoli);
             return;
         }
 
-        public void LlenarDetalle(string sfechaSeleccionada, string sconcepto, List<object[]> ldetalles)
+        public void LlenarDetalle(string fechaSeleccionada, string concepto, List<object[]> detalles)
         {
             Sentencias sn = new Sentencias();
-            sn.LlenarDetalle(sfechaSeleccionada, sconcepto, ldetalles);
+            sn.LlenarDetalle(fechaSeleccionada, concepto, detalles);
             return;
-        }
-
-        //----------------------------------- Ayuda ------------------------------------------------
-        public string ModRuta(string sRuta1)
-        {
-            string sRuta = sn.ModRuta(sRuta1);
-            return sRuta;
-        }
-
-        public string ModIndice(string sIndice1)
-
-        {
-            string sIndice = sn.ModIndice(sIndice1);
-            return sIndice;
-        }
-
-        public string TestTabla(string sTabla)
-        {
-            return sn.ProbarTabla(sTabla);
-        }
-
-        public int ContarRegAyuda(string sTabla)
-        {
-            return sn.ContarReg(sTabla);
         }
 
     }
