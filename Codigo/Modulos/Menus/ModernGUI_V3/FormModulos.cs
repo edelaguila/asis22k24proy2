@@ -10,7 +10,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 //using Capa_Vista_Nominas;
-
 //using Capa_Vista_Banco;
 //using Capa_Vista_Contabilidad;
 //using Capa_Vista_Produccion;
