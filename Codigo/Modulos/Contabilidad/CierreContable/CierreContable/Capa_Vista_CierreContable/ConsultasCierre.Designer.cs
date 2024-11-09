@@ -38,25 +38,25 @@ namespace Capa_Vista_CierreContable
             this.Cbo_mes = new System.Windows.Forms.ComboBox();
             this.Lbl_Tituloconsulta = new System.Windows.Forms.Label();
             this.Lbl_saldoact = new System.Windows.Forms.Label();
-            this.txt_saldoH = new System.Windows.Forms.TextBox();
-            this.txt_saldoD = new System.Windows.Forms.TextBox();
-            this.dgv_cargos = new System.Windows.Forms.DataGridView();
-            this.dgv_abonos = new System.Windows.Forms.DataGridView();
+            this.Txt_saldoH = new System.Windows.Forms.TextBox();
+            this.Txt_saldoD = new System.Windows.Forms.TextBox();
+            this.Dgv_cargos = new System.Windows.Forms.DataGridView();
+            this.Dgv_abonos = new System.Windows.Forms.DataGridView();
             this.Lbl_haber = new System.Windows.Forms.Label();
             this.Lbl_Debe = new System.Windows.Forms.Label();
             this.Txt_saldofinal = new System.Windows.Forms.TextBox();
-            this.cbo_cuenta = new System.Windows.Forms.ComboBox();
+            this.Cbo_cuenta = new System.Windows.Forms.ComboBox();
             this.Lbl_cuenta = new System.Windows.Forms.Label();
             this.Txt_saldoant = new System.Windows.Forms.TextBox();
             this.Lbl_saldoant = new System.Windows.Forms.Label();
-            this.cbo_consultaAño = new System.Windows.Forms.ComboBox();
+            this.Cbo_consultaAño = new System.Windows.Forms.ComboBox();
             this.Lbl_año = new System.Windows.Forms.Label();
-            this.btn_Ayuda1 = new System.Windows.Forms.Button();
-            this.btn_Actualizar = new System.Windows.Forms.Button();
-            this.btn_consultar = new System.Windows.Forms.Button();
-            this.btn_Reporte = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_cargos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_abonos)).BeginInit();
+            this.Btn_ayuda1 = new System.Windows.Forms.Button();
+            this.Btn_actualizar = new System.Windows.Forms.Button();
+            this.Btn_consultar = new System.Windows.Forms.Button();
+            this.Btn_reporte = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_cargos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_abonos)).BeginInit();
             this.SuspendLayout();
             // 
             // Lbl_totabonos
@@ -158,35 +158,35 @@ namespace Capa_Vista_CierreContable
             this.Lbl_saldoact.TabIndex = 73;
             this.Lbl_saldoact.Text = "Saldo Actual";
             // 
-            // txt_saldoH
+            // Txt_saldoH
             // 
-            this.txt_saldoH.Location = new System.Drawing.Point(877, 401);
-            this.txt_saldoH.Name = "txt_saldoH";
-            this.txt_saldoH.Size = new System.Drawing.Size(163, 20);
-            this.txt_saldoH.TabIndex = 72;
+            this.Txt_saldoH.Location = new System.Drawing.Point(877, 401);
+            this.Txt_saldoH.Name = "Txt_saldoH";
+            this.Txt_saldoH.Size = new System.Drawing.Size(163, 20);
+            this.Txt_saldoH.TabIndex = 72;
             // 
-            // txt_saldoD
+            // Txt_saldoD
             // 
-            this.txt_saldoD.Location = new System.Drawing.Point(358, 402);
-            this.txt_saldoD.Name = "txt_saldoD";
-            this.txt_saldoD.Size = new System.Drawing.Size(163, 20);
-            this.txt_saldoD.TabIndex = 71;
+            this.Txt_saldoD.Location = new System.Drawing.Point(358, 402);
+            this.Txt_saldoD.Name = "Txt_saldoD";
+            this.Txt_saldoD.Size = new System.Drawing.Size(163, 20);
+            this.Txt_saldoD.TabIndex = 71;
             // 
-            // dgv_cargos
+            // Dgv_cargos
             // 
-            this.dgv_cargos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_cargos.Location = new System.Drawing.Point(22, 163);
-            this.dgv_cargos.Name = "dgv_cargos";
-            this.dgv_cargos.Size = new System.Drawing.Size(499, 225);
-            this.dgv_cargos.TabIndex = 78;
+            this.Dgv_cargos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dgv_cargos.Location = new System.Drawing.Point(22, 163);
+            this.Dgv_cargos.Name = "Dgv_cargos";
+            this.Dgv_cargos.Size = new System.Drawing.Size(499, 225);
+            this.Dgv_cargos.TabIndex = 78;
             // 
-            // dgv_abonos
+            // Dgv_abonos
             // 
-            this.dgv_abonos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_abonos.Location = new System.Drawing.Point(541, 163);
-            this.dgv_abonos.Name = "dgv_abonos";
-            this.dgv_abonos.Size = new System.Drawing.Size(499, 225);
-            this.dgv_abonos.TabIndex = 77;
+            this.Dgv_abonos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dgv_abonos.Location = new System.Drawing.Point(541, 163);
+            this.Dgv_abonos.Name = "Dgv_abonos";
+            this.Dgv_abonos.Size = new System.Drawing.Size(499, 225);
+            this.Dgv_abonos.TabIndex = 77;
             // 
             // Lbl_haber
             // 
@@ -217,11 +217,11 @@ namespace Capa_Vista_CierreContable
             this.Txt_saldofinal.Size = new System.Drawing.Size(163, 20);
             this.Txt_saldofinal.TabIndex = 79;
             // 
-            // cbo_cuenta
+            // Cbo_cuenta
             // 
-            this.cbo_cuenta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbo_cuenta.FormattingEnabled = true;
-            this.cbo_cuenta.Items.AddRange(new object[] {
+            this.Cbo_cuenta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Cbo_cuenta.FormattingEnabled = true;
+            this.Cbo_cuenta.Items.AddRange(new object[] {
             "Enero",
             "Febrero",
             "Marzo",
@@ -234,10 +234,10 @@ namespace Capa_Vista_CierreContable
             "Octubre",
             "Noviembre",
             "Diciembre"});
-            this.cbo_cuenta.Location = new System.Drawing.Point(453, 105);
-            this.cbo_cuenta.Name = "cbo_cuenta";
-            this.cbo_cuenta.Size = new System.Drawing.Size(163, 21);
-            this.cbo_cuenta.TabIndex = 80;
+            this.Cbo_cuenta.Location = new System.Drawing.Point(453, 105);
+            this.Cbo_cuenta.Name = "Cbo_cuenta";
+            this.Cbo_cuenta.Size = new System.Drawing.Size(163, 21);
+            this.Cbo_cuenta.TabIndex = 80;
             // 
             // Lbl_cuenta
             // 
@@ -268,11 +268,11 @@ namespace Capa_Vista_CierreContable
             this.Lbl_saldoant.TabIndex = 83;
             this.Lbl_saldoant.Text = "Saldo Anterior";
             // 
-            // cbo_consultaAño
+            // Cbo_consultaAño
             // 
-            this.cbo_consultaAño.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbo_consultaAño.FormattingEnabled = true;
-            this.cbo_consultaAño.Items.AddRange(new object[] {
+            this.Cbo_consultaAño.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Cbo_consultaAño.FormattingEnabled = true;
+            this.Cbo_consultaAño.Items.AddRange(new object[] {
             "Enero",
             "Febrero",
             "Marzo",
@@ -285,10 +285,10 @@ namespace Capa_Vista_CierreContable
             "Octubre",
             "Noviembre",
             "Diciembre"});
-            this.cbo_consultaAño.Location = new System.Drawing.Point(453, 51);
-            this.cbo_consultaAño.Name = "cbo_consultaAño";
-            this.cbo_consultaAño.Size = new System.Drawing.Size(163, 21);
-            this.cbo_consultaAño.TabIndex = 84;
+            this.Cbo_consultaAño.Location = new System.Drawing.Point(453, 51);
+            this.Cbo_consultaAño.Name = "Cbo_consultaAño";
+            this.Cbo_consultaAño.Size = new System.Drawing.Size(163, 21);
+            this.Cbo_consultaAño.TabIndex = 84;
             // 
             // Lbl_año
             // 
@@ -301,51 +301,51 @@ namespace Capa_Vista_CierreContable
             this.Lbl_año.TabIndex = 85;
             this.Lbl_año.Text = "Año";
             // 
-            // btn_Ayuda1
+            // Btn_ayuda1
             // 
-            this.btn_Ayuda1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(55)))), ((int)(((byte)(62)))));
-            this.btn_Ayuda1.BackgroundImage = global::Capa_Vista_CierreContable.Properties.Resources.AYUDA_V4;
-            this.btn_Ayuda1.Location = new System.Drawing.Point(191, 27);
-            this.btn_Ayuda1.Name = "btn_Ayuda1";
-            this.btn_Ayuda1.Size = new System.Drawing.Size(72, 66);
-            this.btn_Ayuda1.TabIndex = 87;
-            this.btn_Ayuda1.UseVisualStyleBackColor = false;
-            this.btn_Ayuda1.Click += new System.EventHandler(this.btn_Ayuda1_Click);
+            this.Btn_ayuda1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(55)))), ((int)(((byte)(62)))));
+            this.Btn_ayuda1.BackgroundImage = global::Capa_Vista_CierreContable.Properties.Resources.AYUDA_V4;
+            this.Btn_ayuda1.Location = new System.Drawing.Point(191, 27);
+            this.Btn_ayuda1.Name = "Btn_ayuda1";
+            this.Btn_ayuda1.Size = new System.Drawing.Size(72, 66);
+            this.Btn_ayuda1.TabIndex = 87;
+            this.Btn_ayuda1.UseVisualStyleBackColor = false;
+            this.Btn_ayuda1.Click += new System.EventHandler(this.btn_Ayuda1_Click);
             // 
-            // btn_Actualizar
+            // Btn_actualizar
             // 
-            this.btn_Actualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(55)))), ((int)(((byte)(62)))));
-            this.btn_Actualizar.BackgroundImage = global::Capa_Vista_CierreContable.Properties.Resources.ACTUALIZAR_V4;
-            this.btn_Actualizar.Location = new System.Drawing.Point(269, 27);
-            this.btn_Actualizar.Name = "btn_Actualizar";
-            this.btn_Actualizar.Size = new System.Drawing.Size(72, 66);
-            this.btn_Actualizar.TabIndex = 86;
-            this.btn_Actualizar.UseVisualStyleBackColor = false;
-            this.btn_Actualizar.Click += new System.EventHandler(this.btn_Actualizar_Click);
+            this.Btn_actualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(55)))), ((int)(((byte)(62)))));
+            this.Btn_actualizar.BackgroundImage = global::Capa_Vista_CierreContable.Properties.Resources.ACTUALIZAR_V4;
+            this.Btn_actualizar.Location = new System.Drawing.Point(269, 27);
+            this.Btn_actualizar.Name = "Btn_actualizar";
+            this.Btn_actualizar.Size = new System.Drawing.Size(72, 66);
+            this.Btn_actualizar.TabIndex = 86;
+            this.Btn_actualizar.UseVisualStyleBackColor = false;
+            this.Btn_actualizar.Click += new System.EventHandler(this.btn_Actualizar_Click);
             // 
-            // btn_consultar
+            // Btn_consultar
             // 
-            this.btn_consultar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(55)))), ((int)(((byte)(62)))));
-            this.btn_consultar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_consultar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_consultar.Image = global::Capa_Vista_CierreContable.Properties.Resources.BUCAR_V4;
-            this.btn_consultar.Location = new System.Drawing.Point(665, 27);
-            this.btn_consultar.Name = "btn_consultar";
-            this.btn_consultar.Size = new System.Drawing.Size(72, 66);
-            this.btn_consultar.TabIndex = 53;
-            this.btn_consultar.UseVisualStyleBackColor = false;
-            this.btn_consultar.Click += new System.EventHandler(this.btn_mensual_Click_1);
+            this.Btn_consultar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(55)))), ((int)(((byte)(62)))));
+            this.Btn_consultar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_consultar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.Btn_consultar.Image = global::Capa_Vista_CierreContable.Properties.Resources.BUCAR_V4;
+            this.Btn_consultar.Location = new System.Drawing.Point(665, 27);
+            this.Btn_consultar.Name = "Btn_consultar";
+            this.Btn_consultar.Size = new System.Drawing.Size(72, 66);
+            this.Btn_consultar.TabIndex = 53;
+            this.Btn_consultar.UseVisualStyleBackColor = false;
+            this.Btn_consultar.Click += new System.EventHandler(this.btn_mensual_Click_1);
             // 
-            // btn_Reporte
+            // Btn_reporte
             // 
-            this.btn_Reporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(55)))), ((int)(((byte)(62)))));
-            this.btn_Reporte.BackgroundImage = global::Capa_Vista_CierreContable.Properties.Resources.impresora;
-            this.btn_Reporte.Location = new System.Drawing.Point(113, 29);
-            this.btn_Reporte.Name = "btn_Reporte";
-            this.btn_Reporte.Size = new System.Drawing.Size(72, 63);
-            this.btn_Reporte.TabIndex = 103;
-            this.btn_Reporte.UseVisualStyleBackColor = false;
-            this.btn_Reporte.Click += new System.EventHandler(this.btn_Reporte_Click);
+            this.Btn_reporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(55)))), ((int)(((byte)(62)))));
+            this.Btn_reporte.BackgroundImage = global::Capa_Vista_CierreContable.Properties.Resources.impresora;
+            this.Btn_reporte.Location = new System.Drawing.Point(113, 29);
+            this.Btn_reporte.Name = "Btn_reporte";
+            this.Btn_reporte.Size = new System.Drawing.Size(72, 63);
+            this.Btn_reporte.TabIndex = 103;
+            this.Btn_reporte.UseVisualStyleBackColor = false;
+            this.Btn_reporte.Click += new System.EventHandler(this.btn_Reporte_Click);
             // 
             // ConsultasCierre
             // 
@@ -353,36 +353,36 @@ namespace Capa_Vista_CierreContable
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(152)))), ((int)(((byte)(151)))));
             this.ClientSize = new System.Drawing.Size(913, 512);
-            this.Controls.Add(this.btn_Reporte);
-            this.Controls.Add(this.btn_Ayuda1);
-            this.Controls.Add(this.btn_Actualizar);
+            this.Controls.Add(this.Btn_reporte);
+            this.Controls.Add(this.Btn_ayuda1);
+            this.Controls.Add(this.Btn_actualizar);
             this.Controls.Add(this.Lbl_año);
-            this.Controls.Add(this.cbo_consultaAño);
+            this.Controls.Add(this.Cbo_consultaAño);
             this.Controls.Add(this.Lbl_saldoant);
             this.Controls.Add(this.Txt_saldoant);
             this.Controls.Add(this.Lbl_cuenta);
-            this.Controls.Add(this.cbo_cuenta);
+            this.Controls.Add(this.Cbo_cuenta);
             this.Controls.Add(this.Txt_saldofinal);
-            this.Controls.Add(this.dgv_cargos);
-            this.Controls.Add(this.dgv_abonos);
+            this.Controls.Add(this.Dgv_cargos);
+            this.Controls.Add(this.Dgv_abonos);
             this.Controls.Add(this.Lbl_haber);
             this.Controls.Add(this.Lbl_Debe);
             this.Controls.Add(this.Lbl_saldoact);
-            this.Controls.Add(this.txt_saldoH);
-            this.Controls.Add(this.txt_saldoD);
+            this.Controls.Add(this.Txt_saldoH);
+            this.Controls.Add(this.Txt_saldoD);
             this.Controls.Add(this.Lbl_totabonos);
             this.Controls.Add(this.Lbl_totalhaber);
             this.Controls.Add(this.Lbl_totcargos);
             this.Controls.Add(this.Lbl_Totaldebe);
-            this.Controls.Add(this.btn_consultar);
+            this.Controls.Add(this.Btn_consultar);
             this.Controls.Add(this.Lbl_mes);
             this.Controls.Add(this.Cbo_mes);
             this.Controls.Add(this.Lbl_Tituloconsulta);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ConsultasCierre";
             this.Load += new System.EventHandler(this.PartidaCierre_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_cargos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_abonos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_cargos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_abonos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -393,26 +393,26 @@ namespace Capa_Vista_CierreContable
         private System.Windows.Forms.Label Lbl_totalhaber;
         private System.Windows.Forms.Label Lbl_totcargos;
         private System.Windows.Forms.Label Lbl_Totaldebe;
-        private System.Windows.Forms.Button btn_consultar;
+        private System.Windows.Forms.Button Btn_consultar;
         private System.Windows.Forms.Label Lbl_mes;
         private System.Windows.Forms.ComboBox Cbo_mes;
         private System.Windows.Forms.Label Lbl_Tituloconsulta;
         private System.Windows.Forms.Label Lbl_saldoact;
-        private System.Windows.Forms.TextBox txt_saldoH;
-        private System.Windows.Forms.TextBox txt_saldoD;
-        public System.Windows.Forms.DataGridView dgv_cargos;
-        public System.Windows.Forms.DataGridView dgv_abonos;
+        private System.Windows.Forms.TextBox Txt_saldoH;
+        private System.Windows.Forms.TextBox Txt_saldoD;
+        public System.Windows.Forms.DataGridView Dgv_cargos;
+        public System.Windows.Forms.DataGridView Dgv_abonos;
         private System.Windows.Forms.Label Lbl_haber;
         private System.Windows.Forms.Label Lbl_Debe;
         private System.Windows.Forms.TextBox Txt_saldofinal;
-        public System.Windows.Forms.ComboBox cbo_cuenta;
+        public System.Windows.Forms.ComboBox Cbo_cuenta;
         private System.Windows.Forms.Label Lbl_cuenta;
         private System.Windows.Forms.TextBox Txt_saldoant;
         private System.Windows.Forms.Label Lbl_saldoant;
-        public System.Windows.Forms.ComboBox cbo_consultaAño;
+        public System.Windows.Forms.ComboBox Cbo_consultaAño;
         private System.Windows.Forms.Label Lbl_año;
-        private System.Windows.Forms.Button btn_Actualizar;
-        private System.Windows.Forms.Button btn_Ayuda1;
-        private System.Windows.Forms.Button btn_Reporte;
+        private System.Windows.Forms.Button Btn_actualizar;
+        private System.Windows.Forms.Button Btn_ayuda1;
+        private System.Windows.Forms.Button Btn_reporte;
     }
 }

@@ -52,11 +52,11 @@ namespace TestConsultasCierre
             form.LlenarCuentas();
 
             // Act
-            int cuentaItems = form.cbo_cuenta.Items.Count;
+            int cuentaItems = form.Cbo_cuenta.Items.Count;
 
             // Assert
             Assert.IsTrue(cuentaItems > 0, "El ComboBox de cuentas no se llenó correctamente.");
-            Assert.AreEqual("Todas las cuentas", form.cbo_cuenta.Items[0].ToString());
+            Assert.AreEqual("Todas las cuentas", form.Cbo_cuenta.Items[0].ToString());
         }
 
         [TestMethod]
@@ -67,11 +67,11 @@ namespace TestConsultasCierre
 
             // Act
             form.LlenarCboAnio();
-            int cantidadAnios = form.cbo_consultaAño.Items.Count;
+            int cantidadAnios = form.Cbo_consultaAño.Items.Count;
 
             // Assert
             Assert.AreEqual(11, cantidadAnios, "El ComboBox de años no tiene los próximos 10 años.");
-            Assert.AreEqual(DateTime.Now.Year.ToString(), form.cbo_consultaAño.Items[0].ToString());
+            Assert.AreEqual(DateTime.Now.Year.ToString(), form.Cbo_consultaAño.Items[0].ToString());
         }
 
         [TestMethod]
@@ -86,15 +86,15 @@ namespace TestConsultasCierre
             // Usar DataTables simuladas
             DataTable dtDebe = new DataTable();
             DataTable dtHaber = new DataTable();
-            form.dgv_cargos.DataSource = dtDebe;
-            form.dgv_abonos.DataSource = dtHaber;
+            form.Dgv_cargos.DataSource = dtDebe;
+            form.Dgv_abonos.DataSource = dtHaber;
 
             // Act
-            form.ConsultarCierreG(periodo, anio, cuenta, form.dgv_cargos, form.dgv_abonos);
+            form.ConsultarCierreG(periodo, anio, cuenta, form.Dgv_cargos, form.Dgv_abonos);
 
             // Assert
-            Assert.AreEqual(0, form.dgv_cargos.Rows.Count, "DataGridView de debe no está vacío.");
-            Assert.AreEqual(0, form.dgv_abonos.Rows.Count, "DataGridView de haber no está vacío.");
+            Assert.AreEqual(0, form.Dgv_cargos.Rows.Count, "DataGridView de debe no está vacío.");
+            Assert.AreEqual(0, form.Dgv_abonos.Rows.Count, "DataGridView de haber no está vacío.");
         }
 
 

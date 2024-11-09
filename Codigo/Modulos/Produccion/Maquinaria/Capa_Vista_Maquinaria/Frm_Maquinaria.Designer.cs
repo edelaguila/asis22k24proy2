@@ -1,7 +1,6 @@
-﻿
-namespace Capa_Vista_Logistica
+﻿namespace Capa_Vista_Maquinaria
 {
-    partial class Movimientos
+    partial class Frm_Maquinaria
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +28,7 @@ namespace Capa_Vista_Logistica
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Maquinaria));
             this.navegador1 = new Capa_Vista_Navegador.Navegador();
             this.SuspendLayout();
             // 
@@ -38,17 +38,20 @@ namespace Capa_Vista_Logistica
             this.navegador1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navegador1.Location = new System.Drawing.Point(0, 0);
             this.navegador1.Name = "navegador1";
-            this.navegador1.Size = new System.Drawing.Size(847, 610);
+            this.navegador1.Size = new System.Drawing.Size(834, 712);
             this.navegador1.TabIndex = 0;
             // 
-            // Movimientos
+            // Frm_Maquinaria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(847, 610);
+            this.ClientSize = new System.Drawing.Size(834, 712);
             this.Controls.Add(this.navegador1);
-            this.Name = "Movimientos";
-            this.Text = "Movimientos";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.Name = "Frm_Maquinaria";
+            this.Text = "Maquinaria";
             this.ResumeLayout(false);
 
         }

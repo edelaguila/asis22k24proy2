@@ -13,20 +13,20 @@ namespace Capa_Controlador_CierreContable
         sentencias sn = new sentencias();
 
         // Método para llenar una tabla
-        public DataTable llenarTbl(string tabla)
+        public DataTable llenarTbl(string sTabla)
         {
 
-            OdbcDataAdapter dt = sn.llenarTbl(tabla);
+            OdbcDataAdapter dt = sn.llenarTbl(sTabla);
             DataTable table = new DataTable();
             dt.Fill(table);
             return table;
         }
 
-        public int ObtenerPeriodoPorMes(string mes)
+        public int ObtenerPeriodoPorMes(string sMes)
         {
-            mes = mes.ToUpper(); // Convertir el mes a mayúsculas para la comparación
+            sMes = sMes.ToUpper(); // Convertir el mes a mayúsculas para la comparación
 
-            switch (mes)
+            switch (sMes)
             {
                 case "ENERO": return 1;
                 case "FEBRERO": return 2;
@@ -44,20 +44,20 @@ namespace Capa_Controlador_CierreContable
             }
         }
 
-        public DataTable ObtenerMesesSinDatos(int ultimoMesConDatos, HashSet<int> idsCuentas)
+        public DataTable ObtenerMesesSinDatos(int iUltimoMesConDatos, HashSet<int> idsCuentas)
         {
             DataTable mesesSinDatos = new DataTable();
             mesesSinDatos.Columns.Add("Mes");
 
             // Revisar cada mes a partir del último con datos hasta diciembre
-            for (int mes = ultimoMesConDatos + 1; mes <= 12; mes++)
+            for (int iMes = iUltimoMesConDatos + 1; iMes <= 12; iMes++)
             {
                 bool datosFaltantes = false;
 
-                foreach (int idCuenta in idsCuentas)
+                foreach (int iIdCuenta in idsCuentas)
                 {
                     // Verifica si falta alguna cuenta en este mes
-                    if (sn.VerificarCuentaPorMes(mes, idCuenta) == 0)
+                    if (sn.VerificarCuentaPorMes(iMes, iIdCuenta) == 0)
                     {
                         datosFaltantes = true;
                         break; // Si falta al menos una cuenta, detener la verificación
@@ -68,7 +68,7 @@ namespace Capa_Controlador_CierreContable
                 if (datosFaltantes)
                 {
                     DataRow row = mesesSinDatos.NewRow();
-                    row["Mes"] = new DateTime(2024, mes, 1).ToString("MMMM", new System.Globalization.CultureInfo("es-ES"));
+                    row["Mes"] = new DateTime(2024, iMes, 1).ToString("MMMM", new System.Globalization.CultureInfo("es-ES"));
                     mesesSinDatos.Rows.Add(row);
                 }
             }
@@ -153,7 +153,7 @@ namespace Capa_Controlador_CierreContable
             }
         }
 
-        public void GenerarNuevoCierre(int mes, int anio)
+        public void GenerarNuevoCierre(int iMes, int iAnio)
         {
             using (OdbcConnection con = sn.ObtenerConexion())
             {
@@ -169,22 +169,22 @@ namespace Capa_Controlador_CierreContable
                         {
                             while (reader.Read())
                             {
-                                int cuentaId = reader.GetInt32(0);
-                                decimal cargoMes = reader.GetDecimal(1);
-                                decimal abonoMes = reader.GetDecimal(2);
-                                decimal saldoAnt = reader.GetDecimal(3);
-                                decimal saldoAct = reader.GetDecimal(4);
-                                decimal cargoAcumulado = reader.GetDecimal(5);
-                                decimal abonoAcumulado = reader.GetDecimal(6);
+                                int iCuentaId = reader.GetInt32(0);
+                                decimal deCargoMes = reader.GetDecimal(1);
+                                decimal deAbonoMes = reader.GetDecimal(2);
+                                decimal deSaldoAnt = reader.GetDecimal(3);
+                                decimal deSaldoAct = reader.GetDecimal(4);
+                                decimal deCargoAcumulado = reader.GetDecimal(5);
+                                decimal deAbonoAcumulado = reader.GetDecimal(6);
 
                                 // Obtener el saldoanual del mes anterior, si existe
                                 decimal deSaldoAnualPrevio = 0;
                                 string sSaldoAnualQuery = "SELECT saldoanual FROM tbl_historico_cuentas WHERE Pk_id_cuenta = ? AND mes = ? AND anio = ?";
                                 using (OdbcCommand saldoAnualCmd = new OdbcCommand(sSaldoAnualQuery, con, transaction))
                                 {
-                                    saldoAnualCmd.Parameters.AddWithValue("?", cuentaId);
-                                    saldoAnualCmd.Parameters.AddWithValue("?", mes - 1); // Mes anterior
-                                    saldoAnualCmd.Parameters.AddWithValue("?", anio);
+                                    saldoAnualCmd.Parameters.AddWithValue("?", iCuentaId);
+                                    saldoAnualCmd.Parameters.AddWithValue("?", iMes - 1); // Mes anterior
+                                    saldoAnualCmd.Parameters.AddWithValue("?", iAnio);
 
                                     object result = saldoAnualCmd.ExecuteScalar();
                                     if (result != null)
@@ -194,7 +194,7 @@ namespace Capa_Controlador_CierreContable
                                 }
 
                                 // Sumar el saldo_act actual al saldoanual del mes anterior
-                                decimal nuevoSaldoAnual = deSaldoAnualPrevio + saldoAct;
+                                decimal deNuevoSaldoAnual = deSaldoAnualPrevio + deSaldoAct;
 
                                 // Guardar el historial en tbl_historico_cuentas
                                 string sInsertQuery = @"
@@ -205,16 +205,16 @@ namespace Capa_Controlador_CierreContable
 
                                 using (OdbcCommand insertCmd = new OdbcCommand(sInsertQuery, con, transaction))
                                 {
-                                    insertCmd.Parameters.AddWithValue("?", cuentaId);
-                                    insertCmd.Parameters.AddWithValue("?", mes);
-                                    insertCmd.Parameters.AddWithValue("?", anio);
-                                    insertCmd.Parameters.AddWithValue("?", cargoMes);
-                                    insertCmd.Parameters.AddWithValue("?", abonoMes);
-                                    insertCmd.Parameters.AddWithValue("?", saldoAnt);
-                                    insertCmd.Parameters.AddWithValue("?", saldoAct);
-                                    insertCmd.Parameters.AddWithValue("?", cargoAcumulado + cargoMes);
-                                    insertCmd.Parameters.AddWithValue("?", abonoAcumulado + abonoMes);
-                                    insertCmd.Parameters.AddWithValue("?", nuevoSaldoAnual);
+                                    insertCmd.Parameters.AddWithValue("?", iCuentaId);
+                                    insertCmd.Parameters.AddWithValue("?", iMes);
+                                    insertCmd.Parameters.AddWithValue("?", iAnio);
+                                    insertCmd.Parameters.AddWithValue("?", deCargoMes);
+                                    insertCmd.Parameters.AddWithValue("?", deAbonoMes);
+                                    insertCmd.Parameters.AddWithValue("?", deSaldoAnt);
+                                    insertCmd.Parameters.AddWithValue("?", deSaldoAct);
+                                    insertCmd.Parameters.AddWithValue("?", deCargoAcumulado + deCargoMes);
+                                    insertCmd.Parameters.AddWithValue("?", deAbonoAcumulado + deAbonoMes);
+                                    insertCmd.Parameters.AddWithValue("?", deNuevoSaldoAnual);
 
                                     insertCmd.ExecuteNonQuery();
                                 }
@@ -233,9 +233,9 @@ namespace Capa_Controlador_CierreContable
 
                                 using (OdbcCommand updateCmd = new OdbcCommand(sUpdateQuery, con, transaction))
                                 {
-                                    updateCmd.Parameters.AddWithValue("?", cargoMes);
-                                    updateCmd.Parameters.AddWithValue("?", abonoMes);
-                                    updateCmd.Parameters.AddWithValue("?", cuentaId);
+                                    updateCmd.Parameters.AddWithValue("?", deCargoMes);
+                                    updateCmd.Parameters.AddWithValue("?", deAbonoMes);
+                                    updateCmd.Parameters.AddWithValue("?", iCuentaId);
 
                                     updateCmd.ExecuteNonQuery();
                                 }
@@ -256,26 +256,26 @@ namespace Capa_Controlador_CierreContable
             }
         }
 
-        public void VerificarYActualizarAnoCompleto(int anio)
+        public void VerificarYActualizarAnoCompleto(int iAnio)
         {
             using (OdbcConnection con = sn.ObtenerConexion())
             {
-                string query = "SELECT COUNT(DISTINCT mes) FROM tbl_historico_cuentas WHERE anio = ?";
-                OdbcCommand cmd = new OdbcCommand(query, con);
-                cmd.Parameters.AddWithValue("?", anio);
+                string sQuery = "SELECT COUNT(DISTINCT mes) FROM tbl_historico_cuentas WHERE anio = ?";
+                OdbcCommand cmd = new OdbcCommand(sQuery, con);
+                cmd.Parameters.AddWithValue("?", iAnio);
 
-                int mesesConCierre = Convert.ToInt32(cmd.ExecuteScalar());
+                int iMesesConCierre = Convert.ToInt32(cmd.ExecuteScalar());
 
                 // Verificar si ya se completaron los 12 meses
-                if (mesesConCierre == 12)
+                if (iMesesConCierre == 12)
                 {
-                    int nuevoAnio = anio + 1;
-                    MessageBox.Show($"Año actualizado a {nuevoAnio}.");
-                    ActualizarSaldoAntYResetearCuentas(nuevoAnio); // Llamar a la función del paso 2 con el nuevo año
+                    int iNuevoAnio = iAnio + 1;
+                    MessageBox.Show($"Año actualizado a {iNuevoAnio}.");
+                    ActualizarSaldoAntYResetearCuentas(iNuevoAnio); // Llamar a la función del paso 2 con el nuevo año
                 }
             }
         }
-        public void ActualizarSaldoAntYResetearCuentas(int anio)
+        public void ActualizarSaldoAntYResetearCuentas(int iAnio)
         {
             using (OdbcConnection con = sn.ObtenerConexion())
             {
@@ -284,18 +284,18 @@ namespace Capa_Controlador_CierreContable
                     try
                     {
                         // Actualizar saldo_ant en tbl_cuentas con saldoanual de tbl_historico_cuentas
-                        string updateSaldoAntQuery = @"
+                        string sUpdatesaldoantquery = @"
                     UPDATE tbl_cuentas c
                     JOIN tbl_historico_cuentas h ON c.Pk_id_cuenta = h.Pk_id_cuenta
                     SET c.saldo_ant = h.saldoanual
                     WHERE h.mes = 12 AND h.anio = ?";
 
-                        OdbcCommand updateSaldoAntCmd = new OdbcCommand(updateSaldoAntQuery, con, transaction);
-                        updateSaldoAntCmd.Parameters.AddWithValue("?", anio - 1);
+                        OdbcCommand updateSaldoAntCmd = new OdbcCommand(sUpdatesaldoantquery, con, transaction);
+                        updateSaldoAntCmd.Parameters.AddWithValue("?", iAnio - 1);
                         updateSaldoAntCmd.ExecuteNonQuery();
 
                         // Reiniciar los valores de columnas flotantes en tbl_cuentas a 0
-                        string resetCuentasQuery = @"
+                        string sResetCuentasQuery = @"
                     UPDATE tbl_cuentas
                     SET 
                         cargo_mes = 0, 
@@ -304,7 +304,7 @@ namespace Capa_Controlador_CierreContable
                         cargo_acumulado = 0, 
                         abono_acumulado = 0";
 
-                        OdbcCommand resetCuentasCmd = new OdbcCommand(resetCuentasQuery, con, transaction);
+                        OdbcCommand resetCuentasCmd = new OdbcCommand(sResetCuentasQuery, con, transaction);
                         resetCuentasCmd.ExecuteNonQuery();
 
                         transaction.Commit();
@@ -319,17 +319,17 @@ namespace Capa_Controlador_CierreContable
             }
         }
 
-        public bool VerificarMesConDatos(int anio, int mes)
+        public bool VerificarMesConDatos(int iAnio, int iMes)
         {
             using (OdbcConnection con = sn.ObtenerConexion())
             {
-                string query = "SELECT COUNT(*) FROM tbl_historico_cuentas WHERE anio = ? AND mes = ?";
-                OdbcCommand cmd = new OdbcCommand(query, con);
-                cmd.Parameters.AddWithValue("?", anio);
-                cmd.Parameters.AddWithValue("?", mes);
+                string sQuery = "SELECT COUNT(*) FROM tbl_historico_cuentas WHERE anio = ? AND mes = ?";
+                OdbcCommand cmd = new OdbcCommand(sQuery, con);
+                cmd.Parameters.AddWithValue("?", iAnio);
+                cmd.Parameters.AddWithValue("?", iMes);
 
-                int count = Convert.ToInt32(cmd.ExecuteScalar());
-                return count > 0;  // Retorna true si hay datos, false si no
+                int iCount = Convert.ToInt32(cmd.ExecuteScalar());
+                return iCount > 0;  // Retorna true si hay datos, false si no
             }
         }
 
@@ -439,44 +439,44 @@ namespace Capa_Controlador_CierreContable
             return datosCierre;
         }
 
-        public int ObtenerUltimoMesConDatos(int anio)
+        public int ObtenerUltimoMesConDatos(int iAnio)
         {
-            int ultimoMes = 0;
+            int iUltimoMes = 0;
 
             using (OdbcConnection con = sn.ObtenerConexion())
             {
-                string query = "SELECT MAX(mes) FROM tbl_historico_cuentas WHERE anio = ?";
-                OdbcCommand cmd = new OdbcCommand(query, con);
-                cmd.Parameters.AddWithValue("?", anio);
+                string sQuery = "SELECT MAX(mes) FROM tbl_historico_cuentas WHERE anio = ?";
+                OdbcCommand cmd = new OdbcCommand(sQuery, con);
+                cmd.Parameters.AddWithValue("?", iAnio);
 
                 var resultado = cmd.ExecuteScalar();
                 if (resultado != DBNull.Value && resultado != null)
                 {
-                    ultimoMes = Convert.ToInt32(resultado);
+                    iUltimoMes = Convert.ToInt32(resultado);
                 }
             }
 
-            return ultimoMes; // Retorna 0 si no hay meses con datos
+            return iUltimoMes; // Retorna 0 si no hay meses con datos
         }
 
 
 
-        public bool VerificarCierresCompletos(int anio)
+        public bool VerificarCierresCompletos(int iAnio)
         {
-            string query = @"
+            string sQuery = @"
                 SELECT COUNT(DISTINCT Mes) AS MesesRegistrados
                 FROM tbl_historico_cuentas
                 WHERE Anio = ?";
 
             using (OdbcConnection conn = sn.ObtenerConexion())
             {
-                using (OdbcCommand cmd = new OdbcCommand(query, conn))
+                using (OdbcCommand cmd = new OdbcCommand(sQuery, conn))
                 {
-                    cmd.Parameters.AddWithValue("?", anio);
-                    int mesesRegistrados = Convert.ToInt32(cmd.ExecuteScalar());
+                    cmd.Parameters.AddWithValue("?", iAnio);
+                    int iMesesRegistrados = Convert.ToInt32(cmd.ExecuteScalar());
 
                     // Verificar si existen registros para todos los meses (1 a 12)
-                    return mesesRegistrados == 12;
+                    return iMesesRegistrados == 12;
                 }
             }
         }
@@ -486,15 +486,15 @@ namespace Capa_Controlador_CierreContable
 
 
         // Método para actualizar el año en la tabla `tbl_historico_cuentas`
-        public void ActualizarAnioHistorico(int anioActual, int nuevoAnio)
+        public void ActualizarAnioHistorico(int iAnioActual, int iAño)
         {
-            string queryActualizarSaldoAnt = @"
+            string sQueryActualizarSaldoAnt = @"
                 UPDATE tbl_cuentas c
                 INNER JOIN tbl_historico_cuentas h ON c.Pk_id_cuenta = h.Pk_id_cuenta
                 SET c.saldo_ant = h.saldoanual
                 WHERE h.Anio = ? AND h.Mes = 12";
 
-            string queryReiniciarSaldos = @"
+            string sQueryReiniciarSaldos = @"
                 UPDATE tbl_cuentas
                 SET cargo_mes = 0, abono_mes = 0, saldo_act = 0, 
                     cargo_acumulado = 0, abono_acumulado = 0";
@@ -502,14 +502,14 @@ namespace Capa_Controlador_CierreContable
             using (OdbcConnection conn = sn.ObtenerConexion())
             {
                 // Ejecutar la primera consulta para actualizar saldo_ant
-                using (OdbcCommand cmd1 = new OdbcCommand(queryActualizarSaldoAnt, conn))
+                using (OdbcCommand cmd1 = new OdbcCommand(sQueryActualizarSaldoAnt, conn))
                 {
-                    cmd1.Parameters.AddWithValue("?", anioActual);
+                    cmd1.Parameters.AddWithValue("?", iAnioActual);
                     cmd1.ExecuteNonQuery();
                 }
 
                 // Ejecutar la segunda consulta para reiniciar saldos
-                using (OdbcCommand cmd2 = new OdbcCommand(queryReiniciarSaldos, conn))
+                using (OdbcCommand cmd2 = new OdbcCommand(sQueryReiniciarSaldos, conn))
                 {
                     cmd2.ExecuteNonQuery();
                 }
@@ -518,15 +518,15 @@ namespace Capa_Controlador_CierreContable
 
 
         // Modifica el método ActualizarSumasSaldos para incluir la cuenta
-        public void ActualizarSumasSaldos(TextBox txt_saldoant, TextBox txt_saldofinal, int periodo, string sCuenta)
+        public void ActualizarSumasSaldos(TextBox txt_saldoant, TextBox txt_saldofinal, int iPeriodo, string sCuenta)
         {
             try
             {
                 // Llama a ObtenerSumasSaldos pasando periodo y cuenta
-                (decimal sumaSaldoAnt, decimal sumaSaldoAct) = sn.ObtenerSumasSaldos(periodo, sCuenta);
+                (decimal deSumaSaldoAnt, decimal deSumaSaldoAct) = sn.ObtenerSumasSaldos(iPeriodo, sCuenta);
 
-                txt_saldoant.Text = sumaSaldoAnt.ToString("N2");
-                txt_saldofinal.Text = sumaSaldoAct.ToString("N2");
+                txt_saldoant.Text = deSumaSaldoAnt.ToString("N2");
+                txt_saldofinal.Text = deSumaSaldoAct.ToString("N2");
             }
             catch (Exception ex)
             {
@@ -553,8 +553,8 @@ namespace Capa_Controlador_CierreContable
         public bool VerificarRegistrosVacios(string sMes, string sAnio)
         {
             // Obtener el periodo correspondiente al mes
-            int periodo = ObtenerPeriodoPorMes(sMes);
-            if (periodo < 1 || periodo > 12) // Si el mes no es válido, retorna false
+            int iPeriodo = ObtenerPeriodoPorMes(sMes);
+            if (iPeriodo < 1 || iPeriodo > 12) // Si el mes no es válido, retorna false
             {
                 MessageBox.Show("Mes inválido.");
                 return false;
@@ -566,10 +566,10 @@ namespace Capa_Controlador_CierreContable
             // Recorrer cada cuenta y verificar si hay registros para el mes y año especificados
             foreach (DataRow cuenta in cuentas.Rows)
             {
-                string nombreCuenta = cuenta["nombre_cuenta"].ToString();
+                string sNombreCuenta = cuenta["nombre_cuenta"].ToString();
 
                 // Consulta para verificar si hay registros para el mes y año con un JOIN
-                string query = @"
+                string sQuery = @"
             SELECT COUNT(*) 
             FROM tbl_historico_cuentas hc
             INNER JOIN tbl_cuentas c ON hc.Pk_id_cuenta = c.Pk_id_cuenta
@@ -577,18 +577,18 @@ namespace Capa_Controlador_CierreContable
 
                 using (OdbcConnection con = sn.ObtenerConexion())
                 {
-                    using (OdbcCommand cmd = new OdbcCommand(query, con))
+                    using (OdbcCommand cmd = new OdbcCommand(sQuery, con))
                     {
-                        cmd.Parameters.AddWithValue("?", nombreCuenta);
-                        cmd.Parameters.AddWithValue("?", periodo);
+                        cmd.Parameters.AddWithValue("?", sNombreCuenta);
+                        cmd.Parameters.AddWithValue("?", iPeriodo);
                         cmd.Parameters.AddWithValue("?", sAnio);
 
-                        int registros = Convert.ToInt32(cmd.ExecuteScalar());
+                        int iRegistros = Convert.ToInt32(cmd.ExecuteScalar());
 
                         // Si no hay registros para este mes, retorna false
-                        if (registros == 0)
+                        if (iRegistros == 0)
                         {
-                            MessageBox.Show($"No existe cierre para la cuenta '{nombreCuenta}' en el mes {sMes} del año {sAnio}.");
+                            MessageBox.Show($"No existe cierre para la cuenta '{sNombreCuenta}' en el mes {sMes} del año {sAnio}.");
                             return false;
                         }
                     }
@@ -599,7 +599,7 @@ namespace Capa_Controlador_CierreContable
             return true;
         }
 
-        public void ConsultaCG(int periodo, string sAnio, string sCuenta, DataTable dt1, DataTable dt2)
+        public void ConsultaCG(int iPeriodo, string sAnio, string sCuenta, DataTable dt1, DataTable dt2)
         {
             // Define the SQL query for dt1 with cargo_mes
             string sConsultaCargo = @"
@@ -647,7 +647,7 @@ namespace Capa_Controlador_CierreContable
             {
                 // Fill dt1 with cargo_mes data
                 OdbcDataAdapter datosCargo = new OdbcDataAdapter(sConsultaCargo, con);
-                datosCargo.SelectCommand.Parameters.AddWithValue("?", periodo);
+                datosCargo.SelectCommand.Parameters.AddWithValue("?", iPeriodo);
                 datosCargo.SelectCommand.Parameters.AddWithValue("?", sAnio);
 
                 if (!string.IsNullOrEmpty(sCuenta))
@@ -664,7 +664,7 @@ namespace Capa_Controlador_CierreContable
 
                 // Fill dt2 with abono_mes data
                 OdbcDataAdapter datosAbono = new OdbcDataAdapter(sConsultaAbono, con);
-                datosAbono.SelectCommand.Parameters.AddWithValue("?", periodo);
+                datosAbono.SelectCommand.Parameters.AddWithValue("?", iPeriodo);
                 datosAbono.SelectCommand.Parameters.AddWithValue("?", sAnio);
 
                 if (!string.IsNullOrEmpty(sCuenta))
