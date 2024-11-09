@@ -73,6 +73,26 @@ namespace Capa_Vista_Polizas.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap agregar_archivo__4_ {
+            get {
+                object obj = ResourceManager.GetObject("agregar-archivo (4)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ahorrar {
+            get {
+                object obj = ResourceManager.GetObject("ahorrar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap boton_menos {
             get {
                 object obj = ResourceManager.GetObject("boton-menos", resourceCulture);
@@ -113,9 +133,29 @@ namespace Capa_Vista_Polizas.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cancelar {
+            get {
+                object obj = ResourceManager.GetObject("cancelar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cerrar_sesion {
             get {
                 object obj = ResourceManager.GetObject("cerrar-sesion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cerrar_sesion1 {
+            get {
+                object obj = ResourceManager.GetObject("cerrar-sesion1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -176,6 +216,16 @@ namespace Capa_Vista_Polizas.Properties {
         internal static System.Drawing.Bitmap preguntas {
             get {
                 object obj = ResourceManager.GetObject("preguntas", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap preguntas1 {
+            get {
+                object obj = ResourceManager.GetObject("preguntas1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

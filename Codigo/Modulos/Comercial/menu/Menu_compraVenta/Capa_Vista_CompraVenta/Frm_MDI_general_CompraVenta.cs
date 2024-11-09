@@ -280,11 +280,16 @@ namespace Capa_Vista_CompraVenta
             Ven.Show();*/
         }
 
+        private void panelBarraTitulo_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void button1_Click_2(object sender, EventArgs e)
         {
-            FormModulos formulario = new FormModulos(idUsuario);
-            formulario.MdiParent = this;
-            formulario.Show();
+           // FormModulos formulario = new FormModulos(idUsuario);
+            //formulario.MdiParent = this;
+           // formulario.Show();
         }
 
         private void btnRestaurar_Click(object sender, EventArgs e)

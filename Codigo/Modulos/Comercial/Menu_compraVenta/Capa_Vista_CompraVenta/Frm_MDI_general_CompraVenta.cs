@@ -11,9 +11,9 @@ using Capa_Controlador_CompraVenta;
 using Capa_Vista_Cotizacion;
 using Capa_Vista_Factura;
 using Interfac_V3;
-/*using Capa_Vista_ListaPrecios;
+using Capa_Vista_ListaPrecios;
 using Capa_Vista_Polizas;
-using Capa_vista_pedido;
+/*using Capa_vista_pedido;
 using Capa_Vista_OrdenCompra;
 using Capa_Vista;*/
 namespace Capa_Vista_CompraVenta
@@ -222,9 +222,9 @@ namespace Capa_Vista_CompraVenta
 
         private void Btn_poliza_Click_1(object sender, EventArgs e)
         {
-            /*frmPolizas formulario = new frmPolizas();
+            frmPolizas formulario = new frmPolizas();
             formulario.MdiParent = this;
-            formulario.Show();*/
+            formulario.Show();
         }
 
         private void button12_Click(object sender, EventArgs e)
@@ -252,9 +252,9 @@ namespace Capa_Vista_CompraVenta
 
         private void button9_Click_1(object sender, EventArgs e)
         {
-          /*  frm_ListadoInicio Ven = new frm_ListadoInicio();
+           frm_ListadoInicio Ven = new frm_ListadoInicio();
             Ven.MdiParent = this;
-            Ven.Show();*/
+            Ven.Show();
            
             
         }
@@ -278,6 +278,11 @@ namespace Capa_Vista_CompraVenta
            /* frm_MantenimientoListas Ven = new frm_MantenimientoListas(idUsuario);
             Ven.MdiParent = this;
             Ven.Show();*/
+        }
+
+        private void Frm_MDI_general_CompraVenta_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void button1_Click_2(object sender, EventArgs e)

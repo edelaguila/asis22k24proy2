@@ -30,25 +30,22 @@ namespace Capa_Vista_Polizas
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPolizas));
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.gb_encabezado = new System.Windows.Forms.GroupBox();
+            this.Gpb_encabezado = new System.Windows.Forms.GroupBox();
             this.Txt_concepto = new System.Windows.Forms.TextBox();
             this.Lbl_concepto = new System.Windows.Forms.Label();
             this.Lbl_tipo_poliza = new System.Windows.Forms.Label();
             this.Dpt_fecha = new System.Windows.Forms.DateTimePicker();
             this.Lbl_fecha = new System.Windows.Forms.Label();
             this.Cbo_tipopoliza = new System.Windows.Forms.ComboBox();
-            this.gb_detalle = new System.Windows.Forms.GroupBox();
-            this.lbl_valor = new System.Windows.Forms.Label();
+            this.Gpb_detalle = new System.Windows.Forms.GroupBox();
+            this.Lbl_valor = new System.Windows.Forms.Label();
             this.Lbl_operacion = new System.Windows.Forms.Label();
-            this.Btn_aceptar = new System.Windows.Forms.Button();
             this.Txt_valor = new System.Windows.Forms.TextBox();
             this.Cbo_operacion = new System.Windows.Forms.ComboBox();
             this.Cbo_Cuenta = new System.Windows.Forms.ComboBox();
             this.Lbl_Cuenta = new System.Windows.Forms.Label();
-            this.gb_detallemov = new System.Windows.Forms.GroupBox();
-            this.Btn_quitar = new System.Windows.Forms.Button();
+            this.Gpb_detallemov = new System.Windows.Forms.GroupBox();
             this.Dgv_Polizas = new System.Windows.Forms.DataGridView();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,9 +61,11 @@ namespace Capa_Vista_Polizas
             this.Btn_Cancelar = new System.Windows.Forms.Button();
             this.Btn_registar_poliza = new System.Windows.Forms.Button();
             this.Btn_nueva_poliza = new System.Windows.Forms.Button();
-            this.gb_encabezado.SuspendLayout();
-            this.gb_detalle.SuspendLayout();
-            this.gb_detallemov.SuspendLayout();
+            this.Btn_quitar = new System.Windows.Forms.Button();
+            this.Btn_aceptar = new System.Windows.Forms.Button();
+            this.Gpb_encabezado.SuspendLayout();
+            this.Gpb_detalle.SuspendLayout();
+            this.Gpb_detallemov.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Polizas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -75,21 +74,21 @@ namespace Capa_Vista_Polizas
             // 
             this.colorDialog1.Color = System.Drawing.Color.Maroon;
             // 
-            // gb_encabezado
+            // Gpb_encabezado
             // 
-            this.gb_encabezado.Controls.Add(this.Txt_concepto);
-            this.gb_encabezado.Controls.Add(this.Lbl_concepto);
-            this.gb_encabezado.Controls.Add(this.Lbl_tipo_poliza);
-            this.gb_encabezado.Controls.Add(this.Dpt_fecha);
-            this.gb_encabezado.Controls.Add(this.Lbl_fecha);
-            this.gb_encabezado.Controls.Add(this.Cbo_tipopoliza);
-            this.gb_encabezado.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gb_encabezado.Location = new System.Drawing.Point(12, 97);
-            this.gb_encabezado.Name = "gb_encabezado";
-            this.gb_encabezado.Size = new System.Drawing.Size(1051, 145);
-            this.gb_encabezado.TabIndex = 0;
-            this.gb_encabezado.TabStop = false;
-            this.gb_encabezado.Text = "Encabezado poliza";
+            this.Gpb_encabezado.Controls.Add(this.Txt_concepto);
+            this.Gpb_encabezado.Controls.Add(this.Lbl_concepto);
+            this.Gpb_encabezado.Controls.Add(this.Lbl_tipo_poliza);
+            this.Gpb_encabezado.Controls.Add(this.Dpt_fecha);
+            this.Gpb_encabezado.Controls.Add(this.Lbl_fecha);
+            this.Gpb_encabezado.Controls.Add(this.Cbo_tipopoliza);
+            this.Gpb_encabezado.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Gpb_encabezado.Location = new System.Drawing.Point(12, 97);
+            this.Gpb_encabezado.Name = "Gpb_encabezado";
+            this.Gpb_encabezado.Size = new System.Drawing.Size(1051, 145);
+            this.Gpb_encabezado.TabIndex = 0;
+            this.Gpb_encabezado.TabStop = false;
+            this.Gpb_encabezado.Text = "Encabezado poliza";
             // 
             // Txt_concepto
             // 
@@ -148,36 +147,36 @@ namespace Capa_Vista_Polizas
             this.Cbo_tipopoliza.TabIndex = 0;
             this.Cbo_tipopoliza.SelectedIndexChanged += new System.EventHandler(this.cbtipopoliza_SelectedIndexChanged);
             // 
-            // gb_detalle
+            // Gpb_detalle
             // 
-            this.gb_detalle.Controls.Add(this.lbl_valor);
-            this.gb_detalle.Controls.Add(this.Lbl_operacion);
-            this.gb_detalle.Controls.Add(this.Btn_aceptar);
-            this.gb_detalle.Controls.Add(this.Txt_valor);
-            this.gb_detalle.Controls.Add(this.Cbo_operacion);
-            this.gb_detalle.Controls.Add(this.Cbo_Cuenta);
-            this.gb_detalle.Controls.Add(this.Lbl_Cuenta);
-            this.gb_detalle.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gb_detalle.Location = new System.Drawing.Point(13, 248);
-            this.gb_detalle.Name = "gb_detalle";
-            this.gb_detalle.Size = new System.Drawing.Size(1050, 114);
-            this.gb_detalle.TabIndex = 1;
-            this.gb_detalle.TabStop = false;
-            this.gb_detalle.Text = "Detalle";
+            this.Gpb_detalle.Controls.Add(this.Lbl_valor);
+            this.Gpb_detalle.Controls.Add(this.Lbl_operacion);
+            this.Gpb_detalle.Controls.Add(this.Btn_aceptar);
+            this.Gpb_detalle.Controls.Add(this.Txt_valor);
+            this.Gpb_detalle.Controls.Add(this.Cbo_operacion);
+            this.Gpb_detalle.Controls.Add(this.Cbo_Cuenta);
+            this.Gpb_detalle.Controls.Add(this.Lbl_Cuenta);
+            this.Gpb_detalle.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Gpb_detalle.Location = new System.Drawing.Point(13, 248);
+            this.Gpb_detalle.Name = "Gpb_detalle";
+            this.Gpb_detalle.Size = new System.Drawing.Size(1050, 114);
+            this.Gpb_detalle.TabIndex = 1;
+            this.Gpb_detalle.TabStop = false;
+            this.Gpb_detalle.Text = "Detalle";
             // 
-            // lbl_valor
+            // Lbl_valor
             // 
-            this.lbl_valor.AutoSize = true;
-            this.lbl_valor.BackColor = System.Drawing.Color.Beige;
-            this.lbl_valor.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_valor.Location = new System.Drawing.Point(672, 28);
-            this.lbl_valor.Margin = new System.Windows.Forms.Padding(10);
-            this.lbl_valor.Name = "lbl_valor";
-            this.lbl_valor.Padding = new System.Windows.Forms.Padding(0, 0, 55, 0);
-            this.lbl_valor.Size = new System.Drawing.Size(173, 22);
-            this.lbl_valor.TabIndex = 8;
-            this.lbl_valor.Text = "             Valor";
-            this.lbl_valor.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Lbl_valor.AutoSize = true;
+            this.Lbl_valor.BackColor = System.Drawing.Color.Beige;
+            this.Lbl_valor.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_valor.Location = new System.Drawing.Point(672, 28);
+            this.Lbl_valor.Margin = new System.Windows.Forms.Padding(10);
+            this.Lbl_valor.Name = "Lbl_valor";
+            this.Lbl_valor.Padding = new System.Windows.Forms.Padding(0, 0, 55, 0);
+            this.Lbl_valor.Size = new System.Drawing.Size(173, 22);
+            this.Lbl_valor.TabIndex = 8;
+            this.Lbl_valor.Text = "             Valor";
+            this.Lbl_valor.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Lbl_operacion
             // 
@@ -192,17 +191,6 @@ namespace Capa_Vista_Polizas
             this.Lbl_operacion.TabIndex = 7;
             this.Lbl_operacion.Text = "          Cargo/Abono";
             this.Lbl_operacion.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // Btn_aceptar
-            // 
-            this.Btn_aceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(237)))), ((int)(((byte)(235)))));
-            this.Btn_aceptar.Image = global::Capa_Vista_Polizas.Properties.Resources.lista_de_verificacion;
-            this.Btn_aceptar.Location = new System.Drawing.Point(883, 21);
-            this.Btn_aceptar.Name = "Btn_aceptar";
-            this.Btn_aceptar.Size = new System.Drawing.Size(88, 78);
-            this.Btn_aceptar.TabIndex = 6;
-            this.Btn_aceptar.UseVisualStyleBackColor = false;
-            this.Btn_aceptar.Click += new System.EventHandler(this.btn_aceptar_Click);
             // 
             // Txt_valor
             // 
@@ -247,28 +235,17 @@ namespace Capa_Vista_Polizas
             this.Lbl_Cuenta.Text = "                             Cuenta\r\n";
             this.Lbl_Cuenta.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // gb_detallemov
+            // Gpb_detallemov
             // 
-            this.gb_detallemov.Controls.Add(this.Btn_quitar);
-            this.gb_detallemov.Controls.Add(this.Dgv_Polizas);
-            this.gb_detallemov.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gb_detallemov.Location = new System.Drawing.Point(13, 377);
-            this.gb_detallemov.Name = "gb_detallemov";
-            this.gb_detallemov.Size = new System.Drawing.Size(1050, 374);
-            this.gb_detallemov.TabIndex = 2;
-            this.gb_detallemov.TabStop = false;
-            this.gb_detallemov.Text = "Detalle de movimiento";
-            // 
-            // Btn_quitar
-            // 
-            this.Btn_quitar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(237)))), ((int)(((byte)(235)))));
-            this.Btn_quitar.Image = global::Capa_Vista_Polizas.Properties.Resources.boton_menos3;
-            this.Btn_quitar.Location = new System.Drawing.Point(937, 31);
-            this.Btn_quitar.Name = "Btn_quitar";
-            this.Btn_quitar.Size = new System.Drawing.Size(98, 76);
-            this.Btn_quitar.TabIndex = 1;
-            this.Btn_quitar.UseVisualStyleBackColor = false;
-            this.Btn_quitar.Click += new System.EventHandler(this.btnQuitar_Click);
+            this.Gpb_detallemov.Controls.Add(this.Btn_quitar);
+            this.Gpb_detallemov.Controls.Add(this.Dgv_Polizas);
+            this.Gpb_detallemov.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Gpb_detallemov.Location = new System.Drawing.Point(13, 377);
+            this.Gpb_detallemov.Name = "Gpb_detallemov";
+            this.Gpb_detallemov.Size = new System.Drawing.Size(1050, 374);
+            this.Gpb_detallemov.TabIndex = 2;
+            this.Gpb_detallemov.TabStop = false;
+            this.Gpb_detallemov.Text = "Detalle de movimiento";
             // 
             // Dgv_Polizas
             // 
@@ -361,7 +338,7 @@ namespace Capa_Vista_Polizas
             // 
             // Btn_ayuda
             // 
-            this.Btn_ayuda.Image = global::Capa_Vista_Polizas.Properties.Resources.preguntas;
+            this.Btn_ayuda.Image = global::Capa_Vista_Polizas.Properties.Resources.preguntas1;
             this.Btn_ayuda.Location = new System.Drawing.Point(922, 15);
             this.Btn_ayuda.Name = "Btn_ayuda";
             this.Btn_ayuda.Size = new System.Drawing.Size(62, 60);
@@ -371,7 +348,7 @@ namespace Capa_Vista_Polizas
             // 
             // Btn_salir
             // 
-            this.Btn_salir.Image = ((System.Drawing.Image)(resources.GetObject("Btn_salir.Image")));
+            this.Btn_salir.Image = global::Capa_Vista_Polizas.Properties.Resources.cerrar_sesion1;
             this.Btn_salir.Location = new System.Drawing.Point(1001, 16);
             this.Btn_salir.Name = "Btn_salir";
             this.Btn_salir.Size = new System.Drawing.Size(62, 60);
@@ -381,7 +358,7 @@ namespace Capa_Vista_Polizas
             // 
             // Btn_Cancelar
             // 
-            this.Btn_Cancelar.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Cancelar.Image")));
+            this.Btn_Cancelar.Image = global::Capa_Vista_Polizas.Properties.Resources.cancelar;
             this.Btn_Cancelar.Location = new System.Drawing.Point(244, 13);
             this.Btn_Cancelar.Name = "Btn_Cancelar";
             this.Btn_Cancelar.Size = new System.Drawing.Size(64, 63);
@@ -392,7 +369,7 @@ namespace Capa_Vista_Polizas
             // Btn_registar_poliza
             // 
             this.Btn_registar_poliza.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(237)))), ((int)(((byte)(235)))));
-            this.Btn_registar_poliza.Image = ((System.Drawing.Image)(resources.GetObject("Btn_registar_poliza.Image")));
+            this.Btn_registar_poliza.Image = global::Capa_Vista_Polizas.Properties.Resources.ahorrar;
             this.Btn_registar_poliza.Location = new System.Drawing.Point(135, 13);
             this.Btn_registar_poliza.Name = "Btn_registar_poliza";
             this.Btn_registar_poliza.Size = new System.Drawing.Size(64, 62);
@@ -402,13 +379,35 @@ namespace Capa_Vista_Polizas
             // 
             // Btn_nueva_poliza
             // 
-            this.Btn_nueva_poliza.Image = ((System.Drawing.Image)(resources.GetObject("Btn_nueva_poliza.Image")));
+            this.Btn_nueva_poliza.Image = global::Capa_Vista_Polizas.Properties.Resources.agregar_archivo__4_;
             this.Btn_nueva_poliza.Location = new System.Drawing.Point(33, 12);
             this.Btn_nueva_poliza.Name = "Btn_nueva_poliza";
             this.Btn_nueva_poliza.Size = new System.Drawing.Size(63, 63);
             this.Btn_nueva_poliza.TabIndex = 3;
             this.Btn_nueva_poliza.UseVisualStyleBackColor = false;
             this.Btn_nueva_poliza.Click += new System.EventHandler(this.btn_nueva_poliza_Click);
+            // 
+            // Btn_quitar
+            // 
+            this.Btn_quitar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(237)))), ((int)(((byte)(235)))));
+            this.Btn_quitar.Image = global::Capa_Vista_Polizas.Properties.Resources.boton_menos3;
+            this.Btn_quitar.Location = new System.Drawing.Point(937, 31);
+            this.Btn_quitar.Name = "Btn_quitar";
+            this.Btn_quitar.Size = new System.Drawing.Size(98, 76);
+            this.Btn_quitar.TabIndex = 1;
+            this.Btn_quitar.UseVisualStyleBackColor = false;
+            this.Btn_quitar.Click += new System.EventHandler(this.btnQuitar_Click);
+            // 
+            // Btn_aceptar
+            // 
+            this.Btn_aceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(237)))), ((int)(((byte)(235)))));
+            this.Btn_aceptar.Image = global::Capa_Vista_Polizas.Properties.Resources.lista_de_verificacion;
+            this.Btn_aceptar.Location = new System.Drawing.Point(883, 21);
+            this.Btn_aceptar.Name = "Btn_aceptar";
+            this.Btn_aceptar.Size = new System.Drawing.Size(88, 78);
+            this.Btn_aceptar.TabIndex = 6;
+            this.Btn_aceptar.UseVisualStyleBackColor = false;
+            this.Btn_aceptar.Click += new System.EventHandler(this.btn_aceptar_Click);
             // 
             // frmPolizas
             // 
@@ -424,17 +423,17 @@ namespace Capa_Vista_Polizas
             this.Controls.Add(this.Lbl_cargo);
             this.Controls.Add(this.Btn_registar_poliza);
             this.Controls.Add(this.Btn_nueva_poliza);
-            this.Controls.Add(this.gb_detallemov);
-            this.Controls.Add(this.gb_detalle);
-            this.Controls.Add(this.gb_encabezado);
+            this.Controls.Add(this.Gpb_detallemov);
+            this.Controls.Add(this.Gpb_detalle);
+            this.Controls.Add(this.Gpb_encabezado);
             this.Name = "frmPolizas";
             this.Text = "Polizas";
             this.Load += new System.EventHandler(this.Polizas_Load);
-            this.gb_encabezado.ResumeLayout(false);
-            this.gb_encabezado.PerformLayout();
-            this.gb_detalle.ResumeLayout(false);
-            this.gb_detalle.PerformLayout();
-            this.gb_detallemov.ResumeLayout(false);
+            this.Gpb_encabezado.ResumeLayout(false);
+            this.Gpb_encabezado.PerformLayout();
+            this.Gpb_detalle.ResumeLayout(false);
+            this.Gpb_detalle.PerformLayout();
+            this.Gpb_detallemov.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Polizas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
@@ -445,20 +444,20 @@ namespace Capa_Vista_Polizas
         #endregion
 
         private System.Windows.Forms.ColorDialog colorDialog1;
-        private System.Windows.Forms.GroupBox gb_encabezado;
+        private System.Windows.Forms.GroupBox Gpb_encabezado;
         private System.Windows.Forms.TextBox Txt_concepto;
         private System.Windows.Forms.Label Lbl_concepto;
         private System.Windows.Forms.Label Lbl_tipo_poliza;
         private System.Windows.Forms.DateTimePicker Dpt_fecha;
         private System.Windows.Forms.Label Lbl_fecha;
         private System.Windows.Forms.ComboBox Cbo_tipopoliza;
-        private System.Windows.Forms.GroupBox gb_detalle;
+        private System.Windows.Forms.GroupBox Gpb_detalle;
         private System.Windows.Forms.Button Btn_aceptar;
         private System.Windows.Forms.TextBox Txt_valor;
         private System.Windows.Forms.ComboBox Cbo_operacion;
         private System.Windows.Forms.ComboBox Cbo_Cuenta;
         private System.Windows.Forms.Label Lbl_Cuenta;
-        private System.Windows.Forms.GroupBox gb_detallemov;
+        private System.Windows.Forms.GroupBox Gpb_detallemov;
         private System.Windows.Forms.Button Btn_quitar;
         private System.Windows.Forms.DataGridView Dgv_Polizas;
         private System.Windows.Forms.Button Btn_nueva_poliza;
@@ -472,7 +471,7 @@ namespace Capa_Vista_Polizas
         private System.Windows.Forms.DataGridViewTextBoxColumn Cuenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cargo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Abono;
-        private System.Windows.Forms.Label lbl_valor;
+        private System.Windows.Forms.Label Lbl_valor;
         private System.Windows.Forms.Label Lbl_operacion;
         private System.Windows.Forms.Button Btn_salir;
         private System.Windows.Forms.ErrorProvider errorProvider1;

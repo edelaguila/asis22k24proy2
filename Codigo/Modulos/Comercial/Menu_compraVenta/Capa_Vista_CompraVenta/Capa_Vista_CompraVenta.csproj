@@ -42,9 +42,16 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Factura\Capa_Vista_Factura\bin\Debug\Capa_Vista_Factura.dll</HintPath>
     </Reference>
+    <Reference Include="Capa_Vista_ListaPrecios">
+      <HintPath>..\..\menu\Listas Precios\Capa_Vista_ListaPrecios\bin\Debug\Capa_Vista_ListaPrecios.dll</HintPath>
+    </Reference>
     <Reference Include="Capa_Vista_Navegador, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\final\asis22k24proy2\Codigo\Componentes\Navegador\Capa_Vista_Navegador\bin\Debug\Capa_Vista_Navegador.dll</HintPath>
+      <HintPath>..\..\..\..\Componentes\Navegador\Capa_Vista_Navegador\bin\Debug\Capa_Vista_Navegador.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Polizas, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Capa_Vista_Polizas.dll</HintPath>
     </Reference>
     <Reference Include="Interfac_V3">
       <HintPath>..\..\..\Menus\ModernGUI_V3\bin\Debug\Interfac_V3.exe</HintPath>
