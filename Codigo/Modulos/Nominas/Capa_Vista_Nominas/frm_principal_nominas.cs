@@ -307,7 +307,10 @@ namespace Capa_Vista_Nominas
 
         private void Btn_procfaltas_Click(object sender, EventArgs e)
         {
+            frm_calculo_faltas falta = new frm_calculo_faltas();
+            falta.Show();
             ocultaSubMenu();
+           
         }
 
         private void Btn_procanticipos_Click(object sender, EventArgs e)

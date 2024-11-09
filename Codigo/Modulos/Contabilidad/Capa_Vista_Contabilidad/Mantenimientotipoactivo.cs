@@ -20,8 +20,8 @@ namespace Capa_Vista_Contabilidad
             string[] alias = { "ID", "Nombre tipo", "Estado" };
             navegador1.AsignarAlias(alias);
             navegador1.AsignarSalida(this);
-            navegador1.AsignarColorFondo(Color.LightBlue);
-            navegador1.AsignarColorFuente(Color.BlueViolet);
+            navegador1.AsignarColorFondo(Color.FromArgb(242, 133, 122));
+            navegador1.AsignarColorFuente(Color.Black);
             navegador1.ObtenerIdAplicacion("8000");
             navegador1.AsignarAyuda("1");
             navegador1.ObtenerIdUsuario(idusuario);

@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Capa_Controlador_Seguridad;
 
 namespace Capa_Vista_Contabilidad
 {
     public partial class FormCierre : Form
     {
+        public string sIdUsuario { get; set; }
+        logica LogicaSeg = new logica();
         public FormCierre()
         {
             InitializeComponent();
@@ -20,6 +23,12 @@ namespace Capa_Vista_Contabilidad
         private void cierre1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Btn_salir_Click(object sender, EventArgs e)
+        {
+            LogicaSeg.funinsertarabitacora(sIdUsuario, $"Se cerro Formulario CierreContable", "Cierre Contable", "8000");
+            this.Hide();
         }
     }
 }

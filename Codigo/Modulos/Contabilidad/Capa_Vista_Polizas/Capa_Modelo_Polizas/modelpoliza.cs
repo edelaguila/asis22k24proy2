@@ -264,7 +264,7 @@ namespace Capa_Modelo_Polizas
                     ActulizarCuentas(iidCuentaEnlace.Value, stipoOperacion, devalor);
                 }
 
-                ActualizarHistorico(iidCuenta, devalor, stipoOperacion);
+                //ActualizarHistorico(iidCuenta, devalor, stipoOperacion);
 
             }
             catch (Exception ex)

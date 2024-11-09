@@ -38,7 +38,17 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Cierre_Produccion\Capa_Vista_Cierre_Produccion\bin\Debug\Capa_Vista_Cierre_Produccion.dll</HintPath>
     </Reference>
-    <Reference Include="Capa_Vista_Navegador">
+    <Reference Include="Capa_Vista_Lotes">
+      <HintPath>..\Lotes\Capa_Vista_Lotes\bin\Debug\Capa_Vista_Lotes.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Mantenimiento">
+      <HintPath>..\Mantenimiento\Capa_Vista_Mantenimiento\bin\Debug\Capa_Vista_Mantenimiento.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Maquinaria">
+      <HintPath>..\Maquinaria\Capa_Vista_Maquinaria\bin\Debug\Capa_Vista_Maquinaria.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Navegador, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Componentes\Navegador\Capa_Vista_Navegador\bin\Debug\Capa_Vista_Navegador.dll</HintPath>
     </Reference>
     <Reference Include="Capa_Vista_Ordenes">
