@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3F1C7A3E-7B60-4FD4-840A-3CA690BECF31}</ProjectGuid>
+    <ProjectGuid>{E1AB0FEC-03B1-4D43-AB50-1670CF4363DE}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Ejecución_Compra_Venta</RootNamespace>
-    <AssemblyName>Ejecución_Compra_Venta</AssemblyName>
+    <RootNamespace>Ejecucion_ListasPrecios</RootNamespace>
+    <AssemblyName>Ejecucion_ListasPrecios</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,11 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Capa_Vista_CompraVenta">
-      <HintPath>..\..\Capa_Vista_CompraVenta\bin\Debug\Capa_Vista_CompraVenta.dll</HintPath>
-    </Reference>
-    <Reference Include="Capa_Vista_Seguridad">
-      <HintPath>..\..\..\..\..\Componentes\Seguridad\Capa_Vista_Seguridad\bin\Debug\Capa_Vista_Seguridad.dll</HintPath>
+    <Reference Include="Capa_Vista_ListaPrecios">
+      <HintPath>..\..\Capa_Vista_ListaPrecios\bin\Debug\Capa_Vista_ListaPrecios.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

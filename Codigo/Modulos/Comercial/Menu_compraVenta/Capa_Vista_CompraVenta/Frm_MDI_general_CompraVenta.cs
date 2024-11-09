@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Capa_Controlador_CompraVenta;
+using Capa_Vista_ListaPrecios;
 /*
  * 
  * 
@@ -256,11 +257,10 @@ namespace Capa_Vista_CompraVenta
 
         private void button9_Click_1(object sender, EventArgs e)
         {
-            /* Frm_vendedores Ven = new Frm_vendedores(idUsuario);
+            frm_ListadoInicio Ven = new frm_ListadoInicio(idUsuario);
             Ven.MdiParent = this;
             Ven.Show();
            
-            */
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -270,6 +270,24 @@ namespace Capa_Vista_CompraVenta
             Ven.Show();
            
             */
+        }
+
+        private void Btn_clasificaciones_Click(object sender, EventArgs e)
+        {
+            frm_MantenimientoListas Ven = new frm_MantenimientoListas(idUsuario);
+            Ven.MdiParent = this;
+            Ven.Show();
+       
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void btnRestaurar_Click(object sender, EventArgs e)
