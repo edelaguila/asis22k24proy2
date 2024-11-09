@@ -40,6 +40,7 @@ namespace Capa_Modelo_Consulta
             return datatable;
         }
 
+
         public void insertar(string dato, string tipo, string tabla)
         {
             try
@@ -187,7 +188,7 @@ namespace Capa_Modelo_Consulta
             try
             {
                 // Consulta para obtener solo los nombres de las consultas
-                string query = "SELECT nombre_consulta FROM tbl_consultaInteligente;";
+                string query = "SELECT consultaInteligente_nombre_consulta FROM tbl_consultaInteligente;";
                 // Ejecutamos el comando con la conexión activa
                 using (OdbcCommand cmd = new OdbcCommand(query, this.conn.connection()))
                 {
@@ -213,7 +214,7 @@ namespace Capa_Modelo_Consulta
             try
             {
                 // Consulta SQL para obtener el texto del query por su nombre
-                string sql = "SELECT consulta_SQLE FROM tbl_consultaInteligente WHERE nombre_consulta = ?";
+                string sql = "SELECT consultaInteligente_consulta_SQLE  FROM tbl_consultaInteligente WHERE  consultaInteligente_nombre_consulta = ?";
                 using (OdbcConnection conn = this.conn.connection())
                 {
                     using (OdbcCommand cmd = new OdbcCommand(sql, conn))
@@ -255,7 +256,7 @@ namespace Capa_Modelo_Consulta
         {
             try
             {
-                string sql = "UPDATE tbl_consultaInteligente SET consulta_estatus = 0 WHERE nombre_consulta = ?";
+                string sql = "UPDATE tbl_consultaInteligente SET  consultaInteligente_consulta_estatus = 0 WHERE consultaInteligente_nombre_consulta = ?";
                 using (OdbcCommand cmd = new OdbcCommand(sql, con.connection()))
                 {
                     cmd.Parameters.AddWithValue("@nombreConsulta", nombreConsulta);

@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Odbc;
 
-namespace Capa_Modelo_Banco
+namespace Capa_Modelo_Cambio
 {
     public class Modelo
     {
-        private Conexion conn;
+        private Conexion conn; // Clase de conexión
 
         public Modelo()
         {
-            this.conn = new Conexion();
+            this.conn = new Conexion(); // Inicializando la conexión
         }
 
         public DataTable ObtenerTipoCambio()
         {
-            string query = "SELECT nombre AS Moneda, valorCambio AS Precio FROM tbl_tipoCambio WHERE estatus = 1";
+            string query = "SELECT tipoCambio_nombre_moneda AS Moneda, tipoCambio_valorCambio_moneda AS Precio FROM tbl_tipoCambio WHERE tipoCambio_estatus = 1";
             DataTable dataTable = new DataTable();
 
             using (OdbcConnection connection = conn.connection()) // Usando el método connection() de la clase Conexion
@@ -36,7 +36,7 @@ namespace Capa_Modelo_Banco
 
         public List<string> ObtenerNombresMonedas()
         {
-            string query = "SELECT nombre FROM tbl_tipoCambio WHERE estatus = 1";
+            string query = "SELECT tipoCambio_nombre_moneda FROM tbl_tipoCambio WHERE tipoCambio_estatus = 1";
             List<string> nombresMonedas = new List<string>();
 
             using (OdbcConnection connection = conn.connection()) // Usando el método connection() de la clase Conexion
@@ -49,7 +49,7 @@ namespace Capa_Modelo_Banco
                         {
                             while (reader.Read())
                             {
-                                nombresMonedas.Add(reader["nombre"].ToString());
+                                nombresMonedas.Add(reader["tipoCambio_nombre_moneda"].ToString());
                             }
                         }
                     }

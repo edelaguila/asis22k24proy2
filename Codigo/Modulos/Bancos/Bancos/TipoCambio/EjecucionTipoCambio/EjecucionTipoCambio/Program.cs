@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Capa_Vista_Consulta;
+using Capa_Vista_Cambio;
 
-namespace consultas
+namespace EjecucionTipoCambio
 {
     static class Program
     {
@@ -17,7 +17,7 @@ namespace consultas
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ConsultaInteligente("tbl_consultaInteligente"));
+            Application.Run(new tipoCambio());
         }
     }
 }
