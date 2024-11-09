@@ -25,18 +25,18 @@ namespace Capa_Vista_Consulta
         {
             InitializeComponent();
             BD = Tabla;
-            tipos = new string[] { "nombre_consulta", "tipo_consulta", "consulta_SQLE", "consulta_estatus" };
+            tipos = new string[] { "consultaInteligente_nombre_consulta", "consultaInteligente_tipo_consulta", "consultaInteligente_consulta_SQLE", "consultaInteligente_consulta_estatus" };
             csControlador.CargarTablas(cboTabla, BD);
             csControlador.CargarTablas(cboEditarTabla, BD);
             cboTabla.SelectedIndexChanged += new EventHandler(cboTabla_SelectedIndexChanged);
             cboEditarTabla.SelectedIndexChanged += new EventHandler(cboTablaEditar_SelectedIndexChanged);
             chbCondiciones.CheckedChanged += chbCondiciones_CheckedChanged;
             gbCondiciones.Enabled = false;
-            gbOrdenar.Enabled = false;
-            gbListadoConsultas.Enabled = true;
-            gbEditarLogica.Enabled = false;
-            gbEditarComparacion.Enabled = false;
-            gbEditarOrden.Enabled = false;
+            Gpb_Ordenar.Enabled = false;
+            Gpb_ListadoConsultas.Enabled = true;
+            Gpb_EditarLogica.Enabled = false;
+            Gpb_EditarComparacion.Enabled = false;
+            Gpb_EditarOrden.Enabled = false;
             csControlador.obtenerNombresConsultas(cboQuery1);
             cboQuery1.SelectedIndexChanged += new EventHandler(cboConsultas_SelectedIndexChanged);
             csControlador.obtenerNombresConsultas(cboQuery3);
@@ -164,10 +164,10 @@ namespace Capa_Vista_Consulta
         {
             bool habilitarControles = chbCondiciones.Checked;
             gbCondiciones.Enabled = habilitarControles;
-            gbOrdenar.Enabled = habilitarControles;
-            gbListadoConsultas.Enabled = habilitarControles;
-            gbEditarLogica.Enabled = habilitarControles;
-            gbEditarOrden.Enabled = habilitarControles;
+            Gpb_Ordenar.Enabled = habilitarControles;
+            Gpb_ListadoConsultas.Enabled = habilitarControles;
+            Gpb_EditarLogica.Enabled = habilitarControles;
+            Gpb_EditarOrden.Enabled = habilitarControles;
             if (datos != null && datos.Length > 0)
             {
                 datos[1] = "1";
@@ -232,6 +232,12 @@ namespace Capa_Vista_Consulta
                 MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
+
+
+
+
         private void btnAgregarOrden_Click(object sender, EventArgs e)
         {
             // Inicializar el array de datos
@@ -562,11 +568,11 @@ namespace Capa_Vista_Consulta
         {
             bool habilitarControles = chbCondicionesEditar.Checked;
             gbEditarCondicion.Enabled = habilitarControles;
-            gbEditarComparacion.Enabled = habilitarControles;
-            gbEditarOrden.Enabled = habilitarControles;
-            gbListadoConsultas.Enabled = habilitarControles;
-            gbEditarLogica.Enabled = habilitarControles;
-            gbEditarOrden.Enabled = habilitarControles;
+            Gpb_EditarComparacion.Enabled = habilitarControles;
+            Gpb_EditarOrden.Enabled = habilitarControles;
+            Gpb_ListadoConsultas.Enabled = habilitarControles;
+            Gpb_EditarLogica.Enabled = habilitarControles;
+            Gpb_EditarOrden.Enabled = habilitarControles;
             if (datos != null && datos.Length > 0)
             {
                 datos[1] = "1";

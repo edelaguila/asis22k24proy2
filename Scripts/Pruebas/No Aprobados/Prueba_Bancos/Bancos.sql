@@ -1,59 +1,49 @@
 CREATE DATABASE BancoDB;
 USE BancoDB;
 
--- Tabla: btl_banco
+-- Tabla: tbl_banco
 CREATE TABLE tbl_banco (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL
+    pk_banco_id INT AUTO_INCREMENT PRIMARY KEY,
+    banco_nombre VARCHAR(100) NOT NULL
 );
 
--- Tabla: btl_cliente
-CREATE TABLE tbl_cliente (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
-    apellido VARCHAR(100) NOT NULL,
-    direccion VARCHAR(200) NOT NULL
-);
-
--- Tabla: btl_cuentabancaria
+-- Tabla: tbl_cuentabancaria
 CREATE TABLE tbl_cuentabancaria (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    banco_id INT NOT NULL,
-    numerocuenta VARCHAR(20) UNIQUE NOT NULL,
-    saldo DECIMAL(10,2) NOT NULL,
-    tipocuenta VARCHAR(50) NOT NULL,
-    cliente_id INT NOT NULL,
-    CONSTRAINT fk_banco FOREIGN KEY (banco_id) REFERENCES tbl_banco(id),
-    CONSTRAINT fk_cliente FOREIGN KEY (cliente_id) REFERENCES tbl_cliente(id)
+    pk_cuenta_id INT AUTO_INCREMENT PRIMARY KEY,
+    fk_banco_id INT NOT NULL,
+    cuenta_numero VARCHAR(20) UNIQUE NOT NULL,
+    cuenta_saldo DECIMAL(10,2) NOT NULL,
+    cuenta_tipo VARCHAR(50) NOT NULL,
+    CONSTRAINT fk_banco FOREIGN KEY (fk_banco_id) REFERENCES tbl_banco(pk_banco_id)
 );
 
--- Tabla: btl_movimientobancario
+-- Tabla: tbl_movimientobancario
 CREATE TABLE tbl_movimientobancario (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    no_cuenta INT NOT NULL,
-    fecha_movimiento DATE NOT NULL,
-    tipo_movimiento VARCHAR(50) NOT NULL,
-    monto DECIMAL(10,2) NOT NULL,
-    descripcion TEXT,
-    metodo_pago VARCHAR(50),
-    estado VARCHAR(50),
-    CONSTRAINT fk_cuenta FOREIGN KEY (no_cuenta) REFERENCES tbl_cuentabancaria(id)
+    pk_movimientobancario_id INT AUTO_INCREMENT PRIMARY KEY,
+    fk_cuenta_id INT NOT NULL,
+    movimientobancario_fecha DATE NOT NULL,
+    movimientobancario_tipo VARCHAR(50) NOT NULL,
+    movimientobancario_monto DECIMAL(10,2) NOT NULL,
+    movimientobancario_descripcion TEXT,
+    movimientobancario_metodo_pago VARCHAR(50),
+    movimientobancario_estado TINYINT(1),
+    CONSTRAINT fk_cuenta FOREIGN KEY (fk_cuenta_id) REFERENCES tbl_cuentabancaria(pk_cuenta_id)
 );
 
--- Tabla: btl_transaccion
+-- Tabla: tbl_transaccion
 CREATE TABLE tbl_transaccion (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    cuenta_id INT NOT NULL,
-    fecha DATETIME NOT NULL,
-    monto DECIMAL(10,2) NOT NULL,
-    tipo_transaccion VARCHAR(50) NOT NULL,
-    CONSTRAINT fk_cuenta_transaccion FOREIGN KEY (cuenta_id) REFERENCES tbl_cuentabancaria(id)
+    pk_transaccion_id INT AUTO_INCREMENT PRIMARY KEY,
+    fk_cuenta_id INT NOT NULL,
+    transaccion_fecha DATETIME NOT NULL,
+    transaccion_monto DECIMAL(10,2) NOT NULL,
+    transaccion_estado TINYINT(1) NOT NULL,
+    CONSTRAINT fk_cuenta_id FOREIGN KEY (fk_cuenta_id) REFERENCES tbl_cuentabancaria(pk_cuenta_id)
 );
 
 create table tbl_tipoCambio (
-	id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR (50) NOT NULL,
-    valor decimal (5,3) NOT NULL,
-    valorCambio decimal (5,3) NOT NULL,
-    estatus TINYINT (1) DEFAULT 1
+	pk_id_tipoCambio INT AUTO_INCREMENT PRIMARY KEY,
+    tipoCambio_nombre_moneda VARCHAR (50) NOT NULL,
+    tipoCambio_valor_moneda decimal (5,3) NOT NULL,
+    tipoCambio_valorCambio_moneda decimal (5,3) NOT NULL,
+    tipoCambio_estatus TINYINT (1) DEFAULT 1
 );

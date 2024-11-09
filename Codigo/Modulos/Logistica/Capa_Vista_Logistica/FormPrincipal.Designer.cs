@@ -36,7 +36,10 @@
             this.lbl_usuario2 = new System.Windows.Forms.Label();
             this.lbl_usuario = new System.Windows.Forms.Label();
             this.panelformularios = new System.Windows.Forms.Panel();
+            this.Pic_empresa = new System.Windows.Forms.PictureBox();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.Btn_ayuda = new System.Windows.Forms.Button();
+            this.Btn_Salir = new System.Windows.Forms.Button();
             this.panelMenuProcesos = new System.Windows.Forms.Panel();
             this.Btn_MenuProcesosOpcion7 = new System.Windows.Forms.Button();
             this.Btn_MenuProcesosOpcion6 = new System.Windows.Forms.Button();
@@ -45,20 +48,16 @@
             this.Btn_MenuProcesosOpcion3 = new System.Windows.Forms.Button();
             this.Btn_MenuProcesosOpcion2 = new System.Windows.Forms.Button();
             this.Btn_MenuProcesosOpcion1 = new System.Windows.Forms.Button();
+            this.Btn_MenuProcesos = new System.Windows.Forms.Button();
             this.panelMenuCatalogos = new System.Windows.Forms.Panel();
-            this.Btn_MenuCatalogosOpcion7 = new System.Windows.Forms.Button();
             this.Btn_MenuCatalogosOpcion6 = new System.Windows.Forms.Button();
             this.Btn_MenuCatalogosOpcion5 = new System.Windows.Forms.Button();
             this.Btn_MenuCatalogosOpcion4 = new System.Windows.Forms.Button();
             this.Btn_MenuCatalogosOpcion3 = new System.Windows.Forms.Button();
             this.Btn_MenuCatalogosOpcion2 = new System.Windows.Forms.Button();
             this.Btn_MenuCatalogosOpcion1 = new System.Windows.Forms.Button();
-            this.panelBarraTitulo = new System.Windows.Forms.Panel();
-            this.Pic_empresa = new System.Windows.Forms.PictureBox();
-            this.Btn_ayuda = new System.Windows.Forms.Button();
-            this.Btn_Salir = new System.Windows.Forms.Button();
-            this.Btn_MenuProcesos = new System.Windows.Forms.Button();
             this.Btn_MenuCatalogos = new System.Windows.Forms.Button();
+            this.panelBarraTitulo = new System.Windows.Forms.Panel();
             this.Pic_logistica = new System.Windows.Forms.PictureBox();
             this.btnRestaurar = new System.Windows.Forms.PictureBox();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
@@ -67,11 +66,11 @@
             this.panelContenedor.SuspendLayout();
             this.panelIdentificacion.SuspendLayout();
             this.panelformularios.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Pic_empresa)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.panelMenuProcesos.SuspendLayout();
             this.panelMenuCatalogos.SuspendLayout();
             this.panelBarraTitulo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Pic_empresa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_logistica)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
@@ -164,6 +163,19 @@
             this.panelformularios.TabIndex = 2;
             this.panelformularios.Paint += new System.Windows.Forms.PaintEventHandler(this.panelformularios_Paint);
             // 
+            // Pic_empresa
+            // 
+            this.Pic_empresa.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Pic_empresa.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.Pic_empresa.Image = global::Capa_Vista_Logistica.Properties.Resources.photo_2024_11_04_21_54_12;
+            this.Pic_empresa.Location = new System.Drawing.Point(267, 142);
+            this.Pic_empresa.Margin = new System.Windows.Forms.Padding(2);
+            this.Pic_empresa.Name = "Pic_empresa";
+            this.Pic_empresa.Size = new System.Drawing.Size(542, 348);
+            this.Pic_empresa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.Pic_empresa.TabIndex = 0;
+            this.Pic_empresa.TabStop = false;
+            // 
             // panelMenu
             // 
             this.panelMenu.AutoScroll = true;
@@ -181,6 +193,48 @@
             this.panelMenu.Size = new System.Drawing.Size(182, 634);
             this.panelMenu.TabIndex = 1;
             // 
+            // Btn_ayuda
+            // 
+            this.Btn_ayuda.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Btn_ayuda.FlatAppearance.BorderSize = 0;
+            this.Btn_ayuda.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.Btn_ayuda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.Btn_ayuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_ayuda.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_ayuda.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Btn_ayuda.Image = global::Capa_Vista_Logistica.Properties.Resources.preguntas_1;
+            this.Btn_ayuda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_ayuda.Location = new System.Drawing.Point(0, 493);
+            this.Btn_ayuda.Margin = new System.Windows.Forms.Padding(2);
+            this.Btn_ayuda.Name = "Btn_ayuda";
+            this.Btn_ayuda.Size = new System.Drawing.Size(182, 35);
+            this.Btn_ayuda.TabIndex = 8;
+            this.Btn_ayuda.Text = "Ayuda";
+            this.Btn_ayuda.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Btn_ayuda.UseVisualStyleBackColor = true;
+            this.Btn_ayuda.Click += new System.EventHandler(this.Btn_ayuda_Click);
+            // 
+            // Btn_Salir
+            // 
+            this.Btn_Salir.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Btn_Salir.FlatAppearance.BorderSize = 0;
+            this.Btn_Salir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.Btn_Salir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.Btn_Salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Salir.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Salir.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Btn_Salir.Image = global::Capa_Vista_Logistica.Properties.Resources.cerrar_sesion_1;
+            this.Btn_Salir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_Salir.Location = new System.Drawing.Point(0, 599);
+            this.Btn_Salir.Margin = new System.Windows.Forms.Padding(2);
+            this.Btn_Salir.Name = "Btn_Salir";
+            this.Btn_Salir.Size = new System.Drawing.Size(182, 35);
+            this.Btn_Salir.TabIndex = 7;
+            this.Btn_Salir.Text = "Salir";
+            this.Btn_Salir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Btn_Salir.UseVisualStyleBackColor = true;
+            this.Btn_Salir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
             // panelMenuProcesos
             // 
             this.panelMenuProcesos.Controls.Add(this.Btn_MenuProcesosOpcion7);
@@ -191,7 +245,7 @@
             this.panelMenuProcesos.Controls.Add(this.Btn_MenuProcesosOpcion2);
             this.panelMenuProcesos.Controls.Add(this.Btn_MenuProcesosOpcion1);
             this.panelMenuProcesos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelMenuProcesos.Location = new System.Drawing.Point(0, 305);
+            this.panelMenuProcesos.Location = new System.Drawing.Point(0, 272);
             this.panelMenuProcesos.Margin = new System.Windows.Forms.Padding(2);
             this.panelMenuProcesos.Name = "panelMenuProcesos";
             this.panelMenuProcesos.Size = new System.Drawing.Size(182, 221);
@@ -324,9 +378,29 @@
             this.Btn_MenuProcesosOpcion1.UseVisualStyleBackColor = true;
             this.Btn_MenuProcesosOpcion1.Click += new System.EventHandler(this.btnMenuProcesosOpcion1_Click);
             // 
+            // Btn_MenuProcesos
+            // 
+            this.Btn_MenuProcesos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Btn_MenuProcesos.FlatAppearance.BorderSize = 0;
+            this.Btn_MenuProcesos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.Btn_MenuProcesos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.Btn_MenuProcesos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_MenuProcesos.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_MenuProcesos.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Btn_MenuProcesos.Image = global::Capa_Vista_Logistica.Properties.Resources.reporte;
+            this.Btn_MenuProcesos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_MenuProcesos.Location = new System.Drawing.Point(0, 235);
+            this.Btn_MenuProcesos.Margin = new System.Windows.Forms.Padding(2);
+            this.Btn_MenuProcesos.Name = "Btn_MenuProcesos";
+            this.Btn_MenuProcesos.Size = new System.Drawing.Size(182, 37);
+            this.Btn_MenuProcesos.TabIndex = 5;
+            this.Btn_MenuProcesos.Text = "Procesos";
+            this.Btn_MenuProcesos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Btn_MenuProcesos.UseVisualStyleBackColor = true;
+            this.Btn_MenuProcesos.Click += new System.EventHandler(this.btnMenuProcesos_Click);
+            // 
             // panelMenuCatalogos
             // 
-            this.panelMenuCatalogos.Controls.Add(this.Btn_MenuCatalogosOpcion7);
             this.panelMenuCatalogos.Controls.Add(this.Btn_MenuCatalogosOpcion6);
             this.panelMenuCatalogos.Controls.Add(this.Btn_MenuCatalogosOpcion5);
             this.panelMenuCatalogos.Controls.Add(this.Btn_MenuCatalogosOpcion4);
@@ -337,27 +411,9 @@
             this.panelMenuCatalogos.Location = new System.Drawing.Point(0, 37);
             this.panelMenuCatalogos.Margin = new System.Windows.Forms.Padding(2);
             this.panelMenuCatalogos.Name = "panelMenuCatalogos";
-            this.panelMenuCatalogos.Size = new System.Drawing.Size(182, 231);
+            this.panelMenuCatalogos.Size = new System.Drawing.Size(182, 198);
             this.panelMenuCatalogos.TabIndex = 4;
             this.panelMenuCatalogos.Visible = false;
-            // 
-            // Btn_MenuCatalogosOpcion7
-            // 
-            this.Btn_MenuCatalogosOpcion7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Btn_MenuCatalogosOpcion7.FlatAppearance.BorderSize = 0;
-            this.Btn_MenuCatalogosOpcion7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_MenuCatalogosOpcion7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_MenuCatalogosOpcion7.ForeColor = System.Drawing.Color.Black;
-            this.Btn_MenuCatalogosOpcion7.Location = new System.Drawing.Point(0, 196);
-            this.Btn_MenuCatalogosOpcion7.Margin = new System.Windows.Forms.Padding(2);
-            this.Btn_MenuCatalogosOpcion7.Name = "Btn_MenuCatalogosOpcion7";
-            this.Btn_MenuCatalogosOpcion7.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
-            this.Btn_MenuCatalogosOpcion7.Size = new System.Drawing.Size(182, 33);
-            this.Btn_MenuCatalogosOpcion7.TabIndex = 6;
-            this.Btn_MenuCatalogosOpcion7.Text = "Chofer";
-            this.Btn_MenuCatalogosOpcion7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn_MenuCatalogosOpcion7.UseVisualStyleBackColor = true;
-            this.Btn_MenuCatalogosOpcion7.Click += new System.EventHandler(this.Btn_MenuCatalogosOpcion7_Click);
             // 
             // Btn_MenuCatalogosOpcion6
             // 
@@ -372,7 +428,7 @@
             this.Btn_MenuCatalogosOpcion6.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
             this.Btn_MenuCatalogosOpcion6.Size = new System.Drawing.Size(182, 33);
             this.Btn_MenuCatalogosOpcion6.TabIndex = 5;
-            this.Btn_MenuCatalogosOpcion6.Text = "Movimientos";
+            this.Btn_MenuCatalogosOpcion6.Text = "Chofer";
             this.Btn_MenuCatalogosOpcion6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Btn_MenuCatalogosOpcion6.UseVisualStyleBackColor = true;
             this.Btn_MenuCatalogosOpcion6.Click += new System.EventHandler(this.Btn_MenuCatalogosOpcion6_Click);
@@ -467,98 +523,6 @@
             this.Btn_MenuCatalogosOpcion1.UseVisualStyleBackColor = true;
             this.Btn_MenuCatalogosOpcion1.Click += new System.EventHandler(this.btnMenuCatalogosOpcion1_Click);
             // 
-            // panelBarraTitulo
-            // 
-            this.panelBarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(223)))), ((int)(((byte)(200)))));
-            this.panelBarraTitulo.Controls.Add(this.Pic_logistica);
-            this.panelBarraTitulo.Controls.Add(this.btnRestaurar);
-            this.panelBarraTitulo.Controls.Add(this.btnMinimizar);
-            this.panelBarraTitulo.Controls.Add(this.btnMaximizar);
-            this.panelBarraTitulo.Controls.Add(this.btnCerrar);
-            this.panelBarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelBarraTitulo.Location = new System.Drawing.Point(0, 0);
-            this.panelBarraTitulo.Margin = new System.Windows.Forms.Padding(2);
-            this.panelBarraTitulo.Name = "panelBarraTitulo";
-            this.panelBarraTitulo.Size = new System.Drawing.Size(1212, 32);
-            this.panelBarraTitulo.TabIndex = 0;
-            this.panelBarraTitulo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelBarraTitulo_MouseMove);
-            // 
-            // Pic_empresa
-            // 
-            this.Pic_empresa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Pic_empresa.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.Pic_empresa.Image = global::Capa_Vista_Logistica.Properties.Resources.photo_2024_11_04_21_54_12;
-            this.Pic_empresa.Location = new System.Drawing.Point(267, 142);
-            this.Pic_empresa.Margin = new System.Windows.Forms.Padding(2);
-            this.Pic_empresa.Name = "Pic_empresa";
-            this.Pic_empresa.Size = new System.Drawing.Size(542, 348);
-            this.Pic_empresa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.Pic_empresa.TabIndex = 0;
-            this.Pic_empresa.TabStop = false;
-            // 
-            // Btn_ayuda
-            // 
-            this.Btn_ayuda.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Btn_ayuda.FlatAppearance.BorderSize = 0;
-            this.Btn_ayuda.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.Btn_ayuda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.Btn_ayuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_ayuda.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_ayuda.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Btn_ayuda.Image = global::Capa_Vista_Logistica.Properties.Resources.preguntas_1;
-            this.Btn_ayuda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn_ayuda.Location = new System.Drawing.Point(0, 526);
-            this.Btn_ayuda.Margin = new System.Windows.Forms.Padding(2);
-            this.Btn_ayuda.Name = "Btn_ayuda";
-            this.Btn_ayuda.Size = new System.Drawing.Size(182, 35);
-            this.Btn_ayuda.TabIndex = 8;
-            this.Btn_ayuda.Text = "Ayuda";
-            this.Btn_ayuda.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.Btn_ayuda.UseVisualStyleBackColor = true;
-            this.Btn_ayuda.Click += new System.EventHandler(this.Btn_ayuda_Click);
-            // 
-            // Btn_Salir
-            // 
-            this.Btn_Salir.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Btn_Salir.FlatAppearance.BorderSize = 0;
-            this.Btn_Salir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.Btn_Salir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.Btn_Salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Salir.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Salir.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Btn_Salir.Image = global::Capa_Vista_Logistica.Properties.Resources.cerrar_sesion_1;
-            this.Btn_Salir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn_Salir.Location = new System.Drawing.Point(0, 599);
-            this.Btn_Salir.Margin = new System.Windows.Forms.Padding(2);
-            this.Btn_Salir.Name = "Btn_Salir";
-            this.Btn_Salir.Size = new System.Drawing.Size(182, 35);
-            this.Btn_Salir.TabIndex = 7;
-            this.Btn_Salir.Text = "Salir";
-            this.Btn_Salir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.Btn_Salir.UseVisualStyleBackColor = true;
-            this.Btn_Salir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // Btn_MenuProcesos
-            // 
-            this.Btn_MenuProcesos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Btn_MenuProcesos.FlatAppearance.BorderSize = 0;
-            this.Btn_MenuProcesos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.Btn_MenuProcesos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.Btn_MenuProcesos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_MenuProcesos.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_MenuProcesos.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Btn_MenuProcesos.Image = global::Capa_Vista_Logistica.Properties.Resources.reporte;
-            this.Btn_MenuProcesos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn_MenuProcesos.Location = new System.Drawing.Point(0, 268);
-            this.Btn_MenuProcesos.Margin = new System.Windows.Forms.Padding(2);
-            this.Btn_MenuProcesos.Name = "Btn_MenuProcesos";
-            this.Btn_MenuProcesos.Size = new System.Drawing.Size(182, 37);
-            this.Btn_MenuProcesos.TabIndex = 5;
-            this.Btn_MenuProcesos.Text = "Procesos";
-            this.Btn_MenuProcesos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.Btn_MenuProcesos.UseVisualStyleBackColor = true;
-            this.Btn_MenuProcesos.Click += new System.EventHandler(this.btnMenuProcesos_Click);
-            // 
             // Btn_MenuCatalogos
             // 
             this.Btn_MenuCatalogos.Dock = System.Windows.Forms.DockStyle.Top;
@@ -580,6 +544,22 @@
             this.Btn_MenuCatalogos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Btn_MenuCatalogos.UseVisualStyleBackColor = true;
             this.Btn_MenuCatalogos.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panelBarraTitulo
+            // 
+            this.panelBarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(223)))), ((int)(((byte)(200)))));
+            this.panelBarraTitulo.Controls.Add(this.Pic_logistica);
+            this.panelBarraTitulo.Controls.Add(this.btnRestaurar);
+            this.panelBarraTitulo.Controls.Add(this.btnMinimizar);
+            this.panelBarraTitulo.Controls.Add(this.btnMaximizar);
+            this.panelBarraTitulo.Controls.Add(this.btnCerrar);
+            this.panelBarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelBarraTitulo.Location = new System.Drawing.Point(0, 0);
+            this.panelBarraTitulo.Margin = new System.Windows.Forms.Padding(2);
+            this.panelBarraTitulo.Name = "panelBarraTitulo";
+            this.panelBarraTitulo.Size = new System.Drawing.Size(1212, 32);
+            this.panelBarraTitulo.TabIndex = 0;
+            this.panelBarraTitulo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelBarraTitulo_MouseMove);
             // 
             // Pic_logistica
             // 
@@ -668,11 +648,11 @@
             this.panelIdentificacion.PerformLayout();
             this.panelformularios.ResumeLayout(false);
             this.panelformularios.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Pic_empresa)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.panelMenuProcesos.ResumeLayout(false);
             this.panelMenuCatalogos.ResumeLayout(false);
             this.panelBarraTitulo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Pic_empresa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_logistica)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
@@ -707,7 +687,6 @@
         private System.Windows.Forms.Button Btn_MenuCatalogosOpcion5;
         private System.Windows.Forms.Button Btn_MenuCatalogosOpcion4;
         private System.Windows.Forms.Button Btn_MenuCatalogosOpcion3;
-        private System.Windows.Forms.Button Btn_MenuCatalogosOpcion7;
         private System.Windows.Forms.Button Btn_MenuProcesosOpcion6;
         private System.Windows.Forms.Button Btn_MenuProcesosOpcion5;
         private System.Windows.Forms.Button Btn_MenuProcesosOpcion4;

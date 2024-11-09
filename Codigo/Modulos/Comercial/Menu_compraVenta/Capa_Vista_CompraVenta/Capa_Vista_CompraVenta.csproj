@@ -34,11 +34,15 @@
     <Reference Include="Capa_Controlador_CompraVenta">
       <HintPath>..\Capa_Controlador_CompraVenta\bin\Debug\Capa_Controlador_CompraVenta.dll</HintPath>
     </Reference>
+
     <Reference Include="Capa_Vista_ListaPrecios">
       <HintPath>..\..\Listas Precios\Capa_Vista_ListaPrecios\bin\Debug\Capa_Vista_ListaPrecios.dll</HintPath>
     </Reference>
     <Reference Include="Capa_Vista_Navegador, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
+
+    <Reference Include="Capa_Vista_Navegador">
+
       <HintPath>..\..\..\..\Componentes\Navegador\Capa_Vista_Navegador\bin\Debug\Capa_Vista_Navegador.dll</HintPath>
     </Reference>
     <Reference Include="System" />

@@ -17,7 +17,8 @@ namespace Bancos_Eje
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Principal());  // Lanza el formulario sin tabla
+            string idUsuario = "1";
+            Application.Run(new frm_principal_bancos(idUsuario));  // Lanza el formulario sin tabla
         }
     }
 }

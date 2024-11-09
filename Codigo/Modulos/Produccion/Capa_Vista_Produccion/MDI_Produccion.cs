@@ -13,6 +13,10 @@ using Capa_Vista_Receta;
 using Capa_Vista_RRHH;
 using Capa_Vista_Sistema_Produccion;
 using Capa_Vista_Ordenes;
+using Capa_Vista_Lotes;
+using Capa_Vista_Mantenimiento;
+using Capa_Vista_Maquinaria;
+using System.Drawing.Imaging;
 
 namespace Capa_Vista_Produccion
 {
@@ -32,6 +36,9 @@ namespace Capa_Vista_Produccion
         private Frm_Recetas recetasForm;
         private Frm_Ordenes_De_Produccion opForm;
         private Frm_Sistema_Produccion spForm;
+        private Frm_Lotes lForm;
+        private Frm_Mantenimiento_Produccion mpForm;
+        private Frm_Maquinaria mForm;
 
         public MDI_Produccion(string idUsuario)
         {
@@ -146,9 +153,26 @@ namespace Capa_Vista_Produccion
         // Botón de maquinaria
         private void btnMaquinaria_Click_1(object sender, EventArgs e)
         {
-            /*
-              * Acá va la lógica para abrir el formulario de Recetas
-            */
+            // Verifica si el formulario de pólizas ya está abierto
+            if (mForm == null || mForm.IsDisposed)
+            {
+                pb_Fondo.Visible = false;
+
+                // Crea el formulario de pólizas y configura sus propiedades
+                mForm = new Frm_Maquinaria();
+                mForm.MdiParent = this;
+                mForm.StartPosition = FormStartPosition.CenterScreen;
+
+                // Maneja el evento FormClosing para volver a mostrar pb_Fondo al cerrar el formulario
+                mForm.FormClosing += (s, args) => { pb_Fondo.Visible = true; };
+
+                // Muestra el formulario de pólizas
+                mForm.Show();
+            }
+            else
+            {
+                mForm.BringToFront(); // Si el formulario ya está abierto, lo trae al frente
+            }
         }
 
         // Botón de empleados (enlace a RRHH)
@@ -260,28 +284,30 @@ namespace Capa_Vista_Produccion
             }
         }
 
-        // Botón de conversiones
-        private void btnConversiones_Click_1(object sender, EventArgs e)
-        {
-            /*
-              * Acá va la lógica para abrir el formulario de Conversiones
-            */
-        }
-
-        // Botón de series
-        private void btnSeries_Click_1(object sender, EventArgs e)
-        {
-            /*
-              * Acá va la lógica para abrir el formulario de Series
-            */
-        }
 
         // Botón de lotes
         private void btnLotes_Click_1(object sender, EventArgs e)
         {
-            /*
-              * Acá va la lógica para abrir el formulario de Lotes
-            */
+            // Verifica si el formulario de pólizas ya está abierto
+            if (lForm == null || lForm.IsDisposed)
+            {
+                pb_Fondo.Visible = false;
+
+                // Crea el formulario de pólizas y configura sus propiedades
+                lForm = new Frm_Lotes();
+                lForm.MdiParent = this;
+                lForm.StartPosition = FormStartPosition.CenterScreen;
+
+                // Maneja el evento FormClosing para volver a mostrar pb_Fondo al cerrar el formulario
+                lForm.FormClosing += (s, args) => { pb_Fondo.Visible = true; };
+
+                // Muestra el formulario de pólizas
+                lForm.Show();
+            }
+            else
+            {
+                lForm.BringToFront(); // Si el formulario ya está abierto, lo trae al frente
+            }
         }
         #endregion
 
@@ -340,6 +366,30 @@ namespace Capa_Vista_Produccion
             else
             {
                 recetasForm.BringToFront(); // Si el formulario ya está abierto, lo trae al frente
+            }
+        }
+
+        private void btnMantenimiento_Click_1(object sender, EventArgs e)
+        {
+            // Verifica si el formulario de pólizas ya está abierto
+            if (mpForm == null || mpForm.IsDisposed)
+            {
+                pb_Fondo.Visible = false;
+
+                // Crea el formulario de pólizas y configura sus propiedades
+                mpForm = new Frm_Mantenimiento_Produccion();
+                mpForm.MdiParent = this;
+                mpForm.StartPosition = FormStartPosition.CenterScreen;
+
+                // Maneja el evento FormClosing para volver a mostrar pb_Fondo al cerrar el formulario
+                mpForm.FormClosing += (s, args) => { pb_Fondo.Visible = true; };
+
+                // Muestra el formulario de pólizas
+                mpForm.Show();
+            }
+            else
+            {
+                mpForm.BringToFront(); // Si el formulario ya está abierto, lo trae al frente
             }
         }
 
