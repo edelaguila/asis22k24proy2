@@ -252,9 +252,9 @@ namespace Capa_Vista_Cuentas_Corrientes
 
         private void Proceso_TransaccionP_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<CapaVista.Transaccion_proveedores>();
-            Proceso_TransaccionP.BackColor = Color.FromArgb(12, 61, 92);
-            ocultaSubMenu();
+            AbrirFormulario<Capa_Vista_Transaccion_Proveedor.Frm_transaccion_proveedores>();
+           Proceso_TransaccionP.BackColor = Color.FromArgb(12, 61, 92);
+           ocultaSubMenu();
         }
         #endregion
         //Metodo para abrir formularios dentro de panel contenedor
