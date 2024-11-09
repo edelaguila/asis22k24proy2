@@ -14,8 +14,8 @@ using Interfac_V3;
 /*using Capa_Vista_ListaPrecios;
 using Capa_Vista_Polizas;
 using Capa_vista_pedido;
-using Capa_Vista_OrdenCompra;
-using Capa_Vista;*/
+using Capa_Vista_OrdenCompra;*/
+using Capa_Vista; //comisiones
 namespace Capa_Vista_CompraVenta
 {
     public partial class Frm_MDI_general_CompraVenta : Form
@@ -261,9 +261,9 @@ namespace Capa_Vista_CompraVenta
 
         private void button7_Click(object sender, EventArgs e)
         {
-           /*  Frm_comisiones Ven = new Frm_comisiones();
+            Frm_comisiones Ven = new Frm_comisiones();
             Ven.MdiParent = this;
-            Ven.Show();*/
+            Ven.Show();
            
             
         }
