@@ -34,14 +34,17 @@
     <Reference Include="Capa_Controlador_CompraVenta">
       <HintPath>..\Capa_Controlador_CompraVenta\bin\Debug\Capa_Controlador_CompraVenta.dll</HintPath>
     </Reference>
-    <Reference Include="Capa_Vista_Cotizacion">
+    <Reference Include="Capa_Vista_Cotizacion, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Cotizacion\Capa_Vista_Cotizacion\bin\Debug\Capa_Vista_Cotizacion.dll</HintPath>
     </Reference>
-    <Reference Include="Capa_Vista_Factura">
+    <Reference Include="Capa_Vista_Factura, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Factura\Capa_Vista_Factura\bin\Debug\Capa_Vista_Factura.dll</HintPath>
     </Reference>
-    <Reference Include="Capa_Vista_Navegador">
-      <HintPath>..\..\..\..\Componentes\Navegador\Capa_Vista_Navegador\bin\Debug\Capa_Vista_Navegador.dll</HintPath>
+    <Reference Include="Capa_Vista_Navegador, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\final\asis22k24proy2\Codigo\Componentes\Navegador\Capa_Vista_Navegador\bin\Debug\Capa_Vista_Navegador.dll</HintPath>
     </Reference>
     <Reference Include="Interfac_V3">
       <HintPath>..\..\..\Menus\ModernGUI_V3\bin\Debug\Interfac_V3.exe</HintPath>
@@ -112,9 +115,6 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\.editorconfig">
-      <Link>.editorconfig</Link>
-    </None>
     <None Include="Resources\1.1.png" />
   </ItemGroup>
   <ItemGroup>
