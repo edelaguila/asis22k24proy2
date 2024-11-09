@@ -17,7 +17,7 @@ namespace consultas
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ConsultaSimple("tbl_consultaInteligente"));
+            Application.Run(new ConsultaInteligente("tbl_consultaInteligente"));
         }
     }
 }

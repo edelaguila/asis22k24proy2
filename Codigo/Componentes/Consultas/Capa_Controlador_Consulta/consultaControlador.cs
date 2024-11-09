@@ -290,9 +290,9 @@ public void InsertarDatos(string[] tipos, string[] datos, string tabla)
                 string status = datos[5];
                 // Construir la cláusula SET para el método de actualización
                 // NOTA: Asegúrate de que los nombres de las columnas coincidan con los de tu base de datos.
-                string setClause = $"nombre_consulta = '{nombreConsulta}', tipo_consulta = '{tipoConsulta}', consulta_SQLE = '{queryGenerado}', consulta_estatus = '{status}'";
+                string setClause = $"consultaInteligente_nombre_consulta = '{nombreConsulta}', consultaInteligente_tipo_consulta = '{tipoConsulta}', consultaInteligente_consulta_SQLE = '{queryGenerado}', consultaInteligente_consulta_estatus = '{status}'";
                 // Construir la condición WHERE para la actualización
-                string condicion = $"nombre_consulta = '{nombreConsulta}'";
+                string condicion = $"consultaInteligente_nombre_consulta = '{nombreConsulta}'";
                 // Llamar al método actualizar con la cláusula SET y la condición WHERE
                 csSentencias.actualizar(setClause, tabla, condicion);
                 MessageBox.Show("Datos actualizados correctamente");

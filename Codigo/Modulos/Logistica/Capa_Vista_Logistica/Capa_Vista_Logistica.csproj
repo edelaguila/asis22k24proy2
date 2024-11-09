@@ -106,18 +106,6 @@
     <Compile Include="MarcaNav.Designer.cs">
       <DependentUpon>MarcaNav.cs</DependentUpon>
     </Compile>
-    <Compile Include="MantenimientoNav.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MantenimientoNav.Designer.cs">
-      <DependentUpon>MantenimientoNav.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Movimientos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Movimientos.Designer.cs">
-      <DependentUpon>Movimientos.cs</DependentUpon>
-    </Compile>
     <Compile Include="EnlaceContabilidad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,12 +140,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MarcaNav.resx">
       <DependentUpon>MarcaNav.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MantenimientoNav.resx">
-      <DependentUpon>MantenimientoNav.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Movimientos.resx">
-      <DependentUpon>Movimientos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EnlaceContabilidad.resx">
       <DependentUpon>EnlaceContabilidad.cs</DependentUpon>

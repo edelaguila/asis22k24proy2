@@ -24,8 +24,8 @@ namespace CierreMensualTest
             cierreMensual.LlenarCboAnio();
 
             // Assert
-            Assert.AreEqual(1, cierreMensual.cbo_año.Items.Count);
-            Assert.AreEqual(DateTime.Now.Year.ToString(), cierreMensual.cbo_año.Items[0]);
+            Assert.AreEqual(1, cierreMensual.Cbo_año.Items.Count);
+            Assert.AreEqual(DateTime.Now.Year.ToString(), cierreMensual.Cbo_año.Items[0]);
         }
 
         [TestMethod]
@@ -33,7 +33,7 @@ namespace CierreMensualTest
         {
             // Arrange
             cierreMensual.LlenarCboAnio(); // Primero llena el CboAnio
-            cierreMensual.cbo_año.SelectedIndex = 0; // Selecciona el año actual
+            cierreMensual.Cbo_año.SelectedIndex = 0; // Selecciona el año actual
             cierreMensual.LlenarCuentas(); // Asegura las cuentas para obtener los meses
 
             // Act
@@ -51,7 +51,7 @@ namespace CierreMensualTest
             cierreMensual.LlenarCuentas(); // Asumiendo que este método obtiene datos de cuentas
 
             // Act
-            int cuentaCount = cierreMensual.cbo_cuenta.Items.Count;
+            int cuentaCount = cierreMensual.Cbo_cuenta.Items.Count;
 
             // Assert
             Assert.IsTrue(cuentaCount > 0, "El ComboBox de cuentas debería tener elementos.");

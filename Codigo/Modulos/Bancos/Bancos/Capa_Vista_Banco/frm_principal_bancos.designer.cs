@@ -137,7 +137,7 @@
             // 
             // panelformularios
             // 
-            this.panelformularios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(246)))), ((int)(((byte)(155)))));
+            this.panelformularios.BackColor = System.Drawing.Color.Azure;
             this.panelformularios.Controls.Add(this.pictureBox1);
             this.panelformularios.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panelformularios.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -151,7 +151,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(180)))), ((int)(((byte)(2)))));
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(340, 26);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -164,7 +164,7 @@
             // panelMenu
             // 
             this.panelMenu.AutoScroll = true;
-            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(82)))), ((int)(((byte)(0)))));
+            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(190)))), ((int)(((byte)(34)))));
             this.panelMenu.Controls.Add(this.btnSalir);
             this.panelMenu.Controls.Add(this.panelMenuProcesos);
             this.panelMenu.Controls.Add(this.btnMenuProcesos);
@@ -185,7 +185,7 @@
             this.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnSalir.ForeColor = System.Drawing.Color.Black;
             this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
             this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalir.Location = new System.Drawing.Point(0, 273);
@@ -215,14 +215,14 @@
             this.button1.Dock = System.Windows.Forms.DockStyle.Top;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.Silver;
+            this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Location = new System.Drawing.Point(0, 37);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.button1.Size = new System.Drawing.Size(181, 38);
             this.button1.TabIndex = 1;
-            this.button1.Text = "Opcion4";
+            this.button1.Text = "Tipo Cambio";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
@@ -232,7 +232,7 @@
             this.btnMenuProcesosOpcion1.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnMenuProcesosOpcion1.FlatAppearance.BorderSize = 0;
             this.btnMenuProcesosOpcion1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenuProcesosOpcion1.ForeColor = System.Drawing.Color.Silver;
+            this.btnMenuProcesosOpcion1.ForeColor = System.Drawing.Color.Black;
             this.btnMenuProcesosOpcion1.Location = new System.Drawing.Point(0, 0);
             this.btnMenuProcesosOpcion1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMenuProcesosOpcion1.Name = "btnMenuProcesosOpcion1";
@@ -252,7 +252,7 @@
             this.btnMenuProcesos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
             this.btnMenuProcesos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuProcesos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuProcesos.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnMenuProcesos.ForeColor = System.Drawing.Color.Black;
             this.btnMenuProcesos.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuProcesos.Image")));
             this.btnMenuProcesos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMenuProcesos.Location = new System.Drawing.Point(0, 135);
@@ -282,7 +282,7 @@
             this.btnMenuCatalogosOpcion2.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnMenuCatalogosOpcion2.FlatAppearance.BorderSize = 0;
             this.btnMenuCatalogosOpcion2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenuCatalogosOpcion2.ForeColor = System.Drawing.Color.Silver;
+            this.btnMenuCatalogosOpcion2.ForeColor = System.Drawing.Color.Black;
             this.btnMenuCatalogosOpcion2.Location = new System.Drawing.Point(0, 38);
             this.btnMenuCatalogosOpcion2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMenuCatalogosOpcion2.Name = "btnMenuCatalogosOpcion2";
@@ -299,7 +299,7 @@
             this.btnMenuCatalogosOpcion1.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnMenuCatalogosOpcion1.FlatAppearance.BorderSize = 0;
             this.btnMenuCatalogosOpcion1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenuCatalogosOpcion1.ForeColor = System.Drawing.Color.Silver;
+            this.btnMenuCatalogosOpcion1.ForeColor = System.Drawing.Color.Black;
             this.btnMenuCatalogosOpcion1.Location = new System.Drawing.Point(0, 0);
             this.btnMenuCatalogosOpcion1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMenuCatalogosOpcion1.Name = "btnMenuCatalogosOpcion1";
@@ -319,7 +319,7 @@
             this.btnMenuCatalogos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
             this.btnMenuCatalogos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuCatalogos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuCatalogos.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnMenuCatalogos.ForeColor = System.Drawing.Color.Black;
             this.btnMenuCatalogos.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuCatalogos.Image")));
             this.btnMenuCatalogos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMenuCatalogos.Location = new System.Drawing.Point(0, 0);
@@ -335,7 +335,7 @@
             // 
             // panelBarraTitulo
             // 
-            this.panelBarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(93)))), ((int)(((byte)(142)))));
+            this.panelBarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(180)))), ((int)(((byte)(2)))));
             this.panelBarraTitulo.Controls.Add(this.pictureBox2);
             this.panelBarraTitulo.Controls.Add(this.btnRestaurar);
             this.panelBarraTitulo.Controls.Add(this.btnMinimizar);
@@ -347,6 +347,7 @@
             this.panelBarraTitulo.Name = "panelBarraTitulo";
             this.panelBarraTitulo.Size = new System.Drawing.Size(1363, 39);
             this.panelBarraTitulo.TabIndex = 0;
+            this.panelBarraTitulo.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBarraTitulo_Paint);
             this.panelBarraTitulo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelBarraTitulo_MouseMove);
             // 
             // pictureBox2
