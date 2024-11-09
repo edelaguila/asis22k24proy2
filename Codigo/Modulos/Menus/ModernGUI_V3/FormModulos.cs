@@ -9,10 +9,10 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Capa_Vista_Nominas;
+//using Capa_Vista_Nominas;
 
 //using Capa_Vista_Banco;
-using Capa_Vista_Contabilidad;
+//using Capa_Vista_Contabilidad;
 //using Capa_Vista_Produccion;
 //using Capa_Vista_Banco;
 //using Capa_Vista_CompraVenta;
@@ -82,8 +82,8 @@ namespace Interfac_V3
             Aqui debe de agregarse la referencia a nominas
             */
 
-            frm_principal_nominas nominas = new frm_principal_nominas(UsuarioSesion.GetIdUsuario());
-            nominas.Show();
+            //frm_principal_nominas nominas = new frm_principal_nominas(UsuarioSesion.GetIdUsuario());
+            //nominas.Show();
 
 
         }
@@ -96,8 +96,8 @@ namespace Interfac_V3
 
         private void Btn_Contabilidad_Click(object sender, EventArgs e)
         {
-         Contabilidad_MDI conta = new Contabilidad_MDI(UsuarioSesion.GetIdUsuario());
-          conta.Show();
+         //Contabilidad_MDI conta = new Contabilidad_MDI(UsuarioSesion.GetIdUsuario());
+          //conta.Show();
         }
 
         private void Btn_Compras_Click(object sender, EventArgs e)
@@ -122,8 +122,8 @@ namespace Interfac_V3
 
         private void Btn_CuentasCorrientes_Click(object sender, EventArgs e)
         {
-            //Capa_Vista_Cuentas_Corrientes.FormPrincipal cc = new Capa_Vista_Cuentas_Corrientes.FormPrincipal(UsuarioSesion.GetIdUsuario());
-            //cc.Show();
+            Capa_Vista_Cuentas_Corrientes.FormPrincipal cc = new Capa_Vista_Cuentas_Corrientes.FormPrincipal(UsuarioSesion.GetIdUsuario());
+            cc.Show();
         }
     }
 }

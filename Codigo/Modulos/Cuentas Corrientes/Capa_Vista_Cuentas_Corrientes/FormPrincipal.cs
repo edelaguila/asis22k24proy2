@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -33,6 +34,8 @@ namespace Capa_Vista_Cuentas_Corrientes
                 panelMenuProveedores.Visible = false;
             if (panelMenuProcesos.Visible == true)
                 panelMenuProcesos.Visible = false;
+            if (panelMenuProcesosProveedor.Visible == true)
+                panelMenuProcesosProveedor.Visible = false;
         }
         private void muestraSubMenu(Panel subMenu)
         {
@@ -135,10 +138,8 @@ namespace Capa_Vista_Cuentas_Corrientes
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_MenuCatalogosClientes_Click(object sender, EventArgs e)
         {
-            //AbrirFormulario<Form1>();
-            //btnMenuCatalogos.BackColor = Color.FromArgb(12, 61, 92);
             muestraSubMenu(panelMenuCatalogos);
         }
 
@@ -152,10 +153,10 @@ namespace Capa_Vista_Cuentas_Corrientes
 
         }
 
-        private void btnMenuCatalogosOpcion1_Click(object sender, EventArgs e)
+        private void btn_Vendedor_Click(object sender, EventArgs e)
         {
             AbrirFormulario<Nav_Vendedores>();
-            btnMenuCatalogosOpcion1.BackColor = Color.FromArgb(12, 61, 92);
+            btn_Vendedor.BackColor = Color.FromArgb(12, 61, 92);
             ocultaSubMenu();
         }
         private void btnMenuCatalogosOpcion2_Click(object sender, EventArgs e)
@@ -163,77 +164,62 @@ namespace Capa_Vista_Cuentas_Corrientes
             
         }
 
-        private void btnMenuProveedor_Click(object sender, EventArgs e)
+        private void btn_MenuProveedor_Click(object sender, EventArgs e)
         {
             muestraSubMenu(panelMenuProveedores);
         }
 
-        private void btnMenuCatalogosOpcion2_Click_1(object sender, EventArgs e)
+        private void btn_Clientes_Click_1(object sender, EventArgs e)
         {
             AbrirFormulario<Nav_Clientes>();
-            btnMenuCatalogosOpcion2.BackColor = Color.FromArgb(12, 61, 92);
+            btn_Clientes.BackColor = Color.FromArgb(12, 61, 92);
             ocultaSubMenu();
         }
 
-        private void btnMenuCatalogosOpcion3_Click(object sender, EventArgs e)
+        private void btn_Cobrador_Click(object sender, EventArgs e)
         {
-            //AbrirFormulario<Cobrador_Clts>();
             AbrirFormulario<Nav_Cobrador>();
-            btnMenuCatalogosOpcion3.BackColor = Color.FromArgb(12, 61, 92);
+            btn_Cobrador.BackColor = Color.FromArgb(12, 61, 92);
             ocultaSubMenu();
 
         }
 
-        private void Btn_formaPago_Click(object sender, EventArgs e)
+        private void Btn_TransCuentas_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<Nav_FormaPago>();
-            Btn_formaPago.BackColor = Color.FromArgb(12, 61, 92);
+            AbrirFormulario<Nav_Transaccion_Cuentas>();
+            Btn_TransCuentas.BackColor = Color.FromArgb(12, 61, 92);
             ocultaSubMenu();
 
         }
 
-        private void btn_MenuCatalogosOpcion5_Click(object sender, EventArgs e)
+        private void Btn_Pais_Click(object sender, EventArgs e)
         {
             AbrirFormulario<Nav_Pais>();
-            btn_MenuCatalogosOpcion5.BackColor = Color.FromArgb(12, 61, 92);
+            Btn_Pais.BackColor = Color.FromArgb(12, 61, 92);
             ocultaSubMenu();
         }
 
-        private void btn_MenuCatalogosOpcion6_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario<Nav_DeudaC>();
-            btn_MenuCatalogosOpcion6.BackColor = Color.FromArgb(12, 61, 92);
-            ocultaSubMenu();
-        }
-
-        private void btnMenuProcesosOpcion1_Click(object sender, EventArgs e)
+        private void Btn_Proveedores_Click(object sender, EventArgs e)
         {
             AbrirFormulario<Nav_Proveedores>();
-            btnMenuProveedorOpcion1.BackColor = Color.FromArgb(12, 61, 92);
+            Btn_Proveedores.BackColor = Color.FromArgb(12, 61, 92);
             ocultaSubMenu();
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void Btn_PaisP_Click(object sender, EventArgs e)
         {
             AbrirFormulario<Nav_Pais>();
-            btnMenuProveedorOpcion2.BackColor = Color.FromArgb(12, 61, 92);
+            Btn_PaisP.BackColor = Color.FromArgb(12, 61, 92);
             ocultaSubMenu();
-
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void Btn_TransaccionC_Click_1(object sender, EventArgs e)
         {
-            AbrirFormulario<Nav_FormaPago>();
-            btnMenuProveedorOpcion3.BackColor = Color.FromArgb(12, 61, 92);
+            AbrirFormulario<Nav_Transaccion_Cuentas>();
+            Btn_TransaccionC.BackColor = Color.FromArgb(12, 61, 92);
             ocultaSubMenu();
         }
 
-        private void button8_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario<Nav_DeudasP>();
-            btnMenuProveedorOpcion4.BackColor = Color.FromArgb(12, 61, 92);
-            ocultaSubMenu();
-        }
 
         private void Mantenimiento_Procesos_Click(object sender, EventArgs e)
         {
@@ -245,9 +231,147 @@ namespace Capa_Vista_Cuentas_Corrientes
 
         }
 
-        private void btnSalir_Click_1(object sender, EventArgs e)
+        private void Btn_Proceso_Polizas_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<frmPolizas>();
+            Btn_Proceso_Polizas.BackColor = Color.FromArgb(12, 61, 92);
+            ocultaSubMenu();
+
+        }
+
+        private void btn_ayuda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Obtener la ruta del directorio del ejecutable
+                string sexecutablePath = AppDomain.CurrentDomain.BaseDirectory;
+
+                // Retroceder a la carpeta del proyecto
+                string sprojectPath = Path.GetFullPath(Path.Combine(sexecutablePath, @"..\..\"));
+                //MessageBox.Show("1" + sprojectPath);
+
+
+                string sayudaFolderPath = Path.Combine(sprojectPath, "AyudaModuloCC");
+
+
+                // Busca el archivo .chm en la carpeta "Ayuda_Seguridad"
+                string spathAyuda = FindFileInDirectory(sayudaFolderPath, "AyudaReportes.chm");
+
+                // Verifica si el archivo existe antes de intentar abrirlo
+                if (!string.IsNullOrEmpty(spathAyuda))
+                {
+                    // Abre el archivo de ayuda .chm en la sección especificada
+                    Help.ShowHelp(null, spathAyuda, "AyudaRep.html");
+                }
+                else
+                {
+                    // Si el archivo no existe, muestra un mensaje de error
+                    MessageBox.Show("El archivo de ayuda no se encontró.");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Mostrar un mensaje de error en caso de una excepción
+                MessageBox.Show("Ocurrió un error al abrir la ayuda: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine("Error al abrir la ayuda: " + ex.ToString());
+            }
+
+        }
+        public string FindFileInDirectory(string sdirectory, string sfileName)
+        {
+            try
+            {
+                // Verificamos si la carpeta existe
+                if (Directory.Exists(sdirectory))
+                {
+                    // Buscamos el archivo .chm en la carpeta
+                    string[] files = Directory.GetFiles(sdirectory, "*.chm", SearchOption.TopDirectoryOnly);
+
+                    // Si encontramos el archivo, verificamos si coincide con el archivo que se busca y retornamos su ruta
+                    foreach (var file in files)
+                    {
+                        if (Path.GetFileName(file).Equals(sfileName, StringComparison.OrdinalIgnoreCase))
+                        {
+                            //MessageBox.Show("Archivo encontrado: " + file);
+                            return file;
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró la carpeta: " + sdirectory);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al buscar ayuda: " + ex.Message);
+            }
+
+            // Retorna null si no se encontró el archivo
+            return null;
+        }
+
+        private void panelMenuProcesos_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Btn_ProcesosProveedor_Click(object sender, EventArgs e)
+        {
+            muestraSubMenu(panelMenuProcesosProveedor);
+        }
+
+        private void Btn_Proceso_PolizasP_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<frmPolizas>();
+            Btn_Proceso_PolizasP.BackColor = Color.FromArgb(12, 61, 92);
+            ocultaSubMenu();
+        }
+
+        private void Btn_Proceso_TransaccionC_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<CapaVista_AndresVeron.frm_transaccion_clientes>();
+            Btn_Proceso_TransaccionC.BackColor = Color.FromArgb(12, 61, 92);
+            ocultaSubMenu();
+        }
+
+        private void Btn_Proceso_TransaccionP_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<CapaVista.Transaccion_proveedores>();
+            Btn_Proceso_TransaccionP.BackColor = Color.FromArgb(12, 61, 92);
+            ocultaSubMenu();
+        }
+
+        private void Btn_CajaProv_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Btn_DeudasProv_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<DeudaProveedores>();
+            Btn_DeudasProv.BackColor = Color.FromArgb(12, 61, 92);
+            ocultaSubMenu();
+        }
+
+        private void Btn_Proceso_CajaC_Click(object sender, EventArgs e)
+        {
+            /*AbrirFormulario<DeudaProveedores>();
+             Btn_Proceso_CajaC.BackColor = Color.FromArgb(12, 61, 92);
+            ocultaSubMenu();*/
+        }
+
+        private void btn_Deudas_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<Deuda_Clts>();
+            btn_Deudas.BackColor = Color.FromArgb(12, 61, 92);
+            ocultaSubMenu();
+        }
+
+        private void Btn_salir_Click(object sender, EventArgs e)
         {
             this.Close();
+
         }
         #endregion
         //Metodo para abrir formularios dentro de panel contenedor
@@ -275,7 +399,7 @@ namespace Capa_Vista_Cuentas_Corrientes
         }
         private void CloseForms(object sender,FormClosedEventArgs e) {
             if (Application.OpenForms["Nav_Vendedores"] == null)
-                btnMenuCatalogosOpcion1.BackColor = Color.FromArgb(4, 41, 68);            
+                btn_Vendedor.BackColor = Color.FromArgb(4, 41, 68);            
         }
     }
 }

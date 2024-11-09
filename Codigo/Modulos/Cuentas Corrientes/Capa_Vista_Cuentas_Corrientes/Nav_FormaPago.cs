@@ -22,7 +22,7 @@ namespace Capa_Vista_Cuentas_Corrientes
             navegador1.AsignarSalida(this);
             navegador1.AsignarColorFondo(Color.CadetBlue);
             navegador1.AsignarColorFuente(Color.Black);
-            navegador1.AsignarTabla("Tbl_tipodepago");
+            navegador1.AsignarTabla("Tbl_Formadepago");
             navegador1.ObtenerIdAplicacion("1000");
             navegador1.ObtenerIdUsuario(idUsuario);
             navegador1.AsignarAyuda("1");

@@ -17,12 +17,12 @@ namespace Capa_Vista_Cuentas_Corrientes
             InitializeComponent();
             string idUsuario = Interfac_V3.UsuarioSesion.GetIdUsuario();
 
-            string[] alias = { "Pk_id_vendedor", "nombre_vendedor", "direccion_vendedor", "telefono_vendedor", "departamento_vendedor", "estado" };
+            string[] alias = { "Pk_id_vendedor", "nombre", "apellido", "sueldo", "direccion", "telefono", "FK_idemp", "estado" };
             navegador1.AsignarAlias(alias);
             navegador1.AsignarSalida(this);
             navegador1.AsignarColorFondo(Color.CadetBlue);
             navegador1.AsignarColorFuente(Color.Black);
-            navegador1.AsignarTabla("Tbl_vendedor");
+            navegador1.AsignarTabla("Tbl_vendedores");
             navegador1.ObtenerIdAplicacion("1000");
             navegador1.ObtenerIdUsuario(idUsuario);
             navegador1.AsignarAyuda("1");
