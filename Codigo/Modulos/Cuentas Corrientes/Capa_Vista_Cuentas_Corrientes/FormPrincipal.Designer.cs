@@ -260,6 +260,7 @@
             this.Proceso_TransaccionC.Text = "Transacciones_Clientes";
             this.Proceso_TransaccionC.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Proceso_TransaccionC.UseVisualStyleBackColor = true;
+            this.Proceso_TransaccionC.Click += new System.EventHandler(this.Proceso_TransaccionC_Click);
             // 
             // Mantenimiento_Procesos
             // 
