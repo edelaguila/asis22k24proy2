@@ -16,7 +16,7 @@ namespace Capa_Modelo_Cambio
 
         public DataTable ObtenerTipoCambio()
         {
-            string query = "SELECT tipoCambio_nombre_moneda AS Moneda, tipoCambio_valorCambio_moneda AS Precio FROM tbl_tipoCambio WHERE tipoCambio_estatus = 1";
+            string query = "SELECT tipoCambio_nombre_moneda AS Moneda, tipoCambio_valorCambio_moneda AS Precio FROM tbl_tipoCambio WHERE Estado = 1";
             DataTable dataTable = new DataTable();
 
             using (OdbcConnection connection = conn.connection()) // Usando el método connection() de la clase Conexion
