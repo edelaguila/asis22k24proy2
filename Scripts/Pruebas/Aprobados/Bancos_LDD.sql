@@ -29,6 +29,7 @@ CREATE TABLE tbl_movimientobancario (
     movimientobancario_estado TINYINT(1),
     CONSTRAINT fk_cuenta FOREIGN KEY (fk_cuenta_id) REFERENCES tbl_cuentabancaria(pk_cuenta_id)
 );
+ALTER TABLE tbl_movimientobancario CHANGE COLUMN movimientobancario_estado Estado TINYINT(1);
 
 -- Tabla: tbl_transaccion
 CREATE TABLE tbl_transaccion (

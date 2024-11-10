@@ -18,7 +18,7 @@ namespace Capa_Modelo_Movimientos
 
         public DataTable ObtenerMov()
         {
-            string query = "SELECT fk_cuenta_id AS CuentaID, movimientobancario_fecha AS fecha, movimientobancario_tipo AS Tipo, movimientobancario_monto AS Monto, movimientobancario_descripcion AS Descripcion, movimientobancario_metodo_pago AS metodo, movimientobancario_estado AS estado FROM tbl_movimientobancario";
+            string query = "SELECT fk_cuenta_id AS CuentaID, movimientobancario_fecha AS fecha, movimientobancario_tipo AS Tipo, movimientobancario_monto AS Monto, movimientobancario_descripcion AS Descripcion, movimientobancario_metodo_pago AS metodo, Estado AS estado FROM tbl_movimientobancario";
             DataTable dataTable = new DataTable();
 
             using (OdbcConnection connection = conn.connection())  // Asegúrate de que conn.connection() esté devolviendo una conexión válida
