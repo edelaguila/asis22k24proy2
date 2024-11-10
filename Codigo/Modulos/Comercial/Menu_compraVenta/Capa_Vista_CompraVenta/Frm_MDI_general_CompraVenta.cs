@@ -8,15 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Capa_Controlador_CompraVenta;
-/*
- * 
- * 
- * aqui van los using de todos
- * 
- * 
- * 
- * 
- * */
+using Capa_Vista_Cotizacion;
+//using Capa_Vista_Factura;
+using Interfac_V3;
+/*using Capa_Vista_ListaPrecios;
+using Capa_Vista_Polizas;
+using Capa_vista_pedido;
+using Capa_Vista_OrdenCompra;*/
+using Capa_Vista; //comisiones
 namespace Capa_Vista_CompraVenta
 {
     public partial class Frm_MDI_general_CompraVenta : Form
@@ -126,10 +125,10 @@ namespace Capa_Vista_CompraVenta
         }
         private void ocultaSubMenu() 
         {
-            if (Pnl_Compras.Visible == true)
-                Pnl_Compras.Visible = false;
-            if (Pnl_Ventas.Visible == true)
-                Pnl_Ventas.Visible = false;
+            if (Pnl_Mantenimiento.Visible == true)
+                Pnl_Mantenimiento.Visible = false;
+            if (Pnl_Compra.Visible == true)
+                Pnl_Compra.Visible = false;
         }
         private void muestraSubMenu(Panel subMenu)
         {
@@ -143,12 +142,12 @@ namespace Capa_Vista_CompraVenta
         }
         private void button10_Click(object sender, EventArgs e)
         {
-            muestraSubMenu(Pnl_Compras);
+            muestraSubMenu(Pnl_Mantenimiento);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            muestraSubMenu(Pnl_Ventas);
+            muestraSubMenu(Pnl_Compra);
         }
 
         private void Btn_compra_Click(object sender, EventArgs e)
@@ -215,61 +214,77 @@ namespace Capa_Vista_CompraVenta
 
         private void Btn_compra_Click_1(object sender, EventArgs e)
         {
+            /*frm_compra Ven = new frm_compra();
+            Ven.MdiParent = this;
+            Ven.Show();*/
 
         }
 
         private void Btn_poliza_Click_1(object sender, EventArgs e)
         {
-            /* Frm_vendedores Ven = new Frm_vendedores(idUsuario);
-            Ven.MdiParent = this;
-            Ven.Show();
-           
-            */
+            /*frmPolizas formulario = new frmPolizas();
+            formulario.MdiParent = this;
+            formulario.Show();*/
         }
 
         private void button12_Click(object sender, EventArgs e)
         {
-            /* Frm_vendedores Ven = new Frm_vendedores(idUsuario);
-            Ven.MdiParent = this;
-            Ven.Show();
-           
-            */
+            frm_cotizaciones formulario = new frm_cotizaciones();
+            formulario.MdiParent = this;
+            formulario.Show();
         }
 
         private void button11_Click(object sender, EventArgs e)
-        {
-            /* Frm_vendedores Ven = new Frm_vendedores(idUsuario);
+        {/*
+            frm_pedidos Ven = new frm_pedidos();
             Ven.MdiParent = this;
-            Ven.Show();
+            Ven.Show();*/
            
-            */
+           
         }
 
         private void button10_Click_1(object sender, EventArgs e)
         {
-            /* Frm_vendedores Ven = new Frm_vendedores(idUsuario);
+            /*Frm_Factura Ven = new Frm_Factura();
             Ven.MdiParent = this;
-            Ven.Show();
-           
-            */
+            Ven.Show();*/
         }
 
         private void button9_Click_1(object sender, EventArgs e)
         {
-            /* Frm_vendedores Ven = new Frm_vendedores(idUsuario);
+          /*  frm_ListadoInicio Ven = new frm_ListadoInicio();
             Ven.MdiParent = this;
-            Ven.Show();
+            Ven.Show();*/
            
-            */
+            
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            /* Frm_vendedores Ven = new Frm_vendedores(idUsuario);
+            Frm_comisiones Ven = new Frm_comisiones();
             Ven.MdiParent = this;
             Ven.Show();
            
-            */
+            
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            muestraSubMenu(Pnl_Venta);
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+           /* frm_MantenimientoListas Ven = new frm_MantenimientoListas(idUsuario);
+            Ven.MdiParent = this;
+            Ven.Show();*/
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            FormModulos formulario = new FormModulos(idUsuario);
+            formulario.MdiParent = this;
+            formulario.Show();
         }
 
         private void btnRestaurar_Click(object sender, EventArgs e)
@@ -280,9 +295,5 @@ namespace Capa_Vista_CompraVenta
             this.Location = new Point(lx, ly);
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
     }
 }

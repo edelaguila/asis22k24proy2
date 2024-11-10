@@ -34,6 +34,19 @@
     <Reference Include="Capa_Controlador_CompraVenta">
       <HintPath>..\Capa_Controlador_CompraVenta\bin\Debug\Capa_Controlador_CompraVenta.dll</HintPath>
     </Reference>
+    <Reference Include="Capa_Vista">
+      <HintPath>..\..\Comisiones\Capa_Vista\bin\Debug\Capa_Vista.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Cotizacion, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Cotizacion\Capa_Vista_Cotizacion\bin\Debug\Capa_Vista_Cotizacion.dll</HintPath>
+    </Reference>
+    <Reference Include="Capa_Vista_Navegador, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\final\asis22k24proy2\Codigo\Componentes\Navegador\Capa_Vista_Navegador\bin\Debug\Capa_Vista_Navegador.dll</HintPath>
+    </Reference>
+    <Reference Include="Interfac_V3">
+      <HintPath>..\..\..\Menus\ModernGUI_V3\bin\Debug\Interfac_V3.exe</HintPath>
     <Reference Include="Capa_Vista_Navegador">
       <HintPath>..\..\..\..\Componentes\Navegador\Capa_Vista_Navegador\bin\Debug\Capa_Vista_Navegador.dll</HintPath>
     </Reference>
@@ -100,7 +113,38 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ComprasMDI.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logotipo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\M1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salirMDI.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VentaMDI.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\..\Factura\Capa_Vista_Factura\bin\Debug\Capa_Vista_Factura.dll" />
+    <Analyzer Include="..\..\Listas Precios\Capa_Vista_ListaPrecios\bin\Debug\Capa_Vista_ListaPrecios.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
