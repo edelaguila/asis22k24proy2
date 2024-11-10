@@ -48,3 +48,4 @@ create table tbl_tipoCambio (
     tipoCambio_valorCambio_moneda decimal (5,3) NOT NULL,
     tipoCambio_estatus TINYINT (1) DEFAULT 1
 );
+ALTER TABLE tbl_tipocambio CHANGE COLUMN tipoCambio_estatus Estado TINYINT(1);
