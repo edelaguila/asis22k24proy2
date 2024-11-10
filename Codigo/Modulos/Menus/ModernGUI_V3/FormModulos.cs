@@ -18,6 +18,7 @@ using Capa_Vista_Contabilidad;
 //using Capa_Vista_CompraVenta;
 
 
+
 namespace Interfac_V3
 {
     public partial class FormModulos : Form
