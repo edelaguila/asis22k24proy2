@@ -18,7 +18,7 @@ namespace Capa_Modelo_Movimientos
 
         public DataTable ObtenerMov()
         {
-            string query = "SELECT fk_cuenta_id AS CuentaID, movimientobancario_fecha AS fecha, movimientobancario_tipo AS Tipo, movimientobancario_monto AS Monto, movimientobancario_descripcion AS Descripcion, movimientobancario_metodo_pago AS metodo, Estado AS estado FROM tbl_movimientobancario";
+            string query = "SELECT  pk_movimientobancario_id AS ID_movimiento ,movimientobancario_fecha AS fecha, movimientobancario_tipo AS Tipo, movimientobancario_monto AS Monto, movimientobancario_descripcion AS Descripcion, movimientobancario_metodo_pago AS metodo, Estado AS estado FROM tbl_movimientobancario";
             DataTable dataTable = new DataTable();
 
             using (OdbcConnection connection = conn.connection())  // Asegúrate de que conn.connection() esté devolviendo una conexión válida
@@ -65,7 +65,7 @@ namespace Capa_Modelo_Movimientos
         }
         public bool ActualizarEstadoMovimiento(int movimientoId, bool estado)
         {
-            string query = "UPDATE tbl_movimientobancario SET movimientobancario_estado = ? WHERE pk_movimientobancario_id = ?";
+            string query = "UPDATE tbl_movimientobancario SET Estado = ? WHERE pk_movimientobancario_id = ?";
 
             using (OdbcConnection connection = conn.connection())
             {
