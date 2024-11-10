@@ -36,7 +36,7 @@ namespace Capa_Modelo_Cambio
 
         public List<string> ObtenerNombresMonedas()
         {
-            string query = "SELECT tipoCambio_nombre_moneda FROM tbl_tipoCambio WHERE tipoCambio_estatus = 1";
+            string query = "SELECT tipoCambio_nombre_moneda FROM tbl_tipoCambio WHERE Estado = 1";
             List<string> nombresMonedas = new List<string>();
 
             using (OdbcConnection connection = conn.connection()) // Usando el método connection() de la clase Conexion
