@@ -16,7 +16,7 @@ namespace Capa_Vista_Banco
         {
             InitializeComponent();
             string idUsuario = Interfac_V3.UsuarioSesion.GetIdUsuario();
-            string[] alias = { "ID", "Cuenta No.", "Fecha", "Tipo Movimiento", "Monto", "Descripción", "Metodo Pago", "Estado" };
+            string[] alias = { "ID", "Fecha", "Tipo Movimiento", "Monto", "Descripción", "Metodo Pago", "Estado" };
             navegador1.AsignarAlias(alias);
             navegador1.AsignarSalida(this);
             navegador1.AsignarColorFondo(Color.CadetBlue);
