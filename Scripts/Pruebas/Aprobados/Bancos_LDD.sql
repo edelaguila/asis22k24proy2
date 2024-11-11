@@ -16,7 +16,7 @@ CREATE TABLE tbl_cuentabancaria (
     cuenta_tipo VARCHAR(50) NOT NULL,
     CONSTRAINT fk_banco FOREIGN KEY (fk_banco_id) REFERENCES tbl_banco(pk_banco_id)
 );
-ALTER TABLE tbl_movimientobancario DROP COLUMN pk_cuenta_id;
+
 
 
 -- Tabla: tbl_movimientobancario
@@ -32,8 +32,8 @@ CREATE TABLE tbl_movimientobancario (
     CONSTRAINT fk_cuenta FOREIGN KEY (fk_cuenta_id) REFERENCES tbl_cuentabancaria(pk_cuenta_id)
 );
 ALTER TABLE tbl_movimientobancario CHANGE COLUMN movimientobancario_estado Estado TINYINT(1);
-ALTER TABLE tbl_movimientobancario DROP COLUMN fk_cuenta_id;
 ALTER TABLE tbl_movimientobancario DROP FOREIGN KEY fk_cuenta;
+ALTER TABLE tbl_movimientobancario DROP COLUMN fk_cuenta_id;
 
 
 
