@@ -104,7 +104,7 @@ namespace Capa_Vista_Movimientos
                 if (Dgv_Mov.SelectedRows.Count > 0)
                 {
                     // Obtener el ID del movimiento seleccionado
-                    int movimientoId = Convert.ToInt32(Dgv_Mov.SelectedRows[0].Cells["CuentaID"].Value);  // Asegúrate de que "CuentaID" es la columna con el ID del movimiento
+                    int movimientoId = Convert.ToInt32(Dgv_Mov.SelectedRows[0].Cells["ID_movimiento"].Value);  // Asegúrate de que "CuentaID" es la columna con el ID del movimiento
 
                     // Llamar al controlador para "eliminar" (actualizar el estado a 0)
                     bool exito = Capa_Controlador_Movimientos.EliminarMovimiento(movimientoId);

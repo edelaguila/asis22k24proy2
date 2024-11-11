@@ -17,6 +17,8 @@ CREATE TABLE tbl_cuentabancaria (
     CONSTRAINT fk_banco FOREIGN KEY (fk_banco_id) REFERENCES tbl_banco(pk_banco_id)
 );
 
+
+
 -- Tabla: tbl_movimientobancario
 CREATE TABLE tbl_movimientobancario (
     pk_movimientobancario_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -29,6 +31,11 @@ CREATE TABLE tbl_movimientobancario (
     movimientobancario_estado TINYINT(1),
     CONSTRAINT fk_cuenta FOREIGN KEY (fk_cuenta_id) REFERENCES tbl_cuentabancaria(pk_cuenta_id)
 );
+ALTER TABLE tbl_movimientobancario CHANGE COLUMN movimientobancario_estado Estado TINYINT(1);
+ALTER TABLE tbl_movimientobancario DROP FOREIGN KEY fk_cuenta;
+ALTER TABLE tbl_movimientobancario DROP COLUMN fk_cuenta_id;
+
+
 
 -- Tabla: tbl_transaccion
 CREATE TABLE tbl_transaccion (
@@ -47,3 +54,4 @@ create table tbl_tipoCambio (
     tipoCambio_valorCambio_moneda decimal (5,3) NOT NULL,
     tipoCambio_estatus TINYINT (1) DEFAULT 1
 );
+ALTER TABLE tbl_tipocambio CHANGE COLUMN tipoCambio_estatus Estado TINYINT(1);
