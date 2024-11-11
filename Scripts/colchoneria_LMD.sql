@@ -761,3 +761,28 @@ VALUES
 ('Transferencia Bancaria', 'Débito', 1),
 ('Pago con Tarjeta de Débito', 'Débito', 1);
 
+
+-- LMD DE NOMINAS 09-11-2024
+-- Insertar datos en tbl_puestos_trabajo
+INSERT INTO tbl_puestos_trabajo (puestos_nombre_puesto, puestos_descripcion, estado) VALUES 
+('Desarrollador', 'Responsable de desarrollar software', 1),
+('Analista', 'Analiza los requisitos del proyecto', 1),
+('Gerente', 'Gerente de proyectos', 1);
+
+-- Insertar datos en tbl_departamentos
+INSERT INTO tbl_departamentos (departamentos_nombre_departamento, departamentos_descripcion, estado) VALUES 
+('Tecnología', 'Departamento de IT', 1),
+('Recursos Humanos', 'Gestión de personal', 1),
+('Finanzas', 'Gestión de recursos financieros', 1);
+
+-- Insertar datos en tbl_empleados
+INSERT INTO tbl_empleados (empleados_nombre, empleados_apellido, empleados_fecha_nacimiento, empleados_no_identificacion, empleados_codigo_postal, empleados_fecha_alta, empleados_fecha_baja, empleados_causa_baja, fk_id_departamento, fk_id_puestos, estado) VALUES 
+('Juan', 'Pérez', '1990-05-14', '1234567890', '01001', '2022-01-10', '2024-04-15', 'Renuncia voluntaria', 1, 1, 1),
+('Ana', 'López', '1985-08-25', '9876543210', '01002', '2021-05-15', '2024-06-01', 'Fin de contrato', 2, 2, 1),
+('Luis', 'Gómez', '1978-11-03', '1122334455', '01003', '2020-03-20', '2024-09-30', 'Jubilación', 3, 3, 1);
+
+-- Insertar datos en tbl_contratos
+INSERT INTO tbl_contratos (contratos_fecha_creacion, contratos_salario, contratos_tipo_contrato, fk_clave_empleado, estado) VALUES 
+('2022-01-10', 3500.00, 'Indefinido', 1, 1),
+('2021-05-15', 2500.00, 'Temporal', 2, 1),
+('2020-03-20', 4000.00, 'Indefinido', 3, 1);
