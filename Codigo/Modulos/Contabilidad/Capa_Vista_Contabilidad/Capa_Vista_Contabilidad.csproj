@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <IntermediateOutputPath>C:\Users\DELL\AppData\Local\Temp\vsD51A.tmp\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,8 +30,12 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <IntermediateOutputPath>C:\Users\DELL\AppData\Local\Temp\vsD51A.tmp\Release\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CapaVistaActivofijo">
+      <HintPath>..\Activofijoreal\MVCactivofijos\CapaVistaActivofijo\bin\Debug\CapaVistaActivofijo.dll</HintPath>
+    </Reference>
     <Reference Include="Capa_Controlador_Contabilidad">
       <HintPath>..\Capa_Controlador_Contabilidad\bin\Debug\Capa_Controlador_Contabilidad.dll</HintPath>
     </Reference>
